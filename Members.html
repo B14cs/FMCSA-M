@@ -5,7 +5,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>أعضاء المكتب التنفيذي · FMCSA</title>
-    <link rel="stylesheet">
+    <meta name="description" content="أعضاء المكتب التنفيذي لرابطة طلاب كلية العلوم الرياضية والحاسوب - جامعة الجزيرة. دورة ٢٠٢٥–٢٠٢٦م.">
+    <meta property="og:title" content="أعضاء المكتب التنفيذي — FMCSA">
+    <meta property="og:description" content="تعرف على أعضاء المكتب التنفيذي لرابطة طلاب كلية العلوم الرياضية والحاسوب">
+    <meta property="og:image" content="Assets/Cover.jpg">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="ar_SD">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="أعضاء المكتب التنفيذي — FMCSA">
+    <meta name="twitter:description" content="تعرف على أعضاء المكتب التنفيذي لرابطة طلاب كلية العلوم الرياضية والحاسوب">
+    <meta name="twitter:image" content="Assets/Cover.jpg">
+    <link rel="icon" type="image/png" href="Assets/White Logo.png" media="(prefers-color-scheme: dark)">
+    <link rel="icon" type="image/png" href="Assets/Blue Logo.png" media="(prefers-color-scheme: light)">
+
 
     <style>
         *,
@@ -21,6 +33,7 @@
             src: url("Assets/Font/Cairo-Bold.ttf") format("truetype");
             font-weight: normal;
             font-style: normal;
+            font-display: swap;
         }
 
         @font-face {
@@ -28,6 +41,7 @@
             src: url("Assets/Font/Montserrat-Bold.ttf") format("truetype");
             font-weight: normal;
             font-style: normal;
+            font-display: swap;
         }
 
         :root {
@@ -38,6 +52,10 @@
             --muted: rgba(160, 174, 200, 0.7);
             --card-bg: rgba(255, 255, 255, 0.06);
             --card-bd: rgba(255, 255, 255, 0.11);
+        }
+
+        html {
+            scroll-behavior: smooth;
         }
 
         body {
@@ -53,7 +71,7 @@
             position: fixed;
             inset: 0;
             z-index: 0;
-            background-image: url('Assets/IMG001.png');
+            background-image: url('Assets/IMG001.webp');
             background-size: cover;
             background-position: center top;
             opacity: 0.22;
@@ -251,6 +269,12 @@
 
         .row-leadership .card-role {
             font-size: 1rem;
+        }
+
+        .row-leadership .member-card:hover {
+            box-shadow: 0 1.25rem 3.125rem rgba(0, 0, 0, 0.5),
+                        0 0 0 1px rgba(245, 197, 24, 0.18);
+            border-color: rgba(245, 197, 24, 0.22);
         }
 
         .card-dept {
@@ -700,7 +724,71 @@
             border-top: 0.0625rem solid rgba(255, 255, 255, 0.06);
         }
 
+        /* ── Responsive ── */
+        @media (min-width: 1201px) {
+            main {
+                max-width: 80rem;
+            }
+
+            .row-leadership .member-card {
+                width: 15rem;
+            }
+
+            .members-grid {
+                grid-template-columns: repeat(auto-fill, minmax(13rem, 1fr));
+                gap: 1.5rem;
+            }
+
+            .modal {
+                max-width: 44rem;
+            }
+
+            .modal-banner {
+                height: 15rem;
+            }
+
+            .modal-photo {
+                height: 14.5rem;
+            }
+        }
+
+        @media (max-width: 900px) {
+            .row-leadership {
+                gap: 1.25rem;
+            }
+
+            .row-leadership .member-card {
+                width: 12rem;
+            }
+
+            .members-grid {
+                grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr));
+                gap: 1rem;
+            }
+
+            .modal {
+                max-width: 36rem;
+            }
+
+            .modal-banner {
+                height: 12rem;
+            }
+
+            .modal-photo {
+                height: 12rem;
+            }
+        }
+
         @media (max-width: 600px) {
+            header {
+                padding: 2.5rem 1.25rem 1.25rem;
+            }
+
+            .logo-img {
+                width: 60%;
+                max-width: 16rem;
+            }
+
             .row-leadership {
                 display: grid;
                 gap: 1.25rem;
@@ -714,6 +802,12 @@
 
             .members-grid {
                 grid-template-columns: repeat(2, 1fr);
+            }
+
+            .modal {
+                max-width: 100%;
+                max-height: 95vh;
+                border-radius: 1.25rem;
             }
 
             .modal-photo {
@@ -730,6 +824,10 @@
                 font-size: .9rem;
             }
 
+            .modal-name {
+                font-size: 1.2rem;
+            }
+
             .modal-season {
                 font-size: 0.68rem;
             }
@@ -740,6 +838,11 @@
 
             .modal-body {
                 padding: 1.125rem 1.125rem 1.625rem;
+            }
+
+            .info-pill {
+                font-size: 0.55rem;
+                padding: 0.25rem 0.5rem;
             }
         }
 
@@ -759,24 +862,100 @@
                 width: unset;
             }
         }
+
+        @media (prefers-reduced-motion: reduce) {
+            /* Only disable auto-playing animations (fadeUp on load) */
+            .member-card {
+                animation: none !important;
+                opacity: 1 !important;
+                transform: none !important;
+            }
+
+            /* Modal is user-triggered — keep its transitions intact */
+        }
+
+        /* ── Focus styles ── */
+        .member-card:focus-visible {
+            outline: 2px solid var(--gold);
+            outline-offset: 2px;
+            box-shadow: 0 0 0 4px rgba(245, 197, 24, 0.2);
+        }
+
+        .modal-close:focus-visible {
+            outline: 2px solid var(--gold);
+            outline-offset: 2px;
+        }
+
+        .social-btn:focus-visible {
+            outline: 2px solid var(--accent);
+            outline-offset: 2px;
+        }
+
+        /* ── Skip link ── */
+        .skip-link {
+            position: absolute;
+            top: -100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--gold);
+            color: var(--navy);
+            padding: 0.5rem 1rem;
+            border-radius: 0 0 0.5rem 0.5rem;
+            z-index: 1000;
+            font-weight: 700;
+            text-decoration: none;
+            transition: top 0.2s;
+        }
+
+        .skip-link:focus {
+            top: 0;
+        }
+
+        @media (max-height: 500px) and (orientation: landscape) {
+            header {
+                padding: 1.5rem 1.25rem 1rem;
+            }
+
+            .logo-img {
+                max-width: 12rem;
+                margin-bottom: 1rem;
+            }
+
+            .modal {
+                max-height: 85vh;
+            }
+
+            .modal-banner {
+                height: 10rem;
+            }
+
+            .modal-photo {
+                height: 10rem;
+            }
+
+            .modal-body {
+                padding: 1rem;
+            }
+        }
     </style>
 </head>
 
 <body>
+    <a href="#main-content" class="skip-link">تخطي إلى المحتوى</a>
 
     <header>
         <img src="Assets/White V Logo.png" alt="FMCSA" class="logo-img">
         <h1>أعضاء المكتب التنفيذي<br><em>لرابطة طلاب الكلية</em></h1>
     </header>
 
-    <main>
+    <main id="main-content">
 
         <div class="section-label">السكرتارية العامة</div>
 
         <div class="row-leadership">
             <div class="member-card" onclick="openModal('ahmed-sulaiman')">
                 <div class="card-photo">
-                    <img src="Assets/People/أحمد سليمان.png" alt="أحمد سليمان">
+                    <img loading="lazy" src="Assets/People/أحمد سليمان.webp" alt="أحمد سليمان">
                     <span class="view-hint">اضغط لعرض الملف الشخصي</span>
                 </div>
                 <div class="card-info">
@@ -787,7 +966,7 @@
 
             <div class="member-card" onclick="openModal('talal-hatem')">
                 <div class="card-photo">
-                    <img src="Assets/People/طلال حاتم.png" alt="طلال حاتم">
+                    <img loading="lazy" src="Assets/People/طلال حاتم.webp" alt="طلال حاتم">
                     <span class="view-hint">اضغط لعرض الملف الشخصي</span>
                 </div>
                 <div class="card-info">
@@ -797,7 +976,7 @@
             </div>
 
             <div class="member-card" onclick="openModal('ibthal')">
-                <div class="card-photo"><img src="Assets/People/White Women.png" alt="ابتهال محمد"><span
+                <div class="card-photo"><img loading="lazy" src="Assets/People/White Women.webp" alt="ابتهال محمد"><span
                         class="view-hint">اضغط لعرض الملف الشخصي</span></div>
                 <div class="card-info">
                     <div class="card-name">ابتهال محمد</div><span class="card-role">الأمين العام</span>
@@ -805,7 +984,7 @@
             </div>
 
             <div class="member-card" onclick="openModal('abdulrahman-ibrahim')">
-                <div class="card-photo"><img src="Assets/People/عبدالرحمن إبراهيم.png" alt="عبدالرحمن إبراهيم"><span
+                <div class="card-photo"><img loading="lazy" src="Assets/People/عبدالرحمن إبراهيم.webp" alt="عبدالرحمن إبراهيم"><span
                         class="view-hint">اضغط لعرض الملف الشخصي</span></div>
                 <div class="card-info">
                     <div class="card-name">عبدالرحمن إبراهيم</div><span class="card-role">نائب الأمين العام</span>
@@ -813,7 +992,7 @@
             </div>
 
             <div class="member-card" onclick="openModal('ali-abdulazeem')">
-                <div class="card-photo"><img src="Assets/People/علي عبدالعظيم.png" alt="علي عبدالعظيم"><span
+                <div class="card-photo"><img loading="lazy" src="Assets/People/علي عبدالعظيم.webp" alt="علي عبدالعظيم"><span
                         class="view-hint">اضغط لعرض الملف الشخصي</span></div>
                 <div class="card-info">
                     <div class="card-name">علي عبدالعظيم</div><span class="card-role">الأمين المالي</span>
@@ -821,7 +1000,7 @@
             </div>
 
             <div class="member-card" onclick="openModal('ahmed-alameen')">
-                <div class="card-photo"><img src="Assets/People/أحمد الأمين.png" alt="أحمد الأمين"><span
+                <div class="card-photo"><img loading="lazy" src="Assets/People/أحمد الأمين.webp" alt="أحمد الأمين"><span
                         class="view-hint">اضغط لعرض الملف الشخصي</span></div>
                 <div class="card-info">
                     <div class="card-name">أحمد الأمين</div><span class="card-role">نائب الأمين المالي</span>
@@ -834,7 +1013,7 @@
         <div class="members-grid">
 
             <div class="member-card" onclick="openModal('mustafa')">
-                <div class="card-photo"><img src="Assets/People/مصطفى محمد.png" alt="مصطفى محمد"><span
+                <div class="card-photo"><img loading="lazy" src="Assets/People/مصطفى محمد.webp" alt="مصطفى محمد"><span
                         class="view-hint">اضغط لعرض الملف الشخصي</span></div>
                 <div class="card-info">
                     <div class="card-name">مصطفى محمد</div><span class="card-role">الأمين الإعلامي</span>
@@ -842,7 +1021,7 @@
             </div>
 
             <div class="member-card" onclick="openModal('israa')">
-                <div class="card-photo"><img src="Assets/People/White Women.png" alt="إسراء سليمان"><span
+                <div class="card-photo"><img loading="lazy" src="Assets/People/White Women.webp" alt="إسراء سليمان"><span
                         class="view-hint">اضغط لعرض الملف الشخصي</span></div>
                 <div class="card-info">
                     <div class="card-name">إسراء سليمان</div><span class="card-role">النائب الإعلامي</span>
@@ -850,7 +1029,7 @@
             </div>
 
             <div class="member-card" onclick="openModal('ali-tayyib')">
-                <div class="card-photo"><img src="Assets/People/علي الطيب.png" alt="علي الطيب"><span
+                <div class="card-photo"><img loading="lazy" src="Assets/People/علي الطيب.webp" alt="علي الطيب"><span
                         class="view-hint">اضغط لعرض الملف الشخصي</span></div>
                 <div class="card-info">
                     <div class="card-name">علي الطيب</div><span class="card-role">الأمين الثقافي</span>
@@ -858,7 +1037,7 @@
             </div>
 
             <div class="member-card" onclick="openModal('mihad')">
-                <div class="card-photo"><img src="Assets/People/White Women.png" alt="مهاد جمال"><span
+                <div class="card-photo"><img loading="lazy" src="Assets/People/White Women.webp" alt="مهاد جمال"><span
                         class="view-hint">اضغط
                         لعرض الملف الشخصي</span></div>
                 <div class="card-info">
@@ -867,7 +1046,7 @@
             </div>
 
             <div class="member-card" onclick="openModal('abdulrahman-mohammed')">
-                <div class="card-photo"><img src="Assets/People/عبدالرحمن محمد.png" alt="عبدالرحمن محمد"><span
+                <div class="card-photo"><img loading="lazy" src="Assets/People/عبدالرحمن محمد.webp" alt="عبدالرحمن محمد"><span
                         class="view-hint">اضغط لعرض الملف الشخصي</span></div>
                 <div class="card-info">
                     <div class="card-name">عبدالرحمن محمد</div><span class="card-role">الأمين الأكاديمي</span>
@@ -875,7 +1054,7 @@
             </div>
 
             <div class="member-card" onclick="openModal('areej')">
-                <div class="card-photo"><img src="Assets/People/White Women.png" alt="أريج عصام الدين"><span
+                <div class="card-photo"><img loading="lazy" src="Assets/People/White Women.webp" alt="أريج عصام الدين"><span
                         class="view-hint">اضغط لعرض الملف الشخصي</span></div>
                 <div class="card-info">
                     <div class="card-name">أريج عصام الدين</div><span class="card-role">النائب الأكاديمي</span>
@@ -883,7 +1062,7 @@
             </div>
 
             <div class="member-card" onclick="openModal('ahmed-habeeb')">
-                <div class="card-photo"><img src="Assets/People/أحمد الحبيب.png" alt="أحمد الحبيب"><span
+                <div class="card-photo"><img loading="lazy" src="Assets/People/أحمد الحبيب.webp" alt="أحمد الحبيب"><span
                         class="view-hint">اضغط لعرض الملف الشخصي</span></div>
                 <div class="card-info">
                     <div class="card-name">أحمد الحبيب</div><span class="card-role">الأمين الاجتماعي</span>
@@ -891,7 +1070,7 @@
             </div>
 
             <div class="member-card" onclick="openModal('malaz-ali')">
-                <div class="card-photo"><img src="Assets/People/White Women.png" alt="ملاذ علي"><span
+                <div class="card-photo"><img loading="lazy" src="Assets/People/White Women.webp" alt="ملاذ علي"><span
                         class="view-hint">اضغط
                         لعرض الملف الشخصي</span></div>
                 <div class="card-info">
@@ -900,7 +1079,7 @@
             </div>
 
             <div class="member-card" onclick="openModal('malaz-nasif')">
-                <div class="card-photo"><img src="Assets/People/White Women.png" alt="ملاذ ناصف"><span
+                <div class="card-photo"><img loading="lazy" src="Assets/People/White Women.webp" alt="ملاذ ناصف"><span
                         class="view-hint">اضغط
                         لعرض الملف الشخصي</span></div>
                 <div class="card-info">
@@ -909,7 +1088,7 @@
             </div>
 
             <div class="member-card" onclick="openModal('khaled')">
-                <div class="card-photo"><img src="Assets/People/خالد أحمد.png" alt="خالد أحمد"><span
+                <div class="card-photo"><img loading="lazy" src="Assets/People/خالد أحمد.webp" alt="خالد أحمد"><span
                         class="view-hint">اضغط لعرض الملف الشخصي</span></div>
                 <div class="card-info">
                     <div class="card-name">خالد أحمد</div><span class="card-role">نائب العلاقات العامة</span>
@@ -924,9 +1103,9 @@
     <!-- ════════════════════════════
        MODAL
   ════════════════════════════ -->
-    <div class="modal-overlay" id="modalOverlay" onclick="handleOverlayClick(event)">
+    <div class="modal-overlay" id="modalOverlay" role="dialog" aria-modal="true" aria-label="الملف الشخصي" onclick="handleOverlayClick(event)">
         <div class="modal" id="modal">
-            <button class="modal-close" onclick="closeModal()">✕</button>
+            <button class="modal-close" onclick="closeModal()" aria-label="إغلاق">✕</button>
 
             <div class="modal-banner">
                 <img class="modal-photo" id="modalPhoto" src="" alt="">
@@ -960,12 +1139,32 @@
            Populate each member's profile here.
            Social types: facebook | linkedin | twitter | instagram
         ════════════════════════════════════════ */
+        /* helper to generate a minimal stub entry */
+        function stub(name, role, photo, batch, dept) {
+            const deptIcon = dept === 'قسم الرياضيات وعلوم الحاسوب' ? 'dept-math'
+                : dept === 'قسم الإحصاء وعلوم الحاسوب' ? 'dept-stat'
+                    : 'dept-cs';
+            return {
+                name, role, photo,
+                season: 'دورة ٢٠٢٥–٢٠٢٦م',
+                quote: '',
+                info: [
+                    { icon: 'university', text: 'جامعة الجزيرة' },
+                    { icon: 'faculty', text: 'كلية العلوم الرياضية والحاسوب' },
+                    { icon: deptIcon, text: dept },
+                    { icon: 'batch', text: 'الدفعة ' + batch },
+                ],
+                achievements: [],
+                social: [],
+            };
+        }
+
         const members = {
 
             'ahmed-sulaiman': {
                 name: 'أحمد سليمان',
                 role: 'رئيس المكتب التنفيذي',
-                photo: 'Assets/People/أحمد سليمان.png',
+                photo: 'Assets/People/أحمد سليمان.webp',
                 quote: 'السماء ليست حكراً على نجمٍ واحد',
                 info: [
                     { icon: 'university', text: 'جامعة الجزيرة' },
@@ -993,7 +1192,7 @@
             'talal-hatem': {
                 name: 'طلال حاتم',
                 role: 'نائب رئيس المكتب التنفيذي',
-                photo: 'Assets/People/طلال حاتم.png',
+                photo: 'Assets/People/طلال حاتم.webp',
                 quote: '',
                 info: [
                     { icon: 'university', text: 'جامعة الجزيرة' },
@@ -1012,7 +1211,7 @@
             'ibthal': {
                 name: 'ابتهال محمد',
                 role: 'الأمين العام',
-                photo: 'Assets/People/White Women.png',
+                photo: 'Assets/People/White Women.webp',
                 quote: '',
                 info: [
                     { icon: 'university', text: 'جامعة الجزيرة' },
@@ -1029,7 +1228,7 @@
             'abdulrahman-ibrahim': {
                 name: 'عبدالرحمن إبراهيم',
                 role: 'نائب الأمين العام',
-                photo: 'Assets/People/عبدالرحمن إبراهيم.png',
+                photo: 'Assets/People/عبدالرحمن إبراهيم.webp',
                 quote: '',
                 info: [
                     { icon: 'university', text: 'جامعة الجزيرة' },
@@ -1045,7 +1244,7 @@
             'ali-abdulazeem': {
                 name: 'علي عبدالعظيم',
                 role: 'الأمين المالي',
-                photo: 'Assets/People/علي عبدالعظيم.png',
+                photo: 'Assets/People/علي عبدالعظيم.webp',
                 quote: '',
                 info: [
                     { icon: 'university', text: 'جامعة الجزيرة' },
@@ -1060,7 +1259,7 @@
             'ahmed-alameen': {
                 name: 'أحمد الأمين',
                 role: 'نائب الأمين المالي',
-                photo: 'Assets/People/أحمد الأمين.png',
+                photo: 'Assets/People/أحمد الأمين.webp',
                 quote: '',
                 info: [
                     { icon: 'university', text: 'جامعة الجزيرة' },
@@ -1078,7 +1277,7 @@
             'mustafa': {
                 name: 'مصطفى محمد',
                 role: 'الأمين الإعلامي',
-                photo: 'Assets/People/مصطفى محمد.png',
+                photo: 'Assets/People/مصطفى محمد.webp',
                 quote: '',
                 info: [
                     { icon: 'university', text: 'جامعة الجزيرة' },
@@ -1095,7 +1294,7 @@
             'israa': {
                 name: 'إسراء سليمان',
                 role: 'نائب الأمين الإعلامي',
-                photo: 'Assets/People/White Women.png',
+                photo: 'Assets/People/White Women.webp',
                 quote: '',
                 info: [
                     { icon: 'university', text: 'جامعة الجزيرة' },
@@ -1113,7 +1312,7 @@
             'ali-tayyib': {
                 name: 'علي الطيب',
                 role: 'الأمين الثقافي',
-                photo: 'Assets/People/علي الطيب.png',
+                photo: 'Assets/People/علي الطيب.webp',
                 quote: '',
                 info: [
                     { icon: 'university', text: 'جامعة الجزيرة' },
@@ -1130,7 +1329,7 @@
             'mihad': {
                 name: 'مهاد جمال',
                 role: 'نائب الأمين الثقافي',
-                photo: 'Assets/People/White Women.png',
+                photo: 'Assets/People/White Women.webp',
                 quote: '',
                 info: [
                     { icon: 'university', text: 'جامعة الجزيرة' },
@@ -1146,7 +1345,7 @@
             'abdulrahman-mohammed': {
                 name: 'عبدالرحمن محمد',
                 role: 'الأمين الأكاديمي',
-                photo: 'Assets/People/عبدالرحمن محمد.png',
+                photo: 'Assets/People/عبدالرحمن محمد.webp',
                 quote: '',
                 info: [
                     { icon: 'university', text: 'جامعة الجزيرة' },
@@ -1164,7 +1363,7 @@
             'areej': {
                 name: 'أريج عصام الدين',
                 role: 'نائب الأمين الأكاديمي',
-                photo: 'Assets/People/White Women.png',
+                photo: 'Assets/People/White Women.webp',
                 quote: '',
                 info: [
                     { icon: 'university', text: 'جامعة الجزيرة' },
@@ -1177,28 +1376,11 @@
             },
 
 
+            'malaz-ali': stub('ملاذ علي', 'نائب الأمين الاجتماعي', 'Assets/People/White Women.webp', '٤٤', 'قسم علوم الحاسوب'),
             'ahmed-habeeb': {
                 name: 'أحمد الحبيب',
                 role: 'الأمين الاجتماعي',
-                photo: 'Assets/People/أحمد الحبيب.png',
-                quote: '',
-                info: [
-                    { icon: 'university', text: 'جامعة الجزيرة' },
-                    { icon: 'faculty', text: 'كلية العلوم الرياضية والحاسوب' },
-                    { icon: 'dept-math', text: 'قسم الرياضيات وعلوم الحاسوب' },
-                    { icon: 'batch', text: 'الدفعة ٤٢' },
-                ],
-                achievements: [],
-                social: [
-                    { type: 'facebook', label: 'Facebook', url: 'https://www.facebook.com/ah.med.402780?comment_id=Y29tbWVudDoxMjIxMDIzMzc3NTkwNzQxMjVfMTQyMTk3MDQ5NTg0MTk4Nw%3D%3D' },
-                ],
-            },
-
-            'malaz-ali': stub('ملاذ علي', 'نائب الأمين الاجتماعي', 'Assets/People/White Women.png', '٤٤', 'قسم علوم الحاسوب'),
-            'ahmed-habeeb': {
-                name: 'أحمد الحبيب',
-                role: 'الأمين الاجتماعي',
-                photo: 'Assets/People/أحمد الحبيب.png',
+                photo: 'Assets/People/أحمد الحبيب.webp',
                 quote: '',
                 info: [
                     { icon: 'university', text: 'جامعة الجزيرة' },
@@ -1214,7 +1396,7 @@
             'malaz-nasif': {
                 name: 'ملاذ ناصف',
                 role: 'أمين العلاقات العامة',
-                photo: 'Assets/People/White Women.png',
+                photo: 'Assets/People/White Women.webp',
                 quote: '',
                 info: [
                     { icon: 'university', text: 'جامعة الجزيرة' },
@@ -1231,7 +1413,7 @@
             'khaled': {
                 name: 'خالد أحمد',
                 role: 'نائب أمين العلاقات العامة',
-                photo: 'Assets/People/خالد أحمد.png',
+                photo: 'Assets/People/خالد أحمد.webp',
                 quote: '',
                 info: [
                     { icon: 'university', text: 'جامعة الجزيرة' },
@@ -1245,30 +1427,10 @@
 
         };
 
-        /* helper to generate a minimal stub entry */
-        function stub(name, role, photo, batch, dept) {
-            const deptIcon = dept === 'قسم الرياضيات وعلوم الحاسوب' ? 'dept-math'
-                : dept === 'قسم الإحصاء وعلوم الحاسوب' ? 'dept-stat'
-                    : 'dept-cs';
-            return {
-                name, role, photo,
-                season: 'دورة ٢٠٢٥–٢٠٢٦م',
-                quote: '',
-                info: [
-                    { icon: 'university', text: 'جامعة الجزيرة' },
-                    { icon: 'faculty', text: 'كلية العلوم الرياضية والحاسوب' },
-                    { icon: deptIcon, text: dept },
-                    { icon: 'batch', text: 'الدفعة ' + batch },
-                ],
-                achievements: [],
-                social: [],
-            };
-        }
-
         /* ── icon map ── */
         const icons = {
             university: `<img class="pill-img" src="Assets/UofG Logo.png" alt="">`,
-            faculty: `<img class="pill-img" src="Assets/FMCS Logo.png" alt="">`,
+            faculty: `<img class="pill-img" src="Assets/FMCS Logo.webp" alt="">`,
             'dept-math': `<span class="pill-symbol">∑</span>`,
             'dept-stat': `<span class="pill-symbol">∫</span>`,
             'dept-cs': `<span class="pill-symbol">;</span>`,
@@ -1283,9 +1445,13 @@
         };
 
         /* ── modal logic ── */
+        let lastFocusedCard = null;
+
         function openModal(id) {
             const m = members[id];
             if (!m) return;
+
+            lastFocusedCard = document.activeElement;
 
             document.getElementById('modalPhoto').src = m.photo;
             document.getElementById('modalPhoto').alt = m.name;
@@ -1324,11 +1490,13 @@
 
             document.getElementById('modalOverlay').classList.add('open');
             document.body.style.overflow = 'hidden';
+            setTimeout(() => document.querySelector('.modal-close').focus(), 100);
         }
 
         function closeModal() {
             document.getElementById('modalOverlay').classList.remove('open');
             document.body.style.overflow = '';
+            if (lastFocusedCard) lastFocusedCard.focus();
         }
 
         function handleOverlayClick(e) {
@@ -1336,6 +1504,18 @@
         }
 
         document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+
+        /* ── Make cards keyboard-accessible ── */
+        document.querySelectorAll('.member-card').forEach(card => {
+            card.setAttribute('tabindex', '0');
+            card.setAttribute('role', 'button');
+            card.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    card.click();
+                }
+            });
+        });
     </script>
 </body>
 
