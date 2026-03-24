@@ -5,9 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>أعضاء مجلس الإدارة · FMCSA</title>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&family=Tajawal:wght@400;700;900&display=swap"
-        rel="stylesheet">
+    <link rel="stylesheet">
 
     <style>
         *,
@@ -220,7 +218,6 @@
             left: 50%;
             transform: translateX(-50%);
             z-index: 2;
-            font-family: 'Cairo', sans-serif;
             font-size: 0.62rem;
             color: rgba(255, 255, 255, 0.5);
             white-space: nowrap;
@@ -571,7 +568,6 @@
             border-radius: 999px;
             font-size: 0.78rem;
             font-weight: 700;
-            font-family: 'Cairo', sans-serif;
             text-decoration: none;
             border: 0.0625rem solid rgba(255, 255, 255, 0.13);
             background: rgba(255, 255, 255, 0.05);
@@ -756,13 +752,14 @@
             }
 
             .row-leadership {
-                flex-direction: column;
-                align-items: center;
+                display: grid;
+                gap: 1.25rem;
+                grid-template-columns: 1fr;
+                justify-content: center;
             }
 
             .row-leadership .member-card {
-                width: 100%;
-                max-width: 16.25rem;
+                width: unset;
             }
         }
     </style>
