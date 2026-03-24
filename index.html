@@ -1,80 +1,317 @@
 <!DOCTYPE html>
-<html dir="rtl" lang="ar">
+<html lang="ar" dir="rtl">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>مبادرة رابطة الكلية</title>
-  <link rel="icon" type="image/png" href="Assets/White Logo.png" media="(prefers-color-scheme: dark)" />
-  <link rel="icon" type="image/png" href="Assets/Blue Logo.png" media="(prefers-color-scheme: light)" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FMCSA — قريباً</title>
+
+
   <style>
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
     @font-face {
-      font-family: "FFShamelFamily";
-      src: url("Assets/Font/ArbFONTS-FFShamelFamily-SansOneBold.ttf") format("truetype");
-      font-weight: bold;
+      font-family: "CairoFamily";
+      src: url("Assets/Font/Cairo-Bold.ttf") format("truetype");
+      font-weight: normal;
       font-style: normal;
     }
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: "FFShamelFamily", system-ui, -apple-system, sans-serif;
+    @font-face {
+      font-family: "MontserratFamily";
+      src: url("Assets/Font/Montserrat-Bold.ttf") format("truetype");
+      font-weight: normal;
+      font-style: normal;
     }
 
     :root {
-      --primary: #f7f7f7;
-      --primary-dark: #e0e0e0;
-      --primary-red: #e13d3e;
-      --green: #0d8f75;
-      --dark-green: #2f5856;
-      --blue: #214570;
-
-      --forest: #0b4d3a;
-      --green: #0d8f75;
-      --mint: #e4f5f0;
-      --gold: #c9a227;
-      --gold-lt: #f0d98a;
-      --cream: #faf7f2;
-      --ink: #1c2b28;
-      --muted: #607068;
-      --navy: #1e3a5f;
+      --navy: #06111f;
+      --mid: #0a1c34;
+      --accent: #3b82f6;
+      --bright: #7dd3fc;
+      --glow: #38bdf8;
+      --frost: rgba(180, 220, 255, 0.08);
+      --line: rgba(100, 170, 255, 0.14);
     }
 
-    html {
-      scroll-behavior: smooth;
-    }
-
+    html,
     body {
-      background-color: var(--forest);
-      background-image: url("Assets/Background.png");
-      background-position: center;
-      background-repeat: no-repeat;
-      background-size: cover;
-      min-height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: flex-start;
-      padding: 1.5rem;
-      font-feature-settings: "kern" 1;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-    }
-
-    .container {
-      background: var(--primary);
-      max-width: 520px;
-      width: 100%;
-      border-radius: 1.25rem;
+      height: 100%;
       overflow: hidden;
-      box-shadow: 0 24px 80px rgba(0, 0, 0, .45), 0 2px 0 rgba(201, 162, 39, .35);
-      animation: riseUp .7s cubic-bezier(.22, 1, .36, 1) both;
+      background: var(--navy);
+      color: #e8f1ff;
     }
 
-    @keyframes riseUp {
+    /* ── LAYERED BACKGROUND (mirrors PSD structure) ── */
+    body {
+      font-family: 'CairoFamily', system-ui, -apple-system, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      position: relative;
+    }
+
+    /* background.jpg + glow overlay as a fixed pseudo-element */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      background-image: url('Assets/IMG001.png');
+      background-size: cover;
+      background-position: center top;
+      opacity: 0.28;
+      mix-blend-mode: luminosity;
+    }
+
+    body::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      z-index: 1;
+      background:
+        radial-gradient(ellipse 70% 55% at 38% 28%, rgba(90, 80, 200, 0.38) 0%, transparent 65%),
+        radial-gradient(ellipse 50% 40% at 70% 70%, rgba(30, 20, 100, 0.25) 0%, transparent 60%),
+        linear-gradient(180deg, rgba(20, 19, 69, 0.0) 0%, rgba(10, 9, 40, 0.55) 100%);
+      pointer-events: none;
+    }
+
+    /* ── canvas ── */
+    #bg-canvas {
+      position: fixed;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    /* ── center vignette ── */
+    .vignette {
+      position: fixed;
+      inset: 0;
+      z-index: 2;
+      pointer-events: none;
+      background:
+        radial-gradient(ellipse 60% 55% at 50% 50%,
+          rgba(6, 17, 31, 0.78) 0%,
+          rgba(6, 17, 31, 0.38) 60%,
+          transparent 100%);
+    }
+
+    /* ── floating particles behind content ── */
+    .dots {
+      position: fixed;
+      inset: 0;
+      z-index: 3;
+      pointer-events: none;
+      overflow: hidden;
+    }
+
+    .dot {
+      position: absolute;
+      border-radius: 50%;
+      background: var(--bright);
+      opacity: 0;
+      animation: floatDot linear infinite;
+    }
+
+    @keyframes floatDot {
+      0% {
+        transform: translateY(0) scale(1);
+        opacity: 0;
+      }
+
+      10% {
+        opacity: 0.35;
+      }
+
+      90% {
+        opacity: 0.12;
+      }
+
+      100% {
+        transform: translateY(-100px) scale(0.4);
+        opacity: 0;
+      }
+    }
+
+    /* ── layout ── */
+    .content {
+      position: relative;
+      z-index: 10;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0;
+      padding: 2rem 1.5rem 2.5rem;
+      width: min(460px, 94vw);
+    }
+
+    /* ── logo ── */
+    .logo-wrap {
+      margin-bottom: 1.1rem;
+      animation: fadeUp 1s .1s cubic-bezier(.16, 1, .3, 1) both;
+    }
+
+    .logo-wrap img {
+      width: min(260px, 60vw);
+      filter: drop-shadow(0 0 28px rgba(56, 189, 248, 0.35));
+    }
+
+    /* ── badge ── */
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-family: 'MontserratFamily', system-ui, -apple-system, sans-serif;
+      font-size: 0.68rem;
+      letter-spacing: 0.12em;
+      color: var(--glow);
+      background: rgba(56, 189, 248, 0.08);
+      border: 1px solid rgba(56, 189, 248, 0.22);
+      padding: 0.3rem 0.9rem;
+      border-radius: 999px;
+      margin-bottom: 1.3rem;
+      animation: fadeUp 1s .22s cubic-bezier(.16, 1, .3, 1) both;
+    }
+
+    .badge::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--glow);
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+
+      0%,
+      100% {
+        opacity: 1;
+        transform: scale(1);
+      }
+
+      50% {
+        opacity: 0.4;
+        transform: scale(0.7);
+      }
+    }
+
+    /* ── heading ── */
+    h1 {
+      font-family: 'CairoFamily', system-ui, -apple-system, sans-serif;
+      font-size: clamp(4.5rem, 13vw, 7.5rem);
+      font-weight: 800;
+      letter-spacing: -0.01em;
+      margin-bottom: 1.4rem;
+      background: linear-gradient(140deg, #ffffff 20%, var(--bright) 65%, var(--glow) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: fadeUp 1s .33s cubic-bezier(.16, 1, .3, 1) both;
+    }
+
+    /* ── divider ── */
+    .divider {
+      width: 100%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--line), rgba(100, 170, 255, 0.3), var(--line), transparent);
+      margin-bottom: 1.4rem;
+      animation: fadeUp 1s .42s cubic-bezier(.16, 1, .3, 1) both;
+    }
+
+    /* ── body text ── */
+    .text-block {
+      display: flex;
+      flex-direction: column;
+      gap: 0.55rem;
+      margin-bottom: 0.9rem;
+      animation: fadeUp 1s .5s cubic-bezier(.16, 1, .3, 1) both;
+    }
+
+    .text-ar {
+      font-size: clamp(1rem, 2.6vw, 1.18rem);
+      font-weight: 500;
+      color: rgba(220, 238, 255, 0.88);
+      line-height: 1.7;
+    }
+
+    .text-en {
+      direction: ltr;
+      font-family: 'MontserratFamily', system-ui, -apple-system, sans-serif;
+      font-size: clamp(0.72rem, 1.7vw, 0.82rem);
+      color: rgba(130, 190, 255, 0.55);
+      letter-spacing: 0.02em;
+      line-height: 1.6;
+    }
+
+    /* ── follow text ── */
+    .follow {
+      font-size: clamp(0.9rem, 2.2vw, 1rem);
+      font-weight: 500;
+      color: rgba(180, 215, 255, 0.6);
+      margin-bottom: 1.5rem;
+      animation: fadeUp 1s .58s cubic-bezier(.16, 1, .3, 1) both;
+    }
+
+    /* ── social button ── */
+    .social-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      color: white;
+      text-decoration: none;
+      direction: ltr;
+      font-family: 'MontserratFamily', system-ui, -apple-system, sans-serif;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      padding: 0.72rem 1.8rem;
+      border-radius: 999px;
+      position: relative;
+      overflow: hidden;
+      border: 1px solid rgba(56, 189, 248, 0.35);
+      background: rgba(56, 189, 248, 0.07);
+      transition: transform .25s, border-color .25s, background .25s;
+      animation: fadeUp 1s .66s cubic-bezier(.16, 1, .3, 1) both;
+    }
+
+    .social-link::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 50% 0%, rgba(56, 189, 248, 0.2) 0%, transparent 70%);
+      opacity: 0;
+      transition: opacity .3s;
+    }
+
+    .social-link:hover {
+      transform: translateY(-3px);
+      border-color: rgba(56, 189, 248, 0.65);
+      background: rgba(56, 189, 248, 0.13);
+    }
+
+    .social-link:hover::before {
+      opacity: 1;
+    }
+
+    .social-link svg {
+      flex-shrink: 0;
+    }
+
+    @keyframes fadeUp {
       from {
         opacity: 0;
-        transform: translateY(48px);
+        transform: translateY(22px);
       }
 
       to {
@@ -83,792 +320,282 @@
       }
     }
 
-    /* ── Hero / Main image section ── */
-    .main-content {
-      position: relative;
-      background-color: var(--forest);
-      background-image: url("Assets/IMG001.png");
-      background-repeat: no-repeat;
-      background-size: cover;
-      color: var(--primary);
-      padding: 0;
-      min-height: 21rem;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-      overflow: hidden;
-    }
-
-    .main-content::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(to bottom,
-          rgba(0, 0, 0, 0.08) 0%,
-          rgba(0, 0, 0, 0.15) 50%,
-          rgba(13, 60, 40, 0.72) 100%);
-      z-index: 0;
-    }
-
-    .logo-bar {
-      position: absolute;
-      top: 1.5rem;
-      right: 1.5rem;
-      z-index: 2;
-    }
-
-    .logo-bar img {
-      width: 65%;
-      object-fit: contain;
-    }
-
-    .hero-text {
-      position: relative;
-      z-index: 1;
-      padding: 0 1.4rem 1.4rem 1.4rem;
-      text-align: right;
-    }
-
-    .hero-title {
-      display: flex;
-      align-items: flex-end;
-      justify-content: flex-end;
-      direction: rtl;
-      line-height: 1;
-      margin-bottom: 0.2rem;
-      gap: 0;
-    }
-
-    .hero-title .part {
-      font-size: 7rem;
-      font-weight: bold;
-      color: #ffffff;
-      line-height: 1;
-    }
-
-    .hero-title .mid {
-      position: relative;
-      display: inline-flex;
-      align-items: flex-end;
-    }
-
-    .hero-title .mid .dash {
-      font-size: 7rem;
-      font-weight: bold;
-      color: #ffffff;
-      line-height: 1;
-      letter-spacing: -0.05em;
-    }
-
-    .hero-title .mid .khalto {
-      position: absolute;
-      bottom: 50%;
-      left: 85%;
-      transform: translateX(-50%);
-      font-size: 2.5rem;
-      font-weight: bold;
-      color: #ffffff;
-      white-space: nowrap;
-    }
-
-    .hero-subtitle {
-      text-align: center;
-      font-size: 2rem;
-      color: #e8f5f0;
-      text-shadow: 0 1px 8px rgba(0, 0, 0, 0.35);
-    }
-
-    /* ─── Sections ─── */
-    .sec {
-      padding: 1.5rem;
-    }
-
-    .sec+.sec {
-      padding-top: 0;
-    }
-
-    /* ── Info / description block ── */
-    .batch-info {
-      background-color: var(--primary);
-      padding: 1.2rem 1.5rem 0rem;
-      color: #222;
-    }
-
-    .batch-info .title {
-      color: var(--blue);
-      font-size: 1.75rem;
-      font-weight: bold;
-      margin-bottom: 0.55rem;
-      text-align: right;
-    }
-
-    .batch-info p.body-text {
-      font-size: 1.25rem;
-      line-height: 1.75;
-      text-align: justify;
-      color: #222;
-    }
-
-    /* ── Amount + Progress section ── */
-    .amount-section {
-      background-color: var(--primary);
-      color: var(--green);
-      padding: 0.5rem 1.5rem 0rem;
-    }
-
-    .calculationTitles {
-      display: flex;
-      justify-content: space-between;
-      color: var(--green);
-      font-size: 1rem;
-      padding-top: 0.25rem;
-    }
-
-    .calculation {
-      display: flex;
-      justify-content: space-between;
-    }
-
-    .collected {
-      font-size: 1rem;
-      font-weight: bold;
-      color: var(--dark-green);
-      line-height: 1.2;
-      text-align: right;
-    }
-
-    .remain {
-      font-size: 1rem;
-      font-weight: bold;
-      color: var(--dark-green);
-      line-height: 1.2;
-      text-align: left;
-    }
-
-    .progress-container {
-      background-color: var(--primary-dark);
-      height: 2rem;
-      border-radius: 0.25rem;
-      margin: 0.5rem 0;
-      overflow: hidden;
-      position: relative;
-    }
-
-    .progress-bar {
-      width: 1.5%;
-      height: 100%;
-      background-color: var(--green);
-      position: relative;
-      transition: width 1.5s ease-in-out;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .progress-text {
-      position: absolute;
-      color: white;
-      font-size: 1rem;
-      font-weight: bold;
-      text-align: center;
-      width: 100%;
-    }
-
-    .goal-note {
-      font-size: 0.9rem;
-      color: var(--muted);
-      text-align: center;
-      margin-bottom: 0.25rem;
-    }
-
-    /* ── Donation / bank info ── */
-    .donation-info {
-      background-color: var(--primary);
-      color: var(--blue);
-      padding: 0.6rem 1.5rem 0.8rem;
-    }
-
-    .donation-info h3 {
-      font-size: 1.1rem;
-      font-weight: bold;
-      color: var(--blue);
-      text-align: right;
-      margin-bottom: 0.3rem;
-    }
-
-    .bank-details {
-      text-align: center;
-    }
-
-    .bank-details .bank-name {
-      color: var(--green);
-      font-size: 1.35rem;
-      font-weight: bold;
-      margin-bottom: 0.1rem;
-    }
-
-    .bank-details .bank-num {
-      color: var(--dark-green);
-      font-size: 2.8rem;
-      font-weight: bold;
-      line-height: 1.15;
-      letter-spacing: .15em;
-    }
-
-    .bank-copy {
-      background-color: var(--primary);
-      color: var(--dark-green);
-      border: none;
-      font-size: 2.8rem;
-      line-height: 1.15;
-      letter-spacing: .15em;
-      cursor: pointer;
-    }
-
-    .bank-copy:hover {
-      font-size: 3rem;
-    }
-
-    .bank-copy.done {
-      font-size: 1.75rem;
-      background: rgba(201, 162, 39, .35);
-      border-color: var(--gold);
-      padding: .35rem .7rem;
-      border-radius: .5rem;
-      color: var(--primary);
-    }
-
-    /* ── Note section ── */
-    .note-section {
-      background-color: var(--primary);
-      padding: 0rem 1.5rem 0.8rem;
-      color: #222;
-      font-size: 1.25rem;
-      line-height: 1.65;
-      text-align: justify;
-    }
-
-    .note-section .note-title {
-      font-size: 1.25rem;
-      font-weight: bold;
-      color: var(--blue);
-      margin-bottom: 0.2rem;
-    }
-
-    /* ─── Share btn ─── */
-    .share-btn {
-      width: 100%;
-      background: linear-gradient(135deg, var(--green), var(--forest));
-      color: #fff;
-      font-family: var(--font-ar);
-      font-size: 1.15rem;
-      font-weight: bold;
-      padding: .9rem;
-      border: none;
-      border-radius: .85rem;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: .55rem;
-      letter-spacing: .03em;
-      box-shadow: 0 4px 20px rgba(13, 143, 117, .35);
-      transition: transform .15s, box-shadow .15s;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .share-btn::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, .1), transparent);
-      transform: translateX(-100%);
-      transition: transform .5s;
-    }
-
-    .share-btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 28px rgba(13, 143, 117, .45);
-      opacity: 1;
-    }
-
-    .share-btn:hover::before {
-      transform: translateX(100%);
-    }
-
-    .share-btn:active {
-      transform: translateY(0);
-    }
-
-    /* ── Contact ── */
-    .contact-section {
-      background-color: var(--primary);
-      padding: 0.75rem 1.5rem 1rem;
-      color: var(--dark-green);
-      text-align: center;
-      line-height: 1.6;
-      font-size: 1.25rem;
-    }
-
-    .contact-section a {
-      text-decoration: none;
-      color: inherit;
-    }
-
-    p,
-    h1,
-    h2,
-    h3,
-    div {
-      letter-spacing: 0;
-      word-spacing: 0.05em;
-    }
-
-    /* ─── Overlay ─── */
-    #overlay {
-      display: none;
-      position: fixed;
-      inset: 0;
-      background: rgba(11, 30, 20, .55);
-      backdrop-filter: blur(4px);
-      z-index: 90;
-      opacity: 0;
-      transition: opacity .28s;
-    }
-
-    #overlay.on {
-      opacity: 1;
-    }
-
-    /* ─── Sheet ─── */
-    #sheet {
-      display: none;
-      position: fixed;
-      bottom: 0;
-      left: 50%;
-      transform: translateX(-50%) translateY(110%);
-      width: 100%;
-      max-width: 500px;
-      background: var(--cream);
-      border-radius: 1.75rem 1.75rem 0 0;
-      padding: 0 1.6rem 2.2rem;
-      z-index: 100;
-      box-shadow: 0 -8px 48px rgba(0, 0, 0, .22);
-      transition: transform .38s cubic-bezier(.34, 1.1, .64, 1);
-      direction: rtl;
-    }
-
-    #sheet.on {
-      transform: translateX(-50%) translateY(0);
-    }
-
-    .sheet-pill {
-      width: 2.8rem;
-      height: .3rem;
-      background: #ccc;
-      border-radius: 99px;
-      margin: .9rem auto 1.2rem;
-    }
-
-    .sheet-head {
-      margin-bottom: 1.25rem;
-      text-align: center;
-    }
-
-    .sheet-title {
-      font-family: var(--font-ar);
-      font-size: 1.15rem;
-      font-weight: bold;
-      color: var(--navy);
-    }
-
-    .copy-row {
-      display: flex;
-      align-items: center;
-      gap: .5rem;
-      background: #f0f5f2;
-      border: 1.5px solid #c5ddd8;
-      border-radius: .75rem;
-      padding: .4rem .4rem .4rem .7rem;
-      margin-bottom: 1.4rem;
-      direction: ltr;
-    }
-
-    .copy-row input {
-      flex: 1;
-      border: none;
-      background: transparent;
-      font-size: .82rem;
-      color: var(--forest);
-      font-family: monospace;
-      outline: none;
-      min-width: 0;
-    }
-
-    .copy-row-btn {
-      flex-shrink: 0;
-      background: var(--green);
-      color: #fff;
-      border: none;
-      border-radius: .55rem;
-      padding: .45rem .9rem;
-      font-size: .88rem;
-      font-family: var(--font-ar);
-      cursor: pointer;
-      width: auto;
-      display: flex;
-      align-items: center;
-      gap: .3rem;
-      transition: background .2s;
-    }
-
-    .copy-row-btn.done {
-      background: var(--forest);
-    }
-
-    .copy-row-btn:hover {
-      opacity: .85;
-    }
-
-    .or-divider {
-      display: flex;
-      align-items: center;
-      gap: .7rem;
-      color: #aaa;
-      font-size: .8rem;
-      margin-bottom: 1.25rem;
-    }
-
-    .or-divider::before,
-    .or-divider::after {
-      content: "";
-      flex: 1;
-      height: 1px;
-      background: #ddd;
-    }
-
-    .socials {
-      display: flex;
-      justify-content: center;
-      gap: .9rem;
-      flex-wrap: wrap;
-    }
-
-    .soc {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: .38rem;
-      text-decoration: none;
-      cursor: pointer;
-    }
-
-    .soc-ring {
-      width: 3.25rem;
-      height: 3.25rem;
-      border-radius: 50%;
-      overflow: hidden;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, .12);
-      transition: transform .18s, box-shadow .18s;
-    }
-
-    .soc:hover .soc-ring {
-      transform: translateY(-4px);
-      box-shadow: 0 8px 20px rgba(0, 0, 0, .18);
-    }
-
-    .soc-ring img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    .soc-ring.dl {
-      background: #f0f5f2;
-      border: 1.5px solid #c5ddd8;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .soc-ring.dl img {
-      width: 52%;
-      height: 52%;
-      object-fit: contain;
-    }
-
-    .soc span {
-      font-size: .72rem;
-      color: var(--muted);
-    }
-
-    /* ─── Responsive ─── */
-    @media (max-width: 480px) {
-      .hero-title .part {
-        font-size: 4.8rem;
+    @media (max-width: 420px) {
+      h1 {
+        font-size: 3.8rem;
       }
 
-      .hero-title .mid .dash {
-        font-size: 4.8rem;
-      }
-
-      .hero-title .mid .khalto {
-        font-size: 1.55rem;
-      }
-
-      .batch-info .title {
-        font-size: 1.25rem;
-      }
-
-      .batch-info p.body-text {
-        font-size: 1rem;
-      }
-
-      .bank-details .bank-num {
-        font-size: 2.2rem;
-      }
-
-      .note-section {
-        font-size: 1rem;
-      }
-
-      .note-section .note-title {
-        font-size: 1rem;
-      }
-
-      button {
-        font-size: 1rem;
-      }
-
-      .contact-section {
-        font-size: 1rem;
+      .logo-wrap img {
+        width: 52vw;
       }
     }
   </style>
 </head>
 
 <body>
-  <div class="container">
 
-    <!-- ── Hero image section ── -->
-    <div class="main-content">
-      <div class="logo-bar">
-        <img src="Assets/White H Logo.png" alt="FMCS Logo" />
-      </div>
-      <div class="hero-text">
-        <div class="hero-title">
-          <span class="part">مـ</span>
-          <span class="mid">
-            <span class="khalto">خـــــــالتو</span>
-            <span class="dash">ـــــ</span>
-            <span class="part">ـدينة</span>
-          </span>
-        </div>
-        <div class="hero-subtitle">ظــــــــــل يجـــمــعــنا</div>
-      </div>
+  <canvas id="bg-canvas"></canvas>
+  <div class="vignette"></div>
+
+  <!-- floating micro-dots -->
+  <div class="dots" id="dots"></div>
+
+  <div class="content">
+    <div class="logo-wrap">
+      <img src="Assets/White V Logo.png" alt="FMCS Students Association">
     </div>
 
-    <!-- ── Description ── -->
-    <div class="batch-info">
-      <p class="title">مـبادرة إنشـاء مظــلة لخـالتي مـدينة</p>
-      <p class="body-text">
-        شاركنا الأجر العظيم وساهم معنا في إنشاء مظلتين بكلية العلوم الرياضية والحاسوب وتوفير
-        كراسي لمكتبة الكلية.
-        تصدق بما تجود به ينالك الأجر العظيم في الدنيا والآخرة.
-        قال ﷺ: "المؤمن للمؤمن كالبنيان يشد بعضه بعضاً"</p>
+    <div class="badge">COMING SOON</div>
+
+    <h1>قريباً</h1>
+
+    <div class="divider"></div>
+
+    <div class="text-block">
+      <p class="text-ar">نعمل على إطلاق موقع رابطة طلاب كلية العلوم الرياضية والحاسوب بجامعة الجزيرة</p>
+      <p class="text-en">Launching the official site for the FMCS Students' Association — University of Gezira</p>
     </div>
 
-    <!-- ── Amount + Progress section ── -->
-    <div class="amount-section">
-      <div class="calculationTitles">
-        <div>تم جمع:</div>
-        <div>المبلغ المتبقي:</div>
-      </div>
-      <div class="calculation">
-        <div class="collected"><span id="currentAmount">000,000</span> ج.س</div>
-        <div class="remain"><span id="remainAmount">000,000</span> ج.س</div>
-      </div>
-      <div class="progress-container">
-        <div class="progress-bar" id="progressBar">
-          <span class="progress-text" id="progressText">0%</span>
-        </div>
-      </div>
-      <p class="goal-note">الهدف: 15,000,000 ج.س</p>
-    </div>
+    <p class="follow">تابعونا للمزيد من الأخبار والفعاليات</p>
 
-    <!-- ── Donation account ── -->
-    <div class="donation-info">
-      <h3>حساب التبرع:</h3>
-      <div class="bank-details">
-        <p class="bank-name">البراء علي محمد الحاج</p>
-        <!-- <span class="bank-num" id="bank-num">2859694</span> -->
-        <button class="bank-copy" id="bankCopy">2859694</button>
-      </div>
-    </div>
+    <a class="social-link" href="https://www.facebook.com/profile.php?id=61582223769511" target="_blank"
+      rel="noopener noreferrer">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
+        <path
+          d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047V9.41c0-3.025 1.792-4.697 4.533-4.697 1.312 0 2.686.235 2.686.235v2.97h-1.513c-1.491 0-1.956.93-1.956 1.887v2.267h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.1 24 12.073z" />
+      </svg>
+      FMCSA on Facebook
+    </a>
 
-    <!-- ── Note ── -->
-    <div class="note-section">
-      <p class="note-title">ملاحظة:</p>
-      <p>المبلغ المطلوب هو الحد الأدنى، وقد يزيد مع تغير أسعار السلع.
-        للحوالات من خارج السودان، يرجى التواصل.</p>
-    </div>
-
-    <!-- ── Share button ── -->
-    <div class="sec" style="padding-top:.6rem; padding-bottom:.6rem">
-      <button class="share-btn" id="shareBtn">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
-          stroke-linecap="round" stroke-linejoin="round">
-          <circle cx="18" cy="5" r="3" />
-          <circle cx="6" cy="12" r="3" />
-          <circle cx="18" cy="19" r="3" />
-          <line x1="8.59" y1="13.51" x2="15.42" y2="17.49" />
-          <line x1="15.41" y1="6.51" x2="8.59" y2="10.49" />
-        </svg>
-        مشاركة المبادرة
-      </button>
-    </div>
-
-    <!-- ── Contact ── -->
-    <div class="contact-section">
-      <p>
-        للتواصل أو الاستفسار:
-        <a href="https://wa.me/249929951586" target="_blank">1586 995 92 249+</a>
-      </p>
-    </div>
-
-  </div>
-
-  <!-- ── Overlay ── -->
-  <div id="overlay"></div>
-
-  <!-- ── Share sheet ── -->
-  <div id="sheet">
-    <div class="sheet-pill"></div>
-    <div class="sheet-head">
-      <span class="sheet-title">شارك المبادرة</span>
-    </div>
-
-    <div class="copy-row">
-      <input id="linkInput" type="text" value="https://b14cs.github.io/FMCS40-Tracker" readonly />
-      <button class="copy-row-btn" id="copyLinkBtn">
-        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"
-          stroke-linecap="round" stroke-linejoin="round">
-          <rect x="9" y="9" width="13" height="13" rx="2" />
-          <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
-        </svg>
-        <span id="copyLbl">نسخ</span>
-      </button>
-    </div>
-
-    <div class="or-divider">أو شارك عبر</div>
-
-    <div class="socials">
-      <a class="soc" href="Assets/مبادرة رابطة الكلية.jpg" download target="_blank">
-        <div class="soc-ring dl"><img src="https://cdn-icons-png.flaticon.com/512/724/724933.png" alt="" /></div>
-        <span>تنزيل</span>
-      </a>
-      <a class="soc" href="https://t.me/share/url?url=https://b14cs.github.io/FMCS40-Tracker/" target="_blank">
-        <div class="soc-ring"><img src="https://cdn-icons-png.flaticon.com/512/2111/2111646.png" alt="" /></div>
-        <span>تيليغرام</span>
-      </a>
-      <a class="soc"
-        href="https://wa.me/?text=%D9%85%D8%A8%D8%A7%D8%AF%D8%B1%D8%A9%20%D8%B1%D8%A7%D8%A8%D8%B7%D8%A9%20%D8%A7%D9%84%D9%83%D9%84%D9%8A%D8%A9"
-        target="_blank">
-        <div class="soc-ring"><img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="" /></div>
-        <span>واتساب</span>
-      </a>
-      <a class="soc" href="https://twitter.com/intent/tweet?url=https://b14cs.github.io/FMCS40-Tracker/"
-        target="_blank">
-        <div class="soc-ring"><img
-            src="https://ugc.production.linktr.ee/1e154329-db20-4b4e-924c-6aa9fe0ccf9d_x-logo-png-twitter-0.jpeg?io=true&size=thumbnail-stack-v1_0"
-            alt="" /></div>
-        <span>X</span>
-      </a>
-      <a class="soc" href="https://www.facebook.com/sharer/sharer.php?u=https://b14cs.github.io/FMCS40-Tracker/"
-        target="_blank">
-        <div class="soc-ring"><img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="" /></div>
-        <span>فيسبوك</span>
-      </a>
-    </div>
   </div>
 
   <script>
-    /* ── Progress bar ── */
-    document.addEventListener("DOMContentLoaded", function () {
-      const progressBar = document.getElementById("progressBar");
-      const progressText = document.getElementById("progressText");
-      const currentAmount = document.getElementById("currentAmount");
-      const remainAmount = document.getElementById("remainAmount");
-
-      const totalAmount = 15000000;
-      const raisedAmount = 3500000; // ← update here
-      const duration = 1500;
-      const startTime = performance.now();
-      const targetPercentage = (raisedAmount / totalAmount) * 100;
-
-      function animate(timestamp) {
-        const elapsed = timestamp - startTime;
-        const progress = Math.min(elapsed / duration, 1);
-        const currentPercentage = targetPercentage * progress;
-        const currentAmountValue = raisedAmount * progress;
-
-        progressBar.style.width = `${Math.max(currentPercentage, 1.5)}%`;
-        progressText.textContent = `${Math.round(currentPercentage)}%`;
-        currentAmount.textContent = formatNumber(Math.round(currentAmountValue));
-        remainAmount.textContent = formatNumber(Math.round(totalAmount - currentAmountValue));
-
-        if (progress < 1) requestAnimationFrame(animate);
+    (() => {
+      /* ── floating micro-dots ── */
+      const dotsEl = document.getElementById('dots');
+      for (let i = 0; i < 18; i++) {
+        const d = document.createElement('div');
+        d.className = 'dot';
+        const size = Math.random() * 3 + 1.5;
+        d.style.cssText = `
+        width:${size}px; height:${size}px;
+        left:${Math.random() * 100}%;
+        bottom:${Math.random() * 30}%;
+        animation-duration:${5 + Math.random() * 8}s;
+        animation-delay:${Math.random() * 8}s;
+      `;
+        dotsEl.appendChild(d);
       }
 
-      requestAnimationFrame(animate);
+      /* ── hourglass canvas ── */
+      const canvas = document.getElementById('bg-canvas');
+      const ctx = canvas.getContext('2d');
+      let W, H, cx, cy;
 
-      function formatNumber(num) {
-        return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+      function resize() {
+        W = canvas.width = window.innerWidth;
+        H = canvas.height = window.innerHeight;
+        cx = W / 2; cy = H / 2;
       }
-    });
+      window.addEventListener('resize', resize);
+      resize();
 
-    /* ── Bank copy ── */
-    document.getElementById("bankCopy").addEventListener("click", async function () {
-      try { await navigator.clipboard.writeText("2859694"); } catch { }
-      this.textContent = "✓ تم النسخ";
-      this.classList.add("done");
-      setTimeout(() => { this.textContent = "2859694"; this.classList.remove("done"); }, 2500);
-    });
+      function getHG() {
+        const scale = Math.min(W, H);
+        const hw = scale * 0.285;
+        const hh = scale * 0.375;
+        const nw = scale * 0.020;
+        const top = cy - hh, bot = cy + hh;
+        const cp = hh * 0.50;
+        return { hw, hh, nw, top, bot, cp };
+      }
 
-    /* ── Share sheet ── */
-    const overlay = document.getElementById("overlay");
-    const sheet = document.getElementById("sheet");
-    const shareBtn = document.getElementById("shareBtn");
+      function hourglassPath(g) {
+        const { hw, nw, top, bot, cp } = g;
+        const p = new Path2D();
+        p.moveTo(cx - hw, top);
+        p.lineTo(cx + hw, top);
+        p.bezierCurveTo(cx + hw, top + cp, cx + nw, cy - nw * 2, cx + nw, cy);
+        p.bezierCurveTo(cx + nw, cy + nw * 2, cx + hw, bot - cp, cx + hw, bot);
+        p.lineTo(cx - hw, bot);
+        p.bezierCurveTo(cx - hw, bot - cp, cx - nw, cy + nw * 2, cx - nw, cy);
+        p.bezierCurveTo(cx - nw, cy - nw * 2, cx - hw, top + cp, cx - hw, top);
+        p.closePath();
+        return p;
+      }
 
-    function openSheet() {
-      overlay.style.display = sheet.style.display = "block";
-      requestAnimationFrame(() => requestAnimationFrame(() => {
-        overlay.classList.add("on");
-        sheet.classList.add("on");
-      }));
-      document.body.style.overflow = "hidden";
-    }
+      /* ── particles ── */
+      const COUNT = 280;
+      const SETTLE_REST = 1900;
+      let pileTop = 0;
 
-    function closeSheet() {
-      overlay.classList.remove("on");
-      sheet.classList.remove("on");
-      document.body.style.overflow = "";
-      setTimeout(() => { overlay.style.display = sheet.style.display = "none"; }, 380);
-    }
+      function randRange(a, b) { return a + Math.random() * (b - a); }
 
-    shareBtn.addEventListener("click", openSheet);
-    overlay.addEventListener("click", closeSheet);
-    document.addEventListener("keydown", e => e.key === "Escape" && closeSheet());
+      function makeParticle(stagger) {
+        const g = getHG();
+        const frac = stagger !== undefined ? stagger : Math.random();
+        const spawnY = g.top + frac * (cy - g.nw * 2.5 - g.top);
+        const xRange = g.hw * (1 - frac) + g.nw * frac;
+        return {
+          x: cx + randRange(-xRange + 2, xRange - 2),
+          y: spawnY,
+          size: randRange(1.2, 2.7),
+          alpha: randRange(0.28, 0.68),
+          speed: randRange(0.45, 1.7),
+          hue: randRange(195, 230),
+          sat: randRange(65, 90),
+          phase: 'falling',
+          settleTimer: 0,
+          opacity: 1,
+        };
+      }
 
-    /* ── Copy link ── */
-    document.getElementById("copyLinkBtn").addEventListener("click", async function () {
-      const val = document.getElementById("linkInput").value;
-      try { await navigator.clipboard.writeText(val); } catch { document.getElementById("linkInput").select(); document.execCommand("copy"); }
-      document.getElementById("copyLbl").textContent = "✓ تم";
-      this.classList.add("done");
-      setTimeout(() => { document.getElementById("copyLbl").textContent = "نسخ"; this.classList.remove("done"); }, 2500);
-    });
+      const particles = [];
+      for (let i = 0; i < COUNT; i++) particles.push(makeParticle(i / COUNT));
+
+      let lastTime = performance.now();
+
+      function update(now) {
+        const dt = Math.min(now - lastTime, 32);
+        lastTime = now;
+        const g = getHG();
+        const neckTop = cy - g.nw * 2.5;
+        const neckBot = cy + g.nw * 2.5;
+        const pileSurface = g.bot - (g.hh * 0.91) * pileTop;
+        let settledCount = 0;
+
+        particles.forEach(p => {
+          if (p.phase === 'settled') {
+            settledCount++;
+            p.settleTimer += dt;
+            const fadeStart = SETTLE_REST * 0.7;
+            if (p.settleTimer >= fadeStart)
+              p.opacity = 1 - (p.settleTimer - fadeStart) / (SETTLE_REST - fadeStart);
+            if (p.settleTimer >= SETTLE_REST) {
+              const fresh = makeParticle();
+              fresh.opacity = 0;
+              Object.assign(p, fresh);
+            }
+            return;
+          }
+          if (p.opacity < 1) p.opacity = Math.min(1, p.opacity + dt * 0.003);
+
+          if (p.phase === 'falling') {
+            p.y += p.speed;
+            if (p.y >= neckTop) p.phase = 'passing';
+            return;
+          }
+          if (p.phase === 'passing') {
+            p.y += p.speed * 0.8;
+            p.x += (cx - p.x) * 0.10;
+            if (p.y >= neckBot) {
+              p.phase = 'dropping';
+              p.x = cx + (p.x - cx) * 0.5 + randRange(-g.nw, g.nw);
+            }
+            return;
+          }
+          if (p.phase === 'dropping' || p.phase === 'settling') {
+            p.y += p.speed;
+            if (p.phase === 'dropping') {
+              const spread = (p.y - neckBot) / (g.bot - neckBot);
+              const targetX = cx + (p.x - cx) * (1 + spread * 0.4);
+              p.x += (targetX - p.x) * 0.04;
+            }
+            if (p.y >= pileSurface - p.size) {
+              p.y = pileSurface - p.size;
+              p.phase = 'settled';
+              p.settleTimer = 0;
+              p.opacity = 1;
+              pileTop = Math.min(0.72, pileTop + 0.0008);
+            }
+          }
+        });
+
+        const inFlight = COUNT - settledCount;
+        pileTop = Math.max(0, pileTop - inFlight * 0.0000008 * dt);
+      }
+
+      function draw() {
+        ctx.clearRect(0, 0, W, H);
+        const g = getHG();
+        const hp = hourglassPath(g);
+
+        ctx.save();
+        ctx.clip(hp);
+
+        /* inner fill — cooler, deeper blue */
+        const ig = ctx.createRadialGradient(cx, g.top, 0, cx, cy, g.hh * 1.2);
+        ig.addColorStop(0, 'rgba(30,80,180,0.18)');
+        ig.addColorStop(.5, 'rgba(10,40,100,0.26)');
+        ig.addColorStop(1, 'rgba(4,14,45,0.0)');
+        ctx.fillStyle = ig;
+        ctx.fillRect(0, 0, W, H);
+
+        /* pile */
+        const surface = g.bot - (g.hh * 0.91) * pileTop;
+        if (pileTop > 0.01) {
+          const sg = ctx.createLinearGradient(cx, surface, cx, g.bot);
+          sg.addColorStop(0, 'rgba(56,189,248,0.12)');
+          sg.addColorStop(.4, 'rgba(30,120,220,0.18)');
+          sg.addColorStop(1, 'rgba(10,60,160,0.28)');
+          ctx.fillStyle = sg;
+          ctx.fillRect(cx - g.hw, surface, g.hw * 2, g.bot - surface);
+        }
+
+        /* particles */
+        particles.forEach(p => {
+          const inLower = p.y > cy;
+          let a = p.alpha * p.opacity;
+          if (p.phase === 'settled') a *= 0.5;
+          else if (inLower) a *= Math.max(0.1, 1 - (p.y - cy) / (g.bot - cy) * 0.5);
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+          ctx.fillStyle = `hsla(${p.hue},${p.sat}%,88%,${a})`;
+          ctx.fill();
+        });
+
+        ctx.restore();
+
+        /* glass frame */
+        const fw = Math.max(1.5, Math.min(W, H) * 0.014);
+        ctx.strokeStyle = 'rgba(100,180,255,0.22)';
+        ctx.lineWidth = fw;
+        ctx.lineJoin = 'round';
+        ctx.stroke(hp);
+
+        /* subtle inner highlight on glass edge */
+        ctx.strokeStyle = 'rgba(200,235,255,0.06)';
+        ctx.lineWidth = fw * 0.4;
+        ctx.stroke(hp);
+
+        /* top & bottom caps */
+        const bh = fw * 0.85;
+        const grad = ctx.createLinearGradient(cx - g.hw, 0, cx + g.hw, 0);
+        grad.addColorStop(0, 'rgba(56,189,248,0.0)');
+        grad.addColorStop(0.2, 'rgba(56,189,248,0.25)');
+        grad.addColorStop(0.5, 'rgba(100,200,255,0.35)');
+        grad.addColorStop(0.8, 'rgba(56,189,248,0.25)');
+        grad.addColorStop(1, 'rgba(56,189,248,0.0)');
+        ctx.fillStyle = grad;
+        ctx.fillRect(cx - g.hw - fw / 2, g.top - bh / 2, g.hw * 2 + fw, bh);
+        ctx.fillRect(cx - g.hw - fw / 2, g.bot - bh / 2, g.hw * 2 + fw, bh);
+
+        /* neck shimmer */
+        const ns = ctx.createLinearGradient(cx - g.nw * 5, cy, cx + g.nw * 5, cy);
+        ns.addColorStop(0, 'rgba(100,200,255,0)');
+        ns.addColorStop(0.5, 'rgba(160,230,255,0.6)');
+        ns.addColorStop(1, 'rgba(100,200,255,0)');
+        ctx.fillStyle = ns;
+        ctx.fillRect(cx - g.nw * 5, cy - g.nw * 3.5, g.nw * 10, g.nw * 7);
+      }
+
+      function loop(now) {
+        update(now);
+        draw();
+        requestAnimationFrame(loop);
+      }
+      requestAnimationFrame(loop);
+    })();
   </script>
 </body>
 

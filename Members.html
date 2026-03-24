@@ -1,0 +1,1195 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>أعضاء مجلس الإدارة · FMCSA</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&family=Tajawal:wght@400;700;900&display=swap"
+        rel="stylesheet">
+
+    <style>
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        @font-face {
+            font-family: "CairoFamily";
+            src: url("Assets/Font/Cairo-Bold.ttf") format("truetype");
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: "MontserratFamily";
+            src: url("Assets/Font/Montserrat-Bold.ttf") format("truetype");
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        :root {
+            --navy: #141345;
+            --band: #1a1860;
+            --gold: #f5c518;
+            --accent: #7b9fff;
+            --muted: rgba(160, 174, 200, 0.7);
+            --card-bg: rgba(255, 255, 255, 0.06);
+            --card-bd: rgba(255, 255, 255, 0.11);
+        }
+
+        body {
+            font-family: 'CairoFamily', system-ui, -apple-system, sans-serif;
+            background-color: var(--navy);
+            color: #fff;
+            min-height: 100vh;
+            position: relative;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            z-index: 0;
+            background-image: url('Assets/IMG001.png');
+            background-size: cover;
+            background-position: center top;
+            opacity: 0.22;
+            mix-blend-mode: luminosity;
+        }
+
+        body::after {
+            content: '';
+            position: fixed;
+            inset: 0;
+            z-index: 1;
+            background:
+                radial-gradient(ellipse 70% 55% at 38% 28%, rgba(90, 80, 200, 0.32) 0%, transparent 65%),
+                linear-gradient(180deg, rgba(20, 19, 69, 0) 0%, rgba(10, 9, 40, 0.5) 100%);
+            pointer-events: none;
+        }
+
+        header,
+        main,
+        footer {
+            position: relative;
+            z-index: 2;
+        }
+
+        /* ── HEADER ── */
+        header {
+            text-align: center;
+            padding: 3.25rem 1.5rem 2.75rem;
+        }
+
+        .logo-img {
+            max-width: 22rem;
+            width: 70%;
+            margin-bottom: 1.75rem;
+            filter: drop-shadow(0 0 1.5rem rgba(120, 160, 255, 0.25));
+        }
+
+        header h1 {
+            font-size: clamp(1.5rem, 3vw, 2.4rem);
+            font-weight: 900;
+            line-height: 1.4;
+        }
+
+        header h1 em {
+            font-style: normal;
+            color: var(--gold);
+        }
+
+        .title-line {
+            width: 3.5rem;
+            height: 0.1875rem;
+            background: linear-gradient(90deg, var(--gold), var(--accent));
+            border-radius: 0.125rem;
+            margin: 1rem auto 0;
+        }
+
+        /* ── MAIN ── */
+        main {
+            max-width: 68.75rem;
+            margin: 0 auto;
+            padding: 0 1.25rem 3.75rem;
+        }
+
+        .section-label {
+            display: flex;
+            align-items: center;
+            gap: 0.875rem;
+            margin: 0 0 2.25rem;
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.156rem;
+            color: var(--muted);
+        }
+
+        .section-label::before,
+        .section-label::after {
+            content: '';
+            flex: 1;
+            height: 0.0625rem;
+            background: rgba(255, 255, 255, 0.09);
+        }
+
+        .row-leadership {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .row-leadership .member-card {
+            width: 13.75rem;
+        }
+
+        .members-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(11.25rem, 1fr));
+            gap: 1.25rem;
+        }
+
+        /* ── CARD ── */
+        .member-card {
+            background: var(--card-bg);
+            border: 0.0625rem solid var(--card-bd);
+            border-radius: 1rem;
+            overflow: hidden;
+            backdrop-filter: blur(0.75rem);
+            -webkit-backdrop-filter: blur(0.75rem);
+            transition: transform .28s ease, box-shadow .28s ease, border-color .28s ease;
+            animation: fadeUp .45s ease both;
+            display: flex;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .member-card:hover {
+            transform: translateY(-0.375rem);
+            box-shadow: 0 1.25rem 3.125rem rgba(0, 0, 0, 0.5), 0 0 0 0.0625rem rgba(123, 159, 255, 0.22);
+            border-color: rgba(123, 159, 255, 0.22);
+        }
+
+        .card-photo {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 3/4;
+            background: var(--band);
+            overflow: hidden;
+        }
+
+        .card-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: top center;
+            display: block;
+            filter: grayscale(10%);
+            transition: filter .3s, transform .35s ease;
+        }
+
+        .member-card:hover .card-photo img {
+            filter: grayscale(0%);
+            transform: scale(1.04);
+        }
+
+        .card-photo::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 55%;
+            background: linear-gradient(to top,
+                    rgba(20, 19, 69, 0.95) 0%,
+                    rgba(20, 19, 69, 0.55) 55%,
+                    transparent 100%);
+            pointer-events: none;
+        }
+
+        .view-hint {
+            position: absolute;
+            bottom: 0.625rem;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 2;
+            font-family: 'Cairo', sans-serif;
+            font-size: 0.62rem;
+            color: rgba(255, 255, 255, 0.5);
+            white-space: nowrap;
+            opacity: 0;
+            transition: opacity .25s;
+        }
+
+        .member-card:hover .view-hint {
+            opacity: 1;
+        }
+
+        .card-info {
+            padding: 0.875rem 0.875rem 1.125rem;
+            text-align: center;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.3125rem;
+        }
+
+        .card-name {
+            font-size: 1rem;
+            font-weight: 900;
+            color: #fff;
+            line-height: 1.25;
+        }
+
+        .row-leadership .card-name {
+            font-size: 1.1rem;
+        }
+
+        .card-role {
+            display: inline-block;
+            font-size: 0.72rem;
+            font-weight: 700;
+            color: var(--navy);
+            background: var(--gold);
+            border-radius: 999px;
+            padding: 0.125rem 0.625rem;
+            margin-top: 0.125rem;
+        }
+
+        .card-dept {
+            font-size: 0.72rem;
+            color: var(--muted);
+            font-weight: 600;
+            margin-top: 0.1875rem;
+            display: flex;
+            align-items: center;
+            gap: 0.3125rem;
+            justify-content: center;
+        }
+
+        .dept-dot {
+            width: 0.25rem;
+            height: 0.25rem;
+            border-radius: 50%;
+            background: var(--accent);
+        }
+
+        /* ════════════════════════════
+       MODAL
+    ════════════════════════════ */
+        .modal-overlay {
+            position: fixed;
+            inset: 0;
+            z-index: 200;
+            background: rgba(6, 5, 28, 0.85);
+            backdrop-filter: blur(0.5rem);
+            -webkit-backdrop-filter: blur(0.5rem);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1.25rem;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity .3s ease;
+        }
+
+        .modal-overlay.open {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        .modal {
+            position: relative;
+            width: 100%;
+            max-width: 40rem;
+            max-height: 90vh;
+            background: #13124e;
+            border: 0.0625rem solid rgba(255, 255, 255, 0.12);
+            border-radius: 1.5rem;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 3rem 7.5rem rgba(0, 0, 0, 0.75), 0 0 0 0.0625rem rgba(123, 159, 255, 0.08);
+            transform: translateY(1.875rem) scale(0.96);
+            transition: transform .38s cubic-bezier(.16, 1, .3, 1);
+        }
+
+        .modal-overlay.open .modal {
+            transform: translateY(0) scale(1);
+        }
+
+        /* ── banner ── */
+        .modal-banner {
+            position: relative;
+            height: 13.75rem;
+            flex-shrink: 0;
+            overflow: hidden;
+            background: linear-gradient(135deg, #1d1a7a 0%, #0c0b38 100%);
+        }
+
+        .modal-banner::before {
+            content: '';
+            position: absolute;
+            width: 20rem;
+            height: 20rem;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(123, 159, 255, 0.22) 0%, transparent 70%);
+            top: -6.25rem;
+            left: -5rem;
+        }
+
+        .modal-banner::after {
+            content: '';
+            position: absolute;
+            width: 13.75rem;
+            height: 13.75rem;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(245, 197, 24, 0.13) 0%, transparent 70%);
+            bottom: -3.75rem;
+            right: 3.125rem;
+        }
+
+        .modal-photo {
+            position: absolute;
+            bottom: 0;
+            right: 2.25rem;
+            height: 13.125rem;
+            width: 8.625rem;
+            object-fit: cover;
+            object-position: top center;
+            border-radius: 0.75rem 0.75rem 0 0;
+            z-index: 2;
+            filter: drop-shadow(-0.375rem 0 1.25rem rgba(0, 0, 0, 0.55));
+        }
+
+        .modal-banner-text {
+            position: absolute;
+            bottom: 2.75rem;
+            left: 1.75rem;
+            right: 11.875rem;
+            z-index: 2;
+        }
+
+        .modal-season {
+            font-size: 0.68rem;
+            font-weight: 700;
+            color: var(--gold);
+            opacity: 0.9;
+            margin-bottom: 0.3125rem;
+            line-height: 1.4;
+        }
+
+        .modal-name {
+            font-size: clamp(1.35rem, 4vw, 1.85rem);
+            font-weight: 900;
+            color: #fff;
+            line-height: 1.15;
+        }
+
+        .modal-role-badge {
+            display: inline-block;
+            margin-top: 0.5625rem;
+            font-size: 0.71rem;
+            font-weight: 700;
+            color: var(--navy);
+            background: var(--gold);
+            border-radius: 999px;
+            padding: 0.1875rem 0.8125rem;
+        }
+
+        /* close btn */
+        .modal-close {
+            position: absolute;
+            top: 0.875rem;
+            left: 0.875rem;
+            width: 2rem;
+            height: 2rem;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            border: 0.0625rem solid rgba(255, 255, 255, 0.18);
+            color: #fff;
+            font-size: 1rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background .2s;
+            z-index: 10;
+        }
+
+        .modal-close:hover {
+            background: rgba(255, 255, 255, 0.22);
+        }
+
+        /* ── modal body ── */
+        .modal-body {
+            overflow-y: auto;
+            padding: 1.375rem 1.625rem 1.875rem;
+            flex: 1;
+            scrollbar-width: thin;
+            scrollbar-color: rgba(123, 159, 255, 0.3) transparent;
+        }
+
+        .modal-body::-webkit-scrollbar {
+            width: 0.25rem;
+        }
+
+        .modal-body::-webkit-scrollbar-thumb {
+            background: rgba(123, 159, 255, 0.3);
+            border-radius: 0.625rem;
+        }
+
+        /* quote */
+        .modal-quote {
+            font-size: 0.87rem;
+            color: rgba(195, 210, 255, 0.72);
+            font-style: italic;
+            text-align: center;
+            line-height: 1.75;
+            padding-bottom: 1.125rem;
+            margin-bottom: 1.125rem;
+            border-bottom: 0.0625rem solid rgba(255, 255, 255, 0.07);
+        }
+
+        /* info pills */
+        .modal-info-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4375rem;
+            margin-bottom: 1.375rem;
+        }
+
+        .info-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.375rem;
+            background: rgba(255, 255, 255, 0.05);
+            border: 0.0625rem solid rgba(255, 255, 255, 0.09);
+            border-radius: 999px;
+            padding: 0.3125rem 0.75rem;
+            font-size: 0.74rem;
+            font-weight: 600;
+            color: rgba(215, 228, 255, 0.85);
+        }
+
+        /* SVG icons (batch) */
+        .info-pill svg {
+            width: 0.75rem;
+            height: 0.75rem;
+            color: var(--accent);
+            flex-shrink: 0;
+        }
+
+        /* Image icons (university, faculty) */
+        .info-pill .pill-img {
+            width: 1rem;
+            height: 1rem;
+            object-fit: contain;
+            flex-shrink: 0;
+            filter: brightness(0) invert(1);
+            opacity: 0.75;
+        }
+
+        /* Symbol icons (dept: ∑ ∫ ;) */
+        .info-pill .pill-symbol {
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: var(--accent);
+            line-height: 1;
+            flex-shrink: 0;
+            font-style: normal;
+            font-family: 'Georgia', serif;
+        }
+
+        /* section title */
+        .modal-section-title {
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.156rem;
+            color: var(--muted);
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: center;
+            gap: 0.625rem;
+        }
+
+        .modal-section-title::after {
+            content: '';
+            flex: 1;
+            height: 0.0625rem;
+            background: rgba(255, 255, 255, 0.07);
+        }
+
+        /* achievements */
+        .achievements-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5625rem;
+            margin-bottom: 1.375rem;
+        }
+
+        .achievements-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.625rem;
+            font-size: 0.84rem;
+            color: rgba(215, 228, 255, 0.88);
+            font-weight: 600;
+            line-height: 1.55;
+        }
+
+        .achievements-list li::before {
+            content: '';
+            width: 0.375rem;
+            height: 0.375rem;
+            border-radius: 50%;
+            background: var(--gold);
+            margin-top: 0.375rem;
+            flex-shrink: 0;
+        }
+
+        /* social */
+        .social-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5625rem;
+        }
+
+        .social-btn {
+            font-family: 'MontserratFamily', system-ui, -apple-system, sans-serif;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4375rem;
+            padding: 0.4375rem 0.9375rem;
+            border-radius: 999px;
+            font-size: 0.78rem;
+            font-weight: 700;
+            font-family: 'Cairo', sans-serif;
+            text-decoration: none;
+            border: 0.0625rem solid rgba(255, 255, 255, 0.13);
+            background: rgba(255, 255, 255, 0.05);
+            color: #fff;
+            transition: background .2s, border-color .2s, transform .2s;
+        }
+
+        .social-btn:hover {
+            background: rgba(255, 255, 255, 0.11);
+            border-color: rgba(255, 255, 255, 0.26);
+            transform: translateY(-0.125rem);
+        }
+
+        .social-btn svg {
+            width: 0.875rem;
+            height: 0.875rem;
+        }
+
+        .social-btn.facebook {
+            border-color: rgba(66, 103, 178, 0.45);
+        }
+
+        .social-btn.facebook:hover {
+            background: rgba(66, 103, 178, 0.18);
+            border-color: #4267b2;
+        }
+
+        .social-btn.linkedin {
+            border-color: rgba(0, 119, 181, 0.45);
+        }
+
+        .social-btn.linkedin:hover {
+            background: rgba(0, 119, 181, 0.18);
+            border-color: #0077b5;
+        }
+
+        .social-btn.twitter {
+            border-color: rgba(29, 161, 242, 0.45);
+        }
+
+        .social-btn.twitter:hover {
+            background: rgba(29, 161, 242, 0.18);
+            border-color: #1da1f2;
+        }
+
+        .social-btn.instagram {
+            border-color: rgba(225, 48, 108, 0.35);
+        }
+
+        .social-btn.instagram:hover {
+            background: rgba(225, 48, 108, 0.14);
+            border-color: #e1306c;
+        }
+
+        /* ── ANIMATIONS ── */
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(1.5rem);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .row-leadership .member-card:nth-child(1) {
+            animation-delay: .05s;
+        }
+
+        .row-leadership .member-card:nth-child(2) {
+            animation-delay: .12s;
+        }
+
+        .members-grid .member-card:nth-child(1) {
+            animation-delay: .08s;
+        }
+
+        .members-grid .member-card:nth-child(2) {
+            animation-delay: .14s;
+        }
+
+        .members-grid .member-card:nth-child(3) {
+            animation-delay: .20s;
+        }
+
+        .members-grid .member-card:nth-child(4) {
+            animation-delay: .26s;
+        }
+
+        .members-grid .member-card:nth-child(5) {
+            animation-delay: .32s;
+        }
+
+        .members-grid .member-card:nth-child(6) {
+            animation-delay: .38s;
+        }
+
+        .members-grid .member-card:nth-child(7) {
+            animation-delay: .44s;
+        }
+
+        .members-grid .member-card:nth-child(8) {
+            animation-delay: .50s;
+        }
+
+        .members-grid .member-card:nth-child(9) {
+            animation-delay: .56s;
+        }
+
+        .members-grid .member-card:nth-child(10) {
+            animation-delay: .62s;
+        }
+
+        .members-grid .member-card:nth-child(11) {
+            animation-delay: .68s;
+        }
+
+        .members-grid .member-card:nth-child(12) {
+            animation-delay: .74s;
+        }
+
+        .members-grid .member-card:nth-child(13) {
+            animation-delay: .80s;
+        }
+
+        .members-grid .member-card:nth-child(14) {
+            animation-delay: .86s;
+        }
+
+        footer {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            padding: 1.5rem 1.25rem;
+            font-size: 0.75rem;
+            color: rgba(160, 174, 200, 0.5);
+            border-top: 0.0625rem solid rgba(255, 255, 255, 0.06);
+        }
+
+        @media (max-width: 600px) {
+            .row-leadership .member-card {
+                width: 10rem;
+            }
+
+            .members-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .modal-photo {
+                right: 1.125rem;
+                height: 11.25rem;
+                width: 7.375rem;
+            }
+
+            .modal-banner-text {
+                right: 9.375rem;
+                left: 1.125rem;
+                bottom: 2rem;
+            }
+
+            .modal-banner {
+                height: 11.75rem;
+            }
+
+            .modal-body {
+                padding: 1.125rem 1.125rem 1.625rem;
+            }
+        }
+
+        @media (max-width: 380px) {
+            .members-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .row-leadership {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .row-leadership .member-card {
+                width: 100%;
+                max-width: 16.25rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <img src="Assets/White V Logo.png" alt="FMCSA" class="logo-img">
+        <h1>أعضاء مجلس إدارة<br><em>رابطة طلاب الكلية</em></h1>
+        <div class="title-line"></div>
+    </header>
+
+    <main>
+
+        <div class="section-label">القيادة</div>
+
+        <div class="row-leadership">
+            <div class="member-card" onclick="openModal('ahmed-sulaiman')">
+                <div class="card-photo">
+                    <img src="Assets/People/أحمد سليمان.png" alt="أحمد سليمان">
+                    <span class="view-hint">اضغط لعرض الملف الشخصي</span>
+                </div>
+                <div class="card-info">
+                    <div class="card-name">أحمد سليمان</div>
+                    <span class="card-role">الرئيس</span>
+                    <div class="card-dept"><span class="dept-dot"></span>42 · رياضيات</div>
+                </div>
+            </div>
+
+            <div class="member-card" onclick="openModal('talal-hatem')">
+                <div class="card-photo">
+                    <img src="Assets/People/طلال حاتم.png" alt="طلال حاتم">
+                    <span class="view-hint">اضغط لعرض الملف الشخصي</span>
+                </div>
+                <div class="card-info">
+                    <div class="card-name">طلال حاتم</div>
+                    <span class="card-role">نائب الرئيس</span>
+                    <div class="card-dept"><span class="dept-dot"></span>43 · رياضيات</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-label">أعضاء المجلس</div>
+
+        <div class="members-grid">
+
+            <div class="member-card" onclick="openModal('ibthal')">
+                <div class="card-photo"><img src="Assets/People/Women.png" alt="ابتهال محمد"><span
+                        class="view-hint">اضغط لعرض الملف الشخصي</span></div>
+                <div class="card-info">
+                    <div class="card-name">ابتهال محمد</div><span class="card-role">الأمين العام</span>
+                    <div class="card-dept"><span class="dept-dot"></span>42 · إحصاء</div>
+                </div>
+            </div>
+
+            <div class="member-card" onclick="openModal('abdulrahman-ibrahim')">
+                <div class="card-photo"><img src="Assets/People/عبدالرحمن إبراهيم.png" alt="عبدالرحمن إبراهيم"><span
+                        class="view-hint">اضغط لعرض الملف الشخصي</span></div>
+                <div class="card-info">
+                    <div class="card-name">عبدالرحمن إبراهيم</div><span class="card-role">نائب الأمين العام</span>
+                    <div class="card-dept"><span class="dept-dot"></span>44 · علوم الحاسوب</div>
+                </div>
+            </div>
+
+            <div class="member-card" onclick="openModal('mustafa')">
+                <div class="card-photo"><img src="Assets/People/مصطفى محمد.png" alt="مصطفى محمد"><span
+                        class="view-hint">اضغط لعرض الملف الشخصي</span></div>
+                <div class="card-info">
+                    <div class="card-name">مصطفى محمد</div><span class="card-role">الأمين الإعلامي</span>
+                    <div class="card-dept"><span class="dept-dot"></span>42 · إحصاء</div>
+                </div>
+            </div>
+
+            <div class="member-card" onclick="openModal('israa')">
+                <div class="card-photo"><img src="Assets/People/Women.png" alt="إسراء سليمان"><span
+                        class="view-hint">اضغط لعرض الملف الشخصي</span></div>
+                <div class="card-info">
+                    <div class="card-name">إسراء سليمان</div><span class="card-role">نائب الأمين الإعلامي</span>
+                    <div class="card-dept"><span class="dept-dot"></span>45 · إحصاء</div>
+                </div>
+            </div>
+
+            <div class="member-card" onclick="openModal('ali-tayyib')">
+                <div class="card-photo"><img src="Assets/People/علي الطيب.png" alt="علي الطيب"><span
+                        class="view-hint">اضغط لعرض الملف الشخصي</span></div>
+                <div class="card-info">
+                    <div class="card-name">علي الطيب</div><span class="card-role">الأمين الثقافي</span>
+                    <div class="card-dept"><span class="dept-dot"></span>43 · إحصاء</div>
+                </div>
+            </div>
+
+            <div class="member-card" onclick="openModal('mihad')">
+                <div class="card-photo"><img src="Assets/People/Women.png" alt="مهاد جمال"><span class="view-hint">اضغط
+                        لعرض الملف الشخصي</span></div>
+                <div class="card-info">
+                    <div class="card-name">مهاد جمال</div><span class="card-role">نائب الأمين الثقافي</span>
+                    <div class="card-dept"><span class="dept-dot"></span>42 · إحصاء</div>
+                </div>
+            </div>
+
+            <div class="member-card" onclick="openModal('ali-abdulazeem')">
+                <div class="card-photo"><img src="Assets/People/علي عبدالعظيم.png" alt="علي عبدالعظيم"><span
+                        class="view-hint">اضغط لعرض الملف الشخصي</span></div>
+                <div class="card-info">
+                    <div class="card-name">علي عبدالعظيم</div><span class="card-role">الأمين المالي</span>
+                    <div class="card-dept"><span class="dept-dot"></span>44 · علوم الحاسوب</div>
+                </div>
+            </div>
+
+            <div class="member-card" onclick="openModal('ahmed-alameen')">
+                <div class="card-photo"><img src="Assets/People/أحمد الأمين.png" alt="أحمد الأمين"><span
+                        class="view-hint">اضغط لعرض الملف الشخصي</span></div>
+                <div class="card-info">
+                    <div class="card-name">أحمد الأمين</div><span class="card-role">نائب الأمين المالي</span>
+                    <div class="card-dept"><span class="dept-dot"></span>41 · علوم الحاسوب</div>
+                </div>
+            </div>
+
+            <div class="member-card" onclick="openModal('abdulrahman-mohammed')">
+                <div class="card-photo"><img src="Assets/People/عبدالرحمن محمد.png" alt="عبدالرحمن محمد"><span
+                        class="view-hint">اضغط لعرض الملف الشخصي</span></div>
+                <div class="card-info">
+                    <div class="card-name">عبدالرحمن محمد</div><span class="card-role">الأمين الأكاديمي</span>
+                    <div class="card-dept"><span class="dept-dot"></span>42 · علوم الحاسوب</div>
+                </div>
+            </div>
+
+            <div class="member-card" onclick="openModal('areej')">
+                <div class="card-photo"><img src="Assets/People/Women.png" alt="أريج عصام الدين"><span
+                        class="view-hint">اضغط لعرض الملف الشخصي</span></div>
+                <div class="card-info">
+                    <div class="card-name">أريج عصام الدين</div><span class="card-role">نائب الأمين الأكاديمي</span>
+                    <div class="card-dept"><span class="dept-dot"></span>45 · علوم الحاسوب</div>
+                </div>
+            </div>
+
+            <div class="member-card" onclick="openModal('ahmed-habeeb')">
+                <div class="card-photo"><img src="Assets/People/أحمد الحبيب.png" alt="أحمد الحبيب"><span
+                        class="view-hint">اضغط لعرض الملف الشخصي</span></div>
+                <div class="card-info">
+                    <div class="card-name">أحمد الحبيب</div><span class="card-role">الأمين الاجتماعي</span>
+                    <div class="card-dept"><span class="dept-dot"></span>42 · رياضيات</div>
+                </div>
+            </div>
+
+            <div class="member-card" onclick="openModal('malaz-ali')">
+                <div class="card-photo"><img src="Assets/People/Women.png" alt="ملاذ علي"><span class="view-hint">اضغط
+                        لعرض الملف الشخصي</span></div>
+                <div class="card-info">
+                    <div class="card-name">ملاذ علي</div><span class="card-role">نائب الأمين الاجتماعي</span>
+                    <div class="card-dept"><span class="dept-dot"></span>44 · علوم الحاسوب</div>
+                </div>
+            </div>
+
+            <div class="member-card" onclick="openModal('malaz-nasif')">
+                <div class="card-photo"><img src="Assets/People/Women.png" alt="ملاذ ناصف"><span class="view-hint">اضغط
+                        لعرض الملف الشخصي</span></div>
+                <div class="card-info">
+                    <div class="card-name">ملاذ ناصف</div><span class="card-role">العلاقات العامة</span>
+                    <div class="card-dept"><span class="dept-dot"></span>43 · علوم الحاسوب</div>
+                </div>
+            </div>
+
+            <div class="member-card" onclick="openModal('khaled')">
+                <div class="card-photo"><img src="Assets/People/خالد أحمد.png" alt="خالد أحمد"><span
+                        class="view-hint">اضغط لعرض الملف الشخصي</span></div>
+                <div class="card-info">
+                    <div class="card-name">خالد أحمد</div><span class="card-role">نائب العلاقات العامة</span>
+                    <div class="card-dept"><span class="dept-dot"></span>45 · علوم الحاسوب</div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <footer>كلية العلوم الرياضية والحاسوب · FMCS UOFG · 2025</footer>
+
+    <!-- ════════════════════════════
+       MODAL
+  ════════════════════════════ -->
+    <div class="modal-overlay" id="modalOverlay" onclick="handleOverlayClick(event)">
+        <div class="modal" id="modal">
+            <button class="modal-close" onclick="closeModal()">✕</button>
+
+            <div class="modal-banner">
+                <img class="modal-photo" id="modalPhoto" src="" alt="">
+                <div class="modal-banner-text">
+                    <div class="modal-season" id="modalSeason"></div>
+                    <div class="modal-name" id="modalName"></div>
+                    <span class="modal-role-badge" id="modalRole"></span>
+                </div>
+            </div>
+
+            <div class="modal-body">
+                <p class="modal-quote" id="modalQuote"></p>
+                <div class="modal-info-grid" id="modalInfoGrid"></div>
+
+                <div id="modalAchievementsBlock">
+                    <div class="modal-section-title">الإنجازات والمشاركات</div>
+                    <ul class="achievements-list" id="modalAchievements"></ul>
+                </div>
+
+                <div id="modalSocialBlock">
+                    <div class="modal-section-title">التواصل الاجتماعي</div>
+                    <div class="social-row" id="modalSocial"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        /* ════════════════════════════════════════
+           MEMBER DATA
+           Populate each member's profile here.
+           Social types: facebook | linkedin | twitter | instagram
+        ════════════════════════════════════════ */
+        const members = {
+
+            'ahmed-sulaiman': {
+                name: 'أحمد سُليمان',
+                season: 'رئيس رابطة طلاب كلية العلوم الرياضية والحاسوب · دورة ٢٠٢٥–٢٠٢٦م',
+                role: 'الرئيس',
+                photo: 'Assets/People/أحمد سليمان.png',
+                quote: 'شابٌ لم ينتظر الفرصة، بل صنعها.',
+                info: [
+                    { icon: 'university', text: 'جامعة الجزيرة' },
+                    { icon: 'faculty', text: 'كلية العلوم الرياضية والحاسوب' },
+                    { icon: 'dept-math', text: 'قسم الرياضيات' },
+                    { icon: 'batch', text: 'الدفعة ٤٢' },
+                ],
+                achievements: [
+                    'مدير العلاقات العامة – مؤتمر YDC 2023',
+                    'سفير – IEEE Africon 2023',
+                    'عضو IEEE فرع جامعة الجزيرة',
+                    'مدير العلاقات العامة – TEDx Al-Mahata',
+                    'مدير مؤتمر TEDx MST',
+                    'أمين عضوية منتدى القاسم – الدورة الثانية',
+                    'عضو فريق المتابعة والتقييم – شبكة الإغاثة الطوعية VRN',
+                    'عضو فريق التدريب – Hult Prize جامعة الجزيرة 2023',
+                    'متطوع سابق لدى منظمة سوداكير الخيرية – فرع بورتسودان',
+                ],
+                social: [
+                    { type: 'facebook', label: 'Facebook', url: 'https://www.facebook.com/nyaze.suliman' },
+                    { type: 'linkedin', label: 'LinkedIn', url: 'https://www.linkedin.com/in/ahmed-suliman-915a61294/' },
+                ],
+            },
+
+            'talal-hatem': {
+                name: 'طلال حاتم',
+                season: 'نائب رابطة طلاب كلية العلوم الرياضية والحاسوب · دورة ٢٠٢٥–٢٠٢٦م',
+                role: 'نائب الرئيس',
+                photo: 'Assets/People/طلال حاتم.png',
+                quote: '',
+                info: [
+                    { icon: 'university', text: 'جامعة الجزيرة' },
+                    { icon: 'faculty', text: 'كلية العلوم الرياضية والحاسوب' },
+                    { icon: 'dept-math', text: 'قسم الرياضيات' },
+                    { icon: 'batch', text: 'الدفعة ٤٣' },
+                ],
+                achievements: [],
+                social: [
+                    { type: 'facebook', label: 'Facebook', url: 'https://www.facebook.com/tlal.hatm.476092?comment_id=Y29tbWVudDoxMjIxMDIzMzc3NTkwNzQxMjVfNzkyODI1MzEzNDIxODM0' },
+                    { type: 'linkedin', label: 'LinkedIn', url: 'https://www.linkedin.com/in/talal-hatim-73188b2a7/' },
+                ],
+            },
+
+            'mustafa': {
+                name: 'مصطفى محمد',
+                season: 'الأمين الإعلامي · دورة ٢٠٢٥–٢٠٢٦م',
+                role: 'الأمين الإعلامي',
+                photo: 'Assets/People/مصطفى محمد.png',
+                quote: '',
+                info: [
+                    { icon: 'university', text: 'جامعة الجزيرة' },
+                    { icon: 'faculty', text: 'كلية العلوم الرياضية والحاسوب' },
+                    { icon: 'dept-math', text: 'قسم الإحصاء' },
+                    { icon: 'batch', text: 'الدفعة ٤٢' },
+                ],
+                achievements: [],
+                social: [
+                    { type: 'facebook', label: 'Facebook', url: 'https://www.facebook.com/mustafa.mohamed.871458?comment_id=Y29tbWVudDoxMjIxMDIzMzc3NTkwNzQxMjVfMTIwODI1NzgwNzc3ODg2MQ%3D%3D' },
+                ],
+            },
+
+
+            'ahmed-habeeb': {
+                name: 'أحمد الحبيب',
+                season: 'الأمين الاجتماعي · دورة ٢٠٢٥–٢٠٢٦م',
+                role: 'الأمين الاجتماعي',
+                photo: 'Assets/People/أحمد الحبيب.png',
+                quote: '',
+                info: [
+                    { icon: 'university', text: 'جامعة الجزيرة' },
+                    { icon: 'faculty', text: 'كلية العلوم الرياضية والحاسوب' },
+                    { icon: 'dept-math', text: 'قسم الرياضيات' },
+                    { icon: 'batch', text: 'الدفعة ٤٢' },
+                ],
+                achievements: [],
+                social: [
+                    { type: 'facebook', label: 'Facebook', url: 'https://www.facebook.com/ah.med.402780?comment_id=Y29tbWVudDoxMjIxMDIzMzc3NTkwNzQxMjVfMTQyMTk3MDQ5NTg0MTk4Nw%3D%3D' },
+                ],
+            },
+
+
+            'malaz-nasif': {
+                name: 'ملاذ ناصف',
+                season: 'أمين العلاقات العامة · دورة ٢٠٢٥–٢٠٢٦م',
+                role: 'أمين العلاقات العامة',
+                photo: 'Assets/People/Women.png',
+                quote: '',
+                info: [
+                    { icon: 'university', text: 'جامعة الجزيرة' },
+                    { icon: 'faculty', text: 'كلية العلوم الرياضية والحاسوب' },
+                    { icon: 'dept-math', text: 'قسم علوم الحاسوب' },
+                    { icon: 'batch', text: 'الدفعة ٤٣' },
+                ],
+                achievements: [],
+                social: [
+                    { type: 'facebook', label: 'Facebook', url: 'https://www.facebook.com/malaz.nasif?comment_id=Y29tbWVudDoxMjIxMDIzMzc3NTkwNzQxMjVfMTYxNTg5Mzg1Mjk5MTU5OA%3D%3D' },
+                ],
+            },
+
+            /* ── Remaining members — add details as they become available ── */
+            'ibthal': stub('ابتهال محمد', 'الأمين العام', 'Assets/People/Women.png', '٤٢', 'قسم الإحصاء'),
+            'abdulrahman-ibrahim': stub('عبدالرحمن إبراهيم', 'نائب الأمين العام', 'Assets/People/عبدالرحمن إبراهيم.png', '٤٤', 'قسم علوم الحاسوب'),
+
+            'israa': stub('إسراء سليمان', 'نائب الأمين الإعلامي', 'Assets/People/Women.png', '٤٥', 'قسم الإحصاء'),
+            'ali-tayyib': stub('علي الطيب', 'الأمين الثقافي', 'Assets/People/علي الطيب.png', '٤٣', 'قسم الإحصاء'),
+            'mihad': stub('مهاد جمال', 'نائب الأمين الثقافي', 'Assets/People/Women.png', '٤٢', 'قسم الإحصاء'),
+            'ali-abdulazeem': stub('علي عبدالعظيم', 'الأمين المالي', 'Assets/People/علي عبدالعظيم.png', '٤٤', 'قسم علوم الحاسوب'),
+            'ahmed-alameen': stub('أحمد الأمين', 'نائب الأمين المالي', 'Assets/People/أحمد الأمين.png', '٤١', 'قسم علوم الحاسوب'),
+            'abdulrahman-mohammed': stub('عبدالرحمن محمد', 'الأمين الأكاديمي', 'Assets/People/عبدالرحمن محمد.png', '٤٢', 'قسم علوم الحاسوب'),
+            'areej': stub('أريج عصام الدين', 'نائب الأمين الأكاديمي', 'Assets/People/Women.png', '٤٥', 'قسم علوم الحاسوب'),
+
+            'malaz-ali': stub('ملاذ علي', 'نائب الأمين الاجتماعي', 'Assets/People/Women.png', '٤٤', 'قسم علوم الحاسوب'),
+
+            'khaled': stub('خالد أحمد', 'نائب العلاقات العامة', 'Assets/People/خالد أحمد.png', '٤٥', 'قسم علوم الحاسوب'),
+        };
+
+        /* helper to generate a minimal stub entry */
+        function stub(name, role, photo, batch, dept) {
+            const deptIcon = dept === 'قسم الرياضيات' ? 'dept-math'
+                : dept === 'قسم الإحصاء' ? 'dept-stat'
+                    : 'dept-cs';
+            return {
+                name, role, photo,
+                season: 'دورة ٢٠٢٥–٢٠٢٦م',
+                quote: '',
+                info: [
+                    { icon: 'university', text: 'جامعة الجزيرة' },
+                    { icon: 'faculty', text: 'كلية العلوم الرياضية والحاسوب' },
+                    { icon: deptIcon, text: dept },
+                    { icon: 'batch', text: 'الدفعة ' + batch },
+                ],
+                achievements: [],
+                social: [],
+            };
+        }
+
+        /* ── icon map ── */
+        const icons = {
+            university: `<img class="pill-img" src="Assets/UofG Logo.png" alt="">`,
+            faculty: `<img class="pill-img" src="Assets/FMCS Logo.png" alt="">`,
+            'dept-math': `<span class="pill-symbol">∑</span>`,
+            'dept-stat': `<span class="pill-symbol">∫</span>`,
+            'dept-cs': `<span class="pill-symbol">;</span>`,
+            batch: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>`,
+        };
+
+        const socialIcons = {
+            facebook: `<svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047V9.41c0-3.025 1.792-4.697 4.533-4.697 1.312 0 2.686.235 2.686.235v2.97h-1.513c-1.491 0-1.956.93-1.956 1.887v2.267h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.1 24 12.073z"/></svg>`,
+            linkedin: `<svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>`,
+            twitter: `<svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.737-8.847L1.524 2.25H8.08l4.259 5.63L18.244 2.25zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>`,
+            instagram: `<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>`,
+        };
+
+        /* ── modal logic ── */
+        function openModal(id) {
+            const m = members[id];
+            if (!m) return;
+
+            document.getElementById('modalPhoto').src = m.photo;
+            document.getElementById('modalPhoto').alt = m.name;
+            document.getElementById('modalSeason').textContent = m.season;
+            document.getElementById('modalName').textContent = m.name;
+            document.getElementById('modalRole').textContent = m.role;
+
+            const quoteEl = document.getElementById('modalQuote');
+            quoteEl.textContent = m.quote;
+            quoteEl.style.display = m.quote ? '' : 'none';
+
+            document.getElementById('modalInfoGrid').innerHTML =
+                m.info.map(i => `<div class="info-pill">${icons[i.icon] || ''}<span>${i.text}</span></div>`).join('');
+
+            const achBlock = document.getElementById('modalAchievementsBlock');
+            const achList = document.getElementById('modalAchievements');
+            if (m.achievements.length) {
+                achList.innerHTML = m.achievements.map(a => `<li>${a}</li>`).join('');
+                achBlock.style.display = '';
+            } else {
+                achBlock.style.display = 'none';
+            }
+
+            const socBlock = document.getElementById('modalSocialBlock');
+            const socRow = document.getElementById('modalSocial');
+            if (m.social.length) {
+                socRow.innerHTML = m.social.map(s =>
+                    `<a class="social-btn ${s.type}" href="${s.url}" target="_blank" rel="noopener noreferrer">
+          ${socialIcons[s.type] || ''}${s.label}
+        </a>`
+                ).join('');
+                socBlock.style.display = '';
+            } else {
+                socBlock.style.display = 'none';
+            }
+
+            document.getElementById('modalOverlay').classList.add('open');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            document.getElementById('modalOverlay').classList.remove('open');
+            document.body.style.overflow = '';
+        }
+
+        function handleOverlayClick(e) {
+            if (e.target === document.getElementById('modalOverlay')) closeModal();
+        }
+
+        document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+    </script>
+</body>
+
+</html>

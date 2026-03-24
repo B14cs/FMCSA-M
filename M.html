@@ -1,0 +1,934 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>مبادرة خالتو مدينة</title>
+  <link rel="icon" type="image/png" href="Assets/White Logo.png" media="(prefers-color-scheme: dark)" />
+  <link rel="icon" type="image/png" href="Assets/Blue Logo.png" media="(prefers-color-scheme: light)" />
+  <style>
+    @font-face {
+      font-family: "FFShamelFamily";
+      src: url("Assets/Font/ArbFONTS-FFShamelFamily-SansOneBold.ttf") format("truetype");
+      font-weight: bold;
+      font-style: normal;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "FFShamelFamily", system-ui, -apple-system, sans-serif;
+    }
+
+    :root {
+      --primary: #f7f7f7;
+      --primary-dark: #e0e0e0;
+      --primary-red: #e13d3e;
+      --green: #0d8f75;
+      --dark-green: #2f5856;
+      --blue: #214570;
+
+      --forest: #0b4d3a;
+      --green: #0d8f75;
+      --mint: #e4f5f0;
+      --gold: #c9a227;
+      --gold-lt: #f0d98a;
+      --cream: #faf7f2;
+      --ink: #1c2b28;
+      --muted: #607068;
+      --navy: #1e3a5f;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      background-image: url("Assets/Background.png");
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      min-height: 100%;
+    }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 1.5rem;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      padding-bottom: calc(1.5rem + env(safe-area-inset-bottom));
+    }
+
+    .container {
+      background: var(--primary);
+      max-width: 520px;
+      width: 100%;
+      border-radius: 1.25rem;
+      overflow: hidden;
+      box-shadow: 0 24px 80px rgba(0, 0, 0, .45), 0 2px 0 rgba(201, 162, 39, .35);
+      animation: riseUp .7s cubic-bezier(.22, 1, .36, 1) both;
+    }
+
+    @keyframes riseUp {
+      from {
+        opacity: 0;
+        transform: translateY(48px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* ── Hero / Main image section ── */
+    .main-content {
+      position: relative;
+      background-color: var(--forest);
+      background-image: url("Assets/IMG001.png");
+      background-repeat: no-repeat;
+      background-size: cover;
+      color: var(--primary);
+      padding: 0;
+      min-height: 21rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      overflow: hidden;
+    }
+
+    .main-content::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom,
+          rgba(0, 0, 0, 0.08) 0%,
+          rgba(0, 0, 0, 0.15) 50%,
+          rgba(13, 60, 40, 0.72) 100%);
+      z-index: 0;
+    }
+
+    .logo-bar {
+      position: absolute;
+      top: 1.5rem;
+      right: 1.5rem;
+      z-index: 2;
+    }
+
+    .logo-bar img {
+      width: 65%;
+      object-fit: contain;
+    }
+
+    .hero-text {
+      position: relative;
+      z-index: 1;
+      padding: 0 1.4rem 1.4rem 1.4rem;
+      text-align: right;
+    }
+
+    .hero-title {
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      direction: rtl;
+      line-height: 1;
+      margin-bottom: 0.2rem;
+      gap: 0;
+    }
+
+    .hero-title .part {
+      font-size: 7rem;
+      font-weight: bold;
+      color: #ffffff;
+      line-height: 1;
+    }
+
+    .hero-title .mid {
+      position: relative;
+      display: inline-flex;
+      align-items: flex-end;
+    }
+
+    .hero-title .mid .dash {
+      font-size: 7rem;
+      font-weight: bold;
+      color: #ffffff;
+      line-height: 1;
+      letter-spacing: -0.05em;
+    }
+
+    .hero-title .mid .khalto {
+      position: absolute;
+      bottom: 50%;
+      left: 87.5%;
+      transform: translateX(-50%);
+      font-size: 2.5rem;
+      font-weight: bold;
+      color: #ffffff;
+      white-space: nowrap;
+    }
+
+    .hero-subtitle {
+      text-align: center;
+      font-size: 2rem;
+      color: #e8f5f0;
+      text-shadow: 0 1px 8px rgba(0, 0, 0, 0.35);
+    }
+
+    /* ─── Sections ─── */
+    .sec {
+      padding: 1.5rem;
+    }
+
+    .sec+.sec {
+      padding-top: 0;
+    }
+
+    /* ── Info / description block ── */
+    .batch-info {
+      background-color: var(--primary);
+      padding: 1.2rem 1.5rem 0rem;
+      color: #222;
+    }
+
+    .batch-info .title {
+      color: var(--blue);
+      font-size: 1.75rem;
+      font-weight: bold;
+      margin-bottom: 0.55rem;
+      text-align: right;
+    }
+
+    .batch-info p.body-text {
+      font-size: 1.25rem;
+      line-height: 1.75;
+      text-align: justify;
+      color: #222;
+    }
+
+    /* ── Amount + Progress section ── */
+    .amount-section {
+      background-color: var(--primary);
+      color: var(--green);
+      padding: 0.5rem 1.5rem 0rem;
+    }
+
+    .calculationTitles {
+      display: flex;
+      justify-content: space-between;
+      color: var(--green);
+      font-size: 1rem;
+      padding-top: 0.25rem;
+    }
+
+    .calculation {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .collected {
+      font-size: 1rem;
+      font-weight: bold;
+      color: var(--dark-green);
+      line-height: 1.2;
+      text-align: right;
+    }
+
+    .remain {
+      font-size: 1rem;
+      font-weight: bold;
+      color: var(--dark-green);
+      line-height: 1.2;
+      text-align: left;
+    }
+
+    .progress-container {
+      background: var(--primary-dark);
+      height: 2rem;
+      border-radius: .5rem;
+      margin: .5rem 0;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .progress-bar {
+      width: 1.5%;
+      height: 100%;
+      background: linear-gradient(90deg, var(--forest) 0%, var(--green) 60%, #12b898 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Shimmer sweep */
+    .progress-bar::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -60%;
+      width: 50%;
+      height: 100%;
+      background: linear-gradient(90deg,
+          transparent,
+          rgba(255, 255, 255, .28),
+          transparent);
+      animation: shimmer 2s ease-in-out infinite;
+    }
+
+    @keyframes shimmer {
+      0% {
+        left: -60%;
+      }
+
+      100% {
+        left: 120%;
+      }
+    }
+
+    /* Glow pulse once animation ends */
+    .progress-bar.done {
+      box-shadow: 0 0 10px rgba(13, 143, 117, .55), 0 0 24px rgba(13, 143, 117, .25);
+      animation: glow 2s ease-in-out infinite alternate;
+    }
+
+    @keyframes glow {
+      from {
+        box-shadow: 0 0 6px rgba(13, 143, 117, .4), 0 0 14px rgba(13, 143, 117, .15);
+      }
+
+      to {
+        box-shadow: 0 0 14px rgba(13, 143, 117, .7), 0 0 32px rgba(13, 143, 117, .35);
+      }
+    }
+
+    .progress-text {
+      position: absolute;
+      color: #fff;
+      font-size: 1rem;
+      font-weight: bold;
+      text-align: center;
+      width: 100%;
+      z-index: 1;
+      text-shadow: 0 1px 3px rgba(0, 0, 0, .3);
+      padding-top: .25rem;
+    }
+
+    .goal-note {
+      font-size: .9rem;
+      color: var(--muted);
+      text-align: center;
+      margin-bottom: .25rem;
+    }
+
+    /* ── Donation / bank info ── */
+    .donation-info {
+      background-color: var(--primary);
+      color: var(--blue);
+      padding: 0.6rem 1.5rem 0.8rem;
+    }
+
+    .donation-info h3 {
+      font-size: 1.1rem;
+      font-weight: bold;
+      color: var(--blue);
+      text-align: right;
+      margin-bottom: 0.3rem;
+    }
+
+    .bank-details {
+      text-align: center;
+    }
+
+    .bank-details .bank-name {
+      color: var(--green);
+      font-size: 1.35rem;
+      font-weight: bold;
+      margin-bottom: 0.1rem;
+    }
+
+    .bank-details .bank-num {
+      color: var(--dark-green);
+      font-size: 2.8rem;
+      font-weight: bold;
+      line-height: 1.15;
+      letter-spacing: .15em;
+    }
+
+    .bank-copy {
+      background-color: var(--primary);
+      color: var(--dark-green);
+      border: none;
+      font-size: 2.8rem;
+      line-height: 1.15;
+      letter-spacing: .15em;
+      cursor: pointer;
+    }
+
+    .bank-copy:hover {
+      font-size: 3rem;
+    }
+
+    .bank-copy.done {
+      font-size: 1.75rem;
+      background: rgba(201, 162, 39, .35);
+      border-color: var(--gold);
+      padding: .35rem .7rem;
+      border-radius: .5rem;
+      color: var(--primary);
+    }
+
+    /* ── Note section ── */
+    .note-section {
+      background-color: var(--primary);
+      padding: 0rem 1.5rem 0.8rem;
+      color: #222;
+      font-size: 1.25rem;
+      line-height: 1.65;
+      text-align: justify;
+    }
+
+    .note-section .note-title {
+      font-size: 1.25rem;
+      font-weight: bold;
+      color: var(--blue);
+      margin-bottom: 0.2rem;
+    }
+
+    /* ─── Share btn ─── */
+    .share-btn {
+      width: 100%;
+      background: linear-gradient(135deg, var(--green), var(--forest));
+      color: #fff;
+      font-family: var(--font-ar);
+      font-size: 1.15rem;
+      font-weight: bold;
+      padding: .9rem;
+      border: none;
+      border-radius: .85rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: .55rem;
+      letter-spacing: .03em;
+      box-shadow: 0 4px 20px rgba(13, 143, 117, .35);
+      transition: transform .15s, box-shadow .15s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .share-btn::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, .1), transparent);
+      transform: translateX(-100%);
+      transition: transform .5s;
+    }
+
+    .share-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(13, 143, 117, .45);
+      opacity: 1;
+    }
+
+    .share-btn:hover::before {
+      transform: translateX(100%);
+    }
+
+    .share-btn:active {
+      transform: translateY(0);
+    }
+
+    /* ── Contact ── */
+    .contact-section {
+      background-color: var(--primary);
+      padding: 0.75rem 1.5rem 1rem;
+      color: var(--dark-green);
+      text-align: center;
+      line-height: 1.6;
+      font-size: 1.25rem;
+    }
+
+    .contact-section a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    p,
+    h1,
+    h2,
+    h3,
+    div {
+      letter-spacing: 0;
+      word-spacing: 0.05em;
+    }
+
+    /* ─── Overlay ─── */
+    #overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(11, 30, 20, .55);
+      backdrop-filter: blur(4px);
+      z-index: 90;
+      opacity: 0;
+      transition: opacity .28s;
+    }
+
+    #overlay.on {
+      opacity: 1;
+    }
+
+    /* ─── Sheet ─── */
+    #sheet {
+      display: none;
+      position: fixed;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%) translateY(110%);
+      width: 100%;
+      max-width: 500px;
+      background: var(--cream);
+      border-radius: 1.75rem 1.75rem 0 0;
+      padding: 0 1.6rem 2.2rem;
+      z-index: 100;
+      box-shadow: 0 -8px 48px rgba(0, 0, 0, .22);
+      transition: transform .38s cubic-bezier(.34, 1.1, .64, 1);
+      direction: rtl;
+    }
+
+    #sheet.dragging {
+      transition: none;
+    }
+
+    #sheet.on {
+      transform: translateX(-50%) translateY(0);
+    }
+
+    .sheet-pill {
+      width: 2.8rem;
+      height: .3rem;
+      background: #ccc;
+      border-radius: 99px;
+      margin: .9rem auto 1.2rem;
+    }
+
+    .sheet-head {
+      margin-bottom: 1.25rem;
+      text-align: center;
+    }
+
+    .sheet-title {
+      font-family: var(--font-ar);
+      font-size: 1.15rem;
+      font-weight: bold;
+      color: var(--navy);
+    }
+
+    .copy-row {
+      display: flex;
+      align-items: center;
+      gap: .5rem;
+      background: #f0f5f2;
+      border: 1.5px solid #c5ddd8;
+      border-radius: .75rem;
+      padding: .4rem .4rem .4rem .7rem;
+      margin-bottom: 1.4rem;
+      direction: ltr;
+    }
+
+    .copy-row input {
+      flex: 1;
+      border: none;
+      background: transparent;
+      font-size: .82rem;
+      color: var(--forest);
+      font-family: monospace;
+      outline: none;
+      min-width: 0;
+    }
+
+    .copy-row-btn {
+      flex-shrink: 0;
+      background: var(--green);
+      color: #fff;
+      border: none;
+      border-radius: .55rem;
+      padding: .45rem .9rem;
+      font-size: .88rem;
+      font-family: var(--font-ar);
+      cursor: pointer;
+      width: auto;
+      display: flex;
+      align-items: center;
+      gap: .3rem;
+      transition: background .2s;
+    }
+
+    .copy-row-btn.done {
+      background: var(--forest);
+    }
+
+    .copy-row-btn:hover {
+      opacity: .85;
+    }
+
+    .or-divider {
+      display: flex;
+      align-items: center;
+      gap: .7rem;
+      color: #aaa;
+      font-size: .8rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .or-divider::before,
+    .or-divider::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: #ddd;
+    }
+
+    .socials {
+      display: flex;
+      justify-content: center;
+      gap: .9rem;
+      flex-wrap: wrap;
+    }
+
+    .soc {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: .38rem;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .soc-ring {
+      width: 3.25rem;
+      height: 3.25rem;
+      border-radius: 50%;
+      overflow: hidden;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, .12);
+      transition: transform .18s, box-shadow .18s;
+    }
+
+    .soc:hover .soc-ring {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, .18);
+    }
+
+    .soc-ring img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .soc-ring.dl {
+      background: #f0f5f2;
+      border: 1.5px solid #c5ddd8;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .soc-ring.dl img {
+      width: 52%;
+      height: 52%;
+      object-fit: contain;
+    }
+
+    .soc span {
+      font-size: .72rem;
+      color: var(--muted);
+    }
+
+    /* ─── Responsive ─── */
+    @media (max-width: 480px) {
+      .hero-title .part {
+        font-size: 4.8rem;
+      }
+
+      .hero-title .mid .dash {
+        font-size: 4.8rem;
+      }
+
+      .hero-title .mid .khalto {
+        font-size: 1.55rem;
+      }
+
+      .batch-info .title {
+        font-size: 1.25rem;
+      }
+
+      .batch-info p.body-text {
+        font-size: 1rem;
+      }
+
+      .bank-details .bank-num {
+        font-size: 2.2rem;
+      }
+
+      .note-section {
+        font-size: 1rem;
+      }
+
+      .note-section .note-title {
+        font-size: 1rem;
+      }
+
+      button {
+        font-size: 1rem;
+      }
+
+      .contact-section {
+        font-size: .9rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+
+    <!-- ── Hero image section ── -->
+    <div class="main-content">
+      <div class="logo-bar">
+        <img src="Assets/White H Logo.png" alt="FMCSA Logo" />
+      </div>
+      <div class="hero-text">
+        <div class="hero-title">
+          <span class="part">مـ</span>
+          <span class="mid">
+            <span class="khalto">خـــــــالتو</span>
+            <span class="dash">ــــــ</span>
+            <span class="part">ـدينة</span>
+          </span>
+        </div>
+        <div class="hero-subtitle">ظــــــل يجمعنا</div>
+      </div>
+    </div>
+
+    <!-- ── Description ── -->
+    <div class="batch-info">
+      <p style="word-spacing: -.05rem;"class="title">مبادرة إنشاء مظلة خالتي مدينة</p>
+      <p class="body-text">
+        شاركنا الأجر العظيم، وساهم معنا في إنشاء مظلَّتين بكلية العلوم الرياضية والحاسوب، وتوفير
+        كراسي لمكتبة الكلية.
+        تصدق بما تجود به؛ ينالك الأجر العظيم في الدنيا والآخرة.
+      </p>
+      <p class="body-text">قال ﷺ: "المؤمن للمؤمن كالبنيان يشد بعضه بعضاً"</p>
+    </div>
+
+    <!-- ── Amount + Progress section ── -->
+    <div class="amount-section">
+      <div class="calculationTitles">
+        <div>تم جمع:</div>
+        <div>المبلغ المتبقي:</div>
+      </div>
+      <div class="calculation">
+        <div class="collected"><span id="currentAmount">000,000</span> ج.س</div>
+        <div class="remain"><span id="remainAmount">000,000</span> ج.س</div>
+      </div>
+      <div class="progress-container">
+        <div class="progress-bar" id="progressBar">
+          <span class="progress-text" id="progressText">0%</span>
+        </div>
+      </div>
+      <p class="goal-note">الهدف: 15,000,000 ج.س</p>
+    </div>
+
+    <!-- ── Donation account ── -->
+    <div class="donation-info">
+      <h3>حساب التبرع:</h3>
+      <div class="bank-details">
+        <p class="bank-name">البراء علي محمد الحاج</p>
+        <!-- <span class="bank-num" id="bank-num">2859694</span> -->
+        <button class="bank-copy" id="bankCopy">2859694</button>
+      </div>
+    </div>
+
+    <!-- ── Note ── -->
+    <div class="note-section">
+      <p class="note-title">ملاحظة:</p>
+      <p>المبلغ المطلوب هو الحد الأدنى، وقد يزيد مع تغير أسعار السلع.</p>
+      <p style="word-spacing: -.075rem;">للتحويل من خارج السودان يرجى التواصل</p>
+    </div>
+
+    <!-- ── Share button ── -->
+    <div class="sec" style="padding-top:.6rem; padding-bottom:.6rem">
+      <button class="share-btn" id="shareBtn">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+          stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="18" cy="5" r="3" />
+          <circle cx="6" cy="12" r="3" />
+          <circle cx="18" cy="19" r="3" />
+          <line x1="8.59" y1="13.51" x2="15.42" y2="17.49" />
+          <line x1="15.41" y1="6.51" x2="8.59" y2="10.49" />
+        </svg>
+        مشاركة المبادرة
+      </button>
+    </div>
+
+    <!-- ── Contact ── -->
+    <div class="contact-section">
+      <p>
+        للتواصل أو الاستفسار:
+        <a href="https://wa.me/249929951586" target="_blank">1586 995 92 249+</a>
+      </p>
+    </div>
+
+  </div>
+
+  <!-- ── Overlay ── -->
+  <div id="overlay"></div>
+
+  <!-- ── Share sheet ── -->
+  <div id="sheet">
+    <div class="sheet-pill"></div>
+    <div class="sheet-head">
+      <span class="sheet-title">شارك المبادرة</span>
+    </div>
+
+    <div class="copy-row">
+      <input id="linkInput" type="text" value="https://b14cs.github.io/FMCSA-M/" readonly />
+      <button class="copy-row-btn" id="copyLinkBtn">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"
+          stroke-linecap="round" stroke-linejoin="round">
+          <rect x="9" y="9" width="13" height="13" rx="2" />
+          <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+        </svg>
+        <span id="copyLbl">نسخ</span>
+      </button>
+    </div>
+
+    <div class="or-divider">أو شارك عبر</div>
+
+    <div class="socials">
+      <a class="soc" href="Assets/مبادرة رابطة الكلية.jpg" download target="_blank">
+        <div class="soc-ring dl"><img src="https://cdn-icons-png.flaticon.com/512/724/724933.png" alt="" /></div>
+        <span>تنزيل</span>
+      </a>
+      <a class="soc" href="https://t.me/share/url?url=https://b14cs.github.io/FMCSA-M/" target="_blank">
+        <div class="soc-ring"><img src="https://cdn-icons-png.flaticon.com/512/2111/2111646.png" alt="" /></div>
+        <span>تيليغرام</span>
+      </a>
+      <a class="soc"
+        href="https://wa.me/?text=%D9%85%D8%A8%D8%A7%D8%AF%D8%B1%D8%A9%20%D8%B1%D8%A7%D8%A8%D8%B7%D8%A9%20%D8%A7%D9%84%D9%83%D9%84%D9%8A%D8%A9"
+        target="_blank">
+        <div class="soc-ring"><img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="" /></div>
+        <span>واتساب</span>
+      </a>
+      <a class="soc" href="https://twitter.com/intent/tweet?url=https://b14cs.github.io/FMCSA-M/" target="_blank">
+        <div class="soc-ring"><img
+            src="https://ugc.production.linktr.ee/1e154329-db20-4b4e-924c-6aa9fe0ccf9d_x-logo-png-twitter-0.jpeg?io=true&size=thumbnail-stack-v1_0"
+            alt="" /></div>
+        <span>X</span>
+      </a>
+      <a class="soc" href="https://www.facebook.com/sharer/sharer.php?u=https://b14cs.github.io/FMCSA-M/"
+        target="_blank">
+        <div class="soc-ring"><img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="" /></div>
+        <span>فيسبوك</span>
+      </a>
+    </div>
+  </div>
+
+  <script>
+    /* ── Progress bar ── */
+    document.addEventListener("DOMContentLoaded", function () {
+      const progressBar = document.getElementById("progressBar");
+      const progressText = document.getElementById("progressText");
+      const currentAmount = document.getElementById("currentAmount");
+      const remainAmount = document.getElementById("remainAmount");
+
+      const totalAmount = 15000000;
+      const raisedAmount = 3500000; // ← update here
+      const duration = 1500;
+      const startTime = performance.now();
+      const targetPercentage = (raisedAmount / totalAmount) * 100;
+
+      function animate(timestamp) {
+        const elapsed = timestamp - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        const currentPercentage = targetPercentage * progress;
+        const currentAmountValue = raisedAmount * progress;
+
+        progressBar.style.width = `${Math.max(currentPercentage, 1.5)}%`;
+        progressText.textContent = `${Math.round(currentPercentage)}%`;
+        currentAmount.textContent = formatNumber(Math.round(currentAmountValue));
+        remainAmount.textContent = formatNumber(Math.round(totalAmount - currentAmountValue));
+
+        if (progress < 1) requestAnimationFrame(animate);
+      }
+
+      requestAnimationFrame(animate);
+
+      function formatNumber(num) {
+        return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+      }
+    });
+
+    /* ── Bank copy ── */
+    document.getElementById("bankCopy").addEventListener("click", async function () {
+      try { await navigator.clipboard.writeText("2859694"); } catch { }
+      this.textContent = "✓ تم النسخ";
+      this.classList.add("done");
+      setTimeout(() => { this.textContent = "2859694"; this.classList.remove("done"); }, 2500);
+    });
+
+    /* ── Share sheet ── */
+    const overlay = document.getElementById("overlay");
+    const sheet = document.getElementById("sheet");
+    const shareBtn = document.getElementById("shareBtn");
+
+    function openSheet() {
+      overlay.style.display = sheet.style.display = "block";
+      requestAnimationFrame(() => requestAnimationFrame(() => {
+        overlay.classList.add("on");
+        sheet.classList.add("on");
+      }));
+      document.body.style.overflow = "hidden";
+    }
+
+    function closeSheet() {
+      overlay.classList.remove("on");
+      sheet.classList.remove("on");
+      document.body.style.overflow = "";
+      setTimeout(() => { overlay.style.display = sheet.style.display = "none"; }, 380);
+    }
+
+    shareBtn.addEventListener("click", openSheet);
+    overlay.addEventListener("click", closeSheet);
+    document.addEventListener("keydown", e => e.key === "Escape" && closeSheet());
+    sheet.addEventListener("touchend", () => {
+      sheet.classList.remove("dragging");
+      const dy = touchLastY - touchStartY;
+      const dt = Date.now() - touchStartTime;
+      const velocity = dy / dt;
+
+      if (dy > 80 || velocity > 0.4) {
+        closeSheet();
+      } else {
+        sheet.style.transform = "";
+        sheet.style.transition = ""; // re-enable CSS transition for snap-back
+        overlay.style.opacity = "";  // ← restore overlay explicitly
+      }
+    });
+
+    /* ── Copy link ── */
+    document.getElementById("copyLinkBtn").addEventListener("click", async function () {
+      const val = document.getElementById("linkInput").value;
+      try { await navigator.clipboard.writeText(val); } catch { document.getElementById("linkInput").select(); document.execCommand("copy"); }
+      document.getElementById("copyLbl").textContent = "✓ تم";
+      this.classList.add("done");
+      setTimeout(() => { document.getElementById("copyLbl").textContent = "نسخ"; this.classList.remove("done"); }, 2500);
+    });
+  </script>
+</body>
+
+</html>
