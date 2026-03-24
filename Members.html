@@ -715,11 +715,14 @@
 
         @media (max-width: 600px) {
             .row-leadership {
+                display: grid;
                 gap: 1.25rem;
+                grid-template-columns: repeat(auto-fill, minmax(11.25rem, 1fr));
+                justify-content: center;
             }
 
             .row-leadership .member-card {
-                width: 11.563rem;
+                width: unset;
             }
 
             .members-grid {
