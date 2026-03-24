@@ -180,7 +180,6 @@
             width: 100%;
             padding-top: .5rem;
             aspect-ratio: 3/4;
-            background: var(--band);
             overflow: hidden;
         }
 
@@ -1324,8 +1323,8 @@
             if (m.social.length) {
                 socRow.innerHTML = m.social.map(s =>
                     `<a class="social-btn ${s.type}" href="${s.url}" target="_blank" rel="noopener noreferrer">
-          ${socialIcons[s.type] || ''}${s.label}
-        </a>`
+                        ${socialIcons[s.type] || ''}${s.label}
+                    </a>`
                 ).join('');
                 socBlock.style.display = '';
             } else {
