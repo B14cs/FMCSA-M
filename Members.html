@@ -252,14 +252,10 @@
         }
 
         .card-role {
-            display: inline-block;
-            font-size: 0.72rem;
-            font-weight: 700;
-            color: var(--navy);
-            background: var(--gold);
-            border-radius: 999px;
-            padding: 0.125rem 0.625rem;
-            margin-top: 0.125rem;
+            font-size: 1rem;
+            font-weight: 900;
+            color: var(--gold);
+            line-height: 1.25;
         }
 
         .card-dept {
@@ -391,15 +387,13 @@
             line-height: 1.15;
         }
 
-        .modal-role-badge {
-            display: inline-block;
-            margin-top: 0.5625rem;
+        .modal-role {
             font-size: 0.71rem;
             font-weight: 700;
-            color: var(--navy);
-            background: var(--gold);
-            border-radius: 999px;
-            padding: 0.1875rem 0.8125rem;
+            color: var(--gold);
+            opacity: 0.9;
+            margin-bottom: 0.3125rem;
+            line-height: 1.4;
         }
 
         /* close btn */
@@ -935,9 +929,9 @@
             <div class="modal-banner">
                 <img class="modal-photo" id="modalPhoto" src="" alt="">
                 <div class="modal-banner-text">
+                    <span class="modal-role" id="modalRole"></span>
                     <div class="modal-season" id="modalSeason"></div>
                     <div class="modal-name" id="modalName"></div>
-                    <span class="modal-role-badge" id="modalRole"></span>
                 </div>
             </div>
 
@@ -968,8 +962,7 @@
 
             'ahmed-sulaiman': {
                 name: 'أحمد سليمان',
-                season: 'رئيس رابطة طلاب الكلية · دورة ٢٠٢٥–٢٠٢٦م',
-                role: 'الرئيس',
+                role: 'رئيس الرابطة',
                 photo: 'Assets/People/أحمد سليمان.png',
                 quote: 'السماء ليست حكراً على نجمٍ واحد',
                 info: [
@@ -997,8 +990,7 @@
 
             'talal-hatem': {
                 name: 'طلال حاتم',
-                season: 'نائب رئيس رابطة طلاب الكلية · دورة ٢٠٢٥–٢٠٢٦م',
-                role: 'نائب الرئيس',
+                role: 'نائب رئيس الرابطة',
                 photo: 'Assets/People/طلال حاتم.png',
                 quote: '',
                 info: [
@@ -1017,8 +1009,7 @@
 
             'ibthal': {
                 name: 'ابتهال محمد',
-                season: 'الأمين العام لرابطة طلاب الكلية · دورة ٢٠٢٥–٢٠٢٦م',
-                role: 'الأمين العام',
+                role: 'الأمين العام للرابطة',
                 photo: 'Assets/People/White Women.png',
                 quote: '',
                 info: [
@@ -1035,8 +1026,7 @@
 
             'abdulrahman-ibrahim': {
                 name: 'عبدالرحمن إبراهيم',
-                season: 'نائب الأمين العام لرابطة طلاب الكلية · دورة ٢٠٢٥–٢٠٢٦م',
-                role: 'نائب الأمين العام',
+                role: 'نائب الأمين العام للرابطة',
                 photo: 'Assets/People/عبدالرحمن إبراهيم.png',
                 quote: '',
                 info: [
@@ -1052,8 +1042,7 @@
 
             'ali-abdulazeem': {
                 name: 'علي عبدالعظيم',
-                season: 'الأمين المالي لرابطة طلاب الكلية · دورة ٢٠٢٥–٢٠٢٦م',
-                role: 'الأمين المالي',
+                role: 'الأمين المالي للرابطة',
                 photo: 'Assets/People/علي عبدالعظيم.png',
                 quote: '',
                 info: [
@@ -1068,8 +1057,7 @@
 
             'ahmed-alameen': {
                 name: 'أحمد الأمين',
-                season: 'نائب الأمين المالي لرابطة طلاب الكلية · دورة ٢٠٢٥–٢٠٢٦م',
-                role: 'نائب الأمين المالي',
+                role: 'نائب الأمين المالي للرابطة',
                 photo: 'Assets/People/أحمد الأمين.png',
                 quote: '',
                 info: [
@@ -1087,7 +1075,6 @@
 
             'mustafa': {
                 name: 'مصطفى محمد',
-                season: 'الأمين الإعلامي · دورة ٢٠٢٥–٢٠٢٦م',
                 role: 'الأمين الإعلامي',
                 photo: 'Assets/People/مصطفى محمد.png',
                 quote: '',
@@ -1105,7 +1092,6 @@
 
             'israa': {
                 name: 'إسراء سليمان',
-                season: 'نائب الأمين الإعلامي · دورة ٢٠٢٥–٢٠٢٦م',
                 role: 'نائب الأمين الإعلامي',
                 photo: 'Assets/People/White Women.png',
                 quote: '',
@@ -1124,7 +1110,6 @@
 
             'ali-tayyib': {
                 name: 'علي الطيب',
-                season: 'الأمين الثقافي · دورة ٢٠٢٥–٢٠٢٦م',
                 role: 'الأمين الثقافي',
                 photo: 'Assets/People/علي الطيب.png',
                 quote: '',
@@ -1142,8 +1127,7 @@
 
             'mihad': {
                 name: 'مهاد جمال',
-                season: 'نائب الأمين الثقافي · دورة ٢٠٢٥–٢٠٢٦م',
-                role: 'الأمين الثقافي',
+                role: 'نائب الأمين الثقافي',
                 photo: 'Assets/People/White Women.png',
                 quote: '',
                 info: [
@@ -1159,7 +1143,6 @@
 
             'abdulrahman-mohammed': {
                 name: 'عبدالرحمن محمد',
-                season: 'الأمين الأكاديمي · دورة ٢٠٢٥–٢٠٢٦م',
                 role: 'الأمين الأكاديمي',
                 photo: 'Assets/People/عبدالرحمن محمد.png',
                 quote: '',
@@ -1178,7 +1161,6 @@
 
             'areej': {
                 name: 'أريج عصام الدين',
-                season: 'نائب الأمين الأكاديمي · دورة ٢٠٢٥–٢٠٢٦م',
                 role: 'نائب الأمين الأكاديمي',
                 photo: 'Assets/People/White Women.png',
                 quote: '',
@@ -1195,7 +1177,6 @@
 
             'ahmed-habeeb': {
                 name: 'أحمد الحبيب',
-                season: 'الأمين الاجتماعي · دورة ٢٠٢٥–٢٠٢٦م',
                 role: 'الأمين الاجتماعي',
                 photo: 'Assets/People/أحمد الحبيب.png',
                 quote: '',
@@ -1214,7 +1195,6 @@
             'malaz-ali': stub('ملاذ علي', 'نائب الأمين الاجتماعي', 'Assets/People/White Women.png', '٤٤', 'قسم علوم الحاسوب'),
             'ahmed-habeeb': {
                 name: 'أحمد الحبيب',
-                season: 'الأمين الاجتماعي · دورة ٢٠٢٥–٢٠٢٦م',
                 role: 'الأمين الاجتماعي',
                 photo: 'Assets/People/أحمد الحبيب.png',
                 quote: '',
@@ -1231,7 +1211,6 @@
 
             'malaz-nasif': {
                 name: 'ملاذ ناصف',
-                season: 'أمين العلاقات العامة · دورة ٢٠٢٥–٢٠٢٦م',
                 role: 'أمين العلاقات العامة',
                 photo: 'Assets/People/White Women.png',
                 quote: '',
@@ -1249,7 +1228,6 @@
 
             'khaled': {
                 name: 'خالد أحمد',
-                season: 'نائب أمين العلاقات العامة · دورة ٢٠٢٥–٢٠٢٦م',
                 role: 'نائب أمين العلاقات العامة',
                 photo: 'Assets/People/خالد أحمد.png',
                 quote: '',
@@ -1309,9 +1287,9 @@
 
             document.getElementById('modalPhoto').src = m.photo;
             document.getElementById('modalPhoto').alt = m.name;
-            document.getElementById('modalSeason').textContent = m.season;
-            document.getElementById('modalName').textContent = m.name;
             document.getElementById('modalRole').textContent = m.role;
+            document.getElementById('modalSeason').textContent = 'دورة ٢٠٢٥–٢٠٢٦م';
+            document.getElementById('modalName').textContent = m.name;
 
             const quoteEl = document.getElementById('modalQuote');
             quoteEl.textContent = m.quote;
