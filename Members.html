@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>أعضاء المكتب التنفيذي · FMCSA</title>
-    <meta name="description" content="أعضاء المكتب التنفيذي لرابطة طلاب كلية العلوم الرياضية والحاسوب - جامعة الجزيرة. دورة ٢٠٢٥–٢٠٢٦م.">
+    <meta name="description"
+        content="أعضاء المكتب التنفيذي لرابطة طلاب كلية العلوم الرياضية والحاسوب - جامعة الجزيرة. دورة ٢٠٢٥–٢٠٢٦م.">
     <meta property="og:title" content="أعضاء المكتب التنفيذي — FMCSA">
     <meta property="og:description" content="تعرف على أعضاء المكتب التنفيذي لرابطة طلاب كلية العلوم الرياضية والحاسوب">
     <meta property="og:image" content="Assets/Cover.jpg">
@@ -273,7 +274,7 @@
 
         .row-leadership .member-card:hover {
             box-shadow: 0 1.25rem 3.125rem rgba(0, 0, 0, 0.5),
-                        0 0 0 1px rgba(245, 197, 24, 0.18);
+                0 0 0 1px rgba(245, 197, 24, 0.18);
             border-color: rgba(245, 197, 24, 0.22);
         }
 
@@ -714,14 +715,22 @@
             animation-delay: .86s;
         }
 
-        footer {
-            position: relative;
-            z-index: 2;
-            text-align: center;
-            padding: 1.5rem 1.25rem;
-            font-size: 0.75rem;
-            color: rgba(160, 174, 200, 0.5);
+
+        .page-footer {
             border-top: 0.0625rem solid rgba(255, 255, 255, 0.06);
+            padding: 1.5rem 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .page-footer span {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.14em;
+            color: rgba(255, 255, 255, 0.4);
+            direction: ltr;
         }
 
         /* ── Responsive ── */
@@ -864,6 +873,7 @@
         }
 
         @media (prefers-reduced-motion: reduce) {
+
             /* Only disable auto-playing animations (fadeUp on load) */
             .member-card {
                 animation: none !important;
@@ -891,25 +901,6 @@
             outline-offset: 2px;
         }
 
-        /* ── Skip link ── */
-        .skip-link {
-            position: absolute;
-            top: -100%;
-            left: 50%;
-            transform: translateX(-50%);
-            background: var(--gold);
-            color: var(--navy);
-            padding: 0.5rem 1rem;
-            border-radius: 0 0 0.5rem 0.5rem;
-            z-index: 1000;
-            font-weight: 700;
-            text-decoration: none;
-            transition: top 0.2s;
-        }
-
-        .skip-link:focus {
-            top: 0;
-        }
 
         @media (max-height: 500px) and (orientation: landscape) {
             header {
@@ -941,8 +932,6 @@
 </head>
 
 <body>
-    <a href="#main-content" class="skip-link">تخطي إلى المحتوى</a>
-
     <header>
         <img src="Assets/White V Logo.png" alt="FMCSA" class="logo-img">
         <h1>أعضاء المكتب التنفيذي<br><em>لرابطة طلاب الكلية</em></h1>
@@ -984,16 +973,16 @@
             </div>
 
             <div class="member-card" onclick="openModal('abdulrahman-ibrahim')">
-                <div class="card-photo"><img loading="lazy" src="Assets/People/عبدالرحمن إبراهيم.webp" alt="عبدالرحمن إبراهيم"><span
-                        class="view-hint">اضغط لعرض الملف الشخصي</span></div>
+                <div class="card-photo"><img loading="lazy" src="Assets/People/عبدالرحمن إبراهيم.webp"
+                        alt="عبدالرحمن إبراهيم"><span class="view-hint">اضغط لعرض الملف الشخصي</span></div>
                 <div class="card-info">
                     <div class="card-name">عبدالرحمن إبراهيم</div><span class="card-role">نائب الأمين العام</span>
                 </div>
             </div>
 
             <div class="member-card" onclick="openModal('ali-abdulazeem')">
-                <div class="card-photo"><img loading="lazy" src="Assets/People/علي عبدالعظيم.webp" alt="علي عبدالعظيم"><span
-                        class="view-hint">اضغط لعرض الملف الشخصي</span></div>
+                <div class="card-photo"><img loading="lazy" src="Assets/People/علي عبدالعظيم.webp"
+                        alt="علي عبدالعظيم"><span class="view-hint">اضغط لعرض الملف الشخصي</span></div>
                 <div class="card-info">
                     <div class="card-name">علي عبدالعظيم</div><span class="card-role">الأمين المالي</span>
                 </div>
@@ -1021,8 +1010,8 @@
             </div>
 
             <div class="member-card" onclick="openModal('israa')">
-                <div class="card-photo"><img loading="lazy" src="Assets/People/White Women.webp" alt="إسراء سليمان"><span
-                        class="view-hint">اضغط لعرض الملف الشخصي</span></div>
+                <div class="card-photo"><img loading="lazy" src="Assets/People/White Women.webp"
+                        alt="إسراء سليمان"><span class="view-hint">اضغط لعرض الملف الشخصي</span></div>
                 <div class="card-info">
                     <div class="card-name">إسراء سليمان</div><span class="card-role">النائب الإعلامي</span>
                 </div>
@@ -1046,16 +1035,16 @@
             </div>
 
             <div class="member-card" onclick="openModal('abdulrahman-mohammed')">
-                <div class="card-photo"><img loading="lazy" src="Assets/People/عبدالرحمن محمد.webp" alt="عبدالرحمن محمد"><span
-                        class="view-hint">اضغط لعرض الملف الشخصي</span></div>
+                <div class="card-photo"><img loading="lazy" src="Assets/People/عبدالرحمن محمد.webp"
+                        alt="عبدالرحمن محمد"><span class="view-hint">اضغط لعرض الملف الشخصي</span></div>
                 <div class="card-info">
                     <div class="card-name">عبدالرحمن محمد</div><span class="card-role">الأمين الأكاديمي</span>
                 </div>
             </div>
 
             <div class="member-card" onclick="openModal('areej')">
-                <div class="card-photo"><img loading="lazy" src="Assets/People/White Women.webp" alt="أريج عصام الدين"><span
-                        class="view-hint">اضغط لعرض الملف الشخصي</span></div>
+                <div class="card-photo"><img loading="lazy" src="Assets/People/White Women.webp"
+                        alt="أريج عصام الدين"><span class="view-hint">اضغط لعرض الملف الشخصي</span></div>
                 <div class="card-info">
                     <div class="card-name">أريج عصام الدين</div><span class="card-role">النائب الأكاديمي</span>
                 </div>
@@ -1098,12 +1087,16 @@
         </div>
     </main>
 
-    <footer>رابطة طلاب كلية العلوم الرياضية والحاسوب · FMCSA UOFG · 2026</footer>
+    <footer class="page-footer">
+        <span>FMCSA</span>
+        <span>2026</span>
+    </footer>
 
     <!-- ════════════════════════════
        MODAL
   ════════════════════════════ -->
-    <div class="modal-overlay" id="modalOverlay" role="dialog" aria-modal="true" aria-label="الملف الشخصي" onclick="handleOverlayClick(event)">
+    <div class="modal-overlay" id="modalOverlay" role="dialog" aria-modal="true" aria-label="الملف الشخصي"
+        onclick="handleOverlayClick(event)">
         <div class="modal" id="modal">
             <button class="modal-close" onclick="closeModal()" aria-label="إغلاق">✕</button>
 
