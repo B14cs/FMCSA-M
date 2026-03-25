@@ -5,6 +5,17 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>مبادرة خالتو مدينة</title>
+  <meta name="description" content="مبادرة خالتو مدينة - رابطة طلاب كلية العلوم الرياضية والحاسوب. ساهم في إنشاء مظلة وتوفير كراسي لمكتبة الكلية.">
+  <meta property="og:title" content="مبادرة خالتو مدينة — FMCSA">
+  <meta property="og:description" content="ساهم معنا في إنشاء مظلتين بكلية العلوم الرياضية والحاسوب وتوفير كراسي لمكتبة الكلية">
+  <meta property="og:image" content="Assets/Share.png">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="ar_SD">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="مبادرة خالتو مدينة — FMCSA">
+  <meta name="twitter:description" content="ساهم معنا في إنشاء مظلتين بكلية العلوم الرياضية والحاسوب">
+  <meta name="twitter:image" content="Assets/Share.png">
+  <link rel="preconnect" href="https://cdn-icons-png.flaticon.com" crossorigin>
   <link rel="icon" type="image/png" href="Assets/White Logo.png" media="(prefers-color-scheme: dark)" />
   <link rel="icon" type="image/png" href="Assets/Blue Logo.png" media="(prefers-color-scheme: light)" />
   <style>
@@ -13,6 +24,7 @@
       src: url("Assets/Font/ArbFONTS-FFShamelFamily-SansOneBold.ttf") format("truetype");
       font-weight: bold;
       font-style: normal;
+      font-display: swap;
     }
 
     * {
@@ -26,24 +38,24 @@
       --primary: #f7f7f7;
       --primary-dark: #e0e0e0;
       --primary-red: #e13d3e;
-      --green: #0d8f75;
       --dark-green: #2f5856;
       --blue: #214570;
 
       --forest: #0b4d3a;
       --green: #0d8f75;
       --mint: #e4f5f0;
+      --font-ar: "FFShamelFamily", system-ui, -apple-system, sans-serif;
       --gold: #c9a227;
       --gold-lt: #f0d98a;
       --cream: #faf7f2;
       --ink: #1c2b28;
-      --muted: #607068;
+      --muted: #4d5c54;
       --navy: #1e3a5f;
     }
 
     html {
       scroll-behavior: smooth;
-      background-image: url("Assets/Background.png");
+      background-image: url("Assets/Background.webp");
       background-position: center;
       background-repeat: no-repeat;
       background-size: cover;
@@ -87,7 +99,7 @@
     .main-content {
       position: relative;
       background-color: var(--forest);
-      background-image: url("Assets/IMG001.png");
+      background-image: url("Assets/IMG001.webp");
       background-repeat: no-repeat;
       background-size: cover;
       color: var(--primary);
@@ -140,7 +152,7 @@
     }
 
     .hero-title .part {
-      font-size: 7rem;
+      font-size: clamp(3.8rem, 13vw, 7rem);
       font-weight: bold;
       color: #ffffff;
       line-height: 1;
@@ -153,7 +165,7 @@
     }
 
     .hero-title .mid .dash {
-      font-size: 7rem;
+      font-size: clamp(3.8rem, 13vw, 7rem);
       font-weight: bold;
       color: #ffffff;
       line-height: 1;
@@ -165,7 +177,7 @@
       bottom: 50%;
       left: 87.5%;
       transform: translateX(-50%);
-      font-size: 2.5rem;
+      font-size: clamp(1.3rem, 4.8vw, 2.5rem);
       font-weight: bold;
       color: #ffffff;
       white-space: nowrap;
@@ -173,7 +185,7 @@
 
     .hero-subtitle {
       text-align: center;
-      font-size: 2rem;
+      font-size: clamp(1.3rem, 3.8vw, 2rem);
       color: #e8f5f0;
       text-shadow: 0 1px 8px rgba(0, 0, 0, 0.35);
     }
@@ -267,7 +279,7 @@
       content: "";
       position: absolute;
       top: 0;
-      left: -60%;
+      right: -60%;
       width: 50%;
       height: 100%;
       background: linear-gradient(90deg,
@@ -279,11 +291,11 @@
 
     @keyframes shimmer {
       0% {
-        left: -60%;
+        right: -60%;
       }
 
       100% {
-        left: 120%;
+        right: 120%;
       }
     }
 
@@ -366,8 +378,12 @@
       cursor: pointer;
     }
 
+    .bank-copy {
+      transition: transform .15s;
+    }
+
     .bank-copy:hover {
-      font-size: 3rem;
+      transform: scale(1.05);
     }
 
     .bank-copy.done {
@@ -439,7 +455,7 @@
     }
 
     .share-btn:active {
-      transform: translateY(0);
+      transform: translateY(0) scale(0.98);
     }
 
     /* ── Contact ── */
@@ -649,19 +665,38 @@
     }
 
     /* ─── Responsive ─── */
+    @media (min-width: 1201px) {
+      .container {
+        max-width: 560px;
+        border-radius: 1.5rem;
+      }
+
+      body {
+        padding: 3rem;
+      }
+    }
+
+    @media (max-width: 900px) {
+      .container {
+        max-width: 520px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .batch-info .title {
+        font-size: 1.5rem;
+      }
+
+      .batch-info p.body-text {
+        font-size: 1.1rem;
+      }
+
+      .hero-subtitle {
+        font-size: 1.6rem;
+      }
+    }
+
     @media (max-width: 480px) {
-      .hero-title .part {
-        font-size: 4.8rem;
-      }
-
-      .hero-title .mid .dash {
-        font-size: 4.8rem;
-      }
-
-      .hero-title .mid .khalto {
-        font-size: 1.55rem;
-      }
-
       .batch-info .title {
         font-size: 1.25rem;
       }
@@ -674,6 +709,10 @@
         font-size: 2.2rem;
       }
 
+      .bank-copy {
+        font-size: 2.2rem;
+      }
+
       .note-section {
         font-size: 1rem;
       }
@@ -682,12 +721,30 @@
         font-size: 1rem;
       }
 
-      button {
+      .share-btn {
         font-size: 1rem;
       }
 
       .contact-section {
         font-size: .9rem;
+      }
+    }
+
+    @media (max-width: 380px) {
+      .bank-details .bank-num,
+      .bank-copy {
+        font-size: 1.8rem;
+        letter-spacing: 0.1em;
+      }
+
+      body {
+        padding: 1rem;
+      }
+    }
+
+    @media (max-height: 500px) and (orientation: landscape) {
+      .main-content {
+        min-height: 14rem;
       }
     }
   </style>
@@ -735,7 +792,7 @@
         <div class="collected"><span id="currentAmount">000,000</span> ج.س</div>
         <div class="remain"><span id="remainAmount">000,000</span> ج.س</div>
       </div>
-      <div class="progress-container">
+      <div class="progress-container" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" aria-label="تقدم التبرعات">
         <div class="progress-bar" id="progressBar">
           <span class="progress-text" id="progressText">0%</span>
         </div>
@@ -749,7 +806,7 @@
       <div class="bank-details">
         <p class="bank-name">البراء علي محمد الحاج</p>
         <!-- <span class="bank-num" id="bank-num">2859694</span> -->
-        <button class="bank-copy" id="bankCopy">2859694</button>
+        <button class="bank-copy" id="bankCopy" aria-label="نسخ رقم الحساب 2859694">2859694</button>
       </div>
     </div>
 
@@ -789,7 +846,7 @@
   <div id="overlay"></div>
 
   <!-- ── Share sheet ── -->
-  <div id="sheet">
+  <div id="sheet" role="dialog" aria-modal="true" aria-label="مشاركة المبادرة">
     <div class="sheet-pill"></div>
     <div class="sheet-head">
       <span class="sheet-title">شارك المبادرة</span>
@@ -810,7 +867,7 @@
     <div class="or-divider">أو شارك عبر</div>
 
     <div class="socials">
-      <a class="soc" href="Assets/مبادرة رابطة الكلية.jpg" download target="_blank">
+      <a class="soc" href="Assets/مبادرة رابطة الكلية.webp" download target="_blank">
         <div class="soc-ring dl"><img src="https://cdn-icons-png.flaticon.com/512/724/724933.png" alt="" /></div>
         <span>تنزيل</span>
       </a>
@@ -860,6 +917,7 @@
 
         progressBar.style.width = `${Math.max(currentPercentage, 1.5)}%`;
         progressText.textContent = `${Math.round(currentPercentage)}%`;
+        progressBar.parentElement.setAttribute('aria-valuenow', Math.round(currentPercentage));
         currentAmount.textContent = formatNumber(Math.round(currentAmountValue));
         remainAmount.textContent = formatNumber(Math.round(totalAmount - currentAmountValue));
 
@@ -905,6 +963,25 @@
     shareBtn.addEventListener("click", openSheet);
     overlay.addEventListener("click", closeSheet);
     document.addEventListener("keydown", e => e.key === "Escape" && closeSheet());
+
+    /* ── Touch gesture: swipe down to dismiss ── */
+    let touchStartY = 0, touchLastY = 0, touchStartTime = 0;
+
+    sheet.addEventListener("touchstart", (e) => {
+      touchStartY = touchLastY = e.touches[0].clientY;
+      touchStartTime = Date.now();
+      sheet.classList.add("dragging");
+    }, { passive: true });
+
+    sheet.addEventListener("touchmove", (e) => {
+      touchLastY = e.touches[0].clientY;
+      const dy = touchLastY - touchStartY;
+      if (dy > 0) {
+        sheet.style.transform = `translateX(-50%) translateY(${dy}px)`;
+        overlay.style.opacity = Math.max(0, 1 - dy / 300);
+      }
+    }, { passive: true });
+
     sheet.addEventListener("touchend", () => {
       sheet.classList.remove("dragging");
       const dy = touchLastY - touchStartY;
