@@ -4,69 +4,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>أعضاء المكتب التنفيذي · FMCSA</title>
+    <title>مجلس الطلاب · FMCSA</title>
     <meta name="description"
         content="أعضاء المكتب التنفيذي لرابطة طلاب كلية العلوم الرياضية والحاسوب - جامعة الجزيرة. دورة ٢٠٢٥–٢٠٢٦م.">
-    <meta property="og:title" content="أعضاء المكتب التنفيذي — FMCSA">
+    <meta property="og:title" content="مجلس الطلاب — FMCSA">
     <meta property="og:description" content="تعرف على أعضاء المكتب التنفيذي لرابطة طلاب كلية العلوم الرياضية والحاسوب">
     <meta property="og:image" content="Assets/Cover.jpg">
     <meta property="og:type" content="website">
     <meta property="og:locale" content="ar_SD">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="أعضاء المكتب التنفيذي — FMCSA">
+    <meta name="twitter:title" content="مجلس الطلاب — FMCSA">
     <meta name="twitter:description" content="تعرف على أعضاء المكتب التنفيذي لرابطة طلاب كلية العلوم الرياضية والحاسوب">
     <meta name="twitter:image" content="Assets/Cover.jpg">
     <link rel="icon" type="image/png" href="Assets/White Logo.png" media="(prefers-color-scheme: dark)">
     <link rel="icon" type="image/png" href="Assets/Blue Logo.png" media="(prefers-color-scheme: light)">
 
+    <!-- Shared design system -->
+    <link rel="stylesheet" href="css/shared.css">
 
     <style>
-        *,
-        *::before,
-        *::after {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        @font-face {
-            font-family: "CairoFamily";
-            src: url("Assets/Font/Cairo-Bold.ttf") format("truetype");
-            font-weight: normal;
-            font-style: normal;
-            font-display: swap;
-        }
-
-        @font-face {
-            font-family: "MontserratFamily";
-            src: url("Assets/Font/Montserrat-Bold.ttf") format("truetype");
-            font-weight: normal;
-            font-style: normal;
-            font-display: swap;
-        }
-
-        :root {
-            --navy: #141345;
-            --band: #1a1860;
-            --gold: #f5c518;
-            --accent: #7b9fff;
-            --muted: rgba(160, 174, 200, 0.7);
-            --card-bg: rgba(255, 255, 255, 0.06);
-            --card-bd: rgba(255, 255, 255, 0.11);
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
+        /* ── PAGE-LEVEL OVERRIDES ── */
         body {
-            font-family: 'CairoFamily', system-ui, -apple-system, sans-serif;
-            background-color: var(--navy);
+            background: var(--navy);
             color: #fff;
             min-height: 100vh;
             position: relative;
         }
 
+        /* Textured background */
         body::before {
             content: '';
             position: fixed;
@@ -77,6 +42,7 @@
             background-position: center top;
             opacity: 0.22;
             mix-blend-mode: luminosity;
+            pointer-events: none;
         }
 
         body::after {
@@ -90,33 +56,46 @@
             pointer-events: none;
         }
 
-        header,
+        /* Ensure hero/main/footer sit above the fixed bg layers */
+        .members-header,
         main,
-        footer {
+        .site-footer {
             position: relative;
             z-index: 2;
         }
 
-        /* ── HEADER ── */
-        header {
-            text-align: center;
-            padding: 3.25rem 1.5rem 1.5rem;
+        /* ── PAGE-SPECIFIC TOKENS ── */
+        :root {
+            --band: #1a1860;
+            --accent: #7b9fff;
+            --muted: rgba(160, 174, 200, 0.7);
+            --card-bg: rgba(255, 255, 255, 0.06);
+            --card-bd: rgba(255, 255, 255, 0.11);
         }
 
-        .logo-img {
+        /* ── PAGE HEADER (original style) ── */
+        .members-header {
+            text-align: center;
+            padding: calc(var(--nav-height, 4.5rem) + 2.5rem) 1.5rem 1.5rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .members-header .logo-img {
             max-width: 22rem;
             width: 70%;
-            margin-bottom: 1.75rem;
+            margin: 0 auto 1.75rem;
             filter: drop-shadow(0 0 1.5rem rgba(120, 160, 255, 0.25));
         }
 
-        header h1 {
+        .members-header h1 {
             font-size: clamp(1.5rem, 3vw, 2.4rem);
             font-weight: 900;
             line-height: 1.4;
+            color: #fff;
         }
 
-        header h1 em {
+        .members-header h1 em {
             font-style: normal;
             color: var(--gold);
         }
@@ -296,9 +275,7 @@
             background: var(--accent);
         }
 
-        /* ════════════════════════════
-       MODAL
-    ════════════════════════════ */
+        /* ── MODAL ── */
         .modal-overlay {
             position: fixed;
             inset: 0;
@@ -340,7 +317,7 @@
             transform: translateY(0) scale(1);
         }
 
-        /* ── banner ── */
+        /* banner */
         .modal-banner {
             position: relative;
             height: 13.75rem;
@@ -416,7 +393,6 @@
             line-height: 1.15;
         }
 
-
         /* close btn */
         .modal-close {
             position: absolute;
@@ -441,7 +417,7 @@
             background: rgba(255, 255, 255, 0.22);
         }
 
-        /* ── modal body ── */
+        /* modal body */
         .modal-body {
             overflow-y: auto;
             padding: 1.375rem 1.625rem 1.875rem;
@@ -491,7 +467,6 @@
             color: rgba(215, 228, 255, 0.85);
         }
 
-        /* SVG icons (batch) */
         .info-pill svg {
             width: 0.75rem;
             height: 0.75rem;
@@ -499,7 +474,6 @@
             flex-shrink: 0;
         }
 
-        /* Image icons (university, faculty) */
         .info-pill .pill-img {
             width: 1rem;
             height: 1rem;
@@ -509,7 +483,6 @@
             opacity: 0.75;
         }
 
-        /* Symbol icons (dept: ∑ ∫ ;) */
         .info-pill .pill-symbol {
             font-size: 0.9rem;
             font-weight: 700;
@@ -576,7 +549,7 @@
         }
 
         .social-btn {
-            font-family: 'MontserratFamily', system-ui, -apple-system, sans-serif;
+            font-family: var(--font-en);
             display: inline-flex;
             align-items: center;
             gap: 0.4375rem;
@@ -602,203 +575,59 @@
             height: 0.875rem;
         }
 
-        .social-btn.facebook {
-            border-color: rgba(66, 103, 178, 0.45);
-        }
-
-        .social-btn.facebook:hover {
-            background: rgba(66, 103, 178, 0.18);
-            border-color: #4267b2;
-        }
-
-        .social-btn.linkedin {
-            border-color: rgba(0, 119, 181, 0.45);
-        }
-
-        .social-btn.linkedin:hover {
-            background: rgba(0, 119, 181, 0.18);
-            border-color: #0077b5;
-        }
-
-        .social-btn.twitter {
-            border-color: rgba(29, 161, 242, 0.45);
-        }
-
-        .social-btn.twitter:hover {
-            background: rgba(29, 161, 242, 0.18);
-            border-color: #1da1f2;
-        }
-
-        .social-btn.instagram {
-            border-color: rgba(225, 48, 108, 0.35);
-        }
-
-        .social-btn.instagram:hover {
-            background: rgba(225, 48, 108, 0.14);
-            border-color: #e1306c;
-        }
+        .social-btn.facebook { border-color: rgba(66, 103, 178, 0.45); }
+        .social-btn.facebook:hover { background: rgba(66, 103, 178, 0.18); border-color: #4267b2; }
+        .social-btn.linkedin { border-color: rgba(0, 119, 181, 0.45); }
+        .social-btn.linkedin:hover { background: rgba(0, 119, 181, 0.18); border-color: #0077b5; }
+        .social-btn.twitter { border-color: rgba(29, 161, 242, 0.45); }
+        .social-btn.twitter:hover { background: rgba(29, 161, 242, 0.18); border-color: #1da1f2; }
+        .social-btn.instagram { border-color: rgba(225, 48, 108, 0.35); }
+        .social-btn.instagram:hover { background: rgba(225, 48, 108, 0.14); border-color: #e1306c; }
 
         /* ── ANIMATIONS ── */
         @keyframes fadeUp {
-            from {
-                opacity: 0;
-                transform: translateY(1.5rem);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(1.5rem); }
+            to   { opacity: 1; transform: translateY(0); }
         }
 
-        .row-leadership .member-card:nth-child(1) {
-            animation-delay: .05s;
-        }
-
-        .row-leadership .member-card:nth-child(2) {
-            animation-delay: .12s;
-        }
-
-        .members-grid .member-card:nth-child(1) {
-            animation-delay: .08s;
-        }
-
-        .members-grid .member-card:nth-child(2) {
-            animation-delay: .14s;
-        }
-
-        .members-grid .member-card:nth-child(3) {
-            animation-delay: .20s;
-        }
-
-        .members-grid .member-card:nth-child(4) {
-            animation-delay: .26s;
-        }
-
-        .members-grid .member-card:nth-child(5) {
-            animation-delay: .32s;
-        }
-
-        .members-grid .member-card:nth-child(6) {
-            animation-delay: .38s;
-        }
-
-        .members-grid .member-card:nth-child(7) {
-            animation-delay: .44s;
-        }
-
-        .members-grid .member-card:nth-child(8) {
-            animation-delay: .50s;
-        }
-
-        .members-grid .member-card:nth-child(9) {
-            animation-delay: .56s;
-        }
-
-        .members-grid .member-card:nth-child(10) {
-            animation-delay: .62s;
-        }
-
-        .members-grid .member-card:nth-child(11) {
-            animation-delay: .68s;
-        }
-
-        .members-grid .member-card:nth-child(12) {
-            animation-delay: .74s;
-        }
-
-        .members-grid .member-card:nth-child(13) {
-            animation-delay: .80s;
-        }
-
-        .members-grid .member-card:nth-child(14) {
-            animation-delay: .86s;
-        }
-
-
-        .page-footer {
-            border-top: 0.0625rem solid rgba(255, 255, 255, 0.06);
-            padding: 2rem 2.5rem;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            max-width: 80rem;
-            margin: 0 auto;
-        }
-
-        .page-footer span {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 0.72rem;
-            font-weight: 700;
-            letter-spacing: 0.14em;
-            color: rgba(255, 255, 255, 0.4);
-            direction: ltr;
-        }
+        .row-leadership .member-card:nth-child(1) { animation-delay: .05s; }
+        .row-leadership .member-card:nth-child(2) { animation-delay: .12s; }
+        .members-grid .member-card:nth-child(1)   { animation-delay: .08s; }
+        .members-grid .member-card:nth-child(2)   { animation-delay: .14s; }
+        .members-grid .member-card:nth-child(3)   { animation-delay: .20s; }
+        .members-grid .member-card:nth-child(4)   { animation-delay: .26s; }
+        .members-grid .member-card:nth-child(5)   { animation-delay: .32s; }
+        .members-grid .member-card:nth-child(6)   { animation-delay: .38s; }
+        .members-grid .member-card:nth-child(7)   { animation-delay: .44s; }
+        .members-grid .member-card:nth-child(8)   { animation-delay: .50s; }
+        .members-grid .member-card:nth-child(9)   { animation-delay: .56s; }
+        .members-grid .member-card:nth-child(10)  { animation-delay: .62s; }
+        .members-grid .member-card:nth-child(11)  { animation-delay: .68s; }
+        .members-grid .member-card:nth-child(12)  { animation-delay: .74s; }
+        .members-grid .member-card:nth-child(13)  { animation-delay: .80s; }
+        .members-grid .member-card:nth-child(14)  { animation-delay: .86s; }
 
         /* ── Responsive ── */
         @media (min-width: 1201px) {
-            main {
-                max-width: 80rem;
-            }
-
-            .row-leadership .member-card {
-                width: 15rem;
-            }
-
-            .members-grid {
-                grid-template-columns: repeat(auto-fill, minmax(13rem, 1fr));
-                gap: 1.5rem;
-            }
-
-            .modal {
-                max-width: 44rem;
-            }
-
-            .modal-banner {
-                height: 15rem;
-            }
-
-            .modal-photo {
-                height: 14.5rem;
-            }
+            main { max-width: 80rem; }
+            .row-leadership .member-card { width: 15rem; }
+            .members-grid { grid-template-columns: repeat(auto-fill, minmax(13rem, 1fr)); gap: 1.5rem; }
+            .modal { max-width: 44rem; }
+            .modal-banner { height: 15rem; }
+            .modal-photo { height: 14.5rem; }
         }
 
         @media (max-width: 900px) {
-            .row-leadership {
-                gap: 1.25rem;
-            }
-
-            .row-leadership .member-card {
-                width: 12rem;
-            }
-
-            .members-grid {
-                grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr));
-                gap: 1rem;
-            }
-
-            .modal {
-                max-width: 36rem;
-            }
-
-            .modal-banner {
-                height: 12rem;
-            }
-
-            .modal-photo {
-                height: 12rem;
-            }
+            .row-leadership { gap: 1.25rem; }
+            .row-leadership .member-card { width: 12rem; }
+            .members-grid { grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr)); gap: 1rem; }
+            .modal { max-width: 36rem; }
+            .modal-banner { height: 12rem; }
+            .modal-photo { height: 12rem; }
         }
 
         @media (max-width: 600px) {
-            header {
-                padding: 2.5rem 1.25rem 1.25rem;
-            }
-
-            .logo-img {
-                width: 60%;
-                max-width: 16rem;
-            }
+            .members-header { padding: calc(var(--nav-height, 4.5rem) + 1rem) 1.25rem 1.5rem; }
 
             .row-leadership {
                 display: grid;
@@ -806,84 +635,40 @@
                 grid-template-columns: repeat(auto-fill, minmax(11.25rem, 1fr));
                 justify-content: center;
             }
-
-            .row-leadership .member-card {
-                width: unset;
-            }
-
-            .members-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .modal {
-                max-width: 100%;
-                max-height: 95vh;
-                border-radius: 1.25rem;
-            }
-
-            .modal-photo {
-                right: .5rem;
-                height: 11.25rem;
-            }
-
-            .modal-banner-text {
-                right: 10rem;
-                left: 1.125rem;
-            }
-
-            .modal-role {
-                font-size: .9rem;
-            }
-
-            .modal-name {
-                font-size: 1.2rem;
-            }
-
-            .modal-season {
-                font-size: 0.68rem;
-            }
-
-            .modal-banner {
-                height: 11.75rem;
-            }
-
-            .modal-body {
-                padding: 1.125rem 1.125rem 1.625rem;
-            }
-
-            .info-pill {
-                font-size: 0.55rem;
-                padding: 0.25rem 0.5rem;
-            }
+            .row-leadership .member-card { width: unset; }
+            .members-grid { grid-template-columns: repeat(2, 1fr); }
+            .modal { max-width: 100%; max-height: 95vh; border-radius: 1.25rem; }
+            .modal-photo { right: .5rem; height: 11.25rem; }
+            .modal-banner-text { right: 10rem; left: 1.125rem; }
+            .modal-role { font-size: .9rem; }
+            .modal-name { font-size: 1.2rem; }
+            .modal-season { font-size: 0.68rem; }
+            .modal-banner { height: 11.75rem; }
+            .modal-body { padding: 1.125rem 1.125rem 1.625rem; }
+            .info-pill { font-size: 0.55rem; padding: 0.25rem 0.5rem; }
         }
 
         @media (max-width: 380px) {
-            .members-grid {
-                grid-template-columns: 1fr;
-            }
-
+            .members-grid { grid-template-columns: 1fr; }
             .row-leadership {
                 display: grid;
                 gap: 1.25rem;
                 grid-template-columns: 1fr;
                 justify-content: center;
             }
-
-            .row-leadership .member-card {
-                width: unset;
-            }
+            .row-leadership .member-card { width: unset; }
         }
 
         @media (prefers-reduced-motion: reduce) {
+            .member-card { animation: none !important; opacity: 1 !important; transform: none !important; }
+        }
 
-            /* Only disable auto-playing animations (fadeUp on load) */
-            .member-card {
-                animation: none !important;
-                opacity: 1 !important;
-                transform: none !important;
-            }
-
-            /* Modal is user-triggered — keep its transitions intact */
+        @media (max-height: 500px) and (orientation: landscape) {
+            .members-header { padding: calc(var(--nav-height, 4.5rem) + 0.5rem) 1.25rem 1rem; }
+            .modal { max-height: 85vh; }
+            .modal-banner { height: 10rem; }
+            .modal-photo { height: 10rem; }
+            .modal-body { padding: 1rem; }
         }
 
         /* ── Focus styles ── */
@@ -902,40 +687,15 @@
             outline: 2px solid var(--accent);
             outline-offset: 2px;
         }
-
-
-        @media (max-height: 500px) and (orientation: landscape) {
-            header {
-                padding: 1.5rem 1.25rem 1rem;
-            }
-
-            .logo-img {
-                max-width: 12rem;
-                margin-bottom: 1rem;
-            }
-
-            .modal {
-                max-height: 85vh;
-            }
-
-            .modal-banner {
-                height: 10rem;
-            }
-
-            .modal-photo {
-                height: 10rem;
-            }
-
-            .modal-body {
-                padding: 1rem;
-            }
-        }
     </style>
 </head>
 
 <body>
-    <header>
-        <img src="Assets/White V Logo.png" alt="FMCSA" class="logo-img">
+
+    <!-- Nav injected by shared.js -->
+
+    <!-- ── HEADER (original style — logo + title, blends into dark bg) ── -->
+    <header class="members-header">
         <h1>أعضاء المكتب التنفيذي<br><em>لرابطة طلاب الكلية</em></h1>
     </header>
 
@@ -946,7 +706,7 @@
         <div class="row-leadership">
             <div class="member-card" onclick="openModal('ahmed-sulaiman')">
                 <div class="card-photo">
-                    <img loading="lazy" src="Assets/People/أحمد سليمان.webp" alt="أحمد سليمان">
+                    <img loading="lazy" decoding="async" src="Assets/People/أحمد سليمان.webp" alt="أحمد سليمان">
                     <span class="view-hint">اضغط لعرض الملف الشخصي</span>
                 </div>
                 <div class="card-info">
@@ -957,7 +717,7 @@
 
             <div class="member-card" onclick="openModal('talal-hatem')">
                 <div class="card-photo">
-                    <img loading="lazy" src="Assets/People/طلال حاتم.webp" alt="طلال حاتم">
+                    <img loading="lazy" decoding="async" src="Assets/People/طلال حاتم.webp" alt="طلال حاتم">
                     <span class="view-hint">اضغط لعرض الملف الشخصي</span>
                 </div>
                 <div class="card-info">
@@ -967,7 +727,7 @@
             </div>
 
             <div class="member-card" onclick="openModal('ibthal')">
-                <div class="card-photo"><img loading="lazy" src="Assets/People/White Women.webp" alt="ابتهال محمد"><span
+                <div class="card-photo"><img loading="lazy" decoding="async" src="Assets/People/White Women.webp" alt="ابتهال محمد"><span
                         class="view-hint">اضغط لعرض الملف الشخصي</span></div>
                 <div class="card-info">
                     <div class="card-name">ابتهال محمد</div><span class="card-role">الأمين العام</span>
@@ -975,7 +735,7 @@
             </div>
 
             <div class="member-card" onclick="openModal('abdulrahman-ibrahim')">
-                <div class="card-photo"><img loading="lazy" src="Assets/People/عبدالرحمن إبراهيم.webp"
+                <div class="card-photo"><img loading="lazy" decoding="async" src="Assets/People/عبدالرحمن إبراهيم.webp"
                         alt="عبدالرحمن إبراهيم"><span class="view-hint">اضغط لعرض الملف الشخصي</span></div>
                 <div class="card-info">
                     <div class="card-name">عبدالرحمن إبراهيم</div><span class="card-role">نائب الأمين العام</span>
@@ -983,7 +743,7 @@
             </div>
 
             <div class="member-card" onclick="openModal('ali-abdulazeem')">
-                <div class="card-photo"><img loading="lazy" src="Assets/People/علي عبدالعظيم.webp"
+                <div class="card-photo"><img loading="lazy" decoding="async" src="Assets/People/علي عبدالعظيم.webp"
                         alt="علي عبدالعظيم"><span class="view-hint">اضغط لعرض الملف الشخصي</span></div>
                 <div class="card-info">
                     <div class="card-name">علي عبدالعظيم</div><span class="card-role">الأمين المالي</span>
@@ -991,7 +751,7 @@
             </div>
 
             <div class="member-card" onclick="openModal('ahmed-alameen')">
-                <div class="card-photo"><img loading="lazy" src="Assets/People/أحمد الأمين.webp" alt="أحمد الأمين"><span
+                <div class="card-photo"><img loading="lazy" decoding="async" src="Assets/People/أحمد الأمين.webp" alt="أحمد الأمين"><span
                         class="view-hint">اضغط لعرض الملف الشخصي</span></div>
                 <div class="card-info">
                     <div class="card-name">أحمد الأمين</div><span class="card-role">نائب الأمين المالي</span>
@@ -1004,7 +764,7 @@
         <div class="members-grid">
 
             <div class="member-card" onclick="openModal('mustafa')">
-                <div class="card-photo"><img loading="lazy" src="Assets/People/مصطفى محمد.webp" alt="مصطفى محمد"><span
+                <div class="card-photo"><img loading="lazy" decoding="async" src="Assets/People/مصطفى محمد.webp" alt="مصطفى محمد"><span
                         class="view-hint">اضغط لعرض الملف الشخصي</span></div>
                 <div class="card-info">
                     <div class="card-name">مصطفى محمد</div><span class="card-role">الأمين الإعلامي</span>
@@ -1012,7 +772,7 @@
             </div>
 
             <div class="member-card" onclick="openModal('israa')">
-                <div class="card-photo"><img loading="lazy" src="Assets/People/White Women.webp"
+                <div class="card-photo"><img loading="lazy" decoding="async" src="Assets/People/White Women.webp"
                         alt="إسراء سليمان"><span class="view-hint">اضغط لعرض الملف الشخصي</span></div>
                 <div class="card-info">
                     <div class="card-name">إسراء سليمان</div><span class="card-role">النائب الإعلامي</span>
@@ -1020,7 +780,7 @@
             </div>
 
             <div class="member-card" onclick="openModal('ali-tayyib')">
-                <div class="card-photo"><img loading="lazy" src="Assets/People/علي الطيب.webp" alt="علي الطيب"><span
+                <div class="card-photo"><img loading="lazy" decoding="async" src="Assets/People/علي الطيب.webp" alt="علي الطيب"><span
                         class="view-hint">اضغط لعرض الملف الشخصي</span></div>
                 <div class="card-info">
                     <div class="card-name">علي الطيب</div><span class="card-role">الأمين الثقافي</span>
@@ -1028,16 +788,15 @@
             </div>
 
             <div class="member-card" onclick="openModal('mihad')">
-                <div class="card-photo"><img loading="lazy" src="Assets/People/White Women.webp" alt="مهاد جمال"><span
-                        class="view-hint">اضغط
-                        لعرض الملف الشخصي</span></div>
+                <div class="card-photo"><img loading="lazy" decoding="async" src="Assets/People/White Women.webp" alt="مهاد جمال"><span
+                        class="view-hint">اضغط لعرض الملف الشخصي</span></div>
                 <div class="card-info">
                     <div class="card-name">مهاد جمال</div><span class="card-role">النائب الثقافي</span>
                 </div>
             </div>
 
             <div class="member-card" onclick="openModal('abdulrahman-mohammed')">
-                <div class="card-photo"><img loading="lazy" src="Assets/People/عبدالرحمن محمد.webp"
+                <div class="card-photo"><img loading="lazy" decoding="async" src="Assets/People/عبدالرحمن محمد.webp"
                         alt="عبدالرحمن محمد"><span class="view-hint">اضغط لعرض الملف الشخصي</span></div>
                 <div class="card-info">
                     <div class="card-name">عبدالرحمن محمد</div><span class="card-role">الأمين الأكاديمي</span>
@@ -1045,7 +804,7 @@
             </div>
 
             <div class="member-card" onclick="openModal('areej')">
-                <div class="card-photo"><img loading="lazy" src="Assets/People/White Women.webp"
+                <div class="card-photo"><img loading="lazy" decoding="async" src="Assets/People/White Women.webp"
                         alt="أريج عصام الدين"><span class="view-hint">اضغط لعرض الملف الشخصي</span></div>
                 <div class="card-info">
                     <div class="card-name">أريج عصام الدين</div><span class="card-role">النائب الأكاديمي</span>
@@ -1053,7 +812,7 @@
             </div>
 
             <div class="member-card" onclick="openModal('ahmed-habeeb')">
-                <div class="card-photo"><img loading="lazy" src="Assets/People/أحمد الحبيب.webp" alt="أحمد الحبيب"><span
+                <div class="card-photo"><img loading="lazy" decoding="async" src="Assets/People/أحمد الحبيب.webp" alt="أحمد الحبيب"><span
                         class="view-hint">اضغط لعرض الملف الشخصي</span></div>
                 <div class="card-info">
                     <div class="card-name">أحمد الحبيب</div><span class="card-role">الأمين الاجتماعي</span>
@@ -1061,25 +820,23 @@
             </div>
 
             <div class="member-card" onclick="openModal('malaz-ali')">
-                <div class="card-photo"><img loading="lazy" src="Assets/People/White Women.webp" alt="ملاذ علي"><span
-                        class="view-hint">اضغط
-                        لعرض الملف الشخصي</span></div>
+                <div class="card-photo"><img loading="lazy" decoding="async" src="Assets/People/White Women.webp" alt="ملاذ علي"><span
+                        class="view-hint">اضغط لعرض الملف الشخصي</span></div>
                 <div class="card-info">
                     <div class="card-name">ملاذ علي</div><span class="card-role">النائب الاجتماعي</span>
                 </div>
             </div>
 
             <div class="member-card" onclick="openModal('malaz-nasif')">
-                <div class="card-photo"><img loading="lazy" src="Assets/People/White Women.webp" alt="ملاذ ناصف"><span
-                        class="view-hint">اضغط
-                        لعرض الملف الشخصي</span></div>
+                <div class="card-photo"><img loading="lazy" decoding="async" src="Assets/People/White Women.webp" alt="ملاذ ناصف"><span
+                        class="view-hint">اضغط لعرض الملف الشخصي</span></div>
                 <div class="card-info">
                     <div class="card-name">ملاذ ناصف</div><span class="card-role">أمين العلاقات العامة</span>
                 </div>
             </div>
 
             <div class="member-card" onclick="openModal('khaled')">
-                <div class="card-photo"><img loading="lazy" src="Assets/People/خالد أحمد.webp" alt="خالد أحمد"><span
+                <div class="card-photo"><img loading="lazy" decoding="async" src="Assets/People/خالد أحمد.webp" alt="خالد أحمد"><span
                         class="view-hint">اضغط لعرض الملف الشخصي</span></div>
                 <div class="card-info">
                     <div class="card-name">خالد أحمد</div><span class="card-role">نائب العلاقات العامة</span>
@@ -1089,21 +846,21 @@
         </div>
     </main>
 
-    <footer class="page-footer">
-        <span>FMCSA</span>
-        <span>2026</span>
-    </footer>
+    <!-- Footer injected by shared.js -->
 
-    <!-- ════════════════════════════
-       MODAL
-  ════════════════════════════ -->
+    <!-- ── MODAL ── -->
     <div class="modal-overlay" id="modalOverlay" role="dialog" aria-modal="true" aria-label="الملف الشخصي"
         onclick="handleOverlayClick(event)">
         <div class="modal" id="modal">
-            <button class="modal-close" onclick="closeModal()" aria-label="إغلاق">✕</button>
+            <button class="modal-close" onclick="closeModal()" aria-label="إغلاق">
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                    <line x1="1" y1="1" x2="13" y2="13" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    <line x1="13" y1="1" x2="1" y2="13" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+            </button>
 
             <div class="modal-banner">
-                <img class="modal-photo" id="modalPhoto" src="" alt="">
+                <img class="modal-photo" id="modalPhoto" src="" alt="" loading="lazy" decoding="async">
                 <div class="modal-banner-text">
                     <span class="modal-role" id="modalRole"></span>
                     <div class="modal-season" id="modalSeason"></div>
@@ -1127,6 +884,9 @@
             </div>
         </div>
     </div>
+
+    <!-- Shared JS (injects nav + footer + scroll reveal) -->
+    <script src="js/shared.js"></script>
 
     <script>
         /* ════════════════════════════════════════

@@ -5,40 +5,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>الهوية البصرية · FMCSA</title>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&family=Montserrat:wght@400;600;700;800;900&display=swap"
-        rel="stylesheet">
+    <meta name="description" content="الهوية البصرية لرابطة طلاب كلية العلوم الرياضية والحاسوب — الشعار والألوان والخطوط.">
+    <meta property="og:title" content="الهوية البصرية — FMCSA">
+    <meta property="og:description" content="الهوية البصرية لرابطة طلاب كلية العلوم الرياضية والحاسوب">
+    <meta property="og:image" content="Assets/Cover.jpg">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="ar_SD">
+    <link rel="icon" type="image/png" href="Assets/White Logo.png" media="(prefers-color-scheme: dark)">
+    <link rel="icon" type="image/png" href="Assets/Blue Logo.png" media="(prefers-color-scheme: light)">
+
+    <!-- Shared design system -->
+    <link rel="stylesheet" href="css/shared.css">
 
     <style>
-        *,
-        *::before,
-        *::after {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
+        /* ── PAGE-SPECIFIC TOKENS ── */
         :root {
-            --navy: #141345;
-            --white: #ffffff;
             --off: #f4f4f6;
             --rule: rgba(20, 19, 69, 0.12);
         }
 
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: 'Cairo', sans-serif;
-            background: var(--white);
-            color: var(--navy);
-            overflow-x: hidden;
-        }
-
         /* ══════════════════════════════
-       HERO
-    ══════════════════════════════ */
+           HERO
+        ══════════════════════════════ */
         .hero {
             position: relative;
             height: 100svh;
@@ -65,7 +53,7 @@
             flex-direction: column;
             justify-content: space-between;
             height: 100%;
-            padding: 2rem 2.5rem 2.5rem;
+            padding: calc(var(--nav-height, 4.5rem) + 0.5rem) 2.5rem 2.5rem;
             max-width: 70rem;
             margin: 0 auto;
             width: 100%;
@@ -78,7 +66,7 @@
         }
 
         .eyebrow-label {
-            font-family: 'Montserrat', sans-serif;
+            font-family: var(--font-en);
             font-size: 0.75rem;
             font-weight: 700;
             letter-spacing: 0.18em;
@@ -87,7 +75,7 @@
         }
 
         .eyebrow-label.ar {
-            font-family: 'Cairo', sans-serif;
+            font-family: var(--font-ar);
             letter-spacing: 0;
         }
 
@@ -104,15 +92,8 @@
         }
 
         @keyframes heroLogo {
-            from {
-                opacity: 0;
-                transform: translateY(2rem) scale(0.92);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0) scale(1);
-            }
+            from { opacity: 0; transform: translateY(2rem) scale(0.92); }
+            to   { opacity: 1; transform: translateY(0) scale(1); }
         }
 
         .hero-footer {
@@ -122,7 +103,7 @@
         }
 
         .hero-footer span {
-            font-family: 'Montserrat', sans-serif;
+            font-family: var(--font-en);
             font-size: 0.75rem;
             font-weight: 700;
             letter-spacing: 0.14em;
@@ -131,10 +112,10 @@
         }
 
         /* ══════════════════════════════
-       SHARED LAYOUT
-    ══════════════════════════════ */
+           SHARED LAYOUT
+        ══════════════════════════════ */
 
-        /* 01 — LOGO: dark navy, same feel as hero */
+        /* 01 — LOGO: light section with image overlay */
         .logo-section {
             position: relative;
             background: var(--off);
@@ -153,25 +134,12 @@
             z-index: 0;
         }
 
-        /* flip section-header colors for dark sections */
-        .logo-section .section-title-ar {
-            color: var(--navy);
-        }
+        .logo-section .section-title-ar { color: var(--navy); }
+        .logo-section .section-title-en { color: rgba(20, 19, 69, 0.35); }
 
-        .logo-section .section-title-en {
-            color: rgba(20, 19, 69, 0.35);
-        }
-
-
-        /* alternating off-white sections */
-        .alt-section {
-            background: var(--off);
-        }
-
-        /* plain white sections */
-        .plain-section {
-            background: var(--white);
-        }
+        /* alternating sections */
+        .alt-section   { background: var(--off); }
+        .plain-section { background: var(--white); }
 
         .page-section {
             position: relative;
@@ -181,7 +149,8 @@
             padding: 5rem 2.5rem;
         }
 
-        .section-header {
+        /* Override shared .section-header for this page's inline style */
+        .vi-section-header {
             display: flex;
             align-items: baseline;
             justify-content: space-between;
@@ -192,7 +161,7 @@
         }
 
         .section-title-ar {
-            font-family: 'Cairo', sans-serif;
+            font-family: var(--font-ar);
             font-size: clamp(1.4rem, 3vw, 2rem);
             font-weight: 900;
             color: var(--navy);
@@ -200,7 +169,7 @@
         }
 
         .section-title-en {
-            font-family: 'Montserrat', sans-serif;
+            font-family: var(--font-en);
             font-size: 0.75rem;
             font-weight: 700;
             letter-spacing: 0.18em;
@@ -211,8 +180,8 @@
         }
 
         /* ══════════════════════════════
-       SECTION 01 — LOGO
-    ══════════════════════════════ */
+           SECTION 01 — LOGO
+        ══════════════════════════════ */
         .logo-primary {
             border-radius: 1.25rem;
             padding: 4rem 2rem;
@@ -224,6 +193,7 @@
             border: 0.0625rem solid rgba(255, 255, 255, 0.11);
             backdrop-filter: blur(0.25rem);
             -webkit-backdrop-filter: blur(0.25rem);
+            transition: box-shadow .25s ease, transform .25s ease;
         }
 
         .logo-primary:hover {
@@ -237,7 +207,6 @@
             flex-shrink: 0;
         }
 
-        /* secondary logo variants */
         .logo-variants {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
@@ -267,21 +236,13 @@
             max-width: 80%;
         }
 
-        .logo-variant-card.dark {
-            background: rgba(0, 0, 0, 0.6);
-        }
-
-        .logo-variant-card.colorful {
-            background: rgba(255, 255, 255, 0.25);
-        }
-
-        .logo-variant-card.light {
-            background: rgba(20, 19, 69, 0.6);
-        }
+        .logo-variant-card.dark     { background: rgba(0, 0, 0, 0.6); }
+        .logo-variant-card.colorful { background: rgba(255, 255, 255, 0.25); }
+        .logo-variant-card.light    { background: rgba(20, 19, 69, 0.6); }
 
         /* ══════════════════════════════
-       SECTION 02 — SYMBOLS
-    ══════════════════════════════ */
+           SECTION 02 — SYMBOLS
+        ══════════════════════════════ */
         .symbols-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr));
@@ -321,7 +282,7 @@
         }
 
         .symbol-title {
-            font-family: 'Cairo', sans-serif;
+            font-family: var(--font-ar);
             font-size: 1rem;
             font-weight: 900;
             color: var(--navy);
@@ -329,7 +290,7 @@
         }
 
         .symbol-desc {
-            font-family: 'Cairo', sans-serif;
+            font-family: var(--font-ar);
             font-size: 0.8rem;
             font-weight: 600;
             color: rgba(20, 19, 69, 0.55);
@@ -337,8 +298,8 @@
         }
 
         /* ══════════════════════════════
-       SECTION 03 — TYPOGRAPHY
-    ══════════════════════════════ */
+           SECTION 03 — TYPOGRAPHY
+        ══════════════════════════════ */
         .type-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -354,7 +315,7 @@
         }
 
         .type-label {
-            font-family: 'Montserrat', sans-serif;
+            font-family: var(--font-en);
             font-size: 0.65rem;
             font-weight: 700;
             letter-spacing: 0.2em;
@@ -362,6 +323,7 @@
             text-transform: uppercase;
             margin-bottom: 0.75rem;
             direction: ltr;
+            text-align: right;
         }
 
         .type-name {
@@ -371,17 +333,11 @@
             margin-bottom: 1.75rem;
         }
 
-        .type-card.arabic .type-name {
-            font-family: 'Cairo', sans-serif;
-        }
-
-        .type-card.latin .type-name {
-            font-family: 'Montserrat', sans-serif;
-            direction: ltr;
-        }
+        .type-card.arabic .type-name { font-family: var(--font-ar); }
+        .type-card.latin  .type-name { font-family: var(--font-en); direction: ltr; }
 
         .type-specimen-ar {
-            font-family: 'Cairo', sans-serif;
+            font-family: var(--font-ar);
             font-size: clamp(0.85rem, 1.8vw, 1.05rem);
             font-weight: 700;
             color: rgba(255, 255, 255, 0.82);
@@ -390,17 +346,18 @@
         }
 
         .type-specimen-en {
-            font-family: 'Montserrat', sans-serif;
+            font-family: var(--font-en);
             font-size: clamp(0.78rem, 1.6vw, 0.95rem);
             font-weight: 600;
             color: rgba(255, 255, 255, 0.82);
             line-height: 1.9;
             direction: ltr;
+            text-align: right;
         }
 
         /* ══════════════════════════════
-       SECTION 04 — COLORS
-    ══════════════════════════════ */
+           SECTION 04 — COLORS
+        ══════════════════════════════ */
         .colors-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
@@ -420,46 +377,23 @@
             padding: 1rem;
         }
 
-        .color-card.navy .color-swatch {
-            background: #141345;
-        }
-
-        .color-card.white .color-swatch {
-            background: #ffffff;
-            border-bottom: 0.0625rem solid var(--rule);
-        }
-
-        .color-card.gold .color-swatch {
-            background: #f5c518;
-        }
-
-        .color-card.black .color-swatch {
-            background: #1a1a1a;
-        }
+        .color-card.navy  .color-swatch { background: #141345; }
+        .color-card.white .color-swatch { background: #ffffff; border-bottom: 0.0625rem solid var(--rule); }
+        .color-card.gold  .color-swatch { background: #f5c518; }
+        .color-card.black .color-swatch { background: #1a1a1a; }
 
         .swatch-hex {
-            font-family: 'Montserrat', sans-serif;
+            font-family: var(--font-en);
             font-size: 0.85rem;
             font-weight: 800;
             letter-spacing: 0.04em;
             direction: ltr;
         }
 
-        .color-card.navy .swatch-hex {
-            color: rgba(255, 255, 255, 1);
-        }
-
-        .color-card.white .swatch-hex {
-            color: rgba(20, 19, 69, 1);
-        }
-
-        .color-card.gold .swatch-hex {
-            color: rgba(20, 19, 69, 1);
-        }
-
-        .color-card.black .swatch-hex {
-            color: rgba(255, 255, 255, 1);
-        }
+        .color-card.navy  .swatch-hex { color: rgba(255, 255, 255, 1); }
+        .color-card.white .swatch-hex { color: rgba(20, 19, 69, 1); }
+        .color-card.gold  .swatch-hex { color: rgba(20, 19, 69, 1); }
+        .color-card.black .swatch-hex { color: rgba(255, 255, 255, 1); }
 
         .color-info {
             padding: 1.25rem 1.5rem 1.5rem;
@@ -471,29 +405,30 @@
         }
 
         .color-name {
-            font-family: 'Cairo', sans-serif;
+            font-family: var(--font-ar);
             font-size: 1.05rem;
             font-weight: 900;
             color: var(--navy);
         }
 
         .color-name-en {
-            font-family: 'Montserrat', sans-serif;
+            font-family: var(--font-en);
             font-size: 0.72rem;
             font-weight: 600;
             color: rgba(20, 19, 69, 0.4);
             direction: ltr;
+            text-align: right;
             margin-top: 0.15rem;
         }
 
         .color-rgb {
-            text-align: left;
+            text-align: right;
             direction: ltr;
         }
 
         .color-rgb span {
             display: block;
-            font-family: 'Montserrat', sans-serif;
+            font-family: var(--font-en);
             font-size: 0.68rem;
             font-weight: 600;
             color: rgba(20, 19, 69, 0.45);
@@ -501,126 +436,37 @@
         }
 
         /* ══════════════════════════════
-       FOOTER
-    ══════════════════════════════ */
-        .page-footer {
-            background: var(--navy);
-            border-top: 0.0625rem solid var(--rule);
-            padding: 2rem 2.5rem;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-        .page-footer span {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 0.72rem;
-            font-weight: 700;
-            letter-spacing: 0.14em;
-            color: rgba(255, 255, 255, 0.4);
-            direction: ltr;
-        }
-
-        /* ══════════════════════════════
-       SCROLL REVEAL
-    ══════════════════════════════ */
-        .reveal {
-            opacity: 0;
-            transform: translateY(2rem);
-            transition: opacity .7s cubic-bezier(.16, 1, .3, 1), transform .7s cubic-bezier(.16, 1, .3, 1);
-        }
-
-        .reveal.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .reveal-delay-1 {
-            transition-delay: .1s;
-        }
-
-        .reveal-delay-2 {
-            transition-delay: .2s;
-        }
-
-        .reveal-delay-3 {
-            transition-delay: .3s;
-        }
-
-        .reveal-delay-4 {
-            transition-delay: .4s;
-        }
-
-        /* ══════════════════════════════
-       RESPONSIVE
-    ══════════════════════════════ */
+           RESPONSIVE
+        ══════════════════════════════ */
         @media (max-width: 640px) {
-            .hero-content {
-                padding: 1.5rem 1.25rem 1.75rem;
-            }
-
-            .page-section {
-                padding: 3.5rem 1.25rem;
-            }
-
-            .logo-primary {
-                padding: 2.25rem 1.25rem;
-            }
-
-            .logo-primary img {
-                height: min(6rem, 38vw);
-            }
-
-            .logo-variants {
-                grid-template-columns: 1fr;
-            }
-
-            .logo-variant-card img {
-                height: min(7rem, 42vw);
-            }
-
-            .type-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .colors-grid {
-                grid-template-columns: 1fr 1fr;
-            }
-
-            .symbols-grid {
-                grid-template-columns: 1fr 1fr;
-            }
-
-            .color-name-en {
-                direction: rtl;
-            }
+            .hero-content { padding: 1.5rem 1.25rem 1.75rem; }
+            .page-section { padding: 3.5rem 1.25rem; }
+            .logo-primary { padding: 2.25rem 1.25rem; }
+            .logo-primary img { height: min(6rem, 38vw); }
+            .logo-variants { grid-template-columns: 1fr; }
+            .logo-variant-card img { height: min(7rem, 42vw); }
+            .type-grid { grid-template-columns: 1fr; }
+            .colors-grid { grid-template-columns: 1fr 1fr; }
+            .symbols-grid { grid-template-columns: 1fr 1fr; }
+            .color-name-en { direction: rtl; }
         }
 
         @media (max-width: 420px) {
-            .symbols-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .colors-grid {
-                grid-template-columns: 1fr 1fr;
-            }
-
-            .logo-primary img {
-                height: min(5rem, 44vw);
-            }
-
-            .logo-variant-card img {
-                height: min(6rem, 48vw);
-            }
+            .symbols-grid { grid-template-columns: 1fr; }
+            .colors-grid { grid-template-columns: 1fr 1fr; }
+            .logo-primary img { height: min(5rem, 44vw); }
+            .logo-variant-card img { height: min(6rem, 48vw); }
         }
     </style>
 </head>
 
 <body>
 
+    <!-- Nav injected by shared.js -->
+
     <!-- ══════════════════════════════
-       HERO
-  ══════════════════════════════ -->
+         HERO
+    ══════════════════════════════ -->
     <section class="hero">
         <div class="hero-bg"></div>
 
@@ -641,12 +487,12 @@
 
 
     <!-- ══════════════════════════════
-       01 — LOGO
-  ══════════════════════════════ -->
+         01 — LOGO
+    ══════════════════════════════ -->
     <section class="logo-section">
         <div class="page-section">
 
-            <div class="section-header reveal">
+            <div class="vi-section-header reveal">
                 <div>
                     <div class="section-title-ar">استخدامات الشعار</div>
                 </div>
@@ -676,12 +522,12 @@
 
 
     <!-- ══════════════════════════════
-       02 — SYMBOLS
-  ══════════════════════════════ -->
+         02 — SYMBOLS
+    ══════════════════════════════ -->
     <section class="alt-section">
         <div class="page-section">
 
-            <div class="section-header reveal">
+            <div class="vi-section-header reveal">
                 <div>
                     <div class="section-title-ar">رموز الشعار</div>
                 </div>
@@ -733,12 +579,12 @@
 
 
     <!-- ══════════════════════════════
-       03 — TYPOGRAPHY
-  ══════════════════════════════ -->
+         03 — TYPOGRAPHY
+    ══════════════════════════════ -->
     <section class="plain-section">
         <div class="page-section">
 
-            <div class="section-header reveal">
+            <div class="vi-section-header reveal">
                 <div>
                     <div class="section-title-ar">الخطوط</div>
                 </div>
@@ -770,16 +616,17 @@
                 </div>
 
             </div>
+        </div>
     </section>
 
 
     <!-- ══════════════════════════════
-       04 — COLORS
-  ══════════════════════════════ -->
+         04 — COLORS
+    ══════════════════════════════ -->
     <section class="alt-section">
         <div class="page-section">
 
-            <div class="section-header reveal">
+            <div class="vi-section-header reveal">
                 <div>
                     <div class="section-title-ar">الألوان</div>
                 </div>
@@ -853,28 +700,11 @@
     </section>
 
 
-    <!-- ══════════════════════════════
-       FOOTER
-  ══════════════════════════════ -->
-    <footer class="page-footer">
-        <span>FMCSA</span>
-        <span>2026</span>
-    </footer>
+    <!-- Footer injected by shared.js -->
 
+    <!-- Shared JS (injects nav + footer + scroll reveal) -->
+    <script src="js/shared.js"></script>
 
-    <script>
-        /* scroll reveal */
-        const observer = new IntersectionObserver(entries => {
-            entries.forEach(e => {
-                if (e.isIntersecting) {
-                    e.target.classList.add('visible');
-                    observer.unobserve(e.target);
-                }
-            });
-        }, { threshold: 0.12 });
-
-        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-    </script>
 </body>
 
 </html>
