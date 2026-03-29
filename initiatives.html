@@ -1,0 +1,790 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>مبادراتنا — FMCSA</title>
+  <meta name="description" content="مبادرات رابطة طلاب كلية العلوم الرياضية والحاسوب بجامعة الجزيرة لخدمة المجتمع الجامعي وتطوير البيئة التعليمية.">
+  <meta property="og:title" content="مبادراتنا — FMCSA">
+  <meta property="og:description" content="مبادرات رابطة طلاب كلية العلوم الرياضية والحاسوب لخدمة المجتمع الجامعي وتطوير البيئة التعليمية.">
+  <meta property="og:image" content="Assets/Share.png">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="ar_SD">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="مبادراتنا — FMCSA">
+  <meta name="twitter:description" content="مبادرات رابطة طلاب كلية العلوم الرياضية والحاسوب لخدمة المجتمع الجامعي.">
+  <meta name="twitter:image" content="Assets/Share.png">
+  <link rel="icon" type="image/png" href="Assets/White Logo.png" media="(prefers-color-scheme: dark)" />
+  <link rel="icon" type="image/png" href="Assets/Blue Logo.png" media="(prefers-color-scheme: light)" />
+  <link rel="stylesheet" href="css/shared.css">
+
+  <style>
+    /* ══════════════════════════════════════════════════════════════
+       INITIATIVES PAGE — Page-specific styles
+    ══════════════════════════════════════════════════════════════ */
+
+    /* ── HERO ── */
+    .initiatives-hero {
+      position: relative;
+      padding-top: calc(var(--nav-height) + 4rem);
+      padding-bottom: 4.5rem;
+      background: var(--navy);
+      color: var(--white);
+      overflow: hidden;
+    }
+
+    .initiatives-hero-bg {
+      position: absolute;
+      inset: 0;
+      background-image: url("Assets/IMG001.webp");
+      background-size: cover;
+      background-position: center 35%;
+      opacity: 0.12;
+      mix-blend-mode: luminosity;
+    }
+
+    .initiatives-hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        170deg,
+        rgba(14, 13, 48, 0.55) 0%,
+        rgba(20, 19, 69, 0.92) 60%,
+        rgba(14, 13, 48, 1) 100%
+      );
+    }
+
+    /* Decorative gold accent line at bottom */
+    .initiatives-hero::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    }
+
+    .initiatives-hero .container {
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-eyebrow {
+      font-family: var(--font-en);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold);
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: var(--space-lg);
+    }
+
+    .hero-eyebrow::before,
+    .hero-eyebrow::after {
+      content: "";
+      height: 1px;
+      width: 2.5rem;
+      background: rgba(245, 197, 24, 0.4);
+    }
+
+    .initiatives-hero-title {
+      font-size: clamp(2.8rem, 7vw, 5rem);
+      font-weight: 900;
+      line-height: 1.15;
+      color: var(--white);
+      margin-bottom: var(--space-lg);
+    }
+
+    .initiatives-hero-subtitle {
+      font-size: clamp(1rem, 2.2vw, 1.2rem);
+      color: rgba(255, 255, 255, 0.65);
+      line-height: 1.8;
+      max-width: 36rem;
+    }
+
+    /* ── INITIATIVES GRID SECTION ── */
+    .initiatives-section {
+      background: var(--off-white);
+      padding: var(--space-5xl) 0;
+    }
+
+    .initiatives-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--space-xl);
+    }
+
+    /* ── INITIATIVE CARD ── */
+    .init-card {
+      background: var(--white);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      transition: transform var(--transition-slow), box-shadow var(--transition-slow);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .init-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-xl);
+    }
+
+    /* Card image / visual area */
+    .init-card-visual {
+      position: relative;
+      height: 14rem;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+
+    .init-card-visual img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .init-card:hover .init-card-visual img {
+      transform: scale(1.05);
+    }
+
+    /* Placeholder gradient visuals for upcoming cards */
+    .init-card-placeholder {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .init-card-placeholder.grad-library {
+      background: linear-gradient(135deg, #141345 0%, #1a1860 40%, #3730a3 100%);
+    }
+
+    .init-card-placeholder.grad-lab {
+      background: linear-gradient(135deg, #0e0d30 0%, #1e1b6e 40%, #312e81 100%);
+    }
+
+    .init-card-placeholder.grad-training {
+      background: linear-gradient(135deg, #0c1340 0%, #1d2a80 40%, #1d4ed8 100%);
+    }
+
+    .init-card-placeholder svg {
+      width: 3.5rem;
+      height: 3.5rem;
+      opacity: 0.25;
+      color: var(--white);
+    }
+
+    /* Gradient overlay on image cards */
+    .init-card-visual-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(14, 13, 48, 0.55) 0%, transparent 60%);
+    }
+
+    /* Status badge pinned to top-right of visual */
+    .init-card-status {
+      position: absolute;
+      top: var(--space-md);
+      right: var(--space-md);
+      font-size: 0.7rem;
+      font-weight: 800;
+      padding: 0.3rem 0.9rem;
+      border-radius: var(--radius-full);
+      letter-spacing: 0.04em;
+    }
+
+    .init-card-status.status-ongoing {
+      background: rgba(16, 185, 129, 0.15);
+      color: #059669;
+      border: 1px solid rgba(16, 185, 129, 0.35);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+    }
+
+    .init-card-status.status-soon {
+      background: rgba(245, 197, 24, 0.15);
+      color: #b45309;
+      border: 1px solid rgba(245, 197, 24, 0.35);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+    }
+
+    /* Card body */
+    .init-card-body {
+      padding: var(--space-xl) var(--space-xl) var(--space-lg);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-md);
+      flex: 1;
+    }
+
+    .init-card-title {
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: var(--navy);
+      line-height: 1.4;
+    }
+
+    .init-card-desc {
+      font-size: 0.9rem;
+      color: var(--text-gray);
+      line-height: 1.75;
+      flex: 1;
+    }
+
+    /* Target row */
+    .init-card-meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: var(--space-md);
+      border-top: 1px solid var(--border-light);
+      flex-wrap: wrap;
+      gap: var(--space-sm);
+    }
+
+    .init-card-target {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--text-gray);
+    }
+
+    .init-card-target svg {
+      width: 0.95rem;
+      height: 0.95rem;
+      color: var(--gold-dark);
+    }
+
+    .init-card-target strong {
+      color: var(--navy);
+      font-size: 0.9rem;
+    }
+
+    .init-card-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.82rem;
+      font-weight: 800;
+      color: var(--navy);
+      padding: 0.45rem 1rem;
+      border-radius: var(--radius-full);
+      border: 2px solid var(--navy);
+      transition: background var(--transition-fast), color var(--transition-fast), transform var(--transition-fast);
+    }
+
+    .init-card-link:hover {
+      background: var(--navy);
+      color: var(--white);
+      transform: translateY(-1px);
+    }
+
+    .init-card-link svg {
+      width: 0.75rem;
+      height: 0.75rem;
+    }
+
+    .init-card-link.disabled {
+      color: var(--text-gray);
+      border-color: var(--mid-gray);
+      cursor: not-allowed;
+      pointer-events: none;
+    }
+
+    /* ── IMPACT STATS SECTION ── */
+    .impact-section {
+      background: var(--navy);
+      padding: var(--space-5xl) 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .impact-section::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: url('Assets/IMG001.webp');
+      background-size: cover;
+      background-position: center;
+      opacity: 0.08;
+      mix-blend-mode: luminosity;
+    }
+
+    .impact-section::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 50rem;
+      height: 50rem;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(245, 197, 24, 0.06) 0%, transparent 65%);
+      pointer-events: none;
+    }
+
+    .impact-section .container {
+      position: relative;
+      z-index: 1;
+    }
+
+    .impact-stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: var(--space-xl);
+      margin-top: var(--space-3xl);
+    }
+
+    .impact-stat {
+      text-align: center;
+      padding: var(--space-2xl) var(--space-lg);
+      border-radius: var(--radius-xl);
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      transition: background 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
+    }
+
+    .impact-stat:hover {
+      background: rgba(255, 255, 255, 0.06);
+      border-color: rgba(245, 197, 24, 0.15);
+      transform: translateY(-3px);
+    }
+
+    .impact-stat-icon {
+      margin-bottom: var(--space-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .impact-stat-value {
+      font-family: var(--font-en);
+      font-size: clamp(2.4rem, 4.5vw, 3.5rem);
+      font-weight: 900;
+      color: var(--gold);
+      line-height: 1;
+      text-align: center;
+      display: block;
+    }
+
+    .impact-stat-label {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-top: var(--space-sm);
+    }
+
+    .impact-stat-label-en {
+      font-family: var(--font-en);
+      font-size: 0.7rem;
+      font-weight: 600;
+      color: rgba(255, 255, 255, 0.35);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      text-align: center;
+      margin-top: 0.25rem;
+    }
+
+    /* ── CTA SECTION ── */
+    .cta-section {
+      background: var(--white);
+      padding: var(--space-5xl) 0;
+    }
+
+    .cta-inner {
+      background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 50%, #1e1b70 100%);
+      border-radius: var(--radius-xl);
+      padding: var(--space-4xl) var(--space-3xl);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-inner::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(rgba(245, 197, 24, 0.06) 1px, transparent 1px);
+      background-size: 24px 24px;
+    }
+
+    /* Gold glow top-left */
+    .cta-inner::after {
+      content: "";
+      position: absolute;
+      top: -4rem;
+      left: -4rem;
+      width: 20rem;
+      height: 20rem;
+      background: radial-gradient(circle, rgba(245, 197, 24, 0.12) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .cta-inner .container {
+      position: relative;
+      z-index: 1;
+    }
+
+    .cta-title {
+      font-size: clamp(1.8rem, 4vw, 2.75rem);
+      font-weight: 900;
+      color: var(--white);
+      margin-bottom: var(--space-lg);
+    }
+
+    .cta-desc {
+      font-size: clamp(0.95rem, 2vw, 1.05rem);
+      color: rgba(255, 255, 255, 0.6);
+      line-height: 1.8;
+      max-width: 36rem;
+      margin: 0 auto var(--space-2xl);
+    }
+
+    .cta-actions {
+      display: flex;
+      gap: var(--space-md);
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    /* ── SECTION HEADER TWEAKS ── */
+    .initiatives-section-header {
+      margin-bottom: var(--space-3xl);
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .initiatives-grid {
+        grid-template-columns: 1fr;
+        max-width: 36rem;
+        margin: 0 auto;
+      }
+
+      .impact-stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 600px) {
+      .initiatives-hero {
+        padding-top: calc(var(--nav-height) + 2.5rem);
+        padding-bottom: 3rem;
+      }
+
+      .initiatives-hero-title {
+        font-size: clamp(2.2rem, 10vw, 3.2rem);
+      }
+
+      .impact-stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--space-lg);
+      }
+
+      .cta-inner {
+        padding: var(--space-3xl) var(--space-xl);
+      }
+
+      .cta-actions {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .cta-actions .btn {
+        width: 100%;
+        max-width: 20rem;
+        justify-content: center;
+      }
+    }
+
+    @media (max-width: 380px) {
+      .impact-stats-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ══════════════════════════════════════════════════════════════
+       HERO SECTION
+  ══════════════════════════════════════════════════════════════ -->
+  <section class="initiatives-hero" aria-label="مبادراتنا — قسم الترويسة">
+    <div class="initiatives-hero-bg" aria-hidden="true"></div>
+    <div class="initiatives-hero-overlay" aria-hidden="true"></div>
+
+    <div class="container">
+      <p class="hero-eyebrow" aria-hidden="true">OUR INITIATIVES</p>
+      <h1 class="initiatives-hero-title">مبادراتنا</h1>
+      <p class="initiatives-hero-subtitle">
+        مبادرات رابطة طلاب كلية العلوم الرياضية والحاسوب لخدمة المجتمع الجامعي وتطوير البيئة التعليمية.
+      </p>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════════════════════════════
+       INITIATIVES GRID
+  ══════════════════════════════════════════════════════════════ -->
+  <section class="initiatives-section" aria-labelledby="initiatives-heading">
+    <div class="container">
+
+      <div class="initiatives-section-header">
+        <p class="section-eyebrow reveal">جميع المبادرات</p>
+        <h2 class="section-title reveal reveal-delay-1" id="initiatives-heading">نعمل معاً لتطوير الكلية</h2>
+        <p class="section-subtitle reveal reveal-delay-2">
+          من مبادرات البنية التحتية إلى برامج التدريب والتأهيل — نسعى لتوفير بيئة جامعية متميزة لجميع الطلاب.
+        </p>
+      </div>
+
+      <div class="initiatives-grid">
+
+        <!-- ── Card 1: مبادرة خالتو مدينة (Real / Ongoing) ── -->
+        <article class="init-card reveal" aria-labelledby="init-card-1-title">
+          <div class="init-card-visual">
+            <img
+              src="Assets/مبادرة رابطة الكلية.webp"
+              alt="مبادرة خالتو مدينة — إنشاء مظلتين وتوفير كراسي للمكتبة"
+              loading="lazy"
+            />
+            <div class="init-card-visual-overlay" aria-hidden="true"></div>
+            <span class="init-card-status status-ongoing" aria-label="حالة المبادرة: جارية">جارية</span>
+          </div>
+          <div class="init-card-body">
+            <h3 class="init-card-title" id="init-card-1-title">مبادرة خالتو مدينة</h3>
+            <p class="init-card-desc">
+              إنشاء مظلتين بكلية العلوم الرياضية والحاسوب وتوفير كراسي لمكتبة الكلية، لتحسين البيئة الدراسية وراحة الطلاب.
+            </p>
+            <div class="init-card-meta">
+              <div class="init-card-target">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <circle cx="12" cy="12" r="10"/>
+                  <circle cx="12" cy="12" r="6"/>
+                  <circle cx="12" cy="12" r="2"/>
+                </svg>
+                الهدف: <strong>15,000,000 ج.س</strong>
+              </div>
+              <a class="init-card-link" href="M.html" aria-label="عرض تفاصيل مبادرة خالتو مدينة">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <line x1="19" y1="12" x2="5" y2="12"/>
+                  <polyline points="12 5 5 12 12 19"/>
+                </svg>
+                عرض التفاصيل
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- ── Card 2: مبادرة دعم المكتبة (Coming Soon) ── -->
+        <article class="init-card reveal reveal-delay-1" aria-labelledby="init-card-2-title">
+          <div class="init-card-visual">
+            <div class="init-card-placeholder grad-library" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+                <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+              </svg>
+            </div>
+            <div class="init-card-visual-overlay" aria-hidden="true"></div>
+            <span class="init-card-status status-soon" aria-label="حالة المبادرة: قريباً">قريباً</span>
+          </div>
+          <div class="init-card-body">
+            <h3 class="init-card-title" id="init-card-2-title">مبادرة دعم المكتبة</h3>
+            <p class="init-card-desc">
+              توفير مراجع ومصادر علمية حديثة لمكتبة الكلية لدعم البحث العلمي والتعلم، وإثراء المحتوى المعرفي المتاح للطلاب.
+            </p>
+            <div class="init-card-meta">
+              <div class="init-card-target" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <circle cx="12" cy="12" r="10"/>
+                  <polyline points="12 6 12 12 16 14"/>
+                </svg>
+                يُعلن قريباً
+              </div>
+              <span class="init-card-link disabled" aria-label="التفاصيل غير متوفرة حالياً">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <line x1="19" y1="12" x2="5" y2="12"/>
+                  <polyline points="12 5 5 12 12 19"/>
+                </svg>
+                قريباً
+              </span>
+            </div>
+          </div>
+        </article>
+
+        <!-- ── Card 3: تطوير معامل الحاسوب (Coming Soon) ── -->
+        <article class="init-card reveal reveal-delay-2" aria-labelledby="init-card-3-title">
+          <div class="init-card-visual">
+            <div class="init-card-placeholder grad-lab" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
+                <line x1="8" y1="21" x2="16" y2="21"/>
+                <line x1="12" y1="17" x2="12" y2="21"/>
+              </svg>
+            </div>
+            <div class="init-card-visual-overlay" aria-hidden="true"></div>
+            <span class="init-card-status status-soon" aria-label="حالة المبادرة: قريباً">قريباً</span>
+          </div>
+          <div class="init-card-body">
+            <h3 class="init-card-title" id="init-card-3-title">تطوير معامل الحاسوب</h3>
+            <p class="init-card-desc">
+              تحديث وتطوير معامل الحاسوب بالكلية لتوفير بيئة تعليمية متميزة تواكب التطورات التقنية وتدعم التعلم العملي.
+            </p>
+            <div class="init-card-meta">
+              <div class="init-card-target" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <circle cx="12" cy="12" r="10"/>
+                  <polyline points="12 6 12 12 16 14"/>
+                </svg>
+                يُعلن قريباً
+              </div>
+              <span class="init-card-link disabled" aria-label="التفاصيل غير متوفرة حالياً">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <line x1="19" y1="12" x2="5" y2="12"/>
+                  <polyline points="12 5 5 12 12 19"/>
+                </svg>
+                قريباً
+              </span>
+            </div>
+          </div>
+        </article>
+
+        <!-- ── Card 4: برنامج التدريب والتأهيل (Coming Soon) ── -->
+        <article class="init-card reveal reveal-delay-3" aria-labelledby="init-card-4-title">
+          <div class="init-card-visual">
+            <div class="init-card-placeholder grad-training" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                <circle cx="9" cy="7" r="4"/>
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+              </svg>
+            </div>
+            <div class="init-card-visual-overlay" aria-hidden="true"></div>
+            <span class="init-card-status status-soon" aria-label="حالة المبادرة: قريباً">قريباً</span>
+          </div>
+          <div class="init-card-body">
+            <h3 class="init-card-title" id="init-card-4-title">برنامج التدريب والتأهيل</h3>
+            <p class="init-card-desc">
+              تنظيم دورات تدريبية وورش عمل لتأهيل الطلاب لسوق العمل، وتطوير مهاراتهم التقنية والمهنية للتميز في مجالاتهم.
+            </p>
+            <div class="init-card-meta">
+              <div class="init-card-target" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <circle cx="12" cy="12" r="10"/>
+                  <polyline points="12 6 12 12 16 14"/>
+                </svg>
+                يُعلن قريباً
+              </div>
+              <span class="init-card-link disabled" aria-label="التفاصيل غير متوفرة حالياً">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <line x1="19" y1="12" x2="5" y2="12"/>
+                  <polyline points="12 5 5 12 12 19"/>
+                </svg>
+                قريباً
+              </span>
+            </div>
+          </div>
+        </article>
+
+      </div><!-- /.initiatives-grid -->
+    </div><!-- /.container -->
+  </section>
+
+
+  <!-- ══════════════════════════════════════════════════════════════
+       IMPACT STATS SECTION
+  ══════════════════════════════════════════════════════════════ -->
+  <section class="impact-section" aria-labelledby="impact-heading">
+    <div class="container">
+
+      <div class="text-center">
+        <p class="section-eyebrow reveal" style="justify-content: center; display: flex;">OUR IMPACT</p>
+        <h2 class="section-title on-dark reveal reveal-delay-1" id="impact-heading">أثرنا بالأرقام</h2>
+        <p class="section-subtitle on-dark reveal reveal-delay-2" style="margin: var(--space-md) auto 0;">
+          أرقام تعكس التزامنا بخدمة مجتمع الكلية والعمل المشترك نحو مستقبل أفضل.
+        </p>
+      </div>
+
+      <div class="impact-stats-grid">
+
+        <div class="impact-stat reveal">
+          <span class="impact-stat-icon" aria-hidden="true">
+            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#F5C518" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>
+          </span>
+          <span class="impact-stat-value">1</span>
+          <span class="impact-stat-label">مبادرة جارية</span>
+        </div>
+
+        <div class="impact-stat reveal reveal-delay-1">
+          <span class="impact-stat-icon" aria-hidden="true">
+            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#F5C518" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="4" width="22" height="16" rx="2"/><circle cx="12" cy="12" r="4"/><line x1="1" y1="8" x2="4" y2="8"/><line x1="20" y1="8" x2="23" y2="8"/><line x1="1" y1="16" x2="4" y2="16"/><line x1="20" y1="16" x2="23" y2="16"/></svg>
+          </span>
+          <span class="impact-stat-value">+15M</span>
+          <span class="impact-stat-label">هدف التبرعات</span>
+        </div>
+
+        <div class="impact-stat reveal reveal-delay-2">
+          <span class="impact-stat-icon" aria-hidden="true">
+            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#F5C518" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </span>
+          <span class="impact-stat-value">16</span>
+          <span class="impact-stat-label">عضو تنفيذي</span>
+        </div>
+
+        <div class="impact-stat reveal reveal-delay-3">
+          <span class="impact-stat-icon" aria-hidden="true">
+            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#F5C518" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c0 2 3 3 6 3s6-1 6-3v-5"/></svg>
+          </span>
+          <span class="impact-stat-value">1500<span style="font-size:0.75em;color:var(--gold-light)">+</span></span>
+          <span class="impact-stat-label">طالب مستفيد</span>
+        </div>
+
+      </div><!-- /.impact-stats-grid -->
+    </div><!-- /.container -->
+  </section>
+
+
+  <!-- ══════════════════════════════════════════════════════════════
+       CALL TO ACTION
+  ══════════════════════════════════════════════════════════════ -->
+  <section class="cta-section" aria-labelledby="cta-heading">
+    <div class="container">
+      <div class="cta-inner reveal">
+        <h2 class="cta-title" id="cta-heading">شارك معنا</h2>
+        <p class="cta-desc">
+          مبادراتنا تتحقق بمشاركة الجميع. سواء بالتبرع المالي أو بنشر الكلمة بين زملائك — كل مساهمة تصنع فارقاً حقيقياً في حياة طلاب الكلية.
+        </p>
+        <div class="cta-actions">
+          <a class="btn btn-primary" href="M.html" aria-label="تبرع الآن لمبادرة خالتو مدينة">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width:1rem;height:1rem;">
+              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+            </svg>
+            تبرع الآن
+          </a>
+          <a class="btn btn-secondary on-dark" href="contact.html" aria-label="تواصل معنا للمزيد من المعلومات">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width:1rem;height:1rem;">
+              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+            </svg>
+            تواصل معنا
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <script src="js/shared.js"></script>
+</body>
+
+</html>

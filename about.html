@@ -1,0 +1,1041 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>عن الكلية · FMCSA</title>
+  <meta name="description" content="تعرف على كلية العلوم الرياضية والحاسوب بجامعة الجزيرة — رسالتها، رؤيتها، تاريخها، وقيمها الأكاديمية.">
+  <meta property="og:title" content="عن الكلية — FMCSA · جامعة الجزيرة">
+  <meta property="og:description" content="كلية العلوم الرياضية والحاسوب بجامعة الجزيرة — رسالة أكاديمية رائدة في السودان.">
+  <meta property="og:image" content="Assets/Cover.jpg">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="ar_SD">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="عن الكلية — FMCSA">
+  <meta name="twitter:image" content="Assets/Cover.jpg">
+  <link rel="icon" type="image/png" href="Assets/White Logo.png" media="(prefers-color-scheme: dark)">
+  <link rel="icon" type="image/png" href="Assets/Blue Logo.png" media="(prefers-color-scheme: light)">
+  <link rel="stylesheet" href="css/shared.css">
+
+  <style>
+    /* ══════════════════════════════════════════════════════════════
+       PAGE HERO
+       ══════════════════════════════════════════════════════════════ */
+    .page-hero {
+      position: relative;
+      min-height: 55vh;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      background: var(--navy-dark);
+    }
+
+    .page-hero-bg {
+      position: absolute;
+      inset: 0;
+      background-image: url('Assets/IMG001.webp');
+      background-size: cover;
+      background-position: center 30%;
+      opacity: 0.25;
+    }
+
+    .page-hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        135deg,
+        rgba(14, 13, 48, 0.92) 0%,
+        rgba(20, 19, 69, 0.75) 60%,
+        rgba(14, 13, 48, 0.88) 100%
+      );
+    }
+
+    .page-hero-content {
+      position: relative;
+      z-index: 2;
+      padding: calc(var(--nav-height, 4.5rem) + 2rem) 0 var(--space-3xl);
+    }
+
+    .page-hero-eyebrow {
+      font-family: var(--font-en);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: var(--space-md);
+      direction: ltr;
+      text-align: right;
+    }
+
+    .page-hero-title {
+      font-size: clamp(2.4rem, 6vw, 4rem);
+      font-weight: 900;
+      color: var(--white);
+      line-height: 1.2;
+      margin-bottom: var(--space-md);
+    }
+
+    .page-hero-subtitle {
+      font-size: clamp(1rem, 2.2vw, 1.2rem);
+      color: rgba(255, 255, 255, 0.65);
+      max-width: 36rem;
+      line-height: 1.7;
+    }
+
+    .page-hero-breadcrumb {
+      position: absolute;
+      bottom: var(--space-xl);
+      right: 0;
+      left: 0;
+      z-index: 2;
+    }
+
+    .breadcrumb-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 var(--space-xl);
+      display: flex;
+      align-items: center;
+      gap: var(--space-sm);
+      font-size: 0.8rem;
+      color: rgba(255, 255, 255, 0.45);
+    }
+
+    .breadcrumb-inner a {
+      color: rgba(255, 255, 255, 0.45);
+      transition: color var(--transition-fast);
+    }
+
+    .breadcrumb-inner a:hover {
+      color: var(--gold);
+    }
+
+    .breadcrumb-sep {
+      opacity: 0.4;
+    }
+
+    .breadcrumb-current {
+      color: var(--gold);
+    }
+
+    /* ══════════════════════════════════════════════════════════════
+       DEAN'S WELCOME
+       ══════════════════════════════════════════════════════════════ */
+    .deans-welcome {
+      background: var(--bg-primary);
+    }
+
+    .welcome-grid {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: var(--space-3xl);
+      align-items: center;
+    }
+
+    .dean-photo-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: var(--space-lg);
+    }
+
+    .dean-photo-placeholder {
+      width: 100%;
+      max-width: 280px;
+      aspect-ratio: 3/4;
+      border-radius: var(--radius-xl);
+      background: linear-gradient(
+        145deg,
+        var(--navy) 0%,
+        var(--navy-light) 50%,
+        #2a266e 100%
+      );
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-md);
+      position: relative;
+      overflow: hidden;
+      box-shadow: var(--shadow-xl);
+    }
+
+    .dean-photo-placeholder::before {
+      content: '';
+      position: absolute;
+      top: -30%;
+      right: -30%;
+      width: 70%;
+      height: 70%;
+      background: radial-gradient(circle, rgba(245, 197, 24, 0.15) 0%, transparent 70%);
+    }
+
+    .dean-photo-placeholder svg {
+      width: 5rem;
+      height: 5rem;
+      color: rgba(255, 255, 255, 0.25);
+    }
+
+    .dean-photo-placeholder-text {
+      font-size: 0.75rem;
+      color: rgba(255, 255, 255, 0.35);
+      text-align: center;
+      direction: rtl;
+    }
+
+    .dean-name-badge {
+      background: var(--navy);
+      color: var(--white);
+      padding: var(--space-md) var(--space-lg);
+      border-radius: var(--radius-lg);
+      text-align: center;
+      width: 100%;
+      max-width: 280px;
+    }
+
+    .dean-name {
+      font-size: 1rem;
+      font-weight: 800;
+      margin-bottom: 0.25rem;
+    }
+
+    .dean-title {
+      font-size: 0.75rem;
+      color: var(--gold);
+      font-weight: 600;
+    }
+
+    .welcome-content .section-header {
+      margin-bottom: var(--space-xl);
+    }
+
+    .welcome-body {
+      font-size: 1rem;
+      color: var(--text-secondary);
+      line-height: 1.9;
+      margin-bottom: var(--space-xl);
+    }
+
+    .welcome-body p + p {
+      margin-top: var(--space-md);
+    }
+
+    .welcome-signature {
+      display: flex;
+      align-items: center;
+      gap: var(--space-md);
+      padding: var(--space-lg);
+      background: var(--bg-secondary);
+      border-radius: var(--radius-lg);
+      border-right: 4px solid var(--gold);
+    }
+
+    .welcome-signature-text {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .welcome-signature-name {
+      font-size: 1rem;
+      font-weight: 800;
+      color: var(--navy);
+    }
+
+    /* ══════════════════════════════════════════════════════════════
+       MISSION & VISION
+       ══════════════════════════════════════════════════════════════ */
+    .mission-vision {
+      background: var(--navy);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .mission-vision::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -10%;
+      width: 60%;
+      height: 200%;
+      background: radial-gradient(ellipse, rgba(245, 197, 24, 0.05) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    .mv-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-xl);
+    }
+
+    .mv-card {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: var(--radius-xl);
+      padding: var(--space-2xl);
+      position: relative;
+      overflow: hidden;
+      transition: background var(--transition-base), border-color var(--transition-base);
+    }
+
+    .mv-card:hover {
+      background: rgba(255, 255, 255, 0.07);
+      border-color: rgba(245, 197, 24, 0.2);
+    }
+
+    .mv-card::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--gold), transparent);
+    }
+
+    .mv-icon {
+      width: 3.5rem;
+      height: 3.5rem;
+      background: rgba(245, 197, 24, 0.12);
+      border-radius: var(--radius-lg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: var(--space-lg);
+    }
+
+    .mv-icon svg {
+      width: 1.75rem;
+      height: 1.75rem;
+      color: var(--gold);
+    }
+
+    .mv-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-family: var(--font-en);
+      margin-bottom: var(--space-sm);
+      direction: ltr;
+      text-align: right;
+    }
+
+    .mv-title {
+      font-size: 1.5rem;
+      font-weight: 900;
+      color: var(--white);
+      margin-bottom: var(--space-lg);
+    }
+
+    .mv-text {
+      font-size: 0.95rem;
+      color: rgba(255, 255, 255, 0.65);
+      line-height: 1.85;
+    }
+
+    /* ══════════════════════════════════════════════════════════════
+       HISTORY TIMELINE
+       ══════════════════════════════════════════════════════════════ */
+    .history-section {
+      background: var(--bg-secondary);
+    }
+
+    .timeline {
+      position: relative;
+      max-width: 52rem;
+      margin: 0 auto;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      right: 1.75rem;
+      width: 2px;
+      background: linear-gradient(
+        to bottom,
+        transparent,
+        var(--mid-gray) 5%,
+        var(--mid-gray) 95%,
+        transparent
+      );
+    }
+
+    .timeline-item {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: var(--space-xl);
+      align-items: start;
+      padding-bottom: var(--space-2xl);
+      position: relative;
+    }
+
+    .timeline-item:last-child {
+      padding-bottom: 0;
+    }
+
+    .timeline-body {
+      background: var(--white);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-lg);
+      padding: var(--space-xl);
+      box-shadow: var(--shadow-sm);
+      transition: box-shadow var(--transition-base), transform var(--transition-base);
+    }
+
+    .timeline-body:hover {
+      box-shadow: var(--shadow-md);
+      transform: translateX(-4px);
+    }
+
+    .timeline-year-badge {
+      font-family: var(--font-en);
+      font-size: 0.75rem;
+      font-weight: 800;
+      color: var(--gold-dark);
+      background: rgba(245, 197, 24, 0.1);
+      border: 1px solid rgba(245, 197, 24, 0.25);
+      border-radius: var(--radius-full);
+      padding: 0.25rem 0.75rem;
+      margin-bottom: var(--space-sm);
+      display: inline-block;
+      direction: ltr;
+    }
+
+    .timeline-event-title {
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: var(--navy);
+      margin-bottom: 0.4rem;
+    }
+
+    .timeline-event-desc {
+      font-size: 0.875rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+
+    .timeline-dot-col {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-top: var(--space-lg);
+      width: 3.5rem;
+    }
+
+    .timeline-dot {
+      width: 1.25rem;
+      height: 1.25rem;
+      flex-shrink: 0;
+      z-index: 1;
+      filter: drop-shadow(0 0 4px rgba(245, 197, 24, 0.7));
+    }
+
+    /* ══════════════════════════════════════════════════════════════
+       CORE VALUES
+       ══════════════════════════════════════════════════════════════ */
+    .values-section {
+      background: var(--bg-primary);
+    }
+
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: var(--space-xl);
+    }
+
+    .value-card {
+      padding: var(--space-2xl) var(--space-xl);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-xl);
+      text-align: center;
+      transition: transform var(--transition-base), box-shadow var(--transition-base), border-color var(--transition-base);
+      position: relative;
+      overflow: hidden;
+      background: var(--white);
+    }
+
+    .value-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-lg);
+      border-color: rgba(245, 197, 24, 0.3);
+    }
+
+    .value-card::before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--gold), var(--gold-light));
+      transform: scaleX(0);
+      transition: transform var(--transition-base);
+    }
+
+    .value-card:hover::before {
+      transform: scaleX(1);
+    }
+
+    .value-icon {
+      width: 4rem;
+      height: 4rem;
+      background: linear-gradient(135deg, var(--navy), var(--navy-light));
+      border-radius: var(--radius-lg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto var(--space-lg);
+    }
+
+    .value-icon svg {
+      width: 2rem;
+      height: 2rem;
+      color: var(--gold);
+    }
+
+    .value-title {
+      font-size: 1.05rem;
+      font-weight: 900;
+      color: var(--navy);
+      margin-bottom: var(--space-sm);
+    }
+
+    .value-title-en {
+      font-family: var(--font-en);
+      font-size: 0.72rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      letter-spacing: 0.06em;
+      text-align: center;
+      margin-bottom: var(--space-md);
+    }
+
+    .value-desc {
+      font-size: 0.875rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+
+    /* ══════════════════════════════════════════════════════════════
+       QUICK FACTS / STATS
+       ══════════════════════════════════════════════════════════════ */
+    .facts-section {
+      background: var(--navy);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .facts-section::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        radial-gradient(circle at 20% 50%, rgba(245, 197, 24, 0.06) 0%, transparent 50%),
+        radial-gradient(circle at 80% 50%, rgba(99, 102, 241, 0.06) 0%, transparent 50%);
+      pointer-events: none;
+    }
+
+    .facts-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 0;
+      position: relative;
+      z-index: 1;
+    }
+
+    .fact-item {
+      text-align: center;
+      padding: var(--space-2xl) var(--space-lg);
+      border-left: 1px solid rgba(255, 255, 255, 0.07);
+      transition: background var(--transition-base);
+    }
+
+    .fact-item:last-child {
+      border-left: none;
+    }
+
+    .fact-item:hover {
+      background: rgba(255, 255, 255, 0.03);
+    }
+
+    .fact-number {
+      font-family: var(--font-en);
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 900;
+      color: var(--gold);
+      line-height: 1;
+      margin-bottom: 0.35rem;
+      text-align: center;
+    }
+
+    .fact-number sup {
+      font-size: 0.5em;
+      vertical-align: super;
+    }
+
+    .fact-label {
+      font-size: 0.875rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 0.2rem;
+    }
+
+    .fact-label-en {
+      font-family: var(--font-en);
+      font-size: 0.65rem;
+      color: rgba(255, 255, 255, 0.4);
+      letter-spacing: 0.06em;
+      text-align: center;
+    }
+
+    /* ══════════════════════════════════════════════════════════════
+       RESPONSIVE
+       ══════════════════════════════════════════════════════════════ */
+    @media (max-width: 900px) {
+      .welcome-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .dean-photo-wrap {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .mv-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .values-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .facts-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .fact-item:nth-child(3) {
+        border-left: none;
+      }
+
+      .fact-item:nth-child(4) {
+        border-left: 1px solid rgba(255, 255, 255, 0.07);
+      }
+    }
+
+    @media (max-width: 600px) {
+      .page-hero {
+        min-height: 45vh;
+      }
+
+      .timeline::before {
+        right: 1.25rem;
+      }
+
+      .values-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .facts-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .fact-item:nth-child(2),
+      .fact-item:nth-child(4) {
+        border-left: none;
+      }
+
+      .fact-item:nth-child(3),
+      .fact-item:nth-child(5) {
+        border-left: 1px solid rgba(255, 255, 255, 0.07);
+      }
+
+      .fact-item:nth-child(5) {
+        grid-column: 1 / -1;
+        border-left: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ══════════════════════════════════════════════════════════════
+       PAGE HERO
+       ══════════════════════════════════════════════════════════════ -->
+  <section class="page-hero" aria-label="رأس صفحة عن الكلية">
+    <div class="page-hero-bg" role="presentation"></div>
+    <div class="page-hero-overlay" role="presentation"></div>
+
+    <div class="container page-hero-content">
+      <p class="page-hero-eyebrow reveal">About the Faculty</p>
+      <h1 class="page-hero-title reveal reveal-delay-1">عن الكلية</h1>
+      <p class="page-hero-subtitle reveal reveal-delay-2">
+        كلية العلوم الرياضية والحاسوب بجامعة الجزيرة — صرح أكاديمي رائد يجمع بين الرياضيات والإحصاء وعلوم الحاسوب
+        في بيئة بحثية وتعليمية متميزة
+      </p>
+    </div>
+
+    <nav class="page-hero-breadcrumb" aria-label="مسار التنقل">
+      <div class="breadcrumb-inner">
+        <a href="index.html">الرئيسية</a>
+        <span class="breadcrumb-sep" aria-hidden="true">/</span>
+        <span class="breadcrumb-current">عن الكلية</span>
+      </div>
+    </nav>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════════════
+       DEAN'S WELCOME
+       ══════════════════════════════════════════════════════════════ -->
+  <section class="deans-welcome section-padding" id="dean" aria-labelledby="dean-heading">
+    <div class="container">
+      <div class="welcome-grid">
+
+        <!-- Dean Photo -->
+        <div class="dean-photo-wrap reveal">
+          <div class="dean-photo-placeholder" role="img" aria-label="صورة عميد الكلية">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+              <circle cx="12" cy="7" r="4"/>
+            </svg>
+            <p class="dean-photo-placeholder-text">صورة العميد</p>
+          </div>
+          <div class="dean-name-badge">
+            <p class="dean-name">أ.د. عادل محمد أحمد</p>
+            <p class="dean-title">عميد الكلية</p>
+          </div>
+        </div>
+
+        <!-- Welcome Text -->
+        <div class="welcome-content">
+          <div class="section-header reveal">
+            <p class="section-eyebrow">Dean's Welcome</p>
+            <h2 class="section-title" id="dean-heading">كلمة العميد</h2>
+          </div>
+
+          <div class="welcome-body reveal reveal-delay-1">
+            <p>
+              يسعدني أن أرحب بكم في كلية العلوم الرياضية والحاسوب بجامعة الجزيرة، هذا الصرح الأكاديمي العريق
+              الذي يضطلع بمهمة إعداد كفاءات علمية متميزة في مجالات الرياضيات والإحصاء وعلوم الحاسوب.
+            </p>
+            <p>
+              تتميز كليتنا بكوادر أكاديمية وبحثية عالية الكفاءة، وبيئة دراسية محفزة تجمع بين الأصالة
+              والمعاصرة. إذ نسعى جاهدين إلى تزويد طلابنا بالمعرفة النظرية الرصينة والمهارات التطبيقية
+              اللازمة لمواكبة متطلبات سوق العمل المحلي والدولي.
+            </p>
+            <p>
+              نؤمن إيمانًا راسخًا بأن التميز الأكاديمي والبحث العلمي وخدمة المجتمع هي الركائز الثلاث
+              التي ترتكز عليها رسالتنا المؤسسية. ونحرص على أن يكون خريج كليتنا قادرًا على الإسهام
+              الفعّال في مسيرة التنمية الوطنية والانفتاح على الفضاء المعرفي العالمي.
+            </p>
+          </div>
+
+          <div class="welcome-signature reveal reveal-delay-2">
+            <div>
+              <p class="welcome-signature-name">أ.د. عادل محمد أحمد</p>
+              <p class="welcome-signature-text">عميد كلية العلوم الرياضية والحاسوب · جامعة الجزيرة</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════════════
+       MISSION & VISION
+       ══════════════════════════════════════════════════════════════ -->
+  <section class="mission-vision section-padding" id="mission" aria-labelledby="mv-heading">
+    <div class="container">
+      <div class="section-header text-center reveal">
+        <p class="section-eyebrow">Mission & Vision</p>
+        <h2 class="section-title on-dark" id="mv-heading">الرؤية والرسالة</h2>
+        <p class="section-subtitle on-dark" style="margin: var(--space-md) auto 0;">
+          الإطار الاستراتيجي الذي يوجه مسيرة الكلية نحو التميز الأكاديمي والريادة البحثية
+        </p>
+      </div>
+
+      <div class="mv-grid">
+
+        <!-- Vision Card -->
+        <div class="mv-card reveal reveal-delay-1">
+          <div class="mv-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"/>
+              <line x1="2" y1="12" x2="22" y2="12"/>
+              <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+            </svg>
+          </div>
+          <p class="mv-label">Vision</p>
+          <h3 class="mv-title">الرؤية</h3>
+          <p class="mv-text">
+            أن تكون الكلية مرجعًا أكاديميًا وبحثيًا متميزًا في مجالات العلوم الرياضية والإحصاء وعلوم الحاسوب
+            على المستوى الوطني والإقليمي، وأن تُسهم في بناء مجتمع المعرفة وتحقيق التنمية المستدامة
+            من خلال إعداد كوادر علمية مؤهلة ومنافسة على أعلى المستويات.
+          </p>
+        </div>
+
+        <!-- Mission Card -->
+        <div class="mv-card reveal reveal-delay-2">
+          <div class="mv-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"/>
+              <circle cx="12" cy="12" r="6"/>
+              <circle cx="12" cy="12" r="2"/>
+            </svg>
+          </div>
+          <p class="mv-label">Mission</p>
+          <h3 class="mv-title">الرسالة</h3>
+          <p class="mv-text">
+            تقديم برامج أكاديمية متطورة وشاملة في الرياضيات والإحصاء وعلوم الحاسوب، وتهيئة بيئة بحثية
+            خلاقة تُشجع على الابتكار وحل المشكلات. والارتقاء بمستوى الطلاب علميًا وأخلاقيًا وتنميتهم
+            شخصيًا وتحفيزهم على المشاركة المجتمعية الفعّالة، وإقامة شراكات استراتيجية مع المؤسسات
+            الأكاديمية والصناعية المحلية والدولية لدعم مسيرة التطوير والتميز.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════════════
+       HISTORY TIMELINE
+       ══════════════════════════════════════════════════════════════ -->
+  <section class="history-section section-padding" id="history" aria-labelledby="history-heading">
+    <div class="container">
+      <div class="section-header text-center reveal">
+        <p class="section-eyebrow">Our History</p>
+        <h2 class="section-title" id="history-heading">مسيرة الكلية عبر التاريخ</h2>
+        <p class="section-subtitle" style="margin: var(--space-md) auto 0;">
+          أربعة عقود من العطاء الأكاديمي والإنجازات العلمية المتراكمة
+        </p>
+      </div>
+
+      <div class="timeline" role="list">
+
+        <div class="timeline-item reveal" role="listitem">
+          <div class="timeline-dot-col">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="#F5C518" stroke="#F5C518" stroke-width="0" aria-hidden="true" class="timeline-dot"><circle cx="12" cy="12" r="8"/></svg>
+          </div>
+          <div class="timeline-body">
+            <span class="timeline-year-badge">1985</span>
+            <h3 class="timeline-event-title">تأسيس الكلية</h3>
+            <p class="timeline-event-desc">
+              تأسست كلية العلوم الرياضية والحاسوب كإحدى كليات جامعة الجزيرة العريقة بمدينة ودمدني،
+              بهدف تلبية احتياجات السودان من الكوادر المتخصصة في العلوم الرياضية وتقنية المعلومات.
+            </p>
+          </div>
+        </div>
+
+        <div class="timeline-item reveal reveal-delay-1" role="listitem">
+          <div class="timeline-dot-col">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="#F5C518" stroke="#F5C518" stroke-width="0" aria-hidden="true" class="timeline-dot"><circle cx="12" cy="12" r="8"/></svg>
+          </div>
+          <div class="timeline-body">
+            <span class="timeline-year-badge">1993</span>
+            <h3 class="timeline-event-title">توسعة البرامج الأكاديمية</h3>
+            <p class="timeline-event-desc">
+              إطلاق برامج درجة البكالوريوس في الإحصاء وعلوم الحاسوب، وتوسيع مناهج الرياضيات
+              لتشمل الرياضيات التطبيقية والتحليل العددي استجابةً للطلب المتزايد في سوق العمل.
+            </p>
+          </div>
+        </div>
+
+        <div class="timeline-item reveal reveal-delay-2" role="listitem">
+          <div class="timeline-dot-col">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="#F5C518" stroke="#F5C518" stroke-width="0" aria-hidden="true" class="timeline-dot"><circle cx="12" cy="12" r="8"/></svg>
+          </div>
+          <div class="timeline-body">
+            <span class="timeline-year-badge">2002</span>
+            <h3 class="timeline-event-title">إنشاء مركز الحوسبة وتقنية المعلومات</h3>
+            <p class="timeline-event-desc">
+              افتتاح مركز الحوسبة المتخصص المزود بأحدث المعامل والمختبرات الحاسوبية،
+              مما أتاح بيئة تعليمية وبحثية متطورة للطلاب وأعضاء هيئة التدريس.
+            </p>
+          </div>
+        </div>
+
+        <div class="timeline-item reveal reveal-delay-3" role="listitem">
+          <div class="timeline-dot-col">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="#F5C518" stroke="#F5C518" stroke-width="0" aria-hidden="true" class="timeline-dot"><circle cx="12" cy="12" r="8"/></svg>
+          </div>
+          <div class="timeline-body">
+            <span class="timeline-year-badge">2010</span>
+            <h3 class="timeline-event-title">الاعتماد الأكاديمي وإطلاق الدراسات العليا</h3>
+            <p class="timeline-event-desc">
+              حصول الكلية على الاعتماد الأكاديمي من هيئة ضمان الجودة والاعتماد الأكاديمي،
+              وإطلاق برامج الماجستير في عدد من التخصصات الحاسوبية والرياضية.
+            </p>
+          </div>
+        </div>
+
+        <div class="timeline-item reveal reveal-delay-4" role="listitem">
+          <div class="timeline-dot-col">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="#F5C518" stroke="#F5C518" stroke-width="0" aria-hidden="true" class="timeline-dot"><circle cx="12" cy="12" r="8"/></svg>
+          </div>
+          <div class="timeline-body">
+            <span class="timeline-year-badge">2025</span>
+            <h3 class="timeline-event-title">تأسيس رابطة طلاب الكلية — FMCSA</h3>
+            <p class="timeline-event-desc">
+              إطلاق رابطة طلاب كلية العلوم الرياضية والحاسوب (FMCSA) لتكون الجسر الرابط بين
+              الطلاب والكلية، ورافدًا للأنشطة الطلابية والمبادرات الأكاديمية والمجتمعية.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════════════
+       CORE VALUES
+       ══════════════════════════════════════════════════════════════ -->
+  <section class="values-section section-padding" id="values" aria-labelledby="values-heading">
+    <div class="container">
+      <div class="section-header text-center reveal">
+        <p class="section-eyebrow">Core Values</p>
+        <h2 class="section-title" id="values-heading">قيمنا الجوهرية</h2>
+        <p class="section-subtitle" style="margin: var(--space-md) auto 0;">
+          المبادئ الراسخة التي تُشكّل هوية الكلية وتوجّه مسيرتها الأكاديمية
+        </p>
+      </div>
+
+      <div class="values-grid">
+
+        <!-- Academic Excellence -->
+        <div class="value-card reveal">
+          <div class="value-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="8" r="7"/>
+              <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/>
+            </svg>
+          </div>
+          <h3 class="value-title">التميز الأكاديمي</h3>
+          <p class="value-title-en">Academic Excellence</p>
+          <p class="value-desc">
+            الالتزام بأعلى معايير الجودة في التعليم والبحث العلمي، وتحفيز الطلاب على بلوغ
+            أقصى طاقاتهم الأكاديمية.
+          </p>
+        </div>
+
+        <!-- Research -->
+        <div class="value-card reveal reveal-delay-1">
+          <div class="value-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M6 18h8"/>
+              <path d="M3 22h18"/>
+              <path d="M14 22a7 7 0 1 0 0-14h-1"/>
+              <path d="M9 14h2"/>
+              <path d="M9 12a2 2 0 0 1-2-2V6h6v4a2 2 0 0 1-2 2z"/>
+              <path d="M12 6V3a1 1 0 0 0-1-1H9a1 1 0 0 0-1 1v3"/>
+            </svg>
+          </div>
+          <h3 class="value-title">البحث العلمي</h3>
+          <p class="value-title-en">Scientific Research</p>
+          <p class="value-desc">
+            تشجيع ودعم البحث العلمي الأصيل الذي يُعالج المشكلات الحقيقية ويُسهم في تقدم
+            المعرفة الإنسانية وتطوير المجتمع.
+          </p>
+        </div>
+
+        <!-- Community Service -->
+        <div class="value-card reveal reveal-delay-2">
+          <div class="value-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+              <circle cx="9" cy="7" r="4"/>
+              <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+              <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+            </svg>
+          </div>
+          <h3 class="value-title">خدمة المجتمع</h3>
+          <p class="value-title-en">Community Service</p>
+          <p class="value-desc">
+            توظيف المعرفة الأكاديمية في خدمة المجتمع والمساهمة في إيجاد حلول عملية للتحديات
+            التنموية الوطنية والإقليمية.
+          </p>
+        </div>
+
+        <!-- Innovation -->
+        <div class="value-card reveal reveal-delay-3">
+          <div class="value-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M9 18h6"/>
+              <path d="M10 22h4"/>
+              <path d="M12 2a7 7 0 0 0-4 12.7V17h8v-2.3A7 7 0 0 0 12 2z"/>
+            </svg>
+          </div>
+          <h3 class="value-title">الابتكار</h3>
+          <p class="value-title-en">Innovation</p>
+          <p class="value-desc">
+            زرع روح الإبداع والتفكير النقدي لدى الطلاب، وتطوير حلول مبتكرة تُلبي متطلبات
+            العصر الرقمي ومستجداته المتسارعة.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════════════
+       QUICK FACTS
+       ══════════════════════════════════════════════════════════════ -->
+  <section class="facts-section" id="facts" aria-labelledby="facts-heading">
+    <div class="container">
+      <div class="section-header text-center reveal" style="padding-top: var(--space-4xl);">
+        <p class="section-eyebrow">By The Numbers</p>
+        <h2 class="section-title on-dark" id="facts-heading">أرقام وإنجازات</h2>
+      </div>
+
+      <div class="facts-grid" role="list">
+
+        <div class="fact-item reveal" role="listitem">
+          <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#F5C518" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="margin-bottom:0.75rem"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          <div class="fact-number">+1500</div>
+          <p class="fact-label">طالب وطالبة</p>
+          <p class="fact-label-en">Students</p>
+        </div>
+
+        <div class="fact-item reveal reveal-delay-1" role="listitem">
+          <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#F5C518" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="margin-bottom:0.75rem"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c0 2 3 3 6 3s6-1 6-3v-5"/></svg>
+          <div class="fact-number">+60</div>
+          <p class="fact-label">عضو هيئة تدريس</p>
+          <p class="fact-label-en">Faculty Members</p>
+        </div>
+
+        <div class="fact-item reveal reveal-delay-2" role="listitem">
+          <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#F5C518" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="margin-bottom:0.75rem"><rect x="4" y="2" width="16" height="20" rx="2"/><path d="M9 22v-4h6v4"/><line x1="8" y1="6" x2="8" y2="6.01"/><line x1="16" y1="6" x2="16" y2="6.01"/><line x1="12" y1="6" x2="12" y2="6.01"/><line x1="8" y1="10" x2="8" y2="10.01"/><line x1="16" y1="10" x2="16" y2="10.01"/><line x1="12" y1="10" x2="12" y2="10.01"/></svg>
+          <div class="fact-number">3</div>
+          <p class="fact-label">أقسام أكاديمية</p>
+          <p class="fact-label-en">Departments</p>
+        </div>
+
+        <div class="fact-item reveal reveal-delay-3" role="listitem">
+          <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#F5C518" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="margin-bottom:0.75rem"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          <div class="fact-number">+40</div>
+          <p class="fact-label">سنة من العطاء</p>
+          <p class="fact-label-en">Years of Excellence</p>
+        </div>
+
+        <div class="fact-item reveal reveal-delay-4" role="listitem">
+          <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#F5C518" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="margin-bottom:0.75rem"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+          <div class="fact-number">+200</div>
+          <p class="fact-label">بحث علمي منشور</p>
+          <p class="fact-label-en">Research Papers</p>
+        </div>
+
+      </div>
+    </div>
+    <div style="height: var(--space-4xl);"></div>
+  </section>
+
+  <script src="js/shared.js"></script>
+</body>
+
+</html>
