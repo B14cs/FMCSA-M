@@ -596,25 +596,53 @@
     /* ══════════════════════════════════════════════════════════════
        RESPONSIVE
        ══════════════════════════════════════════════════════════════ */
+
+    /* ── 900px ── tablet landscape / small desktop */
     @media (max-width: 900px) {
+      /* Hero */
+      .page-hero {
+        min-height: 50vh;
+      }
+
+      .page-hero-content {
+        padding-top: calc(var(--nav-height, 4.5rem) + 1.5rem);
+        padding-bottom: var(--space-2xl);
+      }
+
+      /* Dean */
       .welcome-grid {
         grid-template-columns: 1fr;
+        gap: var(--space-2xl);
       }
 
       .dean-photo-wrap {
         flex-direction: row;
         flex-wrap: wrap;
         justify-content: center;
+        gap: var(--space-md);
       }
 
+      .dean-photo-placeholder {
+        max-width: 200px;
+      }
+
+      .dean-name-badge {
+        max-width: 200px;
+      }
+
+      /* Mission / Vision */
       .mv-grid {
         grid-template-columns: 1fr;
+        gap: var(--space-lg);
       }
 
+      /* Values */
       .values-grid {
         grid-template-columns: 1fr 1fr;
+        gap: var(--space-lg);
       }
 
+      /* Facts: 5 → 3 columns */
       .facts-grid {
         grid-template-columns: repeat(3, 1fr);
       }
@@ -628,36 +656,684 @@
       }
     }
 
-    @media (max-width: 600px) {
+    /* ── 768px ── tablet portrait */
+    @media (max-width: 768px) {
+      /* Hero */
       .page-hero {
         min-height: 45vh;
       }
 
-      .timeline::before {
-        right: 1.25rem;
+      .page-hero-content {
+        padding-top: calc(var(--nav-height, 3.75rem) + 1.25rem);
+        padding-bottom: var(--space-xl);
       }
 
+      /* Timeline: tighten gap and dot column */
+      .timeline-item {
+        gap: var(--space-lg);
+        padding-bottom: var(--space-xl);
+      }
+
+      .timeline-dot-col {
+        width: 2.75rem;
+      }
+
+      .timeline::before {
+        right: 1.375rem;
+      }
+
+      /* Section headers */
+      .section-header {
+        margin-bottom: var(--space-2xl);
+      }
+
+      /* Facts icon size */
+      .facts-grid svg {
+        width: 28px;
+        height: 28px;
+      }
+    }
+
+    /* ── 600px ── large phone */
+    @media (max-width: 600px) {
+      /* Hero */
+      .page-hero {
+        min-height: 40vh;
+      }
+
+      .page-hero-content {
+        padding-top: calc(var(--nav-height, 3.75rem) + 1rem);
+        padding-bottom: var(--space-xl);
+      }
+
+      /* Dean photo even smaller */
+      .dean-photo-placeholder {
+        max-width: 160px;
+      }
+
+      .dean-name-badge {
+        max-width: 100%;
+      }
+
+      /* Timeline */
+      .timeline::before {
+        right: 1.125rem;
+      }
+
+      .timeline-dot-col {
+        width: 2.25rem;
+      }
+
+      .timeline-item {
+        gap: var(--space-md);
+        padding-bottom: var(--space-lg);
+      }
+
+      .timeline-body {
+        padding: var(--space-lg);
+      }
+
+      /* Values: 2 → 1 column */
       .values-grid {
         grid-template-columns: 1fr;
+        gap: var(--space-md);
       }
 
+      .value-card {
+        padding: var(--space-xl) var(--space-lg);
+      }
+
+      /* MV cards */
+      .mv-card {
+        padding: var(--space-xl);
+      }
+
+      /* Facts: 3 → 2 columns */
       .facts-grid {
         grid-template-columns: 1fr 1fr;
       }
 
-      .fact-item:nth-child(2),
-      .fact-item:nth-child(4) {
-        border-left: none;
+      /* Reset all borders first, then re-apply for 2-col layout */
+      .fact-item {
+        border-left: 1px solid rgba(255, 255, 255, 0.07);
       }
 
-      .fact-item:nth-child(3),
-      .fact-item:nth-child(5) {
-        border-left: 1px solid rgba(255, 255, 255, 0.07);
+      .fact-item:nth-child(odd) {
+        border-left: none;
       }
 
       .fact-item:nth-child(5) {
         grid-column: 1 / -1;
         border-left: none;
+      }
+
+      /* Dept cards */
+      .dept-card-header {
+        padding: var(--space-xl);
+      }
+
+      .dept-card-body {
+        padding: var(--space-lg);
+        gap: var(--space-md);
+      }
+
+      .dept-symbol {
+        font-size: 2.75rem;
+      }
+
+      /* Program cards */
+      .program-card {
+        padding: var(--space-xl);
+      }
+
+      /* Facts section padding */
+      .facts-grid svg {
+        width: 24px;
+        height: 24px;
+      }
+    }
+
+    /* ── 480px ── small phone */
+    @media (max-width: 480px) {
+      /* Hero */
+      .page-hero {
+        min-height: 35vh;
+      }
+
+      .page-hero-content {
+        padding-top: calc(var(--nav-height, 3.75rem) + 0.75rem);
+      }
+
+      .page-hero-title {
+        font-size: clamp(1.75rem, 8vw, 2.4rem);
+      }
+
+      .page-hero-subtitle {
+        font-size: 0.9rem;
+      }
+
+      /* Dean welcome */
+      .dean-photo-wrap {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .dean-photo-placeholder {
+        max-width: 180px;
+      }
+
+      .dean-name-badge {
+        max-width: 100%;
+      }
+
+      .welcome-body {
+        font-size: 0.9rem;
+      }
+
+      .welcome-signature {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--space-sm);
+        padding: var(--space-md);
+      }
+
+      /* MV cards */
+      .mv-title {
+        font-size: 1.25rem;
+      }
+
+      .mv-text {
+        font-size: 0.875rem;
+      }
+
+      /* Timeline */
+      .timeline-dot-col {
+        width: 2rem;
+        padding-top: var(--space-md);
+      }
+
+      .timeline::before {
+        right: 1rem;
+      }
+
+      .timeline-item {
+        gap: var(--space-sm);
+      }
+
+      .timeline-event-title {
+        font-size: 0.95rem;
+      }
+
+      .timeline-event-desc {
+        font-size: 0.825rem;
+      }
+
+      /* Value cards */
+      .value-card {
+        padding: var(--space-lg);
+      }
+
+      .value-icon {
+        width: 3rem;
+        height: 3rem;
+      }
+
+      .value-icon svg {
+        width: 1.5rem;
+        height: 1.5rem;
+      }
+
+      /* Dept cards */
+      .dept-card-header {
+        padding: var(--space-lg);
+      }
+
+      .dept-card-body {
+        padding: var(--space-md) var(--space-lg);
+      }
+
+      .dept-card-footer {
+        padding: var(--space-md) var(--space-lg);
+        flex-wrap: wrap;
+        gap: var(--space-sm);
+      }
+
+      .dept-symbol {
+        font-size: 2.25rem;
+      }
+
+      .dept-course-item {
+        font-size: 0.8rem;
+      }
+
+      /* Program cards */
+      .program-card {
+        padding: var(--space-lg);
+      }
+
+      .program-title {
+        font-size: 1.25rem;
+      }
+
+      /* Facts: 2 → 1 column */
+      .facts-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .fact-item {
+        border-left: none;
+        border-top: 1px solid rgba(255, 255, 255, 0.07);
+        padding: var(--space-xl) var(--space-md);
+      }
+
+      .fact-item:first-child {
+        border-top: none;
+      }
+
+      .fact-item:nth-child(5) {
+        grid-column: auto;
+      }
+
+      /* Breadcrumb */
+      .page-hero-breadcrumb {
+        bottom: var(--space-md);
+      }
+    }
+
+    /* ── 380px ── very small phone */
+    @media (max-width: 380px) {
+      /* Hero */
+      .page-hero-title {
+        font-size: clamp(1.5rem, 9vw, 1.9rem);
+      }
+
+      .page-hero-eyebrow {
+        font-size: 0.65rem;
+      }
+
+      /* Dean */
+      .dean-photo-placeholder {
+        max-width: 150px;
+      }
+
+      .welcome-body {
+        font-size: 0.875rem;
+        line-height: 1.75;
+      }
+
+      .dean-name {
+        font-size: 0.875rem;
+      }
+
+      .dean-title {
+        font-size: 0.7rem;
+      }
+
+      /* Section titles */
+      .section-header {
+        margin-bottom: var(--space-xl);
+      }
+
+      /* Timeline */
+      .timeline::before {
+        right: 0.875rem;
+      }
+
+      .timeline-dot-col {
+        width: 1.75rem;
+        padding-top: var(--space-sm);
+      }
+
+      .timeline-body {
+        padding: var(--space-md);
+      }
+
+      .timeline-event-title {
+        font-size: 0.9rem;
+      }
+
+      .timeline-year-badge {
+        font-size: 0.7rem;
+      }
+
+      /* Value cards */
+      .value-title {
+        font-size: 0.95rem;
+      }
+
+      /* Dept cards */
+      .dept-card-header {
+        padding: var(--space-md);
+      }
+
+      .dept-card-body {
+        padding: var(--space-sm) var(--space-md);
+      }
+
+      .dept-card-footer {
+        padding: var(--space-sm) var(--space-md);
+      }
+
+      .dept-name-ar {
+        font-size: 1rem;
+      }
+
+      .dept-symbol {
+        font-size: 1.9rem;
+        margin-bottom: var(--space-sm);
+      }
+
+      /* Program */
+      .program-card {
+        padding: var(--space-md);
+      }
+
+      .program-title {
+        font-size: 1.1rem;
+      }
+
+      /* Facts */
+      .fact-item {
+        padding: var(--space-lg) var(--space-sm);
+      }
+    }
+
+    /* ══════════════════════════════════════════════════════════════
+       DEAN QUALIFICATIONS
+       ══════════════════════════════════════════════════════════════ */
+    .dean-qualifications {
+      font-size: 0.7rem;
+      color: rgba(255, 255, 255, 0.55);
+      line-height: 1.6;
+      margin-top: var(--space-sm);
+      text-align: center;
+    }
+
+    /* ══════════════════════════════════════════════════════════════
+       DEPARTMENT CARDS
+       ══════════════════════════════════════════════════════════════ */
+    .departments-section {
+      background: var(--bg-secondary);
+    }
+
+    .dept-cards-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-xl);
+    }
+
+    .dept-card {
+      background: var(--white);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform var(--transition-slow), box-shadow var(--transition-slow);
+    }
+
+    .dept-card:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-xl);
+    }
+
+    .dept-card-header {
+      background: var(--navy);
+      padding: var(--space-2xl);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .dept-card-header::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(245, 197, 24, 0.08) 0%, transparent 60%);
+    }
+
+    .dept-symbol {
+      font-family: var(--font-en);
+      font-size: 3.5rem;
+      font-weight: 900;
+      color: var(--gold);
+      line-height: 1;
+      margin-bottom: var(--space-md);
+      position: relative;
+      direction: ltr;
+      display: inline-block;
+    }
+
+    .dept-card-header-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      font-family: var(--font-en);
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(245, 197, 24, 0.7);
+      border: 1px solid rgba(245, 197, 24, 0.2);
+      border-radius: var(--radius-full);
+      padding: 0.25rem 0.8rem;
+      margin-bottom: var(--space-md);
+      direction: ltr;
+      position: relative;
+    }
+
+    .dept-name-ar {
+      font-size: 1.15rem;
+      font-weight: 900;
+      color: var(--white);
+      line-height: 1.4;
+      margin-bottom: 0.3rem;
+      position: relative;
+    }
+
+    .dept-name-en {
+      font-family: var(--font-en);
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: rgba(255, 255, 255, 0.5);
+      letter-spacing: 0.04em;
+      direction: ltr;
+      text-align: right;
+      position: relative;
+    }
+
+    .dept-card-body {
+      padding: var(--space-xl);
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-lg);
+    }
+
+    .dept-desc {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      line-height: 1.8;
+    }
+
+    .dept-courses-title {
+      font-size: 0.78rem;
+      font-weight: 800;
+      color: var(--navy);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: var(--space-sm);
+    }
+
+    .dept-courses-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+
+    .dept-course-item {
+      display: flex;
+      align-items: center;
+      gap: var(--space-sm);
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+    }
+
+    .dept-course-item::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--gold);
+      flex-shrink: 0;
+    }
+
+    .dept-card-footer {
+      padding: var(--space-lg) var(--space-xl);
+      border-top: 1px solid var(--border-light);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .dept-link {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-sm);
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--navy);
+      transition: gap var(--transition-fast), color var(--transition-fast);
+    }
+
+    .dept-link:hover {
+      color: var(--gold-dark);
+      gap: var(--space-md);
+    }
+
+    .dept-link svg {
+      width: 1rem;
+      height: 1rem;
+      transform: scaleX(-1);
+    }
+
+    /* ══════════════════════════════════════════════════════════════
+       PROGRAMS OFFERED
+       ══════════════════════════════════════════════════════════════ */
+    .programs-section {
+      background: var(--navy);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .programs-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 50%;
+      height: 100%;
+      background: radial-gradient(ellipse at right, rgba(245, 197, 24, 0.04) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    .programs-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-xl);
+    }
+
+    .program-card {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: var(--radius-xl);
+      padding: var(--space-2xl);
+      text-align: center;
+      transition: background var(--transition-base), border-color var(--transition-base), transform var(--transition-base);
+    }
+
+    .program-card:hover {
+      background: rgba(255, 255, 255, 0.07);
+      border-color: rgba(245, 197, 24, 0.25);
+      transform: translateY(-4px);
+    }
+
+    .program-degree {
+      font-family: var(--font-en);
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: var(--space-sm);
+      text-align: center;
+    }
+
+    .program-title {
+      font-size: 1.5rem;
+      font-weight: 900;
+      color: var(--white);
+      margin-bottom: var(--space-sm);
+    }
+
+    .program-duration {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.8rem;
+      color: rgba(255, 255, 255, 0.5);
+      background: rgba(255, 255, 255, 0.06);
+      border-radius: var(--radius-full);
+      padding: 0.3rem 0.85rem;
+      margin-bottom: var(--space-lg);
+    }
+
+    .program-desc {
+      font-size: 0.875rem;
+      color: rgba(255, 255, 255, 0.55);
+      line-height: 1.75;
+    }
+
+    /* ══════════════════════════════════════════════════════════════
+       RESPONSIVE — DEPARTMENTS & PROGRAMS
+       ══════════════════════════════════════════════════════════════ */
+
+    /* ── 1100px: dept 3 → 2 columns */
+    @media (max-width: 1100px) {
+      .dept-cards-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    /* ── 900px: dept 2 → 1 column, programs 3 → 2 columns */
+    @media (max-width: 900px) {
+      .dept-cards-grid {
+        grid-template-columns: 1fr;
+        max-width: 600px;
+        margin: 0 auto;
+      }
+
+      .programs-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    /* ── 600px: programs 2 → 1 column */
+    @media (max-width: 600px) {
+      .dept-cards-grid {
+        max-width: 100%;
+      }
+
+      .programs-grid {
+        grid-template-columns: 1fr;
+        max-width: 480px;
+        margin: 0 auto;
+      }
+    }
+
+    /* ── 480px: programs full width */
+    @media (max-width: 480px) {
+      .programs-grid {
+        max-width: 100%;
       }
     }
   </style>
@@ -707,8 +1383,9 @@
             <p class="dean-photo-placeholder-text">صورة العميد</p>
           </div>
           <div class="dean-name-badge">
-            <p class="dean-name">أ.د. عادل محمد أحمد</p>
+            <p class="dean-name">د. قيس الهادي بابكر الهادي</p>
             <p class="dean-title">عميد الكلية</p>
+            <p class="dean-qualifications">بكالوريوس الشرف في الرياضيات وعلوم الحاسوب (جامعة الجزيرة-السودان "2011")، ماجستير علوم الحاسوب (جامعة الجزيرة-السودان "2014")، دكتوراه في علوم الحاسوب (جامعة اللورين-فرنسا "2019")</p>
           </div>
         </div>
 
@@ -738,7 +1415,7 @@
 
           <div class="welcome-signature reveal reveal-delay-2">
             <div>
-              <p class="welcome-signature-name">أ.د. عادل محمد أحمد</p>
+              <p class="welcome-signature-name">د. قيس الهادي بابكر الهادي</p>
               <p class="welcome-signature-text">عميد كلية العلوم الرياضية والحاسوب · جامعة الجزيرة</p>
             </div>
           </div>
@@ -976,6 +1653,194 @@
           <p class="value-desc">
             زرع روح الإبداع والتفكير النقدي لدى الطلاب، وتطوير حلول مبتكرة تُلبي متطلبات
             العصر الرقمي ومستجداته المتسارعة.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════════════
+       ACADEMIC DEPARTMENTS
+       ══════════════════════════════════════════════════════════════ -->
+  <section class="departments-section section-padding" id="departments" aria-labelledby="depts-heading">
+    <div class="container">
+      <div class="section-header text-center reveal">
+        <p class="section-eyebrow">ACADEMIC DEPARTMENTS</p>
+        <h2 class="section-title" id="depts-heading">الأقسام الأكاديمية</h2>
+        <p class="section-subtitle" style="margin: var(--space-md) auto 0;">
+          كل قسم يمثّل تخصصًا متكاملًا يُعدّ الطالب لمسار مهني واعد في مجاله
+        </p>
+      </div>
+
+      <div class="dept-cards-grid">
+
+        <!-- Dept 1: Mathematics & Computer Science -->
+        <article class="dept-card reveal" id="math" aria-labelledby="dept-math-name">
+          <div class="dept-card-header">
+            <div class="dept-symbol" aria-hidden="true">∑</div>
+            <div class="dept-card-header-badge" aria-hidden="true">Department · 01</div>
+            <h3 class="dept-name-ar" id="dept-math-name">قسم الرياضيات وعلوم الحاسوب</h3>
+            <p class="dept-name-en">Mathematics &amp; Computer Science</p>
+          </div>
+          <div class="dept-card-body">
+            <p class="dept-desc">
+              يُعدّ هذا القسم من أعرق أقسام الكلية، إذ يجمع بين عمق الرياضيات البحتة والتطبيقية وأسس
+              علوم الحاسوب الحديثة. يُخرّج القسم كفاءات قادرة على النمذجة الرياضية، تطوير الخوارزميات،
+              وحل المسائل الحاسوبية المعقدة بمنهجية رياضية صارمة.
+            </p>
+            <div>
+              <p class="dept-courses-title">المجالات الرئيسية</p>
+              <ul class="dept-courses-list" role="list">
+                <li class="dept-course-item">التحليل الرياضي والجبر الخطي</li>
+                <li class="dept-course-item">الرياضيات التطبيقية والتحليل العددي</li>
+                <li class="dept-course-item">نظرية الخوارزميات وتعقيدها</li>
+                <li class="dept-course-item">النمذجة الرياضية والمحاكاة</li>
+                <li class="dept-course-item">البرمجة الهيكلية وهياكل البيانات</li>
+              </ul>
+            </div>
+          </div>
+          <div class="dept-card-footer">
+            <a class="dept-link" href="#math" aria-label="اعرف المزيد عن قسم الرياضيات وعلوم الحاسوب">
+              اعرف المزيد
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <line x1="5" y1="12" x2="19" y2="12"/>
+                <polyline points="12 5 19 12 12 19"/>
+              </svg>
+            </a>
+            <span class="badge">BSc · 4 سنوات</span>
+          </div>
+        </article>
+
+        <!-- Dept 2: Statistics & Computer Science -->
+        <article class="dept-card reveal reveal-delay-1" id="stats" aria-labelledby="dept-stats-name">
+          <div class="dept-card-header">
+            <div class="dept-symbol" aria-hidden="true">∫</div>
+            <div class="dept-card-header-badge" aria-hidden="true">Department · 02</div>
+            <h3 class="dept-name-ar" id="dept-stats-name">قسم الإحصاء وعلوم الحاسوب</h3>
+            <p class="dept-name-en">Statistics &amp; Computer Science</p>
+          </div>
+          <div class="dept-card-body">
+            <p class="dept-desc">
+              يُركز القسم على تأهيل الطالب في علوم الإحصاء النظري والتطبيقي وتقنيات علم البيانات،
+              مُدعومةً بمهارات حاسوبية متقدمة. يُسهم خريجو القسم في قطاعات التحليل والأبحاث
+              والذكاء الاصطناعي وصنع القرار المبني على البيانات.
+            </p>
+            <div>
+              <p class="dept-courses-title">المجالات الرئيسية</p>
+              <ul class="dept-courses-list" role="list">
+                <li class="dept-course-item">نظرية الاحتمالات والإحصاء الرياضي</li>
+                <li class="dept-course-item">الإحصاء التطبيقي وتصميم التجارب</li>
+                <li class="dept-course-item">علم البيانات وتحليل البيانات الضخمة</li>
+                <li class="dept-course-item">الأساليب الإحصائية الحاسوبية</li>
+                <li class="dept-course-item">تعلم الآلة والتنقيب في البيانات</li>
+              </ul>
+            </div>
+          </div>
+          <div class="dept-card-footer">
+            <a class="dept-link" href="#stats" aria-label="اعرف المزيد عن قسم الإحصاء وعلوم الحاسوب">
+              اعرف المزيد
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <line x1="5" y1="12" x2="19" y2="12"/>
+                <polyline points="12 5 19 12 12 19"/>
+              </svg>
+            </a>
+            <span class="badge">BSc · 4 سنوات</span>
+          </div>
+        </article>
+
+        <!-- Dept 3: Computer Science -->
+        <article class="dept-card reveal reveal-delay-2" id="cs" aria-labelledby="dept-cs-name">
+          <div class="dept-card-header">
+            <div class="dept-symbol" aria-hidden="true">&lt;/&gt;</div>
+            <div class="dept-card-header-badge" aria-hidden="true">Department · 03</div>
+            <h3 class="dept-name-ar" id="dept-cs-name">قسم علوم الحاسوب</h3>
+            <p class="dept-name-en">Computer Science</p>
+          </div>
+          <div class="dept-card-body">
+            <p class="dept-desc">
+              يُقدم القسم برنامجًا متكاملًا في علوم الحاسوب يشمل هندسة البرمجيات، الذكاء الاصطناعي،
+              قواعد البيانات، وشبكات الحاسوب. يُؤهل القسم خريجيه لشغل مناصب قيادية في قطاع
+              تقنية المعلومات، وبناء حلول برمجية ذكية تُلبي احتياجات العصر الرقمي.
+            </p>
+            <div>
+              <p class="dept-courses-title">المجالات الرئيسية</p>
+              <ul class="dept-courses-list" role="list">
+                <li class="dept-course-item">هندسة البرمجيات وتصميم الأنظمة</li>
+                <li class="dept-course-item">الذكاء الاصطناعي ومعالجة اللغة الطبيعية</li>
+                <li class="dept-course-item">قواعد البيانات والأنظمة الموزعة</li>
+                <li class="dept-course-item">شبكات الحاسوب والأمن السيبراني</li>
+                <li class="dept-course-item">تطوير تطبيقات الويب والجوّال</li>
+              </ul>
+            </div>
+          </div>
+          <div class="dept-card-footer">
+            <a class="dept-link" href="#cs" aria-label="اعرف المزيد عن قسم علوم الحاسوب">
+              اعرف المزيد
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <line x1="5" y1="12" x2="19" y2="12"/>
+                <polyline points="12 5 19 12 12 19"/>
+              </svg>
+            </a>
+            <span class="badge">BSc · 4 سنوات</span>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════════════
+       PROGRAMS OFFERED
+       ══════════════════════════════════════════════════════════════ -->
+  <section class="programs-section section-padding" id="programs" aria-labelledby="programs-heading">
+    <div class="container">
+      <div class="section-header text-center reveal">
+        <p class="section-eyebrow">Degrees Offered</p>
+        <h2 class="section-title on-dark" id="programs-heading">البرامج الأكاديمية</h2>
+        <p class="section-subtitle on-dark" style="margin: var(--space-md) auto 0;">
+          برامج دراسية معتمدة تُمنح من جامعة الجزيرة وفق اشتراطات هيئة الاعتماد الأكاديمي
+        </p>
+      </div>
+
+      <div class="programs-grid">
+
+        <div class="program-card reveal">
+          <p class="program-degree">Undergraduate</p>
+          <h3 class="program-title">بكالوريوس</h3>
+          <span class="program-duration">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            4 سنوات
+          </span>
+          <p class="program-desc">
+            درجة البكالوريوس في أحد التخصصات الثلاثة للكلية. تشمل المناهج مقررات نظرية وتطبيقية
+            ومشاريع تخرج وتدريب ميداني في مؤسسات معتمدة.
+          </p>
+        </div>
+
+        <div class="program-card reveal reveal-delay-1">
+          <p class="program-degree">Postgraduate</p>
+          <h3 class="program-title">ماجستير</h3>
+          <span class="program-duration">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            سنتان
+          </span>
+          <p class="program-desc">
+            برامج دراسات عليا للحاصلين على البكالوريوس، تُتيح التخصص العميق في مجالات البحث
+            والتطوير وقيادة المشاريع التقنية والعلمية.
+          </p>
+        </div>
+
+        <div class="program-card reveal reveal-delay-2">
+          <p class="program-degree">Research</p>
+          <h3 class="program-title">دكتوراه</h3>
+          <span class="program-duration">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            3–4 سنوات
+          </span>
+          <p class="program-desc">
+            برامج الدكتوراه البحثية للراغبين في الإسهام في تقدم المعرفة العلمية وتأهيل أنفسهم
+            للعمل الأكاديمي والبحثي على المستوى العالمي.
           </p>
         </div>
 

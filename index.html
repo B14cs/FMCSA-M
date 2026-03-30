@@ -1205,54 +1205,6 @@
     }
 
     /* ══════════════════════════════════════════════════════════════
-       MARQUEE / TICKER (decorative)
-       ══════════════════════════════════════════════════════════════ */
-    .marquee-section {
-      background: var(--gold);
-      overflow: hidden;
-      padding: 0.85rem 0;
-    }
-
-    .marquee-track {
-      display: flex;
-      width: max-content;
-      animation: marqueeScroll 35s linear infinite;
-      white-space: nowrap;
-    }
-
-    .marquee-item {
-      display: inline-flex;
-      align-items: center;
-      font-family: var(--font-ar);
-      font-size: 0.85rem;
-      font-weight: 800;
-      color: var(--navy);
-      padding: 0;
-    }
-
-    .marquee-text {
-      padding: 0 var(--space-lg);
-    }
-
-    .marquee-dot {
-      width: 5px;
-      height: 5px;
-      border-radius: 50%;
-      background: var(--navy);
-      opacity: 0.3;
-      flex-shrink: 0;
-    }
-
-    @keyframes marqueeScroll {
-      from { transform: translateX(0); }
-      to   { transform: translateX(50%); }
-    }
-
-    .marquee-section:hover .marquee-track {
-      animation-play-state: paused;
-    }
-
-    /* ══════════════════════════════════════════════════════════════
        COUNTER ANIMATION
        ══════════════════════════════════════════════════════════════ */
     .count-num {
@@ -1260,9 +1212,17 @@
     }
 
     /* ══════════════════════════════════════════════════════════════
-       RESPONSIVE
+       RESPONSIVE — all breakpoints: 900 → 768 → 600 → 480 → 380
        ══════════════════════════════════════════════════════════════ */
-    @media (max-width: 1024px) {
+
+    /* ── 900px: Tablet landscape ── */
+    @media (max-width: 900px) {
+      /* Hero: reduce bottom padding to clear the 2-row stats bar (~9rem) */
+      .hero-content {
+        padding-bottom: calc(var(--space-2xl) + 9rem);
+      }
+
+      /* About: single column */
       .about-grid {
         grid-template-columns: 1fr;
         gap: var(--space-2xl);
@@ -1273,10 +1233,24 @@
         margin: 0 auto;
       }
 
+      /* Depts: 2 columns */
       .depts-grid {
         grid-template-columns: 1fr 1fr;
+        gap: var(--space-lg);
       }
 
+      /* Dept icon: slightly smaller */
+      .dept-icon-wrap {
+        width: 3.5rem;
+        height: 3.5rem;
+      }
+
+      /* Dept bg symbol: scale down */
+      .dept-card-bg-symbol {
+        font-size: 6.5rem;
+      }
+
+      /* FMCSA: single column */
       .fmcsa-inner {
         grid-template-columns: 1fr;
         gap: var(--space-2xl);
@@ -1285,10 +1259,16 @@
       .fmcsa-visual {
         max-width: 30rem;
         margin: 0 auto;
+        width: 100%;
       }
-    }
 
-    @media (max-width: 768px) {
+      /* Stats: 2×2 grid */
+      .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--space-lg);
+      }
+
+      /* Hero stats: 2×2 */
       .hero-stats-inner {
         grid-template-columns: repeat(2, 1fr);
       }
@@ -1298,75 +1278,422 @@
         border-top: 1px solid rgba(255, 255, 255, 0.06);
       }
 
-      [dir="rtl"] .hero-stat:nth-child(2) {
-        border-right: none;
-      }
-
+      /* RTL: fix borders in 2×2 grid (even items lose right border) */
+      [dir="rtl"] .hero-stat:nth-child(2),
       [dir="rtl"] .hero-stat:nth-child(4) {
         border-right: none;
       }
 
-      .stats-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
+      /* News: single column */
       .news-grid {
         grid-template-columns: 1fr;
-        max-width: 32rem;
+        max-width: 36rem;
         margin: 0 auto;
       }
 
+      /* Section header row: stack title and "view all" link vertically */
       .section-header-row {
         flex-direction: column;
         align-items: flex-start;
+        gap: var(--space-md);
+        margin-bottom: var(--space-2xl);
       }
 
-      .depts-grid {
-        grid-template-columns: 1fr;
-        max-width: 28rem;
-        margin: 0 auto;
-      }
-
+      /* Hide scroll indicator on tablets */
       .hero-scroll {
         display: none;
       }
     }
 
+    /* ── 768px: Small tablet ── */
+    @media (max-width: 768px) {
+      /* About image badge: keep it from overflowing the image */
+      .about-image-badge {
+        right: var(--space-md);
+        bottom: var(--space-md);
+        max-width: calc(100% - var(--space-xl));
+      }
+
+      /* Stat icons: slightly smaller */
+      .stat-icon svg {
+        width: 30px;
+        height: 30px;
+      }
+
+      /* FMCSA card: reduce padding */
+      .fmcsa-card-main {
+        padding: var(--space-2xl);
+      }
+    }
+
+    /* ── 600px: Mobile landscape / small tablet ── */
     @media (max-width: 600px) {
+      /* Hero content: tighten all padding */
+      .hero-content {
+        padding-top: calc(var(--nav-height, 3.75rem) + 1rem);
+        padding-bottom: calc(var(--space-xl) + 10rem);
+        padding-left: var(--space-lg);
+        padding-right: var(--space-lg);
+        max-width: 100%;
+      }
+
+      /* Hero title: scale for small screens */
+      .hero-title {
+        font-size: clamp(1.9rem, 8vw, 3rem);
+        word-break: keep-all;
+        overflow-wrap: break-word;
+      }
+
+      /* Hero subtitle */
+      .hero-subtitle-ar {
+        font-size: clamp(0.9rem, 3.5vw, 1rem);
+        margin-bottom: var(--space-xl);
+      }
+
+      /* Hero eyebrow badge */
+      .hero-eyebrow {
+        font-size: 0.65rem;
+        padding: 0.4rem 0.9rem;
+        margin-bottom: var(--space-lg);
+      }
+
+      /* Hero CTA: stack buttons vertically */
+      .hero-cta-group {
+        flex-direction: column;
+        align-items: stretch;
+        gap: var(--space-sm);
+      }
+
+      .hero-cta-group .btn {
+        justify-content: center;
+        width: 100%;
+      }
+
+      /* Hero stats: 2-column, reduced padding */
       .hero-stats-inner {
         grid-template-columns: repeat(2, 1fr);
+        padding: 0 var(--space-md);
       }
 
       .hero-stat {
-        padding: var(--space-lg) var(--space-md);
+        padding: var(--space-md) var(--space-sm);
       }
 
-      .fmcsa-pillars {
+      .hero-stat-num {
+        font-size: clamp(1.25rem, 5vw, 1.8rem);
+      }
+
+      .hero-stat-label {
+        font-size: 0.68rem;
+      }
+
+      /* Depts: single column, full width */
+      .depts-grid {
         grid-template-columns: 1fr;
+        max-width: 100%;
+        gap: var(--space-md);
       }
 
+      /* Department card: less padding */
+      .dept-card {
+        padding: var(--space-lg);
+        gap: var(--space-md);
+      }
+
+      /* Department bg symbol: smaller to avoid overflow */
+      .dept-card-bg-symbol {
+        font-size: 5rem;
+      }
+
+      /* Dept icon wrap */
+      .dept-icon-wrap {
+        width: 3rem;
+        height: 3rem;
+      }
+
+      .dept-icon {
+        font-size: 1.25rem;
+      }
+
+      /* Stats grid: 2 columns, reduced gap and padding */
       .stats-grid {
         grid-template-columns: repeat(2, 1fr);
         gap: var(--space-md);
       }
 
-      .cta-contact-row {
-        gap: var(--space-xl);
+      .stat-item {
+        padding: var(--space-lg) var(--space-md);
       }
-    }
 
-    @media (max-width: 480px) {
-      .hero-cta-group {
+      .stat-icon svg {
+        width: 26px;
+        height: 26px;
+      }
+
+      /* FMCSA pillars: single column */
+      .fmcsa-pillars {
+        grid-template-columns: 1fr;
+        gap: var(--space-sm);
+      }
+
+      /* FMCSA visual: full width */
+      .fmcsa-visual {
+        max-width: 100%;
+      }
+
+      /* FMCSA card: less padding */
+      .fmcsa-card-main {
+        padding: var(--space-xl) var(--space-lg);
+      }
+
+      /* FMCSA member avatars: slightly smaller */
+      .fmcsa-member-avatar,
+      .fmcsa-member-avatar-more {
+        width: 2.2rem;
+        height: 2.2rem;
+      }
+
+      /* News grid: full width, no artificial cap */
+      .news-grid {
+        max-width: 100%;
+        gap: var(--space-lg);
+      }
+
+      /* News card body: less padding */
+      .news-card-body {
+        padding: var(--space-lg);
+      }
+
+      .news-card-footer {
+        padding: var(--space-sm) var(--space-lg);
+      }
+
+      /* CTA buttons: stack vertically */
+      .cta-buttons {
         flex-direction: column;
         align-items: stretch;
+        gap: var(--space-sm);
       }
 
-      .hero-cta-group .btn {
+      .cta-buttons .btn {
+        justify-content: center;
+        width: 100%;
+      }
+
+      /* CTA contact row: stack vertically */
+      .cta-contact-row {
+        flex-direction: column;
+        align-items: center;
+        gap: var(--space-lg);
+      }
+
+      .cta-contact-item {
+        width: 100%;
+        max-width: 24rem;
         justify-content: center;
       }
 
+      /* Section header row: compact margin */
+      .section-header-row {
+        margin-bottom: var(--space-xl);
+      }
+
+      /* About section: reduce gap */
+      .about-grid {
+        gap: var(--space-xl);
+      }
+
+      .about-image-wrap {
+        max-width: 100%;
+      }
+    }
+
+    /* ── 480px: Mobile portrait ── */
+    @media (max-width: 480px) {
+      /* Hero content: tighten further */
+      .hero-content {
+        padding-top: calc(var(--nav-height, 3.75rem) + 0.75rem);
+        padding-bottom: calc(var(--space-lg) + 10rem);
+        padding-left: var(--space-md);
+        padding-right: var(--space-md);
+      }
+
+      /* Hero title */
+      .hero-title {
+        font-size: clamp(1.75rem, 8.5vw, 2.5rem);
+        margin-bottom: var(--space-md);
+      }
+
+      /* Hero subtitle */
+      .hero-subtitle-ar {
+        font-size: 0.92rem;
+        margin-bottom: var(--space-xl);
+      }
+
+      /* Hero eyebrow */
+      .hero-eyebrow {
+        font-size: 0.62rem;
+        padding: 0.35rem 0.8rem;
+        margin-bottom: var(--space-md);
+      }
+
+      /* Hero stats: keep 2 columns but tighten more */
       .hero-stats-inner {
-        grid-template-columns: 1fr 1fr;
+        padding: 0 var(--space-sm);
+      }
+
+      .hero-stat {
+        padding: var(--space-sm) 0.35rem;
+      }
+
+      .hero-stat-num {
+        font-size: clamp(1.15rem, 5vw, 1.5rem);
+      }
+
+      .hero-stat-label {
+        font-size: 0.62rem;
+        margin-top: 0.2rem;
+      }
+
+      /* Stats section: keep 2 columns */
+      .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--space-sm);
+      }
+
+      /* Dept card: compact */
+      .dept-card {
+        padding: var(--space-md) var(--space-lg);
+        gap: var(--space-sm);
+      }
+
+      /* FMCSA card */
+      .fmcsa-card-main {
+        padding: var(--space-lg) var(--space-md);
+      }
+
+      /* CTA title */
+      .cta-title {
+        font-size: clamp(1.6rem, 7.5vw, 2.4rem);
+      }
+
+      /* CTA subtitle */
+      .cta-subtitle {
+        font-size: 0.92rem;
+      }
+    }
+
+    /* ── 380px: Very small phones (iPhone SE, etc.) ── */
+    @media (max-width: 380px) {
+      /* Hero: further tighten */
+      .hero-content {
+        padding-left: var(--space-sm);
+        padding-right: var(--space-sm);
+        padding-bottom: calc(var(--space-md) + 10rem);
+      }
+
+      /* Hero title */
+      .hero-title {
+        font-size: clamp(1.55rem, 9vw, 2rem);
+        line-height: 1.25;
+      }
+
+      /* Hero subtitle */
+      .hero-subtitle-ar {
+        font-size: 0.87rem;
+      }
+
+      /* Hero eyebrow: hide decorative dot to save space */
+      .hero-eyebrow-dot {
+        display: none;
+      }
+
+      /* Hero stats: keep 2-column but ultra-compact */
+      .hero-stats-inner {
+        padding: 0 var(--space-xs);
+      }
+
+      .hero-stat {
+        padding: 0.5rem 0.2rem;
+      }
+
+      .hero-stat-num {
+        font-size: 1.05rem;
+      }
+
+      .hero-stat-label {
+        font-size: 0.58rem;
+        margin-top: 0.15rem;
+      }
+
+      /* Stats section: 1 column on tiny screens */
+      .stats-grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-sm);
+      }
+
+      /* Dept card bg symbol: hide to prevent overflow */
+      .dept-card-bg-symbol {
+        display: none;
+      }
+
+      /* About image badge: condensed layout */
+      .about-image-badge {
+        padding: 0.35rem 0.6rem;
+        gap: var(--space-xs);
+        right: var(--space-sm);
+        bottom: var(--space-sm);
+        max-width: calc(100% - var(--space-md));
+      }
+
+      .about-image-badge-icon {
+        width: 1.5rem;
+        height: 1.5rem;
+        flex-shrink: 0;
+      }
+
+      .about-image-badge-text {
+        font-size: 0.68rem;
+      }
+
+      /* FMCSA member avatars: smaller */
+      .fmcsa-member-avatar,
+      .fmcsa-member-avatar-more {
+        width: 1.85rem;
+        height: 1.85rem;
+        font-size: 0.56rem;
+      }
+
+      /* FMCSA card: tightest padding */
+      .fmcsa-card-main {
+        padding: var(--space-lg) var(--space-sm);
+      }
+
+      /* CTA contact: centered text */
+      .cta-contact-item {
+        text-align: center;
+        max-width: 100%;
+      }
+
+      /* Section header row: tighter gap */
+      .section-header-row {
+        gap: var(--space-xs);
+      }
+
+      /* View all link: smaller text */
+      .section-view-all {
+        font-size: 0.75rem;
+      }
+
+      /* CTA buttons: compact */
+      .cta-buttons .btn {
+        padding: 0.7rem 1.4rem;
+        font-size: 0.87rem;
+      }
+
+      /* Reduce section title size at very small */
+      .section-title {
+        font-size: clamp(1.5rem, 7vw, 2rem);
       }
     }
   </style>
@@ -1395,11 +1722,6 @@
 
       <!-- Main hero content -->
       <div class="hero-content">
-        <div class="hero-eyebrow" aria-label="Faculty of Mathematical Sciences & Computer — University of Gezira">
-          <span class="hero-eyebrow-dot" aria-hidden="true"></span>
-          University of Gezira · Faculty of Mathematical Sciences & Computer
-        </div>
-
         <h1 class="hero-title">
           كلية العلوم <span class="hero-title-accent">الرياضية والحاسوب</span>
         </h1>
@@ -1409,8 +1731,8 @@
         </p>
 
         <div class="hero-cta-group">
-          <a href="academics.html" class="btn btn-primary" aria-label="استكشف أقسامنا الأكاديمية">
-            استكشف الأقسام الأكاديمية
+          <a href="initiatives.html" class="btn btn-primary" aria-label="تعرف على مبادراتنا">
+            تعرف على مبادراتنا
             <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
               <path d="M13 8H3M7 4l-4 4 4 4"/>
             </svg>
@@ -1419,12 +1741,6 @@
             تعرف على الكلية
           </a>
         </div>
-      </div>
-
-      <!-- Scroll hint -->
-      <div class="hero-scroll" aria-hidden="true">
-        <span class="hero-scroll-text">Scroll</span>
-        <div class="hero-scroll-line"></div>
       </div>
 
       <!-- Stats bar pinned to bottom of hero -->
@@ -1449,32 +1765,6 @@
         </div>
       </div>
     </section>
-
-    <!-- ══════════════════════════════════════════════════════
-         MARQUEE TICKER
-    ══════════════════════════════════════════════════════ -->
-    <div class="marquee-section" aria-hidden="true">
-      <div class="marquee-track">
-        <!-- Set 1 -->
-        <span class="marquee-item"><span class="marquee-dot"></span><span class="marquee-text">نسعى نحو التميز الأكاديمي في كل ما نقدمه</span></span>
-        <span class="marquee-item"><span class="marquee-dot"></span><span class="marquee-text">البحث العلمي ركيزة أساسية لبناء المستقبل</span></span>
-        <span class="marquee-item"><span class="marquee-dot"></span><span class="marquee-text">نبني جيلاً من القادة والمبتكرين في مجالات الرياضيات والحاسوب</span></span>
-        <span class="marquee-item"><span class="marquee-dot"></span><span class="marquee-text">خدمة المجتمع مسؤولية نحملها بفخر وإيمان</span></span>
-        <span class="marquee-item"><span class="marquee-dot"></span><span class="marquee-text">الابتكار والإبداع طريقنا لحل تحديات الغد</span></span>
-        <span class="marquee-item"><span class="marquee-dot"></span><span class="marquee-text">نؤمن بأن العمل الجماعي أساس كل إنجاز عظيم</span></span>
-        <span class="marquee-item"><span class="marquee-dot"></span><span class="marquee-text">تأهيل الطلاب لسوق العمل بمهارات تقنية ومهنية متقدمة</span></span>
-        <span class="marquee-item"><span class="marquee-dot"></span><span class="marquee-text">التطوير المستمر نهجنا لتحقيق رؤية أكاديمية رائدة</span></span>
-        <!-- Set 2 — exact duplicate for seamless loop -->
-        <span class="marquee-item"><span class="marquee-dot"></span><span class="marquee-text">نسعى نحو التميز الأكاديمي في كل ما نقدمه</span></span>
-        <span class="marquee-item"><span class="marquee-dot"></span><span class="marquee-text">البحث العلمي ركيزة أساسية لبناء المستقبل</span></span>
-        <span class="marquee-item"><span class="marquee-dot"></span><span class="marquee-text">نبني جيلاً من القادة والمبتكرين في مجالات الرياضيات والحاسوب</span></span>
-        <span class="marquee-item"><span class="marquee-dot"></span><span class="marquee-text">خدمة المجتمع مسؤولية نحملها بفخر وإيمان</span></span>
-        <span class="marquee-item"><span class="marquee-dot"></span><span class="marquee-text">الابتكار والإبداع طريقنا لحل تحديات الغد</span></span>
-        <span class="marquee-item"><span class="marquee-dot"></span><span class="marquee-text">نؤمن بأن العمل الجماعي أساس كل إنجاز عظيم</span></span>
-        <span class="marquee-item"><span class="marquee-dot"></span><span class="marquee-text">تأهيل الطلاب لسوق العمل بمهارات تقنية ومهنية متقدمة</span></span>
-        <span class="marquee-item"><span class="marquee-dot"></span><span class="marquee-text">التطوير المستمر نهجنا لتحقيق رؤية أكاديمية رائدة</span></span>
-      </div>
-    </div>
 
     <!-- ══════════════════════════════════════════════════════
          ABOUT SECTION
@@ -1916,15 +2206,15 @@
 
         <div class="cta-inner">
           <div class="reveal">
-            <div class="section-eyebrow" style="color: var(--gold-light); margin-bottom: var(--space-md);">Get in Touch</div>
+            <div class="section-eyebrow" style="color: var(--gold-light); margin-bottom: var(--space-md);">FMCSA</div>
             <h2 class="cta-title">
-              انضم إلينا وكن جزءاً من<br>
-              <span>رحلة التميز الأكاديمي</span>
+              كن جزءاً من<br>
+              <span>رابطة طلاب الكلية</span>
             </h2>
           </div>
 
           <p class="cta-subtitle reveal reveal-delay-1">
-            سواء كنت طالباً يبحث عن مجتمعه الأكاديمي أو خريجاً يريد الإسهام في مسيرة الكلية، نُرحّب بك في عائلة كلية العلوم الرياضية والحاسوب
+            نرحب بجميع طلاب كلية العلوم الرياضية والحاسوب للانضمام إلى مبادراتنا وفعالياتنا. معاً نبني مجتمعاً طلابياً متميزاً
           </p>
 
           <div class="cta-buttons reveal reveal-delay-2">

@@ -82,6 +82,8 @@
       align-items: center;
       gap: 0.75rem;
       margin-bottom: var(--space-lg);
+      white-space: nowrap;
+      overflow: hidden;
     }
 
     .hero-eyebrow::before,
@@ -467,49 +469,191 @@
     @media (max-width: 900px) {
       .initiatives-grid {
         grid-template-columns: 1fr;
-        max-width: 36rem;
+        max-width: 40rem;
         margin: 0 auto;
       }
 
       .impact-stats-grid {
         grid-template-columns: repeat(2, 1fr);
       }
+
+      .initiatives-section {
+        padding: var(--space-4xl) 0;
+      }
+
+      .impact-section {
+        padding: var(--space-4xl) 0;
+      }
+
+      .cta-section {
+        padding: var(--space-4xl) 0;
+      }
     }
 
     @media (max-width: 600px) {
       .initiatives-hero {
-        padding-top: calc(var(--nav-height) + 2.5rem);
-        padding-bottom: 3rem;
+        padding-top: calc(var(--nav-height) + 2rem);
+        padding-bottom: 2.5rem;
       }
 
       .initiatives-hero-title {
-        font-size: clamp(2.2rem, 10vw, 3.2rem);
+        font-size: clamp(2rem, 9vw, 3rem);
+      }
+
+      .initiatives-hero-subtitle {
+        font-size: clamp(0.9rem, 3.5vw, 1rem);
+      }
+
+      .initiatives-grid {
+        gap: var(--space-lg);
+        max-width: 100%;
+      }
+
+      .init-card-visual {
+        height: 11rem;
+      }
+
+      .init-card-body {
+        padding: var(--space-lg) var(--space-lg) var(--space-md);
+      }
+
+      .init-card-title {
+        font-size: 1.1rem;
+      }
+
+      .init-card-desc {
+        font-size: 0.88rem;
+      }
+
+      .init-card-link {
+        min-height: 44px;
+        padding: 0.6rem 1rem;
+      }
+
+      .initiatives-section {
+        padding: var(--space-3xl) 0;
+      }
+
+      .impact-section {
+        padding: var(--space-3xl) 0;
       }
 
       .impact-stats-grid {
         grid-template-columns: repeat(2, 1fr);
         gap: var(--space-lg);
+        margin-top: var(--space-2xl);
+      }
+
+      .impact-stat {
+        padding: var(--space-lg) var(--space-md);
+      }
+
+      .impact-stat-icon svg {
+        width: 28px;
+        height: 28px;
+      }
+
+      .impact-stat-value {
+        font-size: clamp(1.8rem, 6vw, 2.4rem);
+      }
+
+      .impact-stat-label {
+        font-size: 0.88rem;
+      }
+
+      .cta-section {
+        padding: var(--space-3xl) 0;
       }
 
       .cta-inner {
-        padding: var(--space-3xl) var(--space-xl);
+        padding: var(--space-2xl) var(--space-lg);
+        border-radius: var(--radius-lg);
+      }
+
+      .cta-title {
+        font-size: clamp(1.5rem, 6vw, 2rem);
+      }
+
+      .cta-desc {
+        font-size: 0.9rem;
+        margin-bottom: var(--space-xl);
       }
 
       .cta-actions {
         flex-direction: column;
-        align-items: center;
+        align-items: stretch;
+        gap: var(--space-sm);
       }
 
       .cta-actions .btn {
         width: 100%;
-        max-width: 20rem;
         justify-content: center;
+        min-height: 44px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .initiatives-hero {
+        padding-top: calc(var(--nav-height) + 1.5rem);
+        padding-bottom: 2rem;
+      }
+
+      .initiatives-hero-title {
+        font-size: clamp(1.8rem, 8vw, 2.5rem);
+      }
+
+      .hero-eyebrow {
+        font-size: 0.65rem;
+        letter-spacing: 0.14em;
+      }
+
+      .init-card-visual {
+        height: 9.5rem;
+      }
+
+      .init-card-body {
+        padding: var(--space-md);
+      }
+
+      .initiatives-section-header {
+        margin-bottom: var(--space-2xl);
+      }
+
+      .impact-stats-grid {
+        gap: var(--space-md);
+      }
+
+      .impact-stat {
+        padding: var(--space-md) var(--space-sm);
       }
     }
 
     @media (max-width: 380px) {
+      .initiatives-hero-title {
+        font-size: clamp(1.6rem, 9vw, 2.2rem);
+      }
+
       .impact-stats-grid {
         grid-template-columns: 1fr;
+        gap: var(--space-sm);
+      }
+
+      .impact-stat-value {
+        font-size: clamp(1.6rem, 8vw, 2rem);
+      }
+
+      .cta-inner {
+        padding: var(--space-xl) var(--space-md);
+      }
+
+      .init-card-meta {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .init-card-link {
+        width: 100%;
+        justify-content: center;
       }
     }
   </style>

@@ -96,6 +96,7 @@
 html {
   scroll-behavior: smooth;
   scroll-padding-top: var(--nav-height);
+  overflow-x: hidden;
 }
 
 body {
@@ -206,6 +207,8 @@ ul, ol {
   gap: var(--space-md);
   text-decoration: none;
   flex-shrink: 0;
+  min-width: 0;
+  overflow: hidden;
 }
 
 .nav-brand img {
@@ -217,12 +220,17 @@ ul, ol {
   display: flex;
   flex-direction: column;
   line-height: 1.2;
+  min-width: 0;
+  overflow: hidden;
 }
 
 .nav-brand-title {
   font-size: 0.85rem;
   font-weight: 800;
   color: var(--white);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .nav-brand-subtitle {
@@ -239,6 +247,7 @@ ul, ol {
   display: flex;
   align-items: center;
   gap: var(--space-xs);
+  flex-shrink: 0;
 }
 
 .nav-link {
@@ -282,8 +291,10 @@ ul, ol {
 /* Mobile Menu Toggle */
 .nav-toggle {
   display: none;
-  width: 2.5rem;
-  height: 2.5rem;
+  width: 2.75rem;
+  height: 2.75rem;
+  min-width: 44px;
+  min-height: 44px;
   align-items: center;
   justify-content: center;
   color: var(--white);
@@ -350,8 +361,10 @@ ul, ol {
 }
 
 .nav-mobile-close {
-  width: 2.5rem;
-  height: 2.5rem;
+  width: 2.75rem;
+  height: 2.75rem;
+  min-width: 44px;
+  min-height: 44px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -371,6 +384,9 @@ ul, ol {
   font-weight: 700;
   color: rgba(255, 255, 255, 0.75);
   padding: 0.85rem 1rem;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
   border-radius: var(--radius-md);
   transition: color var(--transition-fast), background var(--transition-fast);
 }
@@ -791,11 +807,41 @@ ul, ol {
     gap: var(--space-md);
     text-align: center;
   }
+
+  .nav-inner {
+    padding: 0 var(--space-md);
+  }
+
+  .nav-brand img {
+    height: 2rem;
+  }
+
+  .nav-brand-title {
+    font-size: 0.78rem;
+  }
+
+  .nav-brand-subtitle {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .nav-brand-text {
+    display: none;
+  }
+
+  .footer-social {
+    flex-wrap: wrap;
+  }
 }
 
 @media (max-width: 380px) {
   .container {
     padding: 0 var(--space-md);
+  }
+
+  .nav-brand img {
+    height: 1.85rem;
   }
 }
 
