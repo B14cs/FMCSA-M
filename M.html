@@ -773,40 +773,257 @@
       .init-hero {
         min-height: 26rem;
       }
+
+      .init-main {
+        padding: var(--space-3xl) 0;
+      }
     }
 
     @media (max-width: 600px) {
       .init-hero {
-        min-height: 22rem;
+        min-height: 20rem;
+      }
+
+      /* Hero padding-top clears fixed nav (nav shrinks to 3.75rem at 600px) */
+      .init-hero .container {
+        padding-top: calc(var(--nav-height) + 1.5rem);
+        padding-bottom: var(--space-2xl);
       }
 
       .init-hero-title .part {
-        font-size: clamp(3rem, 12vw, 4.5rem);
+        font-size: clamp(2.8rem, 11vw, 4rem);
       }
 
       .init-hero-title .mid .dash {
-        font-size: clamp(3rem, 12vw, 4.5rem);
+        font-size: clamp(2.8rem, 11vw, 4rem);
+      }
+
+      /* Prevent khalto label from overflowing at small sizes */
+      .init-hero-title .mid .khalto {
+        font-size: clamp(1rem, 3.5vw, 1.6rem);
+        white-space: nowrap;
+      }
+
+      .init-hero-subtitle {
+        font-size: clamp(1rem, 4vw, 1.4rem);
+        margin-bottom: var(--space-lg);
+      }
+
+      .init-hero-actions {
+        gap: var(--space-sm);
+      }
+
+      .btn-green {
+        padding: 0.75rem 1.5rem;
+        font-size: 0.9rem;
+        min-height: 44px;
+      }
+
+      .init-main {
+        padding: var(--space-2xl) 0;
+      }
+
+      .init-grid {
+        gap: var(--space-lg);
+      }
+
+      /* Reduce card padding on mobile */
+      .init-section-card {
+        padding: var(--space-lg);
+      }
+
+      .init-note-card {
+        padding: var(--space-lg);
+      }
+
+      .init-card-title {
+        font-size: 1.15rem;
+      }
+
+      .init-card-body {
+        font-size: 0.92rem;
+      }
+
+      .init-hadith {
+        padding: var(--space-sm) var(--space-lg);
+        font-size: 0.95rem;
+      }
+
+      /* Progress card */
+      .init-progress-card {
+        padding: var(--space-lg);
+      }
+
+      .init-progress-header {
+        flex-wrap: wrap;
+        gap: var(--space-sm);
       }
 
       #bankCopy {
-        font-size: 2.2rem;
+        font-size: clamp(1.8rem, 8vw, 2.4rem);
+        letter-spacing: 0.08em;
       }
 
       .init-amount-value {
         font-size: 1.4rem;
       }
+
+      /* Donation card */
+      .init-donation-top {
+        padding: var(--space-lg);
+      }
+
+      .init-donation-body {
+        padding: var(--space-lg);
+      }
+
+      /* Ensure WhatsApp button and share button meet 44px touch target */
+      .init-share-btn {
+        min-height: 44px;
+        padding: 0.85rem;
+      }
+
+      .init-wa-link {
+        min-height: 44px;
+        padding: 0.85rem;
+        font-size: 0.88rem;
+      }
+
+      /* Copy row for small screens */
+      .copy-row {
+        flex-wrap: nowrap;
+        overflow: hidden;
+      }
+
+      .copy-row input {
+        font-size: 0.75rem;
+        min-width: 0;
+      }
     }
 
-    @media (max-width: 400px) {
+    @media (max-width: 480px) {
+      .init-hero {
+        min-height: 18rem;
+      }
+
+      .init-hero-title .part {
+        font-size: clamp(2.4rem, 12vw, 3.5rem);
+      }
+
+      .init-hero-title .mid .dash {
+        font-size: clamp(2.4rem, 12vw, 3.5rem);
+      }
+
+      .init-hero-title .mid .khalto {
+        font-size: clamp(0.9rem, 3.2vw, 1.3rem);
+      }
+
+      .init-hero-actions {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .btn-green,
+      .init-hero-actions .btn {
+        width: 100%;
+        justify-content: center;
+        min-height: 44px;
+      }
+
+      .init-account-num-wrap {
+        padding: var(--space-sm) var(--space-md);
+      }
+
       #bankCopy {
-        font-size: 1.8rem;
-        letter-spacing: 0.08em;
+        font-size: clamp(1.6rem, 9vw, 2rem);
+        letter-spacing: 0.06em;
+      }
+
+      /* Share sheet social icons tighter gap */
+      .socials {
+        gap: var(--space-sm);
+      }
+
+      .soc-ring {
+        width: 2.85rem;
+        height: 2.85rem;
+      }
+    }
+
+    @media (max-width: 380px) {
+      .init-hero .container {
+        padding-top: calc(var(--nav-height) + 1rem);
+        padding-bottom: var(--space-xl);
+      }
+
+      .init-hero-title .part {
+        font-size: clamp(2rem, 12vw, 3rem);
+      }
+
+      .init-hero-title .mid .dash {
+        font-size: clamp(2rem, 12vw, 3rem);
+      }
+
+      .init-hero-title .mid .khalto {
+        font-size: clamp(0.8rem, 3vw, 1.1rem);
+      }
+
+      #bankCopy {
+        font-size: 1.5rem;
+        letter-spacing: 0.04em;
+      }
+
+      .init-section-card,
+      .init-note-card {
+        padding: var(--space-md);
+      }
+
+      .init-progress-card {
+        padding: var(--space-md);
+      }
+
+      .init-donation-top,
+      .init-donation-body {
+        padding: var(--space-md);
+      }
+
+      .socials {
+        gap: var(--space-xs);
+      }
+
+      .soc-ring {
+        width: 2.5rem;
+        height: 2.5rem;
+      }
+
+      .soc span {
+        font-size: 0.65rem;
+      }
+
+      /* Progress bar text readability on tiny screens */
+      .init-bar-text {
+        font-size: 0.82rem;
+      }
+
+      .init-progress-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--space-sm);
+      }
+
+      .init-remain-block {
+        text-align: right;
       }
     }
 
     @media (max-height: 500px) and (orientation: landscape) {
       .init-hero {
         min-height: 16rem;
+      }
+
+      .init-hero .container {
+        padding-top: calc(var(--nav-height) + 1rem);
+        padding-bottom: var(--space-lg);
       }
     }
   </style>

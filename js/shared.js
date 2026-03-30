@@ -19,10 +19,8 @@
   const navLinks = [
     { href: 'index.html', ar: 'الرئيسية' },
     { href: 'about.html', ar: 'عن الكلية' },
-    { href: 'academics.html', ar: 'الأقسام الأكاديمية' },
     { href: 'Members.html', ar: 'مجلس الطلاب' },
     { href: 'initiatives.html', ar: 'مبادراتنا' },
-    { href: 'contact.html', ar: 'تواصل معنا' },
   ];
 
   /* ══════════════════════════════
@@ -141,10 +139,10 @@
           <div class="footer-brand">
             <img src="Assets/White H Logo.png" alt="FMCSA">
             <div class="footer-brand-name">
-              كلية العلوم الرياضية والحاسوب
-              <span>Faculty of Mathematical Sciences & Computer<br>University of Gezira</span>
+              رابطة طلاب كلية العلوم الرياضية والحاسوب
+              <span>FMCS Students Association<br>University of Gezira</span>
             </div>
-            <p class="footer-desc">رابطة طلاب كلية العلوم الرياضية والحاسوب بجامعة الجزيرة. نسعى لبناء مجتمع طلابي متميز يدعم التعلم والابتكار والتطوير الأكاديمي.</p>
+            <p class="footer-desc">رابطة طلاب كلية العلوم الرياضية والحاسوب بجامعة الجزيرة — الصوت الرسمي لطلاب الكلية، نسعى لبناء مجتمع طلابي متميز يدعم التعلم والابتكار والمبادرات التنموية.</p>
             <div class="footer-social">
               <a class="footer-social-link" href="https://www.facebook.com/profile.php?id=61582223769511" target="_blank" rel="noopener" aria-label="Facebook">
                 <svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047V9.41c0-3.025 1.792-4.697 4.533-4.697 1.312 0 2.686.235 2.686.235v2.97h-1.513c-1.491 0-1.956.93-1.956 1.887v2.267h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.1 24 12.073z"/></svg>
@@ -157,7 +155,6 @@
             <div class="footer-links">
               <a class="footer-link" href="index.html">الرئيسية</a>
               <a class="footer-link" href="about.html">عن الكلية</a>
-              <a class="footer-link" href="academics.html">الأقسام الأكاديمية</a>
               <a class="footer-link" href="Members.html">مجلس الطلاب</a>
             </div>
           </div>
@@ -165,27 +162,18 @@
           <div>
             <h3 class="footer-col-title">الأقسام</h3>
             <div class="footer-links">
-              <a class="footer-link" href="academics.html#math">الرياضيات وعلوم الحاسوب</a>
-              <a class="footer-link" href="academics.html#stats">الإحصاء وعلوم الحاسوب</a>
-              <a class="footer-link" href="academics.html#cs">علوم الحاسوب</a>
+              <a class="footer-link" href="about.html#math">الرياضيات وعلوم الحاسوب</a>
+              <a class="footer-link" href="about.html#stats">الإحصاء وعلوم الحاسوب</a>
+              <a class="footer-link" href="about.html#cs">علوم الحاسوب</a>
             </div>
           </div>
 
           <div>
             <h3 class="footer-col-title">المزيد</h3>
             <div class="footer-links">
-              <a class="footer-link" href="contact.html">تواصل معنا</a>
               <a class="footer-link" href="initiatives.html">مبادراتنا</a>
               <a class="footer-link" href="Visual Identity.html">الهوية البصرية</a>
             </div>
-          </div>
-        </div>
-
-        <div class="footer-bottom">
-          <span class="footer-copy">© 2026 FMCSA — رابطة طلاب كلية العلوم الرياضية والحاسوب · جامعة الجزيرة</span>
-          <div class="footer-university">
-            <img src="Assets/UofG Logo.png" alt="University of Gezira">
-            <span>University of Gezira</span>
           </div>
         </div>
       </div>`;

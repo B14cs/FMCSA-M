@@ -154,10 +154,11 @@
             display: flex;
             align-items: baseline;
             justify-content: space-between;
+            flex-wrap: wrap;
             margin-bottom: 3.5rem;
             padding-bottom: 1.25rem;
             border-bottom: 0.0625rem solid var(--rule);
-            gap: 1rem;
+            gap: 0.5rem 1rem;
         }
 
         .section-title-ar {
@@ -177,6 +178,7 @@
             text-transform: uppercase;
             direction: ltr;
             white-space: nowrap;
+            flex-shrink: 0;
         }
 
         /* ══════════════════════════════
@@ -438,24 +440,103 @@
         /* ══════════════════════════════
            RESPONSIVE
         ══════════════════════════════ */
-        @media (max-width: 640px) {
-            .hero-content { padding: 1.5rem 1.25rem 1.75rem; }
-            .page-section { padding: 3.5rem 1.25rem; }
-            .logo-primary { padding: 2.25rem 1.25rem; }
-            .logo-primary img { height: min(6rem, 38vw); }
-            .logo-variants { grid-template-columns: 1fr; }
-            .logo-variant-card img { height: min(7rem, 42vw); }
-            .type-grid { grid-template-columns: 1fr; }
-            .colors-grid { grid-template-columns: 1fr 1fr; }
-            .symbols-grid { grid-template-columns: 1fr 1fr; }
-            .color-name-en { direction: rtl; }
+
+        /* ── Prevent horizontal overflow globally ── */
+        html, body {
+            overflow-x: hidden;
+            max-width: 100%;
         }
 
-        @media (max-width: 420px) {
+        /* ── 760px: symbols & colors start collapsing ── */
+        @media (max-width: 760px) {
+            .symbols-grid { grid-template-columns: repeat(2, 1fr); }
+            .colors-grid  { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        @media (max-width: 640px) {
+            /* Hero: restore nav clearance and reduce padding */
+            .hero-content {
+                padding: calc(var(--nav-height, 4.5rem) + 0.75rem) 1.25rem 1.75rem;
+            }
+            /* Hero logo: not too large */
+            .hero-logo-wrap img { width: min(22rem, 78vw); }
+
+            .page-section { padding: 3rem 1.25rem; }
+
+            /* Section header: smaller EN label so it doesn't crowd */
+            .section-title-en { font-size: 0.68rem; letter-spacing: 0.12em; }
+
+            /* Logo: smaller primary card padding */
+            .logo-primary { padding: 2rem 1.25rem; }
+            .logo-primary img { height: min(6rem, 38vw); }
+
+            /* Logo variants: single column on mobile */
+            .logo-variants { grid-template-columns: 1fr; }
+            .logo-variant-card { aspect-ratio: 16/7; padding: 1.75rem 1.25rem; }
+            .logo-variant-card img { height: min(5.5rem, 30vw); }
+
+            /* Symbols: 2 cols on small mobile */
+            .symbols-grid { grid-template-columns: repeat(2, 1fr); }
+            .symbol-card { padding: 1.5rem 1.25rem 1.25rem; }
+
+            /* Typography: stack to 1 column */
+            .type-grid { grid-template-columns: 1fr; }
+            .type-card { padding: 2rem 1.5rem; }
+
+            /* Colors: 2 columns */
+            .colors-grid { grid-template-columns: repeat(2, 1fr); }
+            .color-swatch { height: 7rem; }
+            .color-info { padding: 1rem 1.125rem 1.25rem; gap: 0.5rem; }
+            .color-name { font-size: 0.95rem; }
+            .color-name-en { direction: rtl; font-size: 0.65rem; }
+            .color-rgb span { font-size: 0.6rem; }
+            .swatch-hex { font-size: 0.75rem; }
+        }
+
+        /* ── 480px: further tightening ── */
+        @media (max-width: 480px) {
+            .page-section { padding: 2.5rem 1rem; }
+
+            .vi-section-header { margin-bottom: 2.5rem; }
+
+            .logo-primary { padding: 1.75rem 1rem; }
+            .logo-primary img { height: min(5.5rem, 40vw); }
+
+            .logo-variant-card { padding: 1.5rem 1rem; }
+            .logo-variant-card img { height: min(5rem, 32vw); }
+
+            .symbol-card { padding: 1.25rem 1rem 1rem; gap: 0.75rem; }
+            .symbol-title { font-size: 0.9rem; }
+            .symbol-desc { font-size: 0.75rem; }
+
+            .type-card { padding: 1.75rem 1.25rem; }
+
+            .color-swatch { height: 6rem; }
+            .color-info { padding: 0.875rem 1rem 1rem; }
+        }
+
+        /* ── 380px: single column for most grids ── */
+        @media (max-width: 380px) {
+            .hero-logo-wrap img { width: min(18rem, 82vw); }
+
+            .page-section { padding: 2rem 0.875rem; }
+
+            .vi-section-header { margin-bottom: 2rem; }
+            .section-title-ar { font-size: 1.25rem; }
+            .section-title-en { font-size: 0.62rem; white-space: normal; }
+
+            /* Logo variants stay 1 column */
+            .logo-variant-card { aspect-ratio: 16/6; }
+
+            /* Symbols: 1 column on very small phones */
             .symbols-grid { grid-template-columns: 1fr; }
-            .colors-grid { grid-template-columns: 1fr 1fr; }
-            .logo-primary img { height: min(5rem, 44vw); }
-            .logo-variant-card img { height: min(6rem, 48vw); }
+
+            /* Colors: 1 column on very small phones */
+            .colors-grid { grid-template-columns: 1fr; }
+            .color-swatch { height: 8rem; }
+
+            /* Type grid stays 1 column */
+            .type-card { padding: 1.5rem 1.125rem; }
         }
     </style>
 </head>
