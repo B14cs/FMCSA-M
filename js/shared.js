@@ -21,6 +21,7 @@
     { href: 'about.html', ar: 'عن الكلية' },
     { href: 'Members.html', ar: 'مجلس الطلاب' },
     { href: 'initiatives.html', ar: 'مبادراتنا' },
+    { href: 'Visual Identity.html', ar: 'الهوية البصرية' },
   ];
 
   /* ══════════════════════════════
@@ -135,45 +136,23 @@
     footer.className = 'site-footer';
     footer.innerHTML = `
       <div class="container">
-        <div class="footer-grid">
-          <div class="footer-brand">
-            <img src="Assets/White H Logo.png" alt="FMCSA">
-            <div class="footer-brand-name">
-              رابطة طلاب كلية العلوم الرياضية والحاسوب
-              <span>FMCS Students Association<br>University of Gezira</span>
-            </div>
-            <p class="footer-desc">رابطة طلاب كلية العلوم الرياضية والحاسوب بجامعة الجزيرة — الصوت الرسمي لطلاب الكلية، نسعى لبناء مجتمع طلابي متميز يدعم التعلم والابتكار والمبادرات التنموية.</p>
+        <div class="footer-simple">
+          <div class="footer-logo">
+            <img src="Assets/White Logo.png" alt="FMCSA">
+          </div>
+          <div class="footer-middle">
+            <span class="footer-copy">رابطة طلاب كلية العلوم الرياضية والحاسوب © 2026</span>
+          </div>
+          <div class="footer-right">
+            <span class="footer-follow">تابعنا</span>
             <div class="footer-social">
               <a class="footer-social-link" href="https://www.facebook.com/profile.php?id=61582223769511" target="_blank" rel="noopener" aria-label="Facebook">
                 <svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047V9.41c0-3.025 1.792-4.697 4.533-4.697 1.312 0 2.686.235 2.686.235v2.97h-1.513c-1.491 0-1.956.93-1.956 1.887v2.267h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.1 24 12.073z"/></svg>
               </a>
             </div>
-          </div>
-
-          <div>
-            <h3 class="footer-col-title">روابط سريعة</h3>
-            <div class="footer-links">
-              <a class="footer-link" href="index.html">الرئيسية</a>
-              <a class="footer-link" href="about.html">عن الكلية</a>
-              <a class="footer-link" href="Members.html">مجلس الطلاب</a>
-            </div>
-          </div>
-
-          <div>
-            <h3 class="footer-col-title">الأقسام</h3>
-            <div class="footer-links">
-              <a class="footer-link" href="about.html#math">الرياضيات وعلوم الحاسوب</a>
-              <a class="footer-link" href="about.html#stats">الإحصاء وعلوم الحاسوب</a>
-              <a class="footer-link" href="about.html#cs">علوم الحاسوب</a>
-            </div>
-          </div>
-
-          <div>
-            <h3 class="footer-col-title">المزيد</h3>
-            <div class="footer-links">
-              <a class="footer-link" href="initiatives.html">مبادراتنا</a>
-              <a class="footer-link" href="Visual Identity.html">الهوية البصرية</a>
-            </div>
+            <button class="footer-top-btn" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="اذهب للأعلى">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
+            </button>
           </div>
         </div>
       </div>`;
