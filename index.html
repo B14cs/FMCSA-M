@@ -1,2384 +1,589 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>رابطة طلاب كلية العلوم الرياضية والحاسوب</title>
-  <meta name="description" content="الموقع الرسمي لرابطة طلاب كلية العلوم الرياضية والحاسوب بجامعة الجزيرة. مبادرات، فعاليات، ومجتمع طلابي متميز.">
+  <meta name="description"
+    content="الموقع الرسمي لرابطة طلاب كلية العلوم الرياضية والحاسوب بجامعة الجزيرة. انتماء راسخ يتجاوز الحدود.">
   <meta property="og:title" content="رابطة طلاب كلية العلوم الرياضية والحاسوب">
-  <meta property="og:description" content="الموقع الرسمي لرابطة طلاب كلية العلوم الرياضية والحاسوب بجامعة الجزيرة. مبادرات، فعاليات، ومجتمع طلابي متميز.">
   <meta property="og:image" content="Assets/Cover.jpg">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="ar_SD">
-  <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" type="image/png" href="Assets/White Logo.png" media="(prefers-color-scheme: dark)">
   <link rel="icon" type="image/png" href="Assets/Blue Logo.png" media="(prefers-color-scheme: light)">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&family=Montserrat:wght@300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
   <link rel="stylesheet" href="css/shared.css">
-
+  <script src="js/shared.js" defer></script>
   <style>
-    /* ══════════════════════════════════════════════════════════════
-       INDEX PAGE — Page-Specific Styles
-       ══════════════════════════════════════════════════════════════ */
-
-    /* ── Override body padding since hero is full-viewport ── */
-    body {
-      padding-top: 0 !important;
-      margin-top: 0 !important;
+    /* ═══════════════════════════════════════
+           FMCSA DESIGN TOKENS (from shared.css)
+        ═══════════════════════════════════════ */
+    :root {
+      --navy: #141345;
+      --navy-light: #1a1860;
+      --navy-dark: #0e0d30;
+      --gold: #f5c518;
+      --gold-light: #fad94a;
+      --gold-dark: #c9a00e;
+      --white: #ffffff;
+      --off-white: #f8f9fc;
+      --light-gray: #f0f1f5;
+      --mid-gray: #e2e4ea;
+      --text-gray: #6b7280;
+      --dark-gray: #374151;
+      --black: #1a1a1a;
+      --border-light: rgba(20, 19, 69, 0.08);
+      --border-medium: rgba(20, 19, 69, 0.12);
+      --font-ar: 'Cairo', system-ui, sans-serif;
+      --font-en: 'Montserrat', system-ui, sans-serif;
+      --nav-h: 100px;
+      /* increased for larger logo */
+      --ease: cubic-bezier(0.16, 1, 0.3, 1);
     }
 
-    /* ══════════════════════════════════════════════════════════════
-       HERO SECTION
-       ══════════════════════════════════════════════════════════════ */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: var(--font-ar);
+      background: var(--off-white);
+      color: var(--navy);
+      line-height: 1.65;
+      overflow-x: hidden;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    button {
+      cursor: pointer;
+      border: none;
+      background: none;
+      font-family: inherit;
+    }
+
+    /* ═══════════════════════════════════════
+           HERO (full screen)
+        ═══════════════════════════════════════ */
     .hero {
-      position: relative;
-      width: 100%;
+      padding-top: var(--nav-h);
       min-height: 100vh;
-      min-height: 100svh;
-      margin-top: 0;
       display: flex;
       flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
-      background: var(--navy-dark);
+      background: var(--off-white);
     }
 
-    /* Building image */
-    .hero-bg {
-      position: absolute;
-      inset: 0;
-      z-index: 0;
-    }
-
-    .hero-bg img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center 30%;
-      display: block;
-      filter: saturate(0.7);
-    }
-
-    /* Multi-layer gradient overlay */
-    .hero-overlay {
-      position: absolute;
-      inset: 0;
-      z-index: 1;
-      background:
-        linear-gradient(180deg,
-          rgba(14, 13, 48, 0.55) 0%,
-          rgba(14, 13, 48, 0.3) 30%,
-          rgba(14, 13, 48, 0.5) 65%,
-          rgba(14, 13, 48, 0.92) 100%
-        ),
-        linear-gradient(135deg,
-          rgba(20, 19, 69, 0.7) 0%,
-          transparent 60%
-        );
-    }
-
-    /* Gold shimmer line at top */
-    .hero-top-line {
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 3px;
-      z-index: 3;
-      background: linear-gradient(90deg, transparent 0%, var(--gold) 35%, var(--gold-light) 50%, var(--gold) 65%, transparent 100%);
-    }
-
-    /* Geometric accent — large faint ring */
-    .hero-ring {
-      position: absolute;
-      width: min(700px, 90vw);
-      height: min(700px, 90vw);
-      border-radius: 50%;
-      border: 1px solid rgba(245, 197, 24, 0.06);
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      z-index: 1;
-      pointer-events: none;
-    }
-
-    .hero-ring::before {
-      content: '';
-      position: absolute;
-      inset: 3rem;
-      border-radius: 50%;
-      border: 1px solid rgba(245, 197, 24, 0.04);
-    }
-
-    /* Hero content */
     .hero-content {
-      position: relative;
-      z-index: 4;
-      text-align: center;
-      padding: calc(var(--nav-height, 4.5rem) + 2rem) var(--space-xl) calc(var(--space-4xl) + 6rem);
-      max-width: 62rem;
-      margin: 0 auto;
-      width: 100%;
-    }
-
-    .hero-eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.6rem;
-      font-family: var(--font-en);
-      font-size: 0.72rem;
-      font-weight: 700;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--gold);
-      background: rgba(245, 197, 24, 0.08);
-      border: 1px solid rgba(245, 197, 24, 0.2);
-      padding: 0.45rem 1.2rem;
-      border-radius: var(--radius-full);
-      margin-bottom: var(--space-xl);
-      direction: ltr;
-      animation: heroFadeUp 0.9s 0.1s cubic-bezier(0.16, 1, 0.3, 1) both;
-    }
-
-    .hero-eyebrow-dot {
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: var(--gold);
-      animation: heroPulse 2s ease-in-out infinite;
-      flex-shrink: 0;
-    }
-
-    @keyframes heroPulse {
-      0%, 100% { opacity: 1; transform: scale(1); }
-      50% { opacity: 0.4; transform: scale(0.7); }
-    }
-
-    .hero-title {
-      font-size: clamp(2.4rem, 7vw, 5rem);
-      font-weight: 900;
-      line-height: 1.2;
-      color: var(--white);
-      margin-bottom: var(--space-lg);
-      letter-spacing: -0.01em;
-      animation: heroFadeUp 0.9s 0.2s cubic-bezier(0.16, 1, 0.3, 1) both;
-    }
-
-    .hero-title-accent {
-      background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 60%, #ffe78a 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-
-    .hero-subtitle-en {
-      font-family: var(--font-en);
-      font-size: clamp(0.85rem, 2vw, 1.05rem);
-      font-weight: 500;
-      color: rgba(255, 255, 255, 0.55);
-      letter-spacing: 0.05em;
-      text-align: center;
-      margin-bottom: var(--space-md);
-      animation: heroFadeUp 0.9s 0.3s cubic-bezier(0.16, 1, 0.3, 1) both;
-    }
-
-    .hero-subtitle-ar {
-      font-size: clamp(1rem, 2.5vw, 1.2rem);
-      color: rgba(255, 255, 255, 0.7);
-      font-weight: 500;
-      line-height: 1.7;
-      max-width: 44rem;
-      margin: 0 auto var(--space-2xl);
-      animation: heroFadeUp 0.9s 0.35s cubic-bezier(0.16, 1, 0.3, 1) both;
-    }
-
-    .hero-cta-group {
+      flex: 1;
       display: flex;
-      align-items: center;
+      flex-direction: column;
       justify-content: center;
-      gap: var(--space-md);
-      flex-wrap: wrap;
-      position: relative;
-      z-index: 5;
-      animation: heroFadeUp 0.9s 0.45s cubic-bezier(0.16, 1, 0.3, 1) both;
-    }
-
-    /* Hero stats bar */
-    .hero-stats {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      z-index: 2;
-      background: rgba(14, 13, 48, 0.75);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      border-top: 1px solid rgba(255, 255, 255, 0.06);
-      animation: heroFadeUp 0.9s 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
-    }
-
-    .hero-stats-inner {
       max-width: var(--max-width);
       margin: 0 auto;
-      padding: 0 var(--space-xl);
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
+      width: 100%;
     }
 
-    .hero-stat {
-      padding: var(--space-xl) var(--space-lg);
-      text-align: center;
-      border-left: 1px solid rgba(255, 255, 255, 0.06);
-    }
-
-    .hero-stat:last-child {
-      border-left: none;
-    }
-
-    [dir="rtl"] .hero-stat {
-      border-left: none;
-      border-right: 1px solid rgba(255, 255, 255, 0.06);
-    }
-
-    [dir="rtl"] .hero-stat:last-child {
-      border-right: none;
-    }
-
-    .hero-stat-num {
-      font-family: var(--font-en);
-      font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+    .hero-line1 {
+      font-family: var(--font-ar);
+      font-size: clamp(3.2rem, 9vw, 6.5rem);
       font-weight: 800;
-      color: var(--gold);
-      line-height: 1;
-      direction: ltr;
+      color: var(--navy);
       display: block;
+      animation: fadeUp 0.8s var(--ease) both;
     }
 
-    .hero-stat-label {
-      font-size: 0.78rem;
-      color: rgba(255, 255, 255, 0.5);
-      margin-top: 0.4rem;
-      font-weight: 600;
+    .hero-line2 {
+      font-family: var(--font-ar);
+      font-size: clamp(3.2rem, 9vw, 6.5rem);
+      font-weight: 900;
+      color: var(--gold-dark);
+      display: block;
+      margin-top: 0.2em;
+      animation: fadeUp 0.8s 0.15s var(--ease) both;
     }
 
-    @keyframes heroFadeUp {
-      from { opacity: 0; transform: translateY(2rem); }
-      to   { opacity: 1; transform: translateY(0); }
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(2rem);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
-    /* Scroll indicator */
     .hero-scroll {
-      position: absolute;
-      bottom: 7rem;
-      left: 50%;
-      transform: translateX(-50%);
-      z-index: 3;
       display: flex;
-      flex-direction: column;
       align-items: center;
-      gap: 0.4rem;
-      animation: heroFadeUp 1s 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+      justify-content: flex-end;
+      gap: 0.6rem;
+      padding: 1.5rem 2rem;
+      max-width: var(--max-width);
+      margin: 0 auto;
+      width: 100%;
+      animation: fadeUp 0.8s 0.3s var(--ease) both;
     }
 
     .hero-scroll-text {
-      font-family: var(--font-en);
-      font-size: 0.62rem;
-      font-weight: 700;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: rgba(255, 255, 255, 0.3);
+      font-size: 0.75rem;
+      color: var(--text-gray);
     }
 
-    .hero-scroll-line {
-      width: 1px;
-      height: 2.5rem;
-      background: linear-gradient(to bottom, rgba(245, 197, 24, 0.6), transparent);
-      animation: scrollLine 2s ease-in-out infinite;
-    }
-
-    @keyframes scrollLine {
-      0%, 100% { opacity: 0.6; transform: scaleY(1); }
-      50% { opacity: 1; transform: scaleY(1.2); }
-    }
-
-    /* ══════════════════════════════════════════════════════════════
-       ENGLISH TEXT ALIGNMENT — RTL site: English labels align right
-       ══════════════════════════════════════════════════════════════ */
-    .section-eyebrow {
-      text-align: right;
-    }
-
-    .text-center .section-eyebrow,
-    .section-header.text-center .section-eyebrow,
-    .cta-inner .section-eyebrow {
-      text-align: center;
-    }
-
-    /* ══════════════════════════════════════════════════════════════
-       ABOUT SECTION
-       ══════════════════════════════════════════════════════════════ */
-    .about-section {
-      background: var(--bg-primary);
-    }
-
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: var(--space-4xl);
-      align-items: center;
-    }
-
-    .about-image-wrap {
-      position: relative;
-      border-radius: var(--radius-xl);
-      overflow: hidden;
-      aspect-ratio: 4/3;
-      box-shadow: var(--shadow-xl);
-    }
-
-    .about-image-wrap img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center 20%;
-      transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-
-    .about-image-wrap:hover img {
-      transform: scale(1.04);
-    }
-
-    /* Gold corner accent */
-    .about-image-wrap::before {
-      content: '';
-      position: absolute;
-      bottom: -1.5rem;
-      right: -1.5rem;
-      width: 6rem;
-      height: 6rem;
-      border-radius: var(--radius-lg);
-      background: var(--gold);
-      opacity: 0.12;
-      z-index: -1;
-    }
-
-    .about-image-badge {
-      position: absolute;
-      bottom: var(--space-lg);
-      right: var(--space-lg);
-      background: rgba(14, 13, 48, 0.88);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border: 1px solid rgba(245, 197, 24, 0.2);
-      border-radius: var(--radius-md);
-      padding: var(--space-sm) var(--space-md);
-      display: flex;
-      align-items: center;
-      gap: var(--space-sm);
-    }
-
-    .about-image-badge-icon {
-      width: 2rem;
-      height: 2rem;
-      background: var(--gold);
-      border-radius: var(--radius-sm);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-    }
-
-    .about-image-badge-text {
-      color: var(--white);
-      font-size: 0.78rem;
-      font-weight: 700;
-      line-height: 1.3;
-    }
-
-    .about-image-badge-text span {
-      display: block;
-      font-size: 0.65rem;
-      font-weight: 500;
-      color: rgba(255,255,255,0.5);
-      font-family: var(--font-en);
-      direction: ltr;
-    }
-
-    .about-content {
-      display: flex;
-      flex-direction: column;
-      gap: var(--space-lg);
-    }
-
-    .about-features {
-      display: flex;
-      flex-direction: column;
-      gap: var(--space-md);
-      margin-top: var(--space-sm);
-    }
-
-    .about-feature {
-      display: flex;
-      align-items: flex-start;
-      gap: var(--space-md);
-    }
-
-    .about-feature-icon {
-      width: 2.5rem;
-      height: 2.5rem;
-      border-radius: var(--radius-md);
-      background: rgba(20, 19, 69, 0.06);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-    }
-
-    .about-feature-text strong {
-      display: block;
-      font-size: 0.9rem;
-      font-weight: 800;
-      color: var(--text-primary);
-      margin-bottom: 0.2rem;
-    }
-
-    .about-feature-text p {
-      font-size: 0.82rem;
-      color: var(--text-muted);
-      line-height: 1.6;
-    }
-
-    /* ══════════════════════════════════════════════════════════════
-       DEPARTMENTS SECTION
-       ══════════════════════════════════════════════════════════════ */
-    .depts-section {
-      background: var(--bg-secondary);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .depts-section::before {
-      content: '';
-      position: absolute;
-      top: -4rem;
-      right: -4rem;
-      width: 28rem;
-      height: 28rem;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(245, 197, 24, 0.04) 0%, transparent 70%);
-      pointer-events: none;
-    }
-
-    .depts-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: var(--space-xl);
-    }
-
-    .dept-card {
-      background: var(--white);
-      border: 1px solid var(--border-light);
-      border-radius: var(--radius-xl);
-      padding: var(--space-2xl);
-      position: relative;
-      overflow: hidden;
-      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
-                  box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1),
-                  border-color 0.25s ease;
-      display: flex;
-      flex-direction: column;
-      gap: var(--space-lg);
-    }
-
-    .dept-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 3px;
-      background: linear-gradient(90deg, transparent, var(--gold), transparent);
-      opacity: 0;
-      transition: opacity 0.3s ease;
-    }
-
-    .dept-card:hover {
-      transform: translateY(-6px);
-      box-shadow: var(--shadow-xl);
-      border-color: rgba(245, 197, 24, 0.15);
-    }
-
-    .dept-card:hover::before {
-      opacity: 1;
-    }
-
-    /* Large math symbol background decoration */
-    .dept-card-bg-symbol {
-      position: absolute;
-      bottom: -1rem;
-      left: -1rem;
-      font-family: var(--font-en);
-      font-size: 9rem;
-      font-weight: 900;
+    .hero-scroll-icon {
+      width: 20px;
+      height: 20px;
       color: var(--navy);
-      opacity: 0.025;
-      line-height: 1;
-      pointer-events: none;
-      user-select: none;
-      transition: opacity 0.35s ease;
+      animation: bounce 2s infinite;
     }
 
-    .dept-card:hover .dept-card-bg-symbol {
-      opacity: 0.045;
-    }
-
-    .dept-icon-wrap {
-      width: 4rem;
-      height: 4rem;
-      border-radius: var(--radius-lg);
-      background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-      box-shadow: 0 4px 16px rgba(20, 19, 69, 0.2);
-    }
-
-    .dept-icon {
-      font-family: var(--font-en);
-      font-size: 1.5rem;
-      font-weight: 900;
-      color: var(--gold);
-      line-height: 1;
-      direction: ltr;
-    }
-
-    .dept-card-content {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      gap: var(--space-sm);
-    }
-
-    .dept-tag {
-      font-family: var(--font-en);
-      font-size: 0.65rem;
-      font-weight: 700;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--gold-dark);
-    }
-
-    .dept-title {
-      font-size: 1.2rem;
-      font-weight: 900;
-      color: var(--text-primary);
-      line-height: 1.35;
-    }
-
-    .dept-desc {
-      font-size: 0.87rem;
-      color: var(--text-muted);
-      line-height: 1.7;
-    }
-
-    .dept-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
-      font-size: 0.82rem;
-      font-weight: 800;
-      color: var(--navy);
-      margin-top: auto;
-      padding-top: var(--space-md);
-      border-top: 1px solid var(--border-light);
-      transition: gap 0.2s ease, color 0.2s ease;
-    }
-
-    .dept-link:hover {
-      color: var(--gold-dark);
-      gap: 0.7rem;
-    }
-
-    .dept-link svg {
-      width: 0.85rem;
-      height: 0.85rem;
-      transition: transform 0.2s ease;
-    }
-
-    [dir="rtl"] .dept-link svg {
-      transform: scaleX(-1);
-    }
-
-    .dept-link:hover svg {
-      transform: translateX(3px) scaleX(-1);
-    }
-
-    /* ══════════════════════════════════════════════════════════════
-       STATISTICS SECTION
-       ══════════════════════════════════════════════════════════════ */
-    .stats-section {
-      background: var(--navy);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .stats-section::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background-image: url('Assets/IMG001.webp');
-      background-size: cover;
-      background-position: center;
-      opacity: 0.07;
-      filter: grayscale(1);
-    }
-
-    .stats-section::after {
-      content: '';
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 50rem;
-      height: 50rem;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(245, 197, 24, 0.06) 0%, transparent 65%);
-      pointer-events: none;
-    }
-
-    .stats-inner {
-      position: relative;
-      z-index: 1;
-    }
-
-    .stats-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: var(--space-xl);
-      margin-top: var(--space-3xl);
-    }
-
-    .stat-item {
-      text-align: center;
-      padding: var(--space-2xl) var(--space-lg);
-      border-radius: var(--radius-xl);
-      background: rgba(255, 255, 255, 0.03);
-      border: 1px solid rgba(255, 255, 255, 0.06);
-      transition: background 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
-    }
-
-    .stat-item:hover {
-      background: rgba(255, 255, 255, 0.06);
-      border-color: rgba(245, 197, 24, 0.15);
-      transform: translateY(-3px);
-    }
-
-    .stat-number {
-      font-family: var(--font-en);
-      font-size: clamp(2.4rem, 4.5vw, 3.5rem);
-      font-weight: 900;
-      color: var(--gold);
-      line-height: 1;
-      text-align: center;
-      display: block;
-    }
-
-    .stat-plus {
-      color: var(--gold-light);
-      font-size: 0.75em;
-    }
-
-    .stat-label-ar {
-      font-size: 1rem;
-      font-weight: 700;
-      color: var(--white);
-      margin-top: var(--space-sm);
-      display: block;
-    }
-
-    .stat-label-en {
-      font-family: var(--font-en);
-      font-size: 0.7rem;
-      font-weight: 600;
-      color: rgba(255, 255, 255, 0.35);
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      text-align: center;
-      margin-top: 0.25rem;
-      display: block;
-    }
-
-    .stat-icon {
-      margin-bottom: var(--space-md);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    /* ══════════════════════════════════════════════════════════════
-       FMCSA — STUDENT ASSOCIATION SECTION
-       ══════════════════════════════════════════════════════════════ */
-    .fmcsa-section {
-      background: var(--bg-primary);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .fmcsa-inner {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: var(--space-4xl);
-      align-items: center;
-    }
-
-    .fmcsa-content {
-      display: flex;
-      flex-direction: column;
-      gap: var(--space-lg);
-    }
-
-    .fmcsa-pillars {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: var(--space-md);
-      margin-top: var(--space-sm);
-    }
-
-    .fmcsa-pillar {
-      background: var(--bg-secondary);
-      border: 1px solid var(--border-light);
-      border-radius: var(--radius-lg);
-      padding: var(--space-lg);
-      transition: border-color 0.25s ease, box-shadow 0.25s ease;
-    }
-
-    .fmcsa-pillar:hover {
-      border-color: rgba(245, 197, 24, 0.2);
-      box-shadow: var(--shadow-md);
-    }
-
-    .fmcsa-pillar-icon {
-      margin-bottom: var(--space-sm);
-      display: flex;
-      align-items: center;
-    }
-
-    .fmcsa-pillar-title {
-      font-size: 0.88rem;
-      font-weight: 800;
-      color: var(--text-primary);
-      margin-bottom: 0.2rem;
-    }
-
-    .fmcsa-pillar-desc {
-      font-size: 0.78rem;
-      color: var(--text-muted);
-      line-height: 1.6;
-    }
-
-    .fmcsa-visual {
-      position: relative;
-    }
-
-    .fmcsa-card-main {
-      background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
-      border-radius: var(--radius-xl);
-      padding: var(--space-3xl);
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-      box-shadow: var(--shadow-xl);
-    }
-
-    .fmcsa-card-main::before {
-      content: '';
-      position: absolute;
-      top: -3rem;
-      right: -3rem;
-      width: 12rem;
-      height: 12rem;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(245, 197, 24, 0.1) 0%, transparent 70%);
-    }
-
-    .fmcsa-card-main::after {
-      content: '';
-      position: absolute;
-      bottom: -3rem;
-      left: -3rem;
-      width: 10rem;
-      height: 10rem;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(245, 197, 24, 0.06) 0%, transparent 70%);
-    }
+    @keyframes bounce {
 
-    .fmcsa-logo-wrap {
-      margin: 0 auto var(--space-lg);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .fmcsa-logo-wrap img {
-      width: 5rem;
-      height: auto;
-    }
-
-    .fmcsa-card-title {
-      font-size: 1.2rem;
-      font-weight: 900;
-      color: var(--white);
-      margin-bottom: var(--space-sm);
-      position: relative;
-      z-index: 1;
-    }
-
-    .fmcsa-card-title-en {
-      font-family: var(--font-en);
-      font-size: 0.72rem;
-      font-weight: 700;
-      color: var(--gold);
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      text-align: center;
-      margin-bottom: var(--space-lg);
-      position: relative;
-      z-index: 1;
-    }
-
-    .fmcsa-card-desc {
-      font-size: 0.87rem;
-      color: rgba(255, 255, 255, 0.6);
-      line-height: 1.7;
-      margin-bottom: var(--space-xl);
-      position: relative;
-      z-index: 1;
-    }
-
-    .fmcsa-members-grid {
-      display: flex;
-      gap: -0.5rem;
-      justify-content: center;
-      margin-bottom: var(--space-lg);
-      position: relative;
-      z-index: 1;
-    }
-
-    .fmcsa-member-avatar {
-      width: 2.5rem;
-      height: 2.5rem;
-      border-radius: 50%;
-      border: 2px solid rgba(255, 255, 255, 0.2);
-      background: var(--navy-light);
-      overflow: hidden;
-      margin-right: -0.6rem;
-      flex-shrink: 0;
-    }
-
-    .fmcsa-member-avatar img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      border-radius: 50%;
-    }
-
-    .fmcsa-member-avatar-more {
-      width: 2.5rem;
-      height: 2.5rem;
-      border-radius: 50%;
-      border: 2px solid var(--navy);
-      background: rgba(245, 197, 24, 0.15);
-      border-color: rgba(245, 197, 24, 0.3);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: var(--font-en);
-      font-size: 0.65rem;
-      font-weight: 800;
-      color: var(--gold);
-      margin-right: -0.6rem;
-      flex-shrink: 0;
-    }
-
-    /* ══════════════════════════════════════════════════════════════
-       NEWS SECTION
-       ══════════════════════════════════════════════════════════════ */
-    .news-section {
-      background: var(--bg-secondary);
-    }
-
-    .news-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: var(--space-xl);
-    }
-
-    .news-card {
-      background: var(--white);
-      border-radius: var(--radius-xl);
-      overflow: hidden;
-      border: 1px solid var(--border-light);
-      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease;
-      display: flex;
-      flex-direction: column;
-    }
-
-    .news-card:hover {
-      transform: translateY(-5px);
-      box-shadow: var(--shadow-xl);
-    }
-
-    .news-card-img {
-      position: relative;
-      aspect-ratio: 16/9;
-      overflow: hidden;
-      background: var(--bg-tertiary);
-    }
-
-    .news-card-img img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-
-    .news-card:hover .news-card-img img {
-      transform: scale(1.06);
-    }
-
-    /* Placeholder for cards without images */
-    .news-card-img-placeholder {
-      width: 100%;
-      height: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .news-card-img-placeholder.bg-1 {
-      background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
-    }
-
-    .news-card-img-placeholder.bg-2 {
-      background: linear-gradient(135deg, #1a3a6b 0%, #0d2040 100%);
-    }
-
-    .news-card-img-placeholder.bg-3 {
-      background: linear-gradient(135deg, #1a2f3c 0%, #0e1c2a 100%);
-    }
-
-    .news-card-category {
-      position: absolute;
-      top: var(--space-md);
-      right: var(--space-md);
-      font-family: var(--font-en);
-      font-size: 0.65rem;
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--navy);
-      background: var(--gold);
-      padding: 0.3rem 0.75rem;
-      border-radius: var(--radius-full);
-    }
-
-    .news-card-body {
-      padding: var(--space-xl);
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      gap: var(--space-sm);
-    }
-
-    .news-card-date {
-      font-size: 0.72rem;
-      font-weight: 600;
-      color: var(--text-muted);
-      letter-spacing: 0.06em;
-    }
-
-    .news-card-title {
-      font-size: 1.05rem;
-      font-weight: 800;
-      color: var(--text-primary);
-      line-height: 1.4;
-      transition: color 0.2s ease;
-    }
-
-    .news-card:hover .news-card-title {
-      color: var(--navy-light);
-    }
-
-    .news-card-excerpt {
-      font-size: 0.84rem;
-      color: var(--text-muted);
-      line-height: 1.7;
-      flex: 1;
-    }
-
-    .news-card-footer {
-      padding: var(--space-md) var(--space-xl);
-      border-top: 1px solid var(--border-light);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    .news-card-read {
-      font-size: 0.8rem;
-      font-weight: 800;
-      color: var(--navy);
-      display: flex;
-      align-items: center;
-      gap: 0.35rem;
-      transition: gap 0.2s ease, color 0.2s ease;
-    }
-
-    .news-card-read:hover {
-      color: var(--gold-dark);
-      gap: 0.6rem;
-    }
-
-    .news-card-read svg {
-      width: 0.8rem;
-      height: 0.8rem;
-    }
-
-    [dir="rtl"] .news-card-read svg {
-      transform: scaleX(-1);
-    }
-
-    /* Section header with "view all" link */
-    .section-header-row {
-      display: flex;
-      align-items: flex-end;
-      justify-content: space-between;
-      margin-bottom: var(--space-3xl);
-      gap: var(--space-xl);
-    }
-
-    .section-view-all {
-      font-size: 0.82rem;
-      font-weight: 800;
-      color: var(--navy);
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
-      white-space: nowrap;
-      border-bottom: 2px solid rgba(20, 19, 69, 0.15);
-      padding-bottom: 0.15rem;
-      transition: border-color 0.2s ease, color 0.2s ease, gap 0.2s ease;
-    }
-
-    .section-view-all:hover {
-      color: var(--gold-dark);
-      border-color: var(--gold-dark);
-      gap: 0.65rem;
-    }
-
-    .section-view-all svg {
-      width: 0.8rem;
-      height: 0.8rem;
-    }
-
-    [dir="rtl"] .section-view-all svg {
-      transform: scaleX(-1);
-    }
-
-    /* ══════════════════════════════════════════════════════════════
-       CALL TO ACTION SECTION
-       ══════════════════════════════════════════════════════════════ */
-    .cta-section {
-      background: var(--navy);
-      position: relative;
-      overflow: hidden;
-    }
+      0%,
+      100% {
+        transform: translateY(0);
+      }
 
-    .cta-section::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background:
-        radial-gradient(ellipse 80% 60% at 30% 50%, rgba(245, 197, 24, 0.05) 0%, transparent 60%),
-        radial-gradient(ellipse 50% 70% at 75% 30%, rgba(99, 102, 241, 0.06) 0%, transparent 60%);
-      pointer-events: none;
+      50% {
+        transform: translateY(5px);
+      }
     }
 
-    /* Large faint text background */
-    .cta-bg-text {
-      position: absolute;
-      font-family: var(--font-en);
-      font-size: clamp(5rem, 15vw, 14rem);
-      font-weight: 900;
-      color: rgba(255, 255, 255, 0.02);
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      white-space: nowrap;
-      pointer-events: none;
-      user-select: none;
-      letter-spacing: -0.02em;
+    @media (max-width: 768px) {
+      .hero-content {
+        padding-right: 1rem;
+      }
     }
 
-    .cta-inner {
-      position: relative;
-      z-index: 1;
-      text-align: center;
-      max-width: 50rem;
+    /* ═══════════════════════════════════════
+       THREE PANELS
+    ═══════════════════════════════════════ */
+    .panels-wrap {
+      padding: 4rem 0;
+      max-width: var(--max-width);
       margin: 0 auto;
     }
 
-    .cta-title {
-      font-size: clamp(2rem, 5vw, 3.5rem);
-      font-weight: 900;
-      color: var(--white);
-      line-height: 1.2;
-      margin-bottom: var(--space-lg);
-    }
-
-    .cta-title span {
-      background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-
-    .cta-subtitle {
-      font-size: clamp(0.95rem, 2vw, 1.1rem);
-      color: rgba(255, 255, 255, 0.55);
-      line-height: 1.7;
-      margin-bottom: var(--space-2xl);
-    }
-
-    .cta-buttons {
+    .panels-flex {
       display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: var(--space-md);
-      flex-wrap: wrap;
+      gap: 1.5rem;
+      height: 480px;
     }
 
-    .cta-divider-line {
-      height: 1px;
-      background: linear-gradient(90deg, transparent, rgba(245, 197, 24, 0.15), transparent);
-      margin: var(--space-3xl) 0;
-    }
-
-    .cta-contact-row {
+    .panel-item {
+      flex: 1;
       display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: var(--space-3xl);
-      flex-wrap: wrap;
+      flex-direction: column;
+      transition: flex 0.6s var(--ease);
+      cursor: pointer;
     }
 
-    .cta-contact-item {
+    .panel-image-wrapper {
+      position: relative;
+      flex: 1;
+      overflow: hidden;
+      background: var(--navy);
+      transition: flex 0.6s var(--ease);
+    }
+
+    /* Hover effect on the flex container */
+    .panels-flex:hover .panel-item {
+      flex: 0.6;
+    }
+
+    .panels-flex .panel-item:hover {
+      flex: 1.8;
+    }
+
+    .panel-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.7s var(--ease);
+    }
+
+    .panel-item:hover .panel-img {
+      transform: scale(1.04);
+    }
+
+    a.panel-item {
+      text-decoration: none;
+      color: inherit;
       display: flex;
-      align-items: center;
-      gap: var(--space-md);
+      /* already set, but ensures block behavior */
     }
 
-    .cta-contact-icon {
-      width: 2.5rem;
-      height: 2.5rem;
-      background: rgba(245, 197, 24, 0.1);
-      border: 1px solid rgba(245, 197, 24, 0.15);
-      border-radius: var(--radius-full);
+    a.panel-item:hover {
+      /* inherit existing hover styles */
+        flex: 1.8;
+    }
+
+    /* Captions below each panel */
+    .panel-caption {
+      margin-top: 1rem;
+      text-align: right;
       display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
+      flex-direction: column;
+      gap: 0.25rem;
     }
 
-    .cta-contact-text {
-      font-size: 0.82rem;
-      color: rgba(255, 255, 255, 0.5);
+    .panel-title {
+      font-size: 1.1rem;
+      font-weight: 800;
+      color: var(--navy);
+    }
+
+    .panel-label {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text-gray);
+    }
+
+    /* Responsive: stack vertically on mobile */
+    @media (max-width: 900px) {
+      .panels-flex {
+        flex-direction: column;
+        height: auto;
+        gap: 2rem;
+      }
+
+      .panels-flex:hover .panel-image-wrapper,
+      .panels-flex .panel-image-wrapper:hover {
+        flex: none;
+      }
+
+      .panel-image-wrapper {
+        height: 280px;
+        flex: none;
+      }
+
+      .panel-caption {
+        margin-top: 0.75rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .panel-item {
+        margin: 0 1rem;
+      }
+
+      .panel-image-wrapper {
+        height: 240px;
+      }
+
+      .panel-title {
+        font-size: 1rem;
+      }
+
+      .panel-label {
+        font-size: 0.8rem;
+      }
+    }
+
+    /* ═══════════════════════════════════════
+           MISSION TEXT (with hover images on spans)
+        ═══════════════════════════════════════ */
+    .mission {
+      background: var(--off-white);
+      padding: 5rem 2rem;
+    }
+
+    .mission-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+    }
+
+    .mission-big {
+      font-family: var(--font-ar);
+      font-size: clamp(1.8rem, 4vw, 3.2rem);
+      font-weight: 700;
+      line-height: 1.5;
+      color: var(--navy);
+      margin-bottom: 4rem;
+      text-align: justify;
+    }
+
+    .hover-word {
+      position: relative;
+      display: inline-block;
+      cursor: pointer;
+      text-decoration: underline;
+      text-underline-offset: 6px;
+      transition: color 0.2s;
+      color: var(--gold-dark);
+    }
+
+    .hover-word:hover {
+      color: var(--navy);
+    }
+
+    .word-tooltip {
+      position: absolute;
+      bottom: 0;
+      /* anchor at the word's baseline */
+      left: 50%;
+      transform: translateX(-50%) translateY(-0.5rem);
+      width: 20rem;
+      z-index: 50;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s ease, transform 0.3s ease;
+      pointer-events: none;
+      overflow: hidden;
+    }
+
+    .word-tooltip img {
+      width: 100%;
+      display: block;
+    }
+
+    .hover-word:hover .word-tooltip {
+      opacity: 1;
+      visibility: visible;
+      transform: translateX(-50%) translateY(2.5rem);
+      /* floats up slightly on hover */
+    }
+
+    /* mobile: on click instead of hover */
+    @media (max-width: 768px) {
+      .word-tooltip {
+        position: fixed;
+        bottom: auto;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 200px;
+        z-index: 200;
+      }
+
+      .hover-word.active .word-tooltip {
+        opacity: 1;
+        visibility: visible;
+      }
+    }
+
+    .mission-details {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+    }
+
+    .mission-detail-title {
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: var(--gold-dark);
+      margin-bottom: 1rem;
+    }
+
+    .mission-detail-body {
+      font-size: 1rem;
+      color: var(--dark-gray);
+      line-height: 1.8;
+      text-align: justify;
+    }
+
+    /* ═══════════════════════════════════════
+           MEDIA & PRESS (text only)
+        ═══════════════════════════════════════ */
+    .media {
+      background: var(--off-white);
+      padding: 5rem 2rem;
+    }
+
+    .media-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+    }
+
+    .media-breadcrumb {
+      font-size: 0.75rem;
+      color: var(--text-gray);
+      margin-bottom: 2rem;
+    }
+
+    .media-heading {
+      font-family: var(--font-ar);
+      font-size: clamp(2.5rem, 6vw, 4.5rem);
+      font-weight: 800;
+      color: var(--navy);
+      margin-bottom: 4rem;
+    }
+
+    .media-item {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 2rem;
+      padding: 2rem 0;
+      border-top: 1px solid var(--border-light);
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+
+    .media-item:last-of-type {
+      border-bottom: 1px solid var(--border-light);
+    }
+
+    .media-item:hover {
+      background: rgba(0, 0, 0, 0.02);
+    }
+
+    .media-item-date {
+      font-family: var(--font-en);
+      font-size: 0.7rem;
+      font-weight: 500;
+      color: var(--text-gray);
+      white-space: nowrap;
+      direction: ltr;
+    }
+
+    .media-item-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--navy);
+      flex: 1;
       line-height: 1.4;
     }
 
-    .cta-contact-text strong {
-      display: block;
-      color: rgba(255, 255, 255, 0.85);
-      font-weight: 700;
-      font-size: 0.88rem;
-    }
-
-    /* ══════════════════════════════════════════════════════════════
-       COUNTER ANIMATION
-       ══════════════════════════════════════════════════════════════ */
-    .count-num {
-      display: inline-block;
-    }
-
-    /* ══════════════════════════════════════════════════════════════
-       RESPONSIVE — all breakpoints: 900 → 768 → 600 → 480 → 380
-       ══════════════════════════════════════════════════════════════ */
-
-    /* ── 900px: Tablet landscape ── */
-    @media (max-width: 900px) {
-      /* Hero: reduce bottom padding to clear the 2-row stats bar (~9rem) */
-      .hero-content {
-        padding-bottom: calc(var(--space-2xl) + 9rem);
+    @media (max-width: 700px) {
+      .media-item {
+        flex-direction: column-reverse;
+        gap: 0.5rem;
       }
 
-      /* About: single column */
-      .about-grid {
+      .mission-details {
         grid-template-columns: 1fr;
-        gap: var(--space-2xl);
-      }
-
-      .about-image-wrap {
-        max-width: 36rem;
-        margin: 0 auto;
-      }
-
-      /* Depts: 2 columns */
-      .depts-grid {
-        grid-template-columns: 1fr 1fr;
-        gap: var(--space-lg);
-      }
-
-      /* Dept icon: slightly smaller */
-      .dept-icon-wrap {
-        width: 3.5rem;
-        height: 3.5rem;
-      }
-
-      /* Dept bg symbol: scale down */
-      .dept-card-bg-symbol {
-        font-size: 6.5rem;
-      }
-
-      /* FMCSA: single column */
-      .fmcsa-inner {
-        grid-template-columns: 1fr;
-        gap: var(--space-2xl);
-      }
-
-      .fmcsa-visual {
-        max-width: 30rem;
-        margin: 0 auto;
-        width: 100%;
-      }
-
-      /* Stats: 2×2 grid */
-      .stats-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: var(--space-lg);
-      }
-
-      /* Hero stats: 2×2 */
-      .hero-stats-inner {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .hero-stat:nth-child(3),
-      .hero-stat:nth-child(4) {
-        border-top: 1px solid rgba(255, 255, 255, 0.06);
-      }
-
-      /* RTL: fix borders in 2×2 grid (even items lose right border) */
-      [dir="rtl"] .hero-stat:nth-child(2),
-      [dir="rtl"] .hero-stat:nth-child(4) {
-        border-right: none;
-      }
-
-      /* News: single column */
-      .news-grid {
-        grid-template-columns: 1fr;
-        max-width: 36rem;
-        margin: 0 auto;
-      }
-
-      /* Section header row: stack title and "view all" link vertically */
-      .section-header-row {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: var(--space-md);
-        margin-bottom: var(--space-2xl);
-      }
-
-      /* Hide scroll indicator on tablets */
-      .hero-scroll {
-        display: none;
-      }
-    }
-
-    /* ── 768px: Small tablet ── */
-    @media (max-width: 768px) {
-      /* About image badge: keep it from overflowing the image */
-      .about-image-badge {
-        right: var(--space-md);
-        bottom: var(--space-md);
-        max-width: calc(100% - var(--space-xl));
-      }
-
-      /* Stat icons: slightly smaller */
-      .stat-icon svg {
-        width: 30px;
-        height: 30px;
-      }
-
-      /* FMCSA card: reduce padding */
-      .fmcsa-card-main {
-        padding: var(--space-2xl);
-      }
-    }
-
-    /* ── 600px: Mobile landscape / small tablet ── */
-    @media (max-width: 600px) {
-      /* Hero content: tighten all padding */
-      .hero-content {
-        padding-top: calc(var(--nav-height, 3.75rem) + 1rem);
-        padding-bottom: calc(var(--space-xl) + 10rem);
-        padding-left: var(--space-lg);
-        padding-right: var(--space-lg);
-        max-width: 100%;
-      }
-
-      /* Hero title: scale for small screens */
-      .hero-title {
-        font-size: clamp(1.9rem, 8vw, 3rem);
-        word-break: keep-all;
-        overflow-wrap: break-word;
-      }
-
-      /* Hero subtitle */
-      .hero-subtitle-ar {
-        font-size: clamp(0.9rem, 3.5vw, 1rem);
-        margin-bottom: var(--space-xl);
-      }
-
-      /* Hero eyebrow badge */
-      .hero-eyebrow {
-        font-size: 0.65rem;
-        padding: 0.4rem 0.9rem;
-        margin-bottom: var(--space-lg);
-      }
-
-      /* Hero CTA: stack buttons vertically */
-      .hero-cta-group {
-        flex-direction: column;
-        align-items: stretch;
-        gap: var(--space-sm);
-      }
-
-      .hero-cta-group .btn {
-        justify-content: center;
-        width: 100%;
-      }
-
-      /* Hero stats: 2-column, reduced padding */
-      .hero-stats-inner {
-        grid-template-columns: repeat(2, 1fr);
-        padding: 0 var(--space-md);
-      }
-
-      .hero-stat {
-        padding: var(--space-md) var(--space-sm);
-      }
-
-      .hero-stat-num {
-        font-size: clamp(1.25rem, 5vw, 1.8rem);
-      }
-
-      .hero-stat-label {
-        font-size: 0.68rem;
-      }
-
-      /* Depts: single column, full width */
-      .depts-grid {
-        grid-template-columns: 1fr;
-        max-width: 100%;
-        gap: var(--space-md);
-      }
-
-      /* Department card: less padding */
-      .dept-card {
-        padding: var(--space-lg);
-        gap: var(--space-md);
-      }
-
-      /* Department bg symbol: smaller to avoid overflow */
-      .dept-card-bg-symbol {
-        font-size: 5rem;
-      }
-
-      /* Dept icon wrap */
-      .dept-icon-wrap {
-        width: 3rem;
-        height: 3rem;
-      }
-
-      .dept-icon {
-        font-size: 1.25rem;
-      }
-
-      /* Stats grid: 2 columns, reduced gap and padding */
-      .stats-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: var(--space-md);
-      }
-
-      .stat-item {
-        padding: var(--space-lg) var(--space-md);
-      }
-
-      .stat-icon svg {
-        width: 26px;
-        height: 26px;
-      }
-
-      /* FMCSA pillars: single column */
-      .fmcsa-pillars {
-        grid-template-columns: 1fr;
-        gap: var(--space-sm);
-      }
-
-      /* FMCSA visual: full width */
-      .fmcsa-visual {
-        max-width: 100%;
-      }
-
-      /* FMCSA card: less padding */
-      .fmcsa-card-main {
-        padding: var(--space-xl) var(--space-lg);
-      }
-
-      /* FMCSA member avatars: slightly smaller */
-      .fmcsa-member-avatar,
-      .fmcsa-member-avatar-more {
-        width: 2.2rem;
-        height: 2.2rem;
-      }
-
-      /* News grid: full width, no artificial cap */
-      .news-grid {
-        max-width: 100%;
-        gap: var(--space-lg);
-      }
-
-      /* News card body: less padding */
-      .news-card-body {
-        padding: var(--space-lg);
-      }
-
-      .news-card-footer {
-        padding: var(--space-sm) var(--space-lg);
-      }
-
-      /* CTA buttons: stack vertically */
-      .cta-buttons {
-        flex-direction: column;
-        align-items: stretch;
-        gap: var(--space-sm);
-      }
-
-      .cta-buttons .btn {
-        justify-content: center;
-        width: 100%;
-      }
-
-      /* CTA contact row: stack vertically */
-      .cta-contact-row {
-        flex-direction: column;
-        align-items: center;
-        gap: var(--space-lg);
-      }
-
-      .cta-contact-item {
-        width: 100%;
-        max-width: 24rem;
-        justify-content: center;
-      }
-
-      /* Section header row: compact margin */
-      .section-header-row {
-        margin-bottom: var(--space-xl);
-      }
-
-      /* About section: reduce gap */
-      .about-grid {
-        gap: var(--space-xl);
-      }
-
-      .about-image-wrap {
-        max-width: 100%;
-      }
-    }
-
-    /* ── 480px: Mobile portrait ── */
-    @media (max-width: 480px) {
-      /* Hero content: tighten further */
-      .hero-content {
-        padding-top: calc(var(--nav-height, 3.75rem) + 0.75rem);
-        padding-bottom: calc(var(--space-lg) + 10rem);
-        padding-left: var(--space-md);
-        padding-right: var(--space-md);
-      }
-
-      /* Hero title */
-      .hero-title {
-        font-size: clamp(1.75rem, 8.5vw, 2.5rem);
-        margin-bottom: var(--space-md);
-      }
-
-      /* Hero subtitle */
-      .hero-subtitle-ar {
-        font-size: 0.92rem;
-        margin-bottom: var(--space-xl);
-      }
-
-      /* Hero eyebrow */
-      .hero-eyebrow {
-        font-size: 0.62rem;
-        padding: 0.35rem 0.8rem;
-        margin-bottom: var(--space-md);
-      }
-
-      /* Hero stats: keep 2 columns but tighten more */
-      .hero-stats-inner {
-        padding: 0 var(--space-sm);
-      }
-
-      .hero-stat {
-        padding: var(--space-sm) 0.35rem;
-      }
-
-      .hero-stat-num {
-        font-size: clamp(1.15rem, 5vw, 1.5rem);
-      }
-
-      .hero-stat-label {
-        font-size: 0.62rem;
-        margin-top: 0.2rem;
-      }
-
-      /* Stats section: keep 2 columns */
-      .stats-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: var(--space-sm);
-      }
-
-      /* Dept card: compact */
-      .dept-card {
-        padding: var(--space-md) var(--space-lg);
-        gap: var(--space-sm);
-      }
-
-      /* FMCSA card */
-      .fmcsa-card-main {
-        padding: var(--space-lg) var(--space-md);
-      }
-
-      /* CTA title */
-      .cta-title {
-        font-size: clamp(1.6rem, 7.5vw, 2.4rem);
-      }
-
-      /* CTA subtitle */
-      .cta-subtitle {
-        font-size: 0.92rem;
-      }
-    }
-
-    /* ── 380px: Very small phones (iPhone SE, etc.) ── */
-    @media (max-width: 380px) {
-      /* Hero: further tighten */
-      .hero-content {
-        padding-left: var(--space-sm);
-        padding-right: var(--space-sm);
-        padding-bottom: calc(var(--space-md) + 10rem);
-      }
-
-      /* Hero title */
-      .hero-title {
-        font-size: clamp(1.55rem, 9vw, 2rem);
-        line-height: 1.25;
-      }
-
-      /* Hero subtitle */
-      .hero-subtitle-ar {
-        font-size: 0.87rem;
-      }
-
-      /* Hero eyebrow: hide decorative dot to save space */
-      .hero-eyebrow-dot {
-        display: none;
-      }
-
-      /* Hero stats: keep 2-column but ultra-compact */
-      .hero-stats-inner {
-        padding: 0 var(--space-xs);
-      }
-
-      .hero-stat {
-        padding: 0.5rem 0.2rem;
-      }
-
-      .hero-stat-num {
-        font-size: 1.05rem;
-      }
-
-      .hero-stat-label {
-        font-size: 0.58rem;
-        margin-top: 0.15rem;
-      }
-
-      /* Stats section: 1 column on tiny screens */
-      .stats-grid {
-        grid-template-columns: 1fr;
-        gap: var(--space-sm);
-      }
-
-      /* Dept card bg symbol: hide to prevent overflow */
-      .dept-card-bg-symbol {
-        display: none;
-      }
-
-      /* About image badge: condensed layout */
-      .about-image-badge {
-        padding: 0.35rem 0.6rem;
-        gap: var(--space-xs);
-        right: var(--space-sm);
-        bottom: var(--space-sm);
-        max-width: calc(100% - var(--space-md));
-      }
-
-      .about-image-badge-icon {
-        width: 1.5rem;
-        height: 1.5rem;
-        flex-shrink: 0;
-      }
-
-      .about-image-badge-text {
-        font-size: 0.68rem;
-      }
-
-      /* FMCSA member avatars: smaller */
-      .fmcsa-member-avatar,
-      .fmcsa-member-avatar-more {
-        width: 1.85rem;
-        height: 1.85rem;
-        font-size: 0.56rem;
-      }
-
-      /* FMCSA card: tightest padding */
-      .fmcsa-card-main {
-        padding: var(--space-lg) var(--space-sm);
-      }
-
-      /* CTA contact: centered text */
-      .cta-contact-item {
-        text-align: center;
-        max-width: 100%;
-      }
-
-      /* Section header row: tighter gap */
-      .section-header-row {
-        gap: var(--space-xs);
-      }
-
-      /* View all link: smaller text */
-      .section-view-all {
-        font-size: 0.75rem;
-      }
-
-      /* CTA buttons: compact */
-      .cta-buttons .btn {
-        padding: 0.7rem 1.4rem;
-        font-size: 0.87rem;
-      }
-
-      /* Reduce section title size at very small */
-      .section-title {
-        font-size: clamp(1.5rem, 7vw, 2rem);
+        gap: 2rem;
       }
     }
   </style>
 </head>
 
 <body>
-  <!-- Shared JS auto-injects navbar and footer -->
-
-  <!-- ══════════════════════════════════════════════════════
-       HERO SECTION
-  ══════════════════════════════════════════════════════ -->
-  <main id="main-content">
-    <section class="hero" aria-label="الصفحة الرئيسية">
-
-      <!-- Background building image -->
-      <div class="hero-bg" aria-hidden="true">
-        <img src="Assets/IMG001.webp" alt="" loading="eager" fetchpriority="high">
-      </div>
-
-      <!-- Overlay -->
-      <div class="hero-overlay" aria-hidden="true"></div>
-      <div class="hero-top-line" aria-hidden="true"></div>
-
-      <!-- Decorative rings -->
-      <div class="hero-ring" aria-hidden="true"></div>
-
-      <!-- Main hero content -->
+  <!-- Navigation and Footer will be injected by shared.js -->
+  <main>
+    <!-- HERO -->
+    <section class="hero">
       <div class="hero-content">
-        <h1 class="hero-title">
-          رابطة طلاب كلية العلوم <span class="hero-title-accent">الرياضية والحاسوب</span>
-        </h1>
+        <span class="hero-line1">انتماءٌ راسخ</span>
+        <span class="hero-line2">يتجاوز الحدود</span>
+      </div>
+      <div class="hero-scroll">
+        <span class="hero-scroll-text">اسحب لاستكشاف المزيد</span>
+        <svg class="hero-scroll-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="12" y1="5" x2="12" y2="19" />
+          <polyline points="19 12 12 19 5 12" />
+        </svg>
+      </div>
+    </section>
 
-        <p class="hero-subtitle-ar">
-          صرح أكاديمي رائد في جامعة الجزيرة يجمع بين عمق الرياضيات وقوة علوم الحاسوب لتأهيل جيل من العلماء والمبتكرين
+    <!-- THREE PANELS -->
+    <section class="panels-wrap">
+      <div class="panels-flex">
+        <!-- Panel 1 -->
+        <a class="panel-item" href="about.html">
+          <div class="panel-image-wrapper">
+            <img class="panel-img" src="Assets/IMG001.webp" alt="عن الكلية" loading="lazy">
+          </div>
+          <div class="panel-caption">
+            <span class="panel-title">عن الكلية</span>
+            <span class="panel-label">تعرّف على مسيرة الكلية وأقسامها</span>
+          </div>
+        </a>
+
+        <!-- Panel 2 -->
+        <a class="panel-item" href="Visual Identity.html">
+          <div class="panel-image-wrapper" style="display: flex; align-items: center; justify-content: center;">
+            <img class="panel-img" src="Assets/White Logo.png" alt="الهوية البصرية"
+              style="object-fit: contain; padding: 2rem;">
+          </div>
+          <div class="panel-caption">
+            <span class="panel-title">الهوية البصرية</span>
+            <span class="panel-label">استكشف شعاراتنا وألواننا ورموزنا</span>
+          </div>
+        </a>
+
+        <!-- Panel 3 -->
+        <a class="panel-item" href="Members.html">
+          <div class="panel-image-wrapper">
+            <img class="panel-img" src="Assets/Cover.jpg" alt="مجلس الطلاب" loading="lazy"
+              style="object-position: top;">
+          </div>
+          <div class="panel-caption">
+            <span class="panel-title">مجلس الطلاب</span>
+            <span class="panel-label">تعرف على أعضاء المكتب التنفيذي</span>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <!-- MISSION TEXT -->
+    <section class="mission">
+      <div class="mission-inner">
+        <p class="mission-big reveal">
+          نشكّل <span class="hover-word">التراث<span class="word-tooltip"><img src="Assets/IMG001.webp"
+                alt="التراث"></span></span> و
+          <span class="hover-word">الابتكار<span class="word-tooltip"><img src="Assets/IMG001.webp"
+                alt="الابتكار"></span></span> و روح
+          <span class="hover-word">المجتمع<span class="word-tooltip"><img src="Assets/IMG001.webp"
+                alt="المجتمع"></span></span>،
+          فنصوغها معاً لنزرع الفخر ونبني مستقبلاً مزدهراً يركّز على كل طلاب كلية العلوم الرياضية والحاسوب.
         </p>
-
-        <div class="hero-cta-group">
-          <a href="initiatives.html" class="btn btn-primary" aria-label="تعرف على مبادراتنا">
-            تعرف على مبادراتنا
-            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <path d="M13 8H3M7 4l-4 4 4 4"/>
-            </svg>
-          </a>
-          <a href="about.html" class="btn btn-secondary on-dark" aria-label="تعرف على الكلية">
-            تعرف على الكلية
-          </a>
-        </div>
-      </div>
-
-      <!-- Stats bar pinned to bottom of hero -->
-      <div class="hero-stats" role="region" aria-label="إحصاءات الكلية">
-        <div class="hero-stats-inner">
-          <div class="hero-stat">
-            <span class="hero-stat-num" data-target="40" data-suffix="+">40+</span>
-            <div class="hero-stat-label">عاماً من التميز</div>
-          </div>
-          <div class="hero-stat">
-            <span class="hero-stat-num" data-target="1500" data-suffix="+">1500+</span>
-            <div class="hero-stat-label">طالب وطالبة</div>
-          </div>
-          <div class="hero-stat">
-            <span class="hero-stat-num" data-target="60" data-suffix="+">60+</span>
-            <div class="hero-stat-label">عضو هيئة تدريس</div>
-          </div>
-          <div class="hero-stat">
-            <span class="hero-stat-num" data-target="3" data-suffix="">3</span>
-            <div class="hero-stat-label">أقسام أكاديمية</div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ══════════════════════════════════════════════════════
-         ABOUT SECTION
-    ══════════════════════════════════════════════════════ -->
-    <section class="about-section section-padding" id="about" aria-label="عن الكلية">
-      <div class="container">
-        <div class="about-grid">
-
-          <!-- Image column -->
-          <div class="about-image-wrap reveal">
-            <img
-              src="Assets/IMG001.webp"
-              alt="مبنى كلية العلوم الرياضية والحاسوب بجامعة الجزيرة"
-              loading="lazy"
-            >
-            <div class="about-image-badge">
-              <div class="about-image-badge-icon" aria-hidden="true">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#141345" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="9" y1="6" x2="9" y2="6.01"/><line x1="15" y1="6" x2="15" y2="6.01"/><line x1="9" y1="10" x2="9" y2="10.01"/><line x1="15" y1="10" x2="15" y2="10.01"/><line x1="9" y1="14" x2="9" y2="14.01"/><line x1="15" y1="14" x2="15" y2="14.01"/><path d="M9 18h6"/></svg>
-              </div>
-              <div class="about-image-badge-text">
-                كلية العلوم الرياضية والحاسوب
-                <span>Faculty of Mathematical Sciences &amp; Computer</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Content column -->
-          <div class="about-content">
-            <div class="reveal">
-              <div class="section-eyebrow">About the Faculty</div>
-              <h2 class="section-title">عن الكلية</h2>
-            </div>
-
-            <p class="section-subtitle reveal reveal-delay-1">
-              تأسست كلية العلوم الرياضية والحاسوب كواحدة من كليات جامعة الجزيرة الرائدة، وتضطلع برسالة تعليمية وبحثية متميزة في حقول الرياضيات والإحصاء وعلوم الحاسوب، مؤهّلةً خريجيها للإسهام الفاعل في التنمية الوطنية والمنافسة الإقليمية والدولية.
-            </p>
-
-            <div class="about-features">
-              <div class="about-feature reveal reveal-delay-1">
-                <div class="about-feature-icon" aria-hidden="true">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#141345" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
-                </div>
-                <div class="about-feature-text">
-                  <strong>بيئة تعليمية متميزة</strong>
-                  <p>أعضاء هيئة تدريس مؤهلون بدرجات علمية عليا، يجمعون بين الخبرة الأكاديمية والعملية في تقديم تعليم عالي الجودة.</p>
-                </div>
-              </div>
-              <div class="about-feature reveal reveal-delay-2">
-                <div class="about-feature-icon" aria-hidden="true">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#141345" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M12 2a7 7 0 0 0-4 12.7V17h8v-2.3A7 7 0 0 0 12 2z"/></svg>
-                </div>
-                <div class="about-feature-text">
-                  <strong>البحث العلمي والابتكار</strong>
-                  <p>تُشجع الكلية على الأبحاث التطبيقية في مجالات الذكاء الاصطناعي والتحليل الإحصائي ونظرية الرياضيات.</p>
-                </div>
-              </div>
-              <div class="about-feature reveal reveal-delay-3">
-                <div class="about-feature-icon" aria-hidden="true">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#141345" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-                </div>
-                <div class="about-feature-text">
-                  <strong>مجتمع طلابي نشط</strong>
-                  <p>رابطة طلابية فاعلة تنظّم الفعاليات والمسابقات العلمية والمبادرات التنموية لتنمية مهارات الطلاب.</p>
-                </div>
-              </div>
-            </div>
-
-            <div class="reveal reveal-delay-4" style="margin-top: var(--space-md);">
-              <a href="about.html" class="btn btn-primary">
-                اقرأ المزيد عن الكلية
-                <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <path d="M13 8H3M7 4l-4 4 4 4"/>
-                </svg>
-              </a>
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- ══════════════════════════════════════════════════════
-         DEPARTMENTS SECTION
-    ══════════════════════════════════════════════════════ -->
-    <section class="depts-section section-padding" id="departments" aria-label="الأقسام الأكاديمية">
-      <div class="container">
-
-        <div class="section-header text-center">
-          <div class="section-eyebrow reveal">Academic Departments</div>
-          <h2 class="section-title reveal reveal-delay-1">الأقسام الأكاديمية</h2>
-          <p class="section-subtitle reveal reveal-delay-2" style="margin: var(--space-md) auto 0;">
-            ثلاثة أقسام أكاديمية متكاملة تمنح درجة البكالوريوس وتفتح آفاق البحث والدراسات العليا
-          </p>
-        </div>
-
-        <div class="depts-grid">
-
-          <!-- Department 1: Mathematics & CS -->
-          <article class="dept-card reveal" aria-label="قسم الرياضيات وعلوم الحاسوب">
-            <div class="dept-card-bg-symbol" aria-hidden="true">∑</div>
-            <div class="dept-icon-wrap" aria-hidden="true">
-              <span class="dept-icon">∑</span>
-            </div>
-            <div class="dept-card-content">
-              <span class="dept-tag">Mathematics · CS</span>
-              <h3 class="dept-title">الرياضيات وعلوم الحاسوب</h3>
-              <p class="dept-desc">
-                يجمع هذا القسم بين عمق الدراسة الرياضية وتطبيقاتها الحاسوبية، مُغطّياً الجبر الخطي والتفاضل والتكامل والمنطق الرياضي وتصميم الخوارزميات.
-              </p>
-            </div>
-            <a href="academics.html#math" class="dept-link" aria-label="تعرف على قسم الرياضيات وعلوم الحاسوب">
-              تعرف على القسم
-              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <path d="M3 8h10M9 4l4 4-4 4"/>
-              </svg>
-            </a>
-          </article>
-
-          <!-- Department 2: Statistics & CS -->
-          <article class="dept-card reveal reveal-delay-1" aria-label="قسم الإحصاء وعلوم الحاسوب">
-            <div class="dept-card-bg-symbol" aria-hidden="true">∫</div>
-            <div class="dept-icon-wrap" aria-hidden="true">
-              <span class="dept-icon">∫</span>
-            </div>
-            <div class="dept-card-content">
-              <span class="dept-tag">Statistics · CS</span>
-              <h3 class="dept-title">الإحصاء وعلوم الحاسوب</h3>
-              <p class="dept-desc">
-                يُركّز على الأساليب الإحصائية والاحتمالية وتحليل البيانات مع التطبيقات الحاسوبية الحديثة، مما يُهيّئ الطلاب لعصر الذكاء الاصطناعي وعلوم البيانات.
-              </p>
-            </div>
-            <a href="academics.html#stats" class="dept-link" aria-label="تعرف على قسم الإحصاء وعلوم الحاسوب">
-              تعرف على القسم
-              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <path d="M3 8h10M9 4l4 4-4 4"/>
-              </svg>
-            </a>
-          </article>
-
-          <!-- Department 3: Computer Science -->
-          <article class="dept-card reveal reveal-delay-2" aria-label="قسم علوم الحاسوب">
-            <div class="dept-card-bg-symbol" aria-hidden="true">&lt;/&gt;</div>
-            <div class="dept-icon-wrap" aria-hidden="true">
-              <span class="dept-icon" style="font-size:1.1rem;">&lt;/&gt;</span>
-            </div>
-            <div class="dept-card-content">
-              <span class="dept-tag">Computer Science</span>
-              <h3 class="dept-title">علوم الحاسوب</h3>
-              <p class="dept-desc">
-                يُعنى بتأسيس مهندسي البرمجيات ومطوري الأنظمة في مجالات هندسة البرمجيات والشبكات وقواعد البيانات وأمن المعلومات والحوسبة السحابية.
-              </p>
-            </div>
-            <a href="academics.html#cs" class="dept-link" aria-label="تعرف على قسم علوم الحاسوب">
-              تعرف على القسم
-              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <path d="M3 8h10M9 4l4 4-4 4"/>
-              </svg>
-            </a>
-          </article>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- ══════════════════════════════════════════════════════
-         STATISTICS SECTION
-    ══════════════════════════════════════════════════════ -->
-    <section class="stats-section section-padding" aria-label="إحصاءات الكلية">
-      <div class="container stats-inner">
-
-        <div class="text-center">
-          <div class="section-eyebrow reveal" style="color: var(--gold);">By the Numbers</div>
-          <h2 class="section-title on-dark reveal reveal-delay-1">أرقام تتحدث عن تميّزنا</h2>
-          <p class="section-subtitle on-dark reveal reveal-delay-2" style="margin: var(--space-md) auto 0;">
-            أكثر من أربعة عقود من بناء الكفاءات وتخريج الأجيال
-          </p>
-        </div>
-
-        <div class="stats-grid">
-          <div class="stat-item reveal" role="figure" aria-label="أكثر من 40 عاماً من التأسيس">
-            <span class="stat-icon" aria-hidden="true">
-              <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#F5C518" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="9" y1="6" x2="9" y2="6.01"/><line x1="15" y1="6" x2="15" y2="6.01"/><line x1="9" y1="10" x2="9" y2="10.01"/><line x1="15" y1="10" x2="15" y2="10.01"/><line x1="9" y1="14" x2="9" y2="14.01"/><line x1="15" y1="14" x2="15" y2="14.01"/><path d="M9 18h6"/></svg>
-            </span>
-            <span class="stat-number">
-              <span class="count-num" data-target="40">40</span><span class="stat-plus">+</span>
-            </span>
-            <span class="stat-label-ar">عاماً من التأسيس</span>
-            <span class="stat-label-en">Years of Excellence</span>
-          </div>
-
-          <div class="stat-item reveal reveal-delay-1" role="figure" aria-label="أكثر من 1500 طالب وطالبة">
-            <span class="stat-icon" aria-hidden="true">
-              <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#F5C518" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-            </span>
-            <span class="stat-number">
-              <span class="count-num" data-target="1500">1500</span><span class="stat-plus">+</span>
-            </span>
-            <span class="stat-label-ar">طالب وطالبة</span>
-            <span class="stat-label-en">Students Enrolled</span>
-          </div>
-
-          <div class="stat-item reveal reveal-delay-2" role="figure" aria-label="أكثر من 60 عضو هيئة تدريس">
-            <span class="stat-icon" aria-hidden="true">
-              <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#F5C518" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>
-            </span>
-            <span class="stat-number">
-              <span class="count-num" data-target="60">60</span><span class="stat-plus">+</span>
-            </span>
-            <span class="stat-label-ar">عضو هيئة تدريس</span>
-            <span class="stat-label-en">Faculty Members</span>
-          </div>
-
-          <div class="stat-item reveal reveal-delay-3" role="figure" aria-label="3 أقسام أكاديمية متخصصة">
-            <span class="stat-icon" aria-hidden="true">
-              <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#F5C518" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
-            </span>
-            <span class="stat-number">
-              <span class="count-num" data-target="3">3</span>
-            </span>
-            <span class="stat-label-ar">أقسام أكاديمية</span>
-            <span class="stat-label-en">Academic Departments</span>
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- ══════════════════════════════════════════════════════
-         FMCSA — STUDENT ASSOCIATION SECTION
-    ══════════════════════════════════════════════════════ -->
-    <section class="fmcsa-section section-padding" id="fmcsa" aria-label="رابطة طلاب الكلية">
-      <div class="container">
-        <div class="fmcsa-inner">
-
-          <!-- Content -->
-          <div class="fmcsa-content">
-            <div class="reveal">
-              <div class="section-eyebrow">FMCSA · Students Association</div>
-              <h2 class="section-title">رابطة طلاب<br>الكلية — FMCSA</h2>
-            </div>
-
-            <p class="section-subtitle reveal reveal-delay-1">
-              رابطة طلاب كلية العلوم الرياضية والحاسوب هي الصوت الرسمي لطلاب الكلية، تعمل على تحقيق بيئة طلابية نشطة وداعمة من خلال تنظيم الفعاليات الأكاديمية والاجتماعية والمبادرات التنموية.
-            </p>
-
-            <div class="fmcsa-pillars">
-              <div class="fmcsa-pillar reveal reveal-delay-1">
-                <div class="fmcsa-pillar-icon" aria-hidden="true">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#141345" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>
-                </div>
-                <div class="fmcsa-pillar-title">التميز الأكاديمي</div>
-                <div class="fmcsa-pillar-desc">دعم الطلاب في مسيرتهم الأكاديمية وتنظيم الحلقات الدراسية</div>
-              </div>
-              <div class="fmcsa-pillar reveal reveal-delay-2">
-                <div class="fmcsa-pillar-icon" aria-hidden="true">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#141345" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-                </div>
-                <div class="fmcsa-pillar-title">المجتمع والروابط</div>
-                <div class="fmcsa-pillar-desc">بناء شبكة تواصل بين الطلاب والخريجين وأعضاء هيئة التدريس</div>
-              </div>
-              <div class="fmcsa-pillar reveal reveal-delay-3">
-                <div class="fmcsa-pillar-icon" aria-hidden="true">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#141345" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M12 2a7 7 0 0 0-4 12.7V17h8v-2.3A7 7 0 0 0 12 2z"/></svg>
-                </div>
-                <div class="fmcsa-pillar-title">الابتكار والمبادرات</div>
-                <div class="fmcsa-pillar-desc">إطلاق مبادرات طلابية مبتكرة تخدم المجتمع الأكاديمي</div>
-              </div>
-              <div class="fmcsa-pillar reveal reveal-delay-4">
-                <div class="fmcsa-pillar-icon" aria-hidden="true">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#141345" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-1a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v1a2 2 0 0 1-2 2h-2"/><rect x="6" y="18" width="12" height="4"/></svg>
-                </div>
-                <div class="fmcsa-pillar-title">الفعاليات والمسابقات</div>
-                <div class="fmcsa-pillar-desc">تنظيم المسابقات البرمجية والرياضية وأيام المهنة</div>
-              </div>
-            </div>
-
-            <div class="reveal" style="margin-top: var(--space-md);">
-              <a href="Members.html" class="btn btn-primary">
-                تعرف على مجلس الطلاب
-                <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <path d="M13 8H3M7 4l-4 4 4 4"/>
-                </svg>
-              </a>
-            </div>
-          </div>
-
-          <!-- Visual card -->
-          <div class="fmcsa-visual reveal reveal-delay-2">
-            <div class="fmcsa-card-main">
-              <div class="fmcsa-logo-wrap">
-                <img src="Assets/White Logo.png" alt="شعار رابطة طلاب كلية العلوم الرياضية والحاسوب" loading="lazy">
-              </div>
-              <h3 class="fmcsa-card-title">رابطة الطلاب</h3>
-              <p class="fmcsa-card-title-en">FMCS Students Association</p>
-              <p class="fmcsa-card-desc">
-                نُمثّل أصوات الطلاب، ونُنظّم الفعاليات، ونبني جسور التواصل بين الطلاب وإدارة الكلية
-              </p>
-              <div class="fmcsa-members-grid" aria-label="صور أعضاء مجلس الطلاب">
-                <!-- Real member avatar images -->
-                <div class="fmcsa-member-avatar">
-                  <img src="Assets/People/أحمد سليمان.webp" alt="أحمد سليمان" loading="lazy">
-                </div>
-                <div class="fmcsa-member-avatar">
-                  <img src="Assets/People/طلال حاتم.webp" alt="طلال حاتم" loading="lazy">
-                </div>
-                <div class="fmcsa-member-avatar">
-                  <img src="Assets/People/عبدالرحمن إبراهيم.webp" alt="عبدالرحمن إبراهيم" loading="lazy">
-                </div>
-                <div class="fmcsa-member-avatar">
-                  <img src="Assets/People/علي عبدالعظيم.webp" alt="علي عبدالعظيم" loading="lazy">
-                </div>
-                <div class="fmcsa-member-avatar">
-                  <img src="Assets/People/مصطفى محمد.webp" alt="مصطفى محمد" loading="lazy">
-                </div>
-                <div class="fmcsa-member-avatar-more" aria-label="ومزيد من الأعضاء">+8</div>
-              </div>
-              <a href="Members.html" class="btn btn-secondary on-dark btn-sm" style="display: inline-flex; justify-content: center;" aria-label="استعرض جميع أعضاء مجلس الطلاب">
-                استعرض جميع الأعضاء
-              </a>
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- ══════════════════════════════════════════════════════
-         NEWS & HIGHLIGHTS SECTION
-    ══════════════════════════════════════════════════════ -->
-    <section class="news-section section-padding" id="news" aria-label="الأخبار والمبادرات">
-      <div class="container">
-
-        <div class="section-header-row">
-          <div>
-            <div class="section-eyebrow reveal">News &amp; Initiatives</div>
-            <h2 class="section-title reveal reveal-delay-1">الأخبار والمبادرات</h2>
-          </div>
-          <a href="initiatives.html" class="section-view-all reveal reveal-delay-2" aria-label="عرض جميع المبادرات">
-            جميع المبادرات
-            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <path d="M3 8h10M9 4l4 4-4 4"/>
-            </svg>
-          </a>
-        </div>
-
-        <div class="news-grid">
-
-          <!-- Card 1 — مبادرة خالتو مدينة (links to M.html) -->
-          <article class="news-card reveal" aria-label="مبادرة خالتو مدينة">
-            <div class="news-card-img">
-              <img
-                src="Assets/مبادرة رابطة الكلية.webp"
-                alt="مبادرة خالتو مدينة — إنشاء مظلتين وتوفير كراسي لمكتبة الكلية"
-                loading="lazy"
-              >
-              <span class="news-card-category">مبادرة</span>
-            </div>
-            <div class="news-card-body">
-              <span class="news-card-date">2026 · مبادرة جارية</span>
-              <h3 class="news-card-title">مبادرة خالتو مدينة</h3>
-              <p class="news-card-excerpt">
-                ساهم معنا في إنشاء مظلتين بكلية العلوم الرياضية والحاسوب وتوفير كراسي لمكتبة الكلية. الهدف: 15,000,000 ج.س
-              </p>
-            </div>
-            <div class="news-card-footer">
-              <a href="M.html" class="news-card-read" aria-label="اقرأ المزيد عن مبادرة خالتو مدينة">
-                تبرع الآن
-                <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <path d="M3 8h10M9 4l4 4-4 4"/>
-                </svg>
-              </a>
-              <span class="badge">جارية</span>
-            </div>
-          </article>
-
-          <!-- Card 2 — مبادرة دعم المكتبة (placeholder) -->
-          <article class="news-card reveal reveal-delay-1" aria-label="مبادرة دعم المكتبة">
-            <div class="news-card-img">
-              <div class="news-card-img-placeholder bg-1" aria-hidden="true">
-                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#F5C518" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="opacity:0.7"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
-              </div>
-              <span class="news-card-category">مبادرة</span>
-            </div>
-            <div class="news-card-body">
-              <span class="news-card-date">2026 · مبادرة قادمة</span>
-              <h3 class="news-card-title">مبادرة دعم المكتبة</h3>
-              <p class="news-card-excerpt">
-                توفير مراجع ومصادر علمية حديثة لمكتبة الكلية لدعم البحث العلمي والتعلم وإثراء المحتوى المعرفي المتاح للطلاب.
-              </p>
-            </div>
-            <div class="news-card-footer">
-              <a href="initiatives.html" class="news-card-read" aria-label="اقرأ المزيد عن مبادرة دعم المكتبة">
-                اقرأ المزيد
-                <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <path d="M3 8h10M9 4l4 4-4 4"/>
-                </svg>
-              </a>
-              <span class="badge">قريباً</span>
-            </div>
-          </article>
-
-          <!-- Card 3 — تطوير معامل الحاسوب (placeholder) -->
-          <article class="news-card reveal reveal-delay-2" aria-label="تطوير معامل الحاسوب">
-            <div class="news-card-img">
-              <div class="news-card-img-placeholder bg-2" aria-hidden="true">
-                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#F5C518" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="opacity:0.7"><rect x="2" y="3" width="20" height="14" rx="2"/><polyline points="8 21 12 17 16 21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
-              </div>
-              <span class="news-card-category">مبادرة</span>
-            </div>
-            <div class="news-card-body">
-              <span class="news-card-date">2026 · مبادرة قادمة</span>
-              <h3 class="news-card-title">تطوير معامل الحاسوب</h3>
-              <p class="news-card-excerpt">
-                تحديث وتطوير معامل الحاسوب بالكلية لتوفير بيئة تعليمية متميزة تواكب التطورات التقنية وتدعم التعلم العملي.
-              </p>
-            </div>
-            <div class="news-card-footer">
-              <a href="initiatives.html" class="news-card-read" aria-label="اقرأ المزيد عن تطوير معامل الحاسوب">
-                اقرأ المزيد
-                <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <path d="M3 8h10M9 4l4 4-4 4"/>
-                </svg>
-              </a>
-              <span class="badge">قريباً</span>
-            </div>
-          </article>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- ══════════════════════════════════════════════════════
-         CALL TO ACTION SECTION
-    ══════════════════════════════════════════════════════ -->
-    <section class="cta-section section-padding" aria-label="تواصل معنا">
-      <div class="container">
-
-        <div class="cta-bg-text" aria-hidden="true">FMCSA</div>
-
-        <div class="cta-inner">
+        <div class="mission-details">
           <div class="reveal">
-            <div class="section-eyebrow" style="color: var(--gold-light); margin-bottom: var(--space-md);">FMCSA</div>
-            <h2 class="cta-title">
-              كن جزءاً من<br>
-              <span>رابطة طلاب الكلية</span>
-            </h2>
+            <h3 class="mission-detail-title">حاسوب هي القلب</h3>
+            <p class="mission-detail-body">في رحاب كلية العلوم الرياضية والحاسوب تنبض الحضارة الرقمية وتمتزج الرياضيات
+              بالحوسبة، حيث تقع في قلب الإعدادية لتُنتِج أجيالاً من العقول المبدعة. اليوم تنهض بطاقة أبناءها وعزيمة لا
+              تنكسر، بل هي المركز العاطفي لمسيرة إنسانية مشتركة.</p>
           </div>
-
-          <p class="cta-subtitle reveal reveal-delay-1">
-            نرحب بجميع طلاب كلية العلوم الرياضية والحاسوب للانضمام إلى مبادراتنا وفعالياتنا. معاً نبني مجتمعاً طلابياً متميزاً
-          </p>
-
-          <div class="cta-buttons reveal reveal-delay-2">
-            <a href="contact.html" class="btn btn-primary">
-              تواصل معنا
-              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <path d="M13 8H3M7 4l-4 4 4 4"/>
-              </svg>
-            </a>
-            <a href="Members.html" class="btn btn-secondary on-dark">
-              مجلس الطلاب
-            </a>
-            <a href="https://www.facebook.com/profile.php?id=61582223769511" target="_blank" rel="noopener noreferrer" class="btn btn-secondary on-dark" aria-label="صفحتنا على فيسبوك">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                <path d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047V9.41c0-3.025 1.792-4.697 4.533-4.697 1.312 0 2.686.235 2.686.235v2.97h-1.513c-1.491 0-1.956.93-1.956 1.887v2.267h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.1 24 12.073z"/>
-              </svg>
-              Facebook
-            </a>
-          </div>
-
-          <div class="cta-divider-line reveal reveal-delay-3"></div>
-
-          <div class="cta-contact-row reveal reveal-delay-3">
-            <div class="cta-contact-item">
-              <div class="cta-contact-icon" aria-hidden="true">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#F5C518" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-              </div>
-              <div class="cta-contact-text">
-                <strong>الموقع</strong>
-                مدني، جامعة الجزيرة، السودان
-              </div>
-            </div>
-            <div class="cta-contact-item">
-              <div class="cta-contact-icon" aria-hidden="true">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#F5C518" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
-              </div>
-              <div class="cta-contact-text">
-                <strong>الكلية</strong>
-                كلية العلوم الرياضية والحاسوب
-              </div>
-            </div>
-            <div class="cta-contact-item">
-              <div class="cta-contact-icon" aria-hidden="true">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#F5C518" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12" y2="18.01"/></svg>
-              </div>
-              <div class="cta-contact-text">
-                <strong>تابعنا</strong>
-                FMCSA على فيسبوك
-              </div>
-            </div>
+          <div class="reveal">
+            <h3 class="mission-detail-title">مبادراتنا للمجتمع</h3>
+            <p class="mission-detail-body">نؤمن أن التغيير الحقيقي يبدأ من داخل الكلية. لذلك أطلقنا مبادرات طلابية تخدم
+              البيئة الجامعية مباشرةً، من مبادرة أمنا مدينة لتوفير مظلات في حرم الكلية ومقاعد لمكتبتها، إلى تطوير
+              المعامل
+              والفراغات المشتركة. كل مبادرة خطوة نحو كلية تليق بطموح طلابها.</p>
           </div>
         </div>
-
       </div>
     </section>
 
+    <!-- MEDIA & PRESS -->
+    <section class="media">
+      <div class="media-inner">
+        <div class="media-breadcrumb">كن على اطلاع /</div>
+        <h2 class="media-heading reveal">الإعلام و الصحافة</h2>
+        <a href="https://www.facebook.com/profile.php?id=61582223769511" target="_blank" class="media-item reveal">
+          <span class="media-item-date">14 MAR 2026</span>
+          <span class="media-item-title">تدشين الحساب الرسمي لرابطة طلاب كلية العلوم الرياضية والحاسوب</span>
+        </a>
+        <a href="Visual Identity.html" class="media-item reveal">
+          <span class="media-item-date">15 MAR 2026</span>
+          <span class="media-item-title">إطلاق الهوية البصرية الجديدة لرابطة طلاب كلية العلوم الرياضية والحاسوب</span>
+        </a>
+        <a href="M.html" class="media-item reveal">
+          <span class="media-item-date">17 MAR 2026</span>
+          <span class="media-item-title">مبادرة خالتو مدينة — ساهم في إنشاء مظلتين وتوفير كراسي لمكتبة الكلية</span>
+        </a>
+      </div>
+    </section>
   </main>
-
-  <!-- Shared JS: injects nav + footer + scroll reveal -->
-  <script src="js/shared.js"></script>
-
-  <!-- Page-specific JS: counter animation + enhanced interactions -->
-  <script>
-    (() => {
-      'use strict';
-
-      /* ──────────────────────────────────────────
-         ANIMATED COUNTER
-      ────────────────────────────────────────── */
-      function animateCounter(el, target, duration = 1800) {
-        const start = performance.now();
-        const startVal = 0;
-
-        function update(now) {
-          const elapsed = now - start;
-          const progress = Math.min(elapsed / duration, 1);
-          // Ease out cubic
-          const eased = 1 - Math.pow(1 - progress, 3);
-          const current = Math.round(startVal + (target - startVal) * eased);
-          el.textContent = current.toLocaleString('en');
-          if (progress < 1) requestAnimationFrame(update);
-        }
-        requestAnimationFrame(update);
-      }
-
-      /* ──────────────────────────────────────────
-         HERO STATS COUNTERS (on load, small delay)
-      ────────────────────────────────────────── */
-      window.addEventListener('load', () => {
-        setTimeout(() => {
-          document.querySelectorAll('.hero-stat-num[data-target]').forEach(el => {
-            const target = parseInt(el.dataset.target, 10);
-            const suffix = el.dataset.suffix || '';
-            const numSpan = document.createElement('span');
-            numSpan.className = 'count-num';
-            numSpan.textContent = '0';
-            el.textContent = '';
-            el.appendChild(numSpan);
-            if (suffix) {
-              const suf = document.createElement('span');
-              suf.textContent = suffix;
-              el.appendChild(suf);
-            }
-            animateCounter(numSpan, target, 1600);
-          });
-        }, 700);
-      });
-
-      /* ──────────────────────────────────────────
-         STATS SECTION COUNTERS (on scroll into view)
-      ────────────────────────────────────────── */
-      const statsSection = document.querySelector('.stats-section');
-      let statsDone = false;
-
-      const statsObserver = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting && !statsDone) {
-            statsDone = true;
-            document.querySelectorAll('.stats-section .count-num[data-target]').forEach(el => {
-              const target = parseInt(el.dataset.target, 10);
-              animateCounter(el, target, 2000);
-            });
-            statsObserver.disconnect();
-          }
-        });
-      }, { threshold: 0.3 });
-
-      if (statsSection) statsObserver.observe(statsSection);
-
-      /* ──────────────────────────────────────────
-         PARALLAX on hero background
-      ────────────────────────────────────────── */
-      const heroBgImg = document.querySelector('.hero-bg img');
-      if (heroBgImg && window.matchMedia('(prefers-reduced-motion: no-preference)').matches) {
-        window.addEventListener('scroll', () => {
-          const y = window.scrollY;
-          // subtle parallax, max 80px
-          const shift = Math.min(y * 0.3, 80);
-          heroBgImg.style.transform = `translateY(${shift}px)`;
-        }, { passive: true });
-      }
-
-      /* ──────────────────────────────────────────
-         Smooth hover tilt on dept cards (desktop only)
-      ────────────────────────────────────────── */
-      if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
-        document.querySelectorAll('.dept-card').forEach(card => {
-          card.addEventListener('mousemove', e => {
-            const rect = card.getBoundingClientRect();
-            const cx = rect.left + rect.width / 2;
-            const cy = rect.top + rect.height / 2;
-            const dx = (e.clientX - cx) / (rect.width / 2);
-            const dy = (e.clientY - cy) / (rect.height / 2);
-            card.style.transform = `translateY(-6px) rotateX(${-dy * 3}deg) rotateY(${dx * 3}deg)`;
-            card.style.transition = 'transform 0.1s ease';
-          });
-          card.addEventListener('mouseleave', () => {
-            card.style.transform = '';
-            card.style.transition = 'transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.25s ease';
-          });
-        });
-      }
-
-    })();
-  </script>
 </body>
+
 </html>

@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>الهوية البصرية · رابطة طلاب كلية العلوم الرياضية والحاسوب</title>
-    <meta name="description" content="الهوية البصرية لرابطة طلاب كلية العلوم الرياضية والحاسوب — الشعار والألوان والخطوط.">
+    <meta name="description"
+        content="الهوية البصرية لرابطة طلاب كلية العلوم الرياضية والحاسوب — الشعار والألوان والخطوط.">
     <meta property="og:title" content="الهوية البصرية — FMCSA">
     <meta property="og:description" content="الهوية البصرية لرابطة طلاب كلية العلوم الرياضية والحاسوب">
     <meta property="og:image" content="Assets/Cover.jpg">
@@ -25,7 +26,7 @@
         }
 
         /* ══════════════════════════════
-           HERO
+           HERO (enhanced with button)
         ══════════════════════════════ */
         .hero {
             position: relative;
@@ -46,6 +47,26 @@
             mix-blend-mode: luminosity;
         }
 
+        /* subtle animated gradient overlay */
+        .hero::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 30% 40%, rgba(245, 197, 24, 0.08) 0%, transparent 60%);
+            pointer-events: none;
+            animation: pulseGlow 8s infinite alternate;
+        }
+
+        @keyframes pulseGlow {
+            0% {
+                opacity: 0.3;
+            }
+
+            100% {
+                opacity: 0.7;
+            }
+        }
+
         .hero-content {
             position: relative;
             z-index: 2;
@@ -53,13 +74,14 @@
             flex-direction: column;
             justify-content: space-between;
             height: 100%;
-            padding: calc(var(--nav-height, 4.5rem) + 0.5rem) 2.5rem 2.5rem;
-            max-width: 70rem;
+            padding: calc(var(--nav-height, 4.5rem) + 0.5rem) 0 2.5rem;
+            max-width: var(--max-width);
             margin: 0 auto;
             width: 100%;
         }
 
         .hero-eyebrow {
+            direction: ltr;
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -82,8 +104,10 @@
         .hero-logo-wrap {
             flex: 1;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
+            gap: 2rem;
         }
 
         .hero-logo-wrap img {
@@ -92,8 +116,42 @@
         }
 
         @keyframes heroLogo {
-            from { opacity: 0; transform: translateY(2rem) scale(0.92); }
-            to   { opacity: 1; transform: translateY(0) scale(1); }
+            from {
+                opacity: 0;
+                transform: translateY(2rem) scale(0.92);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+        }
+
+        .btn-outline-light {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 2rem;
+            border-radius: var(--radius-full);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            color: white;
+            font-weight: 700;
+            font-size: 0.95rem;
+            transition: all var(--transition-fast);
+            background: transparent;
+            cursor: pointer;
+        }
+
+        .btn-outline-light:hover {
+            border-color: var(--gold);
+            background: rgba(245, 197, 24, 0.1);
+            transform: translateY(-2px);
         }
 
         .hero-footer {
@@ -114,8 +172,6 @@
         /* ══════════════════════════════
            SHARED LAYOUT
         ══════════════════════════════ */
-
-        /* 01 — LOGO: light section with image overlay */
         .logo-section {
             position: relative;
             background: var(--off);
@@ -134,22 +190,22 @@
             z-index: 0;
         }
 
-        .logo-section .section-title-ar { color: var(--navy); }
-        .logo-section .section-title-en { color: rgba(20, 19, 69, 0.35); }
+        .alt-section {
+            background: var(--off);
+        }
 
-        /* alternating sections */
-        .alt-section   { background: var(--off); }
-        .plain-section { background: var(--white); }
+        .plain-section {
+            background: var(--white);
+        }
 
         .page-section {
             position: relative;
             z-index: 1;
-            max-width: 70rem;
+            max-width: var(--max-width);
             margin: 0 auto;
-            padding: 5rem 2.5rem;
+            padding: 5rem 0;
         }
 
-        /* Override shared .section-header for this page's inline style */
         .vi-section-header {
             display: flex;
             align-items: baseline;
@@ -181,9 +237,7 @@
             flex-shrink: 0;
         }
 
-        /* ══════════════════════════════
-           SECTION 01 — LOGO
-        ══════════════════════════════ */
+        /* ── LOGO SECTION ── */
         .logo-primary {
             border-radius: 1.25rem;
             padding: 4rem 2rem;
@@ -196,6 +250,7 @@
             backdrop-filter: blur(0.25rem);
             -webkit-backdrop-filter: blur(0.25rem);
             transition: box-shadow .25s ease, transform .25s ease;
+            cursor: pointer;
         }
 
         .logo-primary:hover {
@@ -211,8 +266,8 @@
 
         .logo-variants {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
-            gap: 1.5rem;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.25rem;
         }
 
         .logo-variant-card {
@@ -226,6 +281,8 @@
             backdrop-filter: blur(0.25rem);
             -webkit-backdrop-filter: blur(0.25rem);
             transition: box-shadow .25s ease, transform .25s ease;
+            cursor: pointer;
+            position: relative;
         }
 
         .logo-variant-card:hover {
@@ -233,21 +290,47 @@
             transform: translateY(-0.25rem);
         }
 
+        .logo-variant-card::after {
+            /* content: "اضغط لفتح الصورة"; */
+            position: absolute;
+            bottom: 0.75rem;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 0.7rem;
+            color: rgba(255, 255, 255, 0.6);
+            background: rgba(0, 0, 0, 0.4);
+            padding: 0.25rem 1rem;
+            border-radius: 999px;
+            opacity: 0;
+            transition: opacity 0.2s;
+            white-space: nowrap;
+        }
+
+        .logo-variant-card:hover::after {
+            opacity: 1;
+        }
+
         .logo-variant-card img {
-            height: min(5.5rem, 18vw);
+            height: min(12.5rem, 18vw);
             max-width: 80%;
         }
 
-        .logo-variant-card.dark     { background: rgba(0, 0, 0, 0.6); }
-        .logo-variant-card.colorful { background: rgba(255, 255, 255, 0.25); }
-        .logo-variant-card.light    { background: rgba(20, 19, 69, 0.6); }
+        .logo-variant-card.dark {
+            background: rgba(0, 0, 0, 0.6);
+        }
 
-        /* ══════════════════════════════
-           SECTION 02 — SYMBOLS
-        ══════════════════════════════ */
+        .logo-variant-card.colorful {
+            background: rgba(255, 255, 255, 0.25);
+        }
+
+        .logo-variant-card.light {
+            background: rgba(20, 19, 69, 0.6);
+        }
+
+        /* ── SYMBOLS ── */
         .symbols-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr));
+            grid-template-columns: repeat(4, 1fr);
             gap: 1.25rem;
         }
 
@@ -299,9 +382,7 @@
             line-height: 1.65;
         }
 
-        /* ══════════════════════════════
-           SECTION 03 — TYPOGRAPHY
-        ══════════════════════════════ */
+        /* ── TYPOGRAPHY ── */
         .type-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -314,6 +395,9 @@
             padding: 2.5rem;
             overflow: hidden;
             position: relative;
+            display: block;
+            text-decoration: none;
+            color: inherit;
         }
 
         .type-label {
@@ -325,7 +409,6 @@
             text-transform: uppercase;
             margin-bottom: 0.75rem;
             direction: ltr;
-            text-align: right;
         }
 
         .type-name {
@@ -335,8 +418,14 @@
             margin-bottom: 1.75rem;
         }
 
-        .type-card.arabic .type-name { font-family: var(--font-ar); }
-        .type-card.latin  .type-name { font-family: var(--font-en); direction: ltr; }
+        .type-card.arabic .type-name {
+            font-family: var(--font-ar);
+        }
+
+        .type-card.latin .type-name {
+            font-family: var(--font-en);
+            direction: ltr;
+        }
 
         .type-specimen-ar {
             font-family: var(--font-ar);
@@ -354,12 +443,9 @@
             color: rgba(255, 255, 255, 0.82);
             line-height: 1.9;
             direction: ltr;
-            text-align: right;
         }
 
-        /* ══════════════════════════════
-           SECTION 04 — COLORS
-        ══════════════════════════════ */
+        /* ── COLORS (with copy interaction) ── */
         .colors-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
@@ -370,6 +456,13 @@
             border-radius: 1.25rem;
             overflow: hidden;
             border: 0.0625rem solid var(--rule);
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .color-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
         }
 
         .color-swatch {
@@ -379,23 +472,47 @@
             padding: 1rem;
         }
 
-        .color-card.navy  .color-swatch { background: #141345; }
-        .color-card.white .color-swatch { background: #ffffff; border-bottom: 0.0625rem solid var(--rule); }
-        .color-card.gold  .color-swatch { background: #f5c518; }
-        .color-card.black .color-swatch { background: #1a1a1a; }
+        .color-card.navy .color-swatch {
+            background: #141345;
+        }
+
+        .color-card.white .color-swatch {
+            background: #ffffff;
+            border-bottom: 0.0625rem solid var(--rule);
+        }
+
+        .color-card.gold .color-swatch {
+            background: #f5c518;
+        }
+
+        .color-card.black .color-swatch {
+            background: #1a1a1a;
+        }
 
         .swatch-hex {
-            font-family: var(--font-en);
+            font-family: var(--font-ar);
             font-size: 0.85rem;
             font-weight: 800;
             letter-spacing: 0.04em;
-            direction: ltr;
+            direction: rtl;
+            transition: opacity 0.2s;
         }
 
-        .color-card.navy  .swatch-hex { color: rgba(255, 255, 255, 1); }
-        .color-card.white .swatch-hex { color: rgba(20, 19, 69, 1); }
-        .color-card.gold  .swatch-hex { color: rgba(20, 19, 69, 1); }
-        .color-card.black .swatch-hex { color: rgba(255, 255, 255, 1); }
+        .color-card.navy .swatch-hex {
+            color: rgba(255, 255, 255, 1);
+        }
+
+        .color-card.white .swatch-hex {
+            color: rgba(20, 19, 69, 1);
+        }
+
+        .color-card.gold .swatch-hex {
+            color: rgba(20, 19, 69, 1);
+        }
+
+        .color-card.black .swatch-hex {
+            color: rgba(255, 255, 255, 1);
+        }
 
         .color-info {
             padding: 1.25rem 1.5rem 1.5rem;
@@ -437,106 +554,230 @@
             line-height: 1.7;
         }
 
-        /* ══════════════════════════════
-           RESPONSIVE
-        ══════════════════════════════ */
-
-        /* ── Prevent horizontal overflow globally ── */
-        html, body {
-            overflow-x: hidden;
-            max-width: 100%;
+        .copy-feedback {
+            position: fixed;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--navy);
+            color: white;
+            padding: 0.75rem 2rem;
+            border-radius: 999px;
+            font-weight: 700;
+            box-shadow: var(--shadow-lg);
+            opacity: 0;
+            transition: opacity 0.2s;
+            pointer-events: none;
+            z-index: 10000;
         }
 
-        /* ── 760px: symbols & colors start collapsing ── */
+        .copy-feedback.show {
+            opacity: 1;
+        }
+
+        /* ── RESPONSIVE (preserved with minor tweaks) ── */
+        @media (max-width: 900px) {
+            .hero-actions {
+                flex-direction: column;
+                width: 100%;
+                max-width: 300px;
+                margin: 0 auto;
+            }
+
+            .btn-outline-light {
+                justify-content: center;
+            }
+        }
+
+        /* (remaining responsive rules unchanged from original) */
         @media (max-width: 760px) {
-            .symbols-grid { grid-template-columns: repeat(2, 1fr); }
-            .colors-grid  { grid-template-columns: repeat(2, 1fr); }
+            .symbols-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .colors-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
         }
 
         @media (max-width: 640px) {
-            /* Hero: restore nav clearance and reduce padding */
             .hero-content {
                 padding: calc(var(--nav-height, 4.5rem) + 0.75rem) 1.25rem 1.75rem;
             }
-            /* Hero logo: not too large */
-            .hero-logo-wrap img { width: min(22rem, 78vw); }
 
-            .page-section { padding: 3rem 1.25rem; }
+            .hero-logo-wrap img {
+                width: min(22rem, 78vw);
+            }
 
-            /* Section header: smaller EN label so it doesn't crowd */
-            .section-title-en { font-size: 0.68rem; letter-spacing: 0.12em; }
+            .page-section {
+                padding: 3rem 1.25rem;
+            }
 
-            /* Logo: smaller primary card padding */
-            .logo-primary { padding: 2rem 1.25rem; }
-            .logo-primary img { height: min(6rem, 38vw); }
+            .section-title-en {
+                font-size: 0.68rem;
+                letter-spacing: 0.12em;
+            }
 
-            /* Logo variants: single column on mobile */
-            .logo-variants { grid-template-columns: 1fr; }
-            .logo-variant-card { aspect-ratio: 16/7; padding: 1.75rem 1.25rem; }
-            .logo-variant-card img { height: min(5.5rem, 30vw); }
+            .logo-primary {
+                padding: 2rem 1.25rem;
+            }
 
-            /* Symbols: 2 cols on small mobile */
-            .symbols-grid { grid-template-columns: repeat(2, 1fr); }
-            .symbol-card { padding: 1.5rem 1.25rem 1.25rem; }
+            .logo-primary img {
+                height: min(6rem, 38vw);
+            }
 
-            /* Typography: stack to 1 column */
-            .type-grid { grid-template-columns: 1fr; }
-            .type-card { padding: 2rem 1.5rem; }
+            .logo-variants {
+                grid-template-columns: 1fr;
+            }
 
-            /* Colors: 2 columns */
-            .colors-grid { grid-template-columns: repeat(2, 1fr); }
-            .color-swatch { height: 7rem; }
-            .color-info { padding: 1rem 1.125rem 1.25rem; gap: 0.5rem; }
-            .color-name { font-size: 0.95rem; }
-            .color-name-en { direction: rtl; font-size: 0.65rem; }
-            .color-rgb span { font-size: 0.6rem; }
-            .swatch-hex { font-size: 0.75rem; }
+            .logo-variant-card {
+                aspect-ratio: 16/7;
+                padding: 1.75rem 1.25rem;
+            }
+
+            .logo-variant-card img {
+                height: min(5.5rem, 30vw);
+            }
+
+            .symbols-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .symbol-card {
+                padding: 1.5rem 1.25rem 1.25rem;
+            }
+
+            .type-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .type-card {
+                padding: 2rem 1.5rem;
+            }
+
+            .colors-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .color-swatch {
+                height: 7rem;
+            }
+
+            .color-info {
+                padding: 1rem 1.125rem 1.25rem;
+                gap: 0.5rem;
+            }
+
+            .color-name {
+                font-size: 0.95rem;
+            }
+
+            .color-name-en {
+                direction: rtl;
+                font-size: 0.65rem;
+            }
+
+            .color-rgb span {
+                font-size: 0.6rem;
+            }
+
+            .swatch-hex {
+                font-size: 0.75rem;
+            }
         }
 
-        /* ── 480px: further tightening ── */
         @media (max-width: 480px) {
-            .page-section { padding: 2.5rem 1rem; }
+            .page-section {
+                padding: 2.5rem 1rem;
+            }
 
-            .vi-section-header { margin-bottom: 2.5rem; }
+            .vi-section-header {
+                margin-bottom: 2.5rem;
+            }
 
-            .logo-primary { padding: 1.75rem 1rem; }
-            .logo-primary img { height: min(5.5rem, 40vw); }
+            .logo-primary {
+                padding: 1.75rem 1rem;
+            }
 
-            .logo-variant-card { padding: 1.5rem 1rem; }
-            .logo-variant-card img { height: min(5rem, 32vw); }
+            .logo-primary img {
+                height: min(5.5rem, 40vw);
+            }
 
-            .symbol-card { padding: 1.25rem 1rem 1rem; gap: 0.75rem; }
-            .symbol-title { font-size: 0.9rem; }
-            .symbol-desc { font-size: 0.75rem; }
+            .logo-variant-card {
+                padding: 1.5rem 1rem;
+            }
 
-            .type-card { padding: 1.75rem 1.25rem; }
+            .logo-variant-card img {
+                height: min(5rem, 32vw);
+            }
 
-            .color-swatch { height: 6rem; }
-            .color-info { padding: 0.875rem 1rem 1rem; }
+            .symbol-card {
+                padding: 1.25rem 1rem 1rem;
+                gap: 0.75rem;
+            }
+
+            .symbol-title {
+                font-size: 0.9rem;
+            }
+
+            .symbol-desc {
+                font-size: 0.75rem;
+            }
+
+            .type-card {
+                padding: 1.75rem 1.25rem;
+            }
+
+            .color-swatch {
+                height: 6rem;
+            }
+
+            .color-info {
+                padding: 0.875rem 1rem 1rem;
+            }
         }
 
-        /* ── 380px: single column for most grids ── */
         @media (max-width: 380px) {
-            .hero-logo-wrap img { width: min(18rem, 82vw); }
+            .hero-logo-wrap img {
+                width: min(18rem, 82vw);
+            }
 
-            .page-section { padding: 2rem 0.875rem; }
+            .page-section {
+                padding: 2rem 0.875rem;
+            }
 
-            .vi-section-header { margin-bottom: 2rem; }
-            .section-title-ar { font-size: 1.25rem; }
-            .section-title-en { font-size: 0.62rem; white-space: normal; }
+            .vi-section-header {
+                margin-bottom: 2rem;
+            }
 
-            /* Logo variants stay 1 column */
-            .logo-variant-card { aspect-ratio: 16/6; }
+            .section-title-ar {
+                font-size: 1.25rem;
+            }
 
-            /* Symbols: 1 column on very small phones */
-            .symbols-grid { grid-template-columns: 1fr; }
+            .section-title-en {
+                font-size: 0.62rem;
+                white-space: normal;
+            }
 
-            /* Colors: 1 column on very small phones */
-            .colors-grid { grid-template-columns: 1fr; }
-            .color-swatch { height: 8rem; }
+            .logo-variant-card {
+                aspect-ratio: 16/6;
+            }
 
-            /* Type grid stays 1 column */
-            .type-card { padding: 1.5rem 1.125rem; }
+            .symbols-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .colors-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .color-swatch {
+                height: 8rem;
+            }
+
+            .type-card {
+                padding: 1.5rem 1.125rem;
+            }
         }
     </style>
 </head>
@@ -546,7 +787,7 @@
     <!-- Nav injected by shared.js -->
 
     <!-- ══════════════════════════════
-         HERO
+         HERO (with download button)
     ══════════════════════════════ -->
     <section class="hero">
         <div class="hero-bg"></div>
@@ -558,6 +799,17 @@
             </div>
             <div class="hero-logo-wrap">
                 <img src="Assets/White V Logo.png" alt="FMCSA Logo">
+                <div class="hero-actions">
+                    <a href="Assets/Brand_Kit_FMCSA.zip" class="btn-outline-light" download>
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                            <polyline points="7 10 12 15 17 10" />
+                            <line x1="12" y1="15" x2="12" y2="3" />
+                        </svg>
+                        تحميل الحزمة الكاملة
+                    </a>
+                </div>
             </div>
             <div class="hero-footer">
                 <span>FMCSA</span>
@@ -566,13 +818,9 @@
         </div>
     </section>
 
-
-    <!-- ══════════════════════════════
-         01 — LOGO
-    ══════════════════════════════ -->
+    <!-- 01 — LOGO -->
     <section class="logo-section">
         <div class="page-section">
-
             <div class="vi-section-header reveal">
                 <div>
                     <div class="section-title-ar">استخدامات الشعار</div>
@@ -580,34 +828,30 @@
                 <div class="section-title-en">Logo Variation</div>
             </div>
 
-            <!-- Primary — glass -->
-            <div class="logo-primary reveal">
-                <img src="Assets/Blue H Logo.png" alt="FMCSA — Dark Background">
+            <div class="logo-primary reveal" onclick="window.open('Assets/Blue H Logo.png', '_blank')">
+                <img src="Assets/Blue H Logo.png" alt="FMCSA — Dark Background" loading="lazy">
             </div>
 
-            <!-- Secondary variants -->
             <div class="logo-variants">
-                <div class="logo-variant-card light reveal reveal-delay-2">
-                    <img src="Assets/White Logo.png" alt="FMCSA — Light Background">
+                <div class="logo-variant-card light reveal reveal-delay-2"
+                    onclick="window.open('Assets/White Logo.png', '_blank')">
+                    <img src="Assets/White Logo.png" alt="FMCSA — Light Background" loading="lazy">
                 </div>
-                <div class="logo-variant-card colorful reveal reveal-delay-2">
-                    <img src="Assets/Blue Logo.png" alt="FMCSA — Colorful Background">
+                <div class="logo-variant-card colorful reveal reveal-delay-2"
+                    onclick="window.open('Assets/Blue Logo.png', '_blank')">
+                    <img src="Assets/Blue Logo.png" alt="FMCSA — Colorful Background" loading="lazy">
                 </div>
-                <div class="logo-variant-card dark reveal reveal-delay-1">
-                    <img src="Assets/Black Logo.png" alt="FMCSA — Black Background">
+                <div class="logo-variant-card dark reveal reveal-delay-1"
+                    onclick="window.open('Assets/Black Logo.png', '_blank')">
+                    <img src="Assets/Black Logo.png" alt="FMCSA — Black Background" loading="lazy">
                 </div>
             </div>
-
         </div>
     </section>
 
-
-    <!-- ══════════════════════════════
-         02 — SYMBOLS
-    ══════════════════════════════ -->
+    <!-- 02 — SYMBOLS -->
     <section class="alt-section">
         <div class="page-section">
-
             <div class="vi-section-header reveal">
                 <div>
                     <div class="section-title-ar">رموز الشعار</div>
@@ -616,55 +860,40 @@
             </div>
 
             <div class="symbols-grid">
-
-                <div class="symbol-card reveal reveal-delay-1">
-                    <div class="symbol-icon">
-                        <img src="Assets/Logo Icons/FMCS UOFG.png" alt="FMCS UOFG">
-                    </div>
-                    <div class="symbol-title">الاسم المختصر</div>
-                    <div class="symbol-desc">اختصار لاسم كلية العلوم الرياضية والحاسوب وجامعة الجزيرة</div>
-                </div>
-
                 <div class="symbol-card reveal reveal-delay-2">
-                    <div class="symbol-icon">
-                        <img src="Assets/Logo Icons/Bookmark.png" alt="Bookmark">
+                    <div class="symbol-icon"><img src="Assets/Logo Icons/Bookmark.png" alt="Bookmark" loading="lazy">
                     </div>
                     <div class="symbol-title">فاصل الكتاب</div>
                     <div class="symbol-desc">يدلّ على الكتاب وطلب العلم، بالإضافة إلى رمز مخفي للحرف ∑ المستخدم في
                         التخصصات الرياضية</div>
                 </div>
-
-                <div class="symbol-card reveal reveal-delay-3">
-                    <div class="symbol-icon">
-                        <img src="Assets/Logo Icons/Code.png" alt="Code">
+                <div class="symbol-card reveal reveal-delay-1">
+                    <div class="symbol-icon"><img src="Assets/Logo Icons/FMCS UOFG.png" alt="FMCS UOFG" loading="lazy">
                     </div>
+                    <div class="symbol-title">الاسم المختصر</div>
+                    <div class="symbol-desc">اختصار لاسم كلية العلوم الرياضية والحاسوب وجامعة الجزيرة</div>
+                </div>
+                <div class="symbol-card reveal reveal-delay-4">
+                    <div class="symbol-icon"><img src="Assets/Logo Icons/;;;.png" alt="Three Specializations"
+                            loading="lazy"></div>
+                    <div class="symbol-title">تخصصات الكلية الثلاثة</div>
+                    <div class="symbol-desc">ثلاث فواصل منقوطة ترمز إلى تخصصات الكلية الثلاثة: الرياضيات والإحصاء وعلوم
+                        الحاسوب</div>
+                </div>
+                <div class="symbol-card reveal reveal-delay-3">
+                    <div class="symbol-icon"><img src="Assets/Logo Icons/Code.png" alt="Code" loading="lazy"></div>
                     <div class="symbol-title">كلية الحاسوب</div>
                     <div class="symbol-desc">رمز <span
                             style="direction:ltr;display:inline-block;font-family:'Montserrat',sans-serif;font-weight:800">&lt;/&gt;</span>
                         يمثّل كلية الحاسوب والتخصصات البرمجية</div>
                 </div>
-
-                <div class="symbol-card reveal reveal-delay-4">
-                    <div class="symbol-icon">
-                        <img src="Assets/Logo Icons/;;;.png" alt="Three Specializations">
-                    </div>
-                    <div class="symbol-title">تخصصات الكلية الثلاثة</div>
-                    <div class="symbol-desc">ثلاث فواصل منقوطة ترمز إلى تخصصات الكلية الثلاثة: الرياضيات والإحصاء وعلوم
-                        الحاسوب
-                    </div>
-                </div>
-
             </div>
         </div>
     </section>
 
-
-    <!-- ══════════════════════════════
-         03 — TYPOGRAPHY
-    ══════════════════════════════ -->
+    <!-- 03 — TYPOGRAPHY -->
     <section class="plain-section">
         <div class="page-section">
-
             <div class="vi-section-header reveal">
                 <div>
                     <div class="section-title-ar">الخطوط</div>
@@ -673,9 +902,8 @@
             </div>
 
             <div class="type-grid">
-
-                <!-- Arabic — Cairo -->
-                <div class="type-card arabic reveal reveal-delay-1">
+                <a class="type-card arabic reveal reveal-delay-1" href="https://fonts.google.com/specimen/Cairo"
+                    target="_blank" rel="noopener">
                     <div class="type-label" style="direction: rtl;">الخط العربي</div>
                     <div class="type-name">خط القاهرة | Cairo</div>
                     <div class="type-specimen-ar">
@@ -683,10 +911,10 @@
                         ط ظ ع غ ف ق ك ل م ن ه و ي<br>
                         ٠ ١ ٢ ٣ ٤ ٥ ٦ ٧ ٨ ٩
                     </div>
-                </div>
+                </a>
 
-                <!-- Latin — Montserrat -->
-                <div class="type-card latin reveal reveal-delay-2">
+                <a class="type-card latin reveal reveal-delay-2" href="https://fonts.google.com/specimen/Montserrat"
+                    target="_blank" rel="noopener">
                     <div class="type-label">Latin Typeface</div>
                     <div class="type-name">Montserrat</div>
                     <div class="type-specimen-en">
@@ -694,19 +922,14 @@
                         abcdefghijklmnopqrstuvwxyz<br>
                         0 1 2 3 4 5 6 7 8 9
                     </div>
-                </div>
-
+                </a>
             </div>
         </div>
     </section>
 
-
-    <!-- ══════════════════════════════
-         04 — COLORS
-    ══════════════════════════════ -->
+    <!-- 04 — COLORS (with copy interaction) -->
     <section class="alt-section">
         <div class="page-section">
-
             <div class="vi-section-header reveal">
                 <div>
                     <div class="section-title-ar">الألوان</div>
@@ -715,77 +938,90 @@
             </div>
 
             <div class="colors-grid">
-
-                <div class="color-card navy reveal reveal-delay-1">
+                <div class="color-card navy reveal reveal-delay-1" data-hex="#141345">
                     <div class="color-swatch"><span class="swatch-hex">#141345</span></div>
                     <div class="color-info">
                         <div>
                             <div class="color-name">الكحلي</div>
                             <div class="color-name-en">Navy Blue</div>
                         </div>
-                        <div class="color-rgb">
-                            <span>R 20</span>
-                            <span>G 19</span>
-                            <span>B 69</span>
-                        </div>
+                        <div class="color-rgb"><span>R 20</span><span>G 19</span><span>B 69</span></div>
                     </div>
                 </div>
-
-                <div class="color-card white reveal reveal-delay-2">
+                <div class="color-card white reveal reveal-delay-2" data-hex="#FFFFFF">
                     <div class="color-swatch"><span class="swatch-hex">#FFFFFF</span></div>
                     <div class="color-info">
                         <div>
                             <div class="color-name">الأبيض</div>
                             <div class="color-name-en">Pure White</div>
                         </div>
-                        <div class="color-rgb">
-                            <span>R 255</span>
-                            <span>G 255</span>
-                            <span>B 255</span>
-                        </div>
+                        <div class="color-rgb"><span>R 255</span><span>G 255</span><span>B 255</span></div>
                     </div>
                 </div>
-
-                <div class="color-card gold reveal reveal-delay-3">
+                <div class="color-card gold reveal reveal-delay-3" data-hex="#F5C518">
                     <div class="color-swatch"><span class="swatch-hex">#F5C518</span></div>
                     <div class="color-info">
                         <div>
                             <div class="color-name">الذهبي</div>
                             <div class="color-name-en">Gold</div>
                         </div>
-                        <div class="color-rgb">
-                            <span>R 245</span>
-                            <span>G 197</span>
-                            <span>B 24</span>
-                        </div>
+                        <div class="color-rgb"><span>R 245</span><span>G 197</span><span>B 24</span></div>
                     </div>
                 </div>
-
-                <div class="color-card black reveal reveal-delay-4">
+                <div class="color-card black reveal reveal-delay-4" data-hex="#1A1A1A">
                     <div class="color-swatch"><span class="swatch-hex">#1A1A1A</span></div>
                     <div class="color-info">
                         <div>
                             <div class="color-name">الأسود</div>
                             <div class="color-name-en">Black</div>
                         </div>
-                        <div class="color-rgb">
-                            <span>R 26</span>
-                            <span>G 26</span>
-                            <span>B 26</span>
-                        </div>
+                        <div class="color-rgb"><span>R 26</span><span>G 26</span><span>B 26</span></div>
                     </div>
                 </div>
-
             </div>
         </div>
     </section>
 
-
     <!-- Footer injected by shared.js -->
-
-    <!-- Shared JS (injects nav + footer + scroll reveal) -->
     <script src="js/shared.js"></script>
+    <script>
+        (function () {
+            const colorCards = document.querySelectorAll('.color-card[data-hex]');
 
+            colorCards.forEach(card => {
+                const hexSpan = card.querySelector('.swatch-hex');
+                const originalHex = hexSpan.textContent;
+
+                card.addEventListener('click', function (e) {
+                    const hex = this.getAttribute('data-hex');
+
+                    navigator.clipboard.writeText(hex).then(() => {
+                        // Show feedback on the card itself
+                        hexSpan.textContent = 'تم النسخ!';
+                        hexSpan.style.fontSize = '0.9rem'; // slightly smaller for longer word
+
+                        setTimeout(() => {
+                            hexSpan.textContent = originalHex;
+                            hexSpan.style.fontSize = '';
+                        }, 1500);
+                    }).catch(() => {
+                        // Fallback copy method
+                        const input = document.createElement('input');
+                        input.value = hex;
+                        document.body.appendChild(input);
+                        input.select();
+                        document.execCommand('copy');
+                        document.body.removeChild(input);
+
+                        hexSpan.textContent = 'Copied!';
+                        setTimeout(() => {
+                            hexSpan.textContent = originalHex;
+                        }, 1500);
+                    });
+                });
+            });
+        })();
+    </script>
 </body>
 
 </html>

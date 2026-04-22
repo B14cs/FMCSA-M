@@ -5,9 +5,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>عن الكلية · رابطة طلاب كلية العلوم الرياضية والحاسوب</title>
-  <meta name="description" content="تعرف على كلية العلوم الرياضية والحاسوب بجامعة الجزيرة — رسالتها، رؤيتها، تاريخها، وقيمها الأكاديمية.">
+  <meta name="description"
+    content="تعرف على كلية العلوم الرياضية والحاسوب بجامعة الجزيرة — رسالتها، رؤيتها، تاريخها، وقيمها الأكاديمية.">
   <meta property="og:title" content="عن الكلية — FMCSA · جامعة الجزيرة">
-  <meta property="og:description" content="كلية العلوم الرياضية والحاسوب بجامعة الجزيرة — رسالة أكاديمية رائدة في السودان.">
+  <meta property="og:description"
+    content="كلية العلوم الرياضية والحاسوب بجامعة الجزيرة — رسالة أكاديمية رائدة في السودان.">
   <meta property="og:image" content="Assets/Cover.jpg">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="ar_SD">
@@ -25,7 +27,7 @@
     .page-hero {
       position: relative;
       min-height: 55vh;
-      display: flex;
+      /* display: flex; */
       align-items: center;
       overflow: hidden;
       background: var(--navy-dark);
@@ -43,12 +45,10 @@
     .page-hero-overlay {
       position: absolute;
       inset: 0;
-      background: linear-gradient(
-        135deg,
-        rgba(14, 13, 48, 0.92) 0%,
-        rgba(20, 19, 69, 0.75) 60%,
-        rgba(14, 13, 48, 0.88) 100%
-      );
+      background: linear-gradient(135deg,
+          rgba(14, 13, 48, 0.92) 0%,
+          rgba(20, 19, 69, 0.75) 60%,
+          rgba(14, 13, 48, 0.88) 100%);
     }
 
     .page-hero-content {
@@ -65,8 +65,6 @@
       text-transform: uppercase;
       color: var(--gold);
       margin-bottom: var(--space-md);
-      direction: ltr;
-      text-align: right;
     }
 
     .page-hero-title {
@@ -79,8 +77,7 @@
 
     .page-hero-subtitle {
       font-size: clamp(1rem, 2.2vw, 1.2rem);
-      color: rgba(255, 255, 255, 0.65);
-      max-width: 36rem;
+      color: rgba(255, 255, 255, 0.65); 
       line-height: 1.7;
     }
 
@@ -95,7 +92,6 @@
     .breadcrumb-inner {
       max-width: var(--max-width);
       margin: 0 auto;
-      padding: 0 var(--space-xl);
       display: flex;
       align-items: center;
       gap: var(--space-sm);
@@ -129,7 +125,7 @@
 
     .welcome-grid {
       display: grid;
-      grid-template-columns: 1fr 2fr;
+      /* grid-template-columns: 1fr 2fr; */
       gap: var(--space-3xl);
       align-items: center;
     }
@@ -146,12 +142,10 @@
       max-width: 280px;
       aspect-ratio: 3/4;
       border-radius: var(--radius-xl);
-      background: linear-gradient(
-        145deg,
-        var(--navy) 0%,
-        var(--navy-light) 50%,
-        #2a266e 100%
-      );
+      background: linear-gradient(145deg,
+          var(--navy) 0%,
+          var(--navy-light) 50%,
+          #2a266e 100%);
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -216,9 +210,10 @@
       color: var(--text-secondary);
       line-height: 1.9;
       margin-bottom: var(--space-xl);
+      text-align: justify;
     }
 
-    .welcome-body p + p {
+    .welcome-body p+p {
       margin-top: var(--space-md);
     }
 
@@ -331,6 +326,7 @@
     }
 
     .mv-text {
+      text-align: justify;
       font-size: 0.95rem;
       color: rgba(255, 255, 255, 0.65);
       line-height: 1.85;
@@ -356,13 +352,11 @@
       bottom: 0;
       right: 1.75rem;
       width: 2px;
-      background: linear-gradient(
-        to bottom,
-        transparent,
-        var(--mid-gray) 5%,
-        var(--mid-gray) 95%,
-        transparent
-      );
+      background: linear-gradient(to bottom,
+          transparent,
+          var(--mid-gray) 5%,
+          var(--mid-gray) 95%,
+          transparent);
     }
 
     .timeline-item {
@@ -516,6 +510,8 @@
     }
 
     .value-desc {
+      text-align: justify;
+      text-align-last: center;
       font-size: 0.875rem;
       color: var(--text-muted);
       line-height: 1.7;
@@ -599,6 +595,7 @@
 
     /* ── 900px ── tablet landscape / small desktop */
     @media (max-width: 900px) {
+
       /* Hero */
       .page-hero {
         min-height: 50vh;
@@ -658,6 +655,7 @@
 
     /* ── 768px ── tablet portrait */
     @media (max-width: 768px) {
+
       /* Hero */
       .page-hero {
         min-height: 45vh;
@@ -696,6 +694,7 @@
 
     /* ── 600px ── large phone */
     @media (max-width: 600px) {
+
       /* Hero */
       .page-hero {
         min-height: 40vh;
@@ -795,6 +794,7 @@
 
     /* ── 480px ── small phone */
     @media (max-width: 480px) {
+
       /* Hero */
       .page-hero {
         min-height: 35vh;
@@ -942,6 +942,7 @@
 
     /* ── 380px ── very small phone */
     @media (max-width: 380px) {
+
       /* Hero */
       .page-hero-title {
         font-size: clamp(1.5rem, 9vw, 1.9rem);
@@ -1150,6 +1151,7 @@
     }
 
     .dept-desc {
+      text-align: justify;
       font-size: 0.9rem;
       color: var(--text-secondary);
       line-height: 1.8;
@@ -1288,6 +1290,8 @@
     }
 
     .program-desc {
+      text-align: justify;
+      text-align-last: center;
       font-size: 0.875rem;
       color: rgba(255, 255, 255, 0.55);
       line-height: 1.75;
@@ -1352,8 +1356,10 @@
       <p class="page-hero-eyebrow reveal">About the Faculty</p>
       <h1 class="page-hero-title reveal reveal-delay-1">عن الكلية</h1>
       <p class="page-hero-subtitle reveal reveal-delay-2">
-        كلية العلوم الرياضية والحاسوب بجامعة الجزيرة — صرح أكاديمي رائد يجمع بين الرياضيات والإحصاء وعلوم الحاسوب
-        في بيئة بحثية وتعليمية متميزة
+        كلية العلوم الرياضية والحاسوب بجامعة الجزيرة
+      </p>
+      <p class="page-hero-subtitle reveal reveal-delay-2">
+        صرح أكاديمي رائد يجمع بين الرياضيات والإحصاء وعلوم الحاسوب في بيئة بحثية وتعليمية متميزة
       </p>
     </div>
 
@@ -1374,20 +1380,23 @@
       <div class="welcome-grid">
 
         <!-- Dean Photo -->
-        <div class="dean-photo-wrap reveal">
+        <!-- <div class="dean-photo-wrap reveal">
           <div class="dean-photo-placeholder" role="img" aria-label="صورة عميد الكلية">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
-              <circle cx="12" cy="7" r="4"/>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round"
+              stroke-linejoin="round" aria-hidden="true">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+              <circle cx="12" cy="7" r="4" />
             </svg>
             <p class="dean-photo-placeholder-text">صورة العميد</p>
           </div>
           <div class="dean-name-badge">
             <p class="dean-name">د. قيس الهادي بابكر الهادي</p>
             <p class="dean-title">عميد الكلية</p>
-            <p class="dean-qualifications">بكالوريوس الشرف في الرياضيات وعلوم الحاسوب (جامعة الجزيرة-السودان "2011")، ماجستير علوم الحاسوب (جامعة الجزيرة-السودان "2014")، دكتوراه في علوم الحاسوب (جامعة اللورين-فرنسا "2019")</p>
+            <p class="dean-qualifications">بكالوريوس الشرف في الرياضيات وعلوم الحاسوب (جامعة الجزيرة-السودان "2011")،
+              ماجستير علوم الحاسوب (جامعة الجزيرة-السودان "2014")، دكتوراه في علوم الحاسوب (جامعة اللورين-فرنسا "2019")
+            </p>
           </div>
-        </div>
+        </div> -->
 
         <!-- Welcome Text -->
         <div class="welcome-content">
@@ -1397,26 +1406,36 @@
           </div>
 
           <div class="welcome-body reveal reveal-delay-1">
+            <p>إخواني وأخواتي الطلاب، زملائي أعضاء هيئة التدريس، وجميع رواد موقع الكلية الكرام، يسعدني أن أرحب بكم في
+              الموقع الإلكتروني لكلية العلوم الرياضية والحاسوب، هذا الفضاء الذي نطمح أن يكون نافذة للتواصل والمعرفة،
+              ومنصة تعكس رسالتنا ورؤيتنا في خدمة المجتمع والارتقاء بالعلم.</p>
+            <p>تسعى كليتنا إلى إعداد جيل متميز من الخريجين يمتلكون المهارات العلمية والعملية في مجالات الرياضيات وعلوم
+              الحاسوب، وقادرين على الإسهام الفاعل في التنمية المستدامة ومواكبة التطورات المتسارعة في عالم التكنولوجيا
+              والبحث العلمي. نحن نؤمن أن الطالب هو محور العملية التعليمية، وأن الاستثمار في المعرفة هو الاستثمار الأسمى
+              الذي يفتح أبواب المستقبل.</p>
             <p>
-              يسعدني أن أرحب بكم في كلية العلوم الرياضية والحاسوب بجامعة الجزيرة، هذا الصرح الأكاديمي العريق
-              الذي يضطلع بمهمة إعداد كفاءات علمية متميزة في مجالات الرياضيات والإحصاء وعلوم الحاسوب.
+              كما نحرص على توفير بيئة أكاديمية محفزة، تجمع بين الأصالة والحداثة، وتدعم الإبداع والابتكار، من خلال برامج
+              دراسية متطورة، وأنشطة بحثية رائدة، وشراكات مع مؤسسات محلية ودولية.
             </p>
             <p>
-              تتميز كليتنا بكوادر أكاديمية وبحثية عالية الكفاءة، وبيئة دراسية محفزة تجمع بين الأصالة
-              والمعاصرة. إذ نسعى جاهدين إلى تزويد طلابنا بالمعرفة النظرية الرصينة والمهارات التطبيقية
-              اللازمة لمواكبة متطلبات سوق العمل المحلي والدولي.
+              أدعوكم جميعاً إلى الاستفادة من هذا الموقع للتعرف على برامجنا، أنشطتنا، وإنجازاتنا، وأتمنى أن يكون وسيلة
+              لتعزيز التواصل بين الكلية والمجتمع.
             </p>
             <p>
-              نؤمن إيمانًا راسخًا بأن التميز الأكاديمي والبحث العلمي وخدمة المجتمع هي الركائز الثلاث
-              التي ترتكز عليها رسالتنا المؤسسية. ونحرص على أن يكون خريج كليتنا قادرًا على الإسهام
-              الفعّال في مسيرة التنمية الوطنية والانفتاح على الفضاء المعرفي العالمي.
+              وفقنا الله وإياكم لما فيه الخير، وجعل العلم نوراً نهتدي به في مسيرتنا.
+            </p>
+            <p>
+              والسلام عليكم ورحمة الله وبركاته.
             </p>
           </div>
 
           <div class="welcome-signature reveal reveal-delay-2">
             <div>
               <p class="welcome-signature-name">د. قيس الهادي بابكر الهادي</p>
-              <p class="welcome-signature-text">عميد كلية العلوم الرياضية والحاسوب · جامعة الجزيرة</p>
+              <!-- <p class="welcome-signature-text">عميد كلية العلوم الرياضية والحاسوب · جامعة الجزيرة</p> -->
+              <p class="welcome-signature-text">بكالوريوس الشرف في الرياضيات وعلوم الحاسوب (جامعة الجزيرة-السودان
+                "2011")، ماجستير علوم الحاسوب (جامعة الجزيرة-السودان "2014")، دكتوراه في علوم الحاسوب (جامعة
+                اللورين-فرنسا "2019")</p>
             </div>
           </div>
         </div>
@@ -1443,16 +1462,17 @@
         <!-- Vision Card -->
         <div class="mv-card reveal reveal-delay-1">
           <div class="mv-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="12" cy="12" r="10"/>
-              <line x1="2" y1="12" x2="22" y2="12"/>
-              <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10" />
+              <line x1="2" y1="12" x2="22" y2="12" />
+              <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
             </svg>
           </div>
           <p class="mv-label">Vision</p>
           <h3 class="mv-title">الرؤية</h3>
           <p class="mv-text">
-            أن تكون الكلية مرجعًا أكاديميًا وبحثيًا متميزًا في مجالات العلوم الرياضية والإحصاء وعلوم الحاسوب
+            أن تكون الكلية مرجعاً أكاديمياً وبحثياً متميزاً في مجالات العلوم الرياضية والإحصاء وعلوم الحاسوب
             على المستوى الوطني والإقليمي، وأن تُسهم في بناء مجتمع المعرفة وتحقيق التنمية المستدامة
             من خلال إعداد كوادر علمية مؤهلة ومنافسة على أعلى المستويات.
           </p>
@@ -1461,19 +1481,19 @@
         <!-- Mission Card -->
         <div class="mv-card reveal reveal-delay-2">
           <div class="mv-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="12" cy="12" r="10"/>
-              <circle cx="12" cy="12" r="6"/>
-              <circle cx="12" cy="12" r="2"/>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10" />
+              <circle cx="12" cy="12" r="6" />
+              <circle cx="12" cy="12" r="2" />
             </svg>
           </div>
           <p class="mv-label">Mission</p>
           <h3 class="mv-title">الرسالة</h3>
           <p class="mv-text">
             تقديم برامج أكاديمية متطورة وشاملة في الرياضيات والإحصاء وعلوم الحاسوب، وتهيئة بيئة بحثية
-            خلاقة تُشجع على الابتكار وحل المشكلات. والارتقاء بمستوى الطلاب علميًا وأخلاقيًا وتنميتهم
-            شخصيًا وتحفيزهم على المشاركة المجتمعية الفعّالة، وإقامة شراكات استراتيجية مع المؤسسات
-            الأكاديمية والصناعية المحلية والدولية لدعم مسيرة التطوير والتميز.
+            خلاقة تُشجع على الابتكار وحل المشكلات. والارتقاء بمستوى الطلاب علمياً وأخلاقياً وتنميتهم
+            شخصياً وتحفيزهم على المشاركة المجتمعية الفعّالة.
           </p>
         </div>
 
@@ -1498,49 +1518,58 @@
 
         <div class="timeline-item reveal" role="listitem">
           <div class="timeline-dot-col">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="#F5C518" stroke="#F5C518" stroke-width="0" aria-hidden="true" class="timeline-dot"><circle cx="12" cy="12" r="8"/></svg>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="#F5C518" stroke="#F5C518" stroke-width="0"
+              aria-hidden="true" class="timeline-dot">
+              <circle cx="12" cy="12" r="8" />
+            </svg>
           </div>
           <div class="timeline-body">
-            <span class="timeline-year-badge">1985</span>
+            <span class="timeline-year-badge">1993</span>
             <h3 class="timeline-event-title">تأسيس الكلية</h3>
-            <p class="timeline-event-desc">
-              تأسست كلية العلوم الرياضية والحاسوب كإحدى كليات جامعة الجزيرة العريقة بمدينة ودمدني،
-              بهدف تلبية احتياجات السودان من الكوادر المتخصصة في العلوم الرياضية وتقنية المعلومات.
-            </p>
+            <p class="timeline-event-desc">أنشئت الكلية باسم "مدرسة العلوم الرياضية والحاسوب"، ومن ثم
+              تحولت إلى كلية العلوم الرياضية والحاسوب، لتكون صرحاً أكاديمياً رائداً في جامعة الجزيرة.</p>
           </div>
         </div>
 
         <div class="timeline-item reveal reveal-delay-1" role="listitem">
           <div class="timeline-dot-col">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="#F5C518" stroke="#F5C518" stroke-width="0" aria-hidden="true" class="timeline-dot"><circle cx="12" cy="12" r="8"/></svg>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="#F5C518" stroke="#F5C518" stroke-width="0"
+              aria-hidden="true" class="timeline-dot">
+              <circle cx="12" cy="12" r="8" />
+            </svg>
           </div>
           <div class="timeline-body">
-            <span class="timeline-year-badge">1993</span>
-            <h3 class="timeline-event-title">توسعة البرامج الأكاديمية</h3>
-            <p class="timeline-event-desc">
-              إطلاق برامج درجة البكالوريوس في الإحصاء وعلوم الحاسوب، وتوسيع مناهج الرياضيات
-              لتشمل الرياضيات التطبيقية والتحليل العددي استجابةً للطلب المتزايد في سوق العمل.
-            </p>
+            <span class="timeline-year-badge">1995</span>
+            <h3 class="timeline-event-title">البداية الأكاديمية</h3>
+            <p class="timeline-event-desc">قبول أول دفعة في كلية العلوم الرياضية والحاسوب (الدفعة 17) والتي تخرجت عام
+              1999م.</p>
           </div>
         </div>
 
         <div class="timeline-item reveal reveal-delay-2" role="listitem">
           <div class="timeline-dot-col">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="#F5C518" stroke="#F5C518" stroke-width="0" aria-hidden="true" class="timeline-dot"><circle cx="12" cy="12" r="8"/></svg>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="#F5C518" stroke="#F5C518" stroke-width="0"
+              aria-hidden="true" class="timeline-dot">
+              <circle cx="12" cy="12" r="8" />
+            </svg>
           </div>
           <div class="timeline-body">
-            <span class="timeline-year-badge">2002</span>
-            <h3 class="timeline-event-title">إنشاء مركز الحوسبة وتقنية المعلومات</h3>
+            <span class="timeline-year-badge">2007</span>
+            <h3 class="timeline-event-title">وحدة التدريب وخدمات المعلومات</h3>
             <p class="timeline-event-desc">
-              افتتاح مركز الحوسبة المتخصص المزود بأحدث المعامل والمختبرات الحاسوبية،
-              مما أتاح بيئة تعليمية وبحثية متطورة للطلاب وأعضاء هيئة التدريس.
+              افتتحت وحدة التدريب وخدمات المعلومات وبرزت كإحدى أهم الوحدات التدريبية على مستوى الجامعة، مختطة لنفسها
+              نهجاً
+              راسخاً وطريقاً واضحاً.
             </p>
           </div>
         </div>
 
         <div class="timeline-item reveal reveal-delay-3" role="listitem">
           <div class="timeline-dot-col">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="#F5C518" stroke="#F5C518" stroke-width="0" aria-hidden="true" class="timeline-dot"><circle cx="12" cy="12" r="8"/></svg>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="#F5C518" stroke="#F5C518" stroke-width="0"
+              aria-hidden="true" class="timeline-dot">
+              <circle cx="12" cy="12" r="8" />
+            </svg>
           </div>
           <div class="timeline-body">
             <span class="timeline-year-badge">2010</span>
@@ -1554,10 +1583,29 @@
 
         <div class="timeline-item reveal reveal-delay-4" role="listitem">
           <div class="timeline-dot-col">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="#F5C518" stroke="#F5C518" stroke-width="0" aria-hidden="true" class="timeline-dot"><circle cx="12" cy="12" r="8"/></svg>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="#F5C518" stroke="#F5C518" stroke-width="0"
+              aria-hidden="true" class="timeline-dot">
+              <circle cx="12" cy="12" r="8" />
+            </svg>
           </div>
           <div class="timeline-body">
             <span class="timeline-year-badge">2025</span>
+            <h3 class="timeline-event-title">تخرج أعظم طالب مر على الكلية</h3>
+            <p class="timeline-event-desc">
+              تخرج الطالب البراء علي محمد، الدفعة 40 والذي يُعد أعظم طالب في تاريخ الكلية.
+            </p>
+          </div>
+        </div>
+
+        <div class="timeline-item reveal reveal-delay-4" role="listitem">
+          <div class="timeline-dot-col">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="#F5C518" stroke="#F5C518" stroke-width="0"
+              aria-hidden="true" class="timeline-dot">
+              <circle cx="12" cy="12" r="8" />
+            </svg>
+          </div>
+          <div class="timeline-body">
+            <span class="timeline-year-badge">2026</span>
             <h3 class="timeline-event-title">تأسيس رابطة طلاب الكلية — FMCSA</h3>
             <p class="timeline-event-desc">
               إطلاق رابطة طلاب كلية العلوم الرياضية والحاسوب (FMCSA) لتكون الجسر الرابط بين
@@ -1588,9 +1636,10 @@
         <!-- Academic Excellence -->
         <div class="value-card reveal">
           <div class="value-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="12" cy="8" r="7"/>
-              <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round">
+              <circle cx="12" cy="8" r="7" />
+              <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88" />
             </svg>
           </div>
           <h3 class="value-title">التميز الأكاديمي</h3>
@@ -1604,13 +1653,14 @@
         <!-- Research -->
         <div class="value-card reveal reveal-delay-1">
           <div class="value-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M6 18h8"/>
-              <path d="M3 22h18"/>
-              <path d="M14 22a7 7 0 1 0 0-14h-1"/>
-              <path d="M9 14h2"/>
-              <path d="M9 12a2 2 0 0 1-2-2V6h6v4a2 2 0 0 1-2 2z"/>
-              <path d="M12 6V3a1 1 0 0 0-1-1H9a1 1 0 0 0-1 1v3"/>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round">
+              <path d="M6 18h8" />
+              <path d="M3 22h18" />
+              <path d="M14 22a7 7 0 1 0 0-14h-1" />
+              <path d="M9 14h2" />
+              <path d="M9 12a2 2 0 0 1-2-2V6h6v4a2 2 0 0 1-2 2z" />
+              <path d="M12 6V3a1 1 0 0 0-1-1H9a1 1 0 0 0-1 1v3" />
             </svg>
           </div>
           <h3 class="value-title">البحث العلمي</h3>
@@ -1624,11 +1674,12 @@
         <!-- Community Service -->
         <div class="value-card reveal reveal-delay-2">
           <div class="value-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
-              <circle cx="9" cy="7" r="4"/>
-              <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
-              <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round">
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+              <circle cx="9" cy="7" r="4" />
+              <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+              <path d="M16 3.13a4 4 0 0 1 0 7.75" />
             </svg>
           </div>
           <h3 class="value-title">خدمة المجتمع</h3>
@@ -1642,10 +1693,11 @@
         <!-- Innovation -->
         <div class="value-card reveal reveal-delay-3">
           <div class="value-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M9 18h6"/>
-              <path d="M10 22h4"/>
-              <path d="M12 2a7 7 0 0 0-4 12.7V17h8v-2.3A7 7 0 0 0 12 2z"/>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round">
+              <path d="M9 18h6" />
+              <path d="M10 22h4" />
+              <path d="M12 2a7 7 0 0 0-4 12.7V17h8v-2.3A7 7 0 0 0 12 2z" />
             </svg>
           </div>
           <h3 class="value-title">الابتكار</h3>
@@ -1669,54 +1721,16 @@
         <p class="section-eyebrow">ACADEMIC DEPARTMENTS</p>
         <h2 class="section-title" id="depts-heading">الأقسام الأكاديمية</h2>
         <p class="section-subtitle" style="margin: var(--space-md) auto 0;">
-          كل قسم يمثّل تخصصًا متكاملًا يُعدّ الطالب لمسار مهني واعد في مجاله
+          كل قسم يمثّل تخصصًا متكاملاً يُعدّ الطالب لمسار مهني واعد في مجاله
         </p>
       </div>
 
       <div class="dept-cards-grid">
 
-        <!-- Dept 1: Mathematics & Computer Science -->
-        <article class="dept-card reveal" id="math" aria-labelledby="dept-math-name">
-          <div class="dept-card-header">
-            <div class="dept-symbol" aria-hidden="true">∑</div>
-            <div class="dept-card-header-badge" aria-hidden="true">Department · 01</div>
-            <h3 class="dept-name-ar" id="dept-math-name">قسم الرياضيات وعلوم الحاسوب</h3>
-            <p class="dept-name-en">Mathematics &amp; Computer Science</p>
-          </div>
-          <div class="dept-card-body">
-            <p class="dept-desc">
-              يُعدّ هذا القسم من أعرق أقسام الكلية، إذ يجمع بين عمق الرياضيات البحتة والتطبيقية وأسس
-              علوم الحاسوب الحديثة. يُخرّج القسم كفاءات قادرة على النمذجة الرياضية، تطوير الخوارزميات،
-              وحل المسائل الحاسوبية المعقدة بمنهجية رياضية صارمة.
-            </p>
-            <div>
-              <p class="dept-courses-title">المجالات الرئيسية</p>
-              <ul class="dept-courses-list" role="list">
-                <li class="dept-course-item">التحليل الرياضي والجبر الخطي</li>
-                <li class="dept-course-item">الرياضيات التطبيقية والتحليل العددي</li>
-                <li class="dept-course-item">نظرية الخوارزميات وتعقيدها</li>
-                <li class="dept-course-item">النمذجة الرياضية والمحاكاة</li>
-                <li class="dept-course-item">البرمجة الهيكلية وهياكل البيانات</li>
-              </ul>
-            </div>
-          </div>
-          <div class="dept-card-footer">
-            <a class="dept-link" href="#math" aria-label="اعرف المزيد عن قسم الرياضيات وعلوم الحاسوب">
-              اعرف المزيد
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <line x1="5" y1="12" x2="19" y2="12"/>
-                <polyline points="12 5 19 12 12 19"/>
-              </svg>
-            </a>
-            <span class="badge">BSc · 4 سنوات</span>
-          </div>
-        </article>
-
-        <!-- Dept 2: Statistics & Computer Science -->
+        <!-- Dept 1: Statistics & Computer Science -->
         <article class="dept-card reveal reveal-delay-1" id="stats" aria-labelledby="dept-stats-name">
           <div class="dept-card-header">
             <div class="dept-symbol" aria-hidden="true">∫</div>
-            <div class="dept-card-header-badge" aria-hidden="true">Department · 02</div>
             <h3 class="dept-name-ar" id="dept-stats-name">قسم الإحصاء وعلوم الحاسوب</h3>
             <p class="dept-name-en">Statistics &amp; Computer Science</p>
           </div>
@@ -1727,25 +1741,39 @@
               والذكاء الاصطناعي وصنع القرار المبني على البيانات.
             </p>
             <div>
-              <p class="dept-courses-title">المجالات الرئيسية</p>
+              <p class="dept-courses-title">يمنح القسم درجات علمية متنوعة، تشمل:</p>
               <ul class="dept-courses-list" role="list">
-                <li class="dept-course-item">نظرية الاحتمالات والإحصاء الرياضي</li>
-                <li class="dept-course-item">الإحصاء التطبيقي وتصميم التجارب</li>
-                <li class="dept-course-item">علم البيانات وتحليل البيانات الضخمة</li>
-                <li class="dept-course-item">الأساليب الإحصائية الحاسوبية</li>
-                <li class="dept-course-item">تعلم الآلة والتنقيب في البيانات</li>
+                <li class="dept-course-item">درجة البكالوريوس العلوم (شرف) في الإحصاء وعلوم الحاسوب.</li>
+                <li class="dept-course-item">درجة الدبلوم فوق الجامعي في علوم الإحصاء.</li>
+                <li class="dept-course-item">درجة الماجستير في علوم الإحصاء.</li>
+                <li class="dept-course-item">درجة الدكتوراه في علوم الإحصاء.</li>
               </ul>
             </div>
           </div>
-          <div class="dept-card-footer">
-            <a class="dept-link" href="#stats" aria-label="اعرف المزيد عن قسم الإحصاء وعلوم الحاسوب">
-              اعرف المزيد
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <line x1="5" y1="12" x2="19" y2="12"/>
-                <polyline points="12 5 19 12 12 19"/>
-              </svg>
-            </a>
-            <span class="badge">BSc · 4 سنوات</span>
+        </article>
+
+        <!-- Dept 2: Mathematics & Computer Science -->
+        <article class="dept-card reveal" id="math" aria-labelledby="dept-math-name">
+          <div class="dept-card-header">
+            <div class="dept-symbol" aria-hidden="true">∑</div>
+            <h3 class="dept-name-ar" id="dept-math-name">قسم الرياضيات وعلوم الحاسوب</h3>
+            <p class="dept-name-en">Mathematics &amp; Computer Science</p>
+          </div>
+          <div class="dept-card-body">
+            <p class="dept-desc">
+              يجمع القسم بين عمق الرياضيات البحتة والتطبيقية وأسس
+              علوم الحاسوب الحديثة. يُخرّج القسم كفاءات قادرة على النمذجة الرياضية، تطوير الخوارزميات،
+              وحل المسائل الحاسوبية المعقدة بمنهجية رياضية صارمة.
+            </p>
+            <div>
+              <p class="dept-courses-title">يمنح القسم درجات علمية متنوعة، تشمل:</p>
+              <ul class="dept-courses-list" role="list">
+                <li class="dept-course-item">درجة البكالوريوس العلوم (شرف) في الرياضيات وعلوم الحاسوب.</li>
+                <li class="dept-course-item">درجة الدبلوم فوق الجامعي في علوم الرياضيات.</li>
+                <li class="dept-course-item">درجة الماجستير في علوم الرياضيات.</li>
+                <li class="dept-course-item">درجة الدكتوراه في علوم الرياضيات.</li>
+              </ul>
+            </div>
           </div>
         </article>
 
@@ -1753,36 +1781,24 @@
         <article class="dept-card reveal reveal-delay-2" id="cs" aria-labelledby="dept-cs-name">
           <div class="dept-card-header">
             <div class="dept-symbol" aria-hidden="true">&lt;/&gt;</div>
-            <div class="dept-card-header-badge" aria-hidden="true">Department · 03</div>
             <h3 class="dept-name-ar" id="dept-cs-name">قسم علوم الحاسوب</h3>
             <p class="dept-name-en">Computer Science</p>
           </div>
           <div class="dept-card-body">
             <p class="dept-desc">
-              يُقدم القسم برنامجًا متكاملًا في علوم الحاسوب يشمل هندسة البرمجيات، الذكاء الاصطناعي،
-              قواعد البيانات، وشبكات الحاسوب. يُؤهل القسم خريجيه لشغل مناصب قيادية في قطاع
-              تقنية المعلومات، وبناء حلول برمجية ذكية تُلبي احتياجات العصر الرقمي.
+              يُقدم القسم برنامجاً متكاملاً في علوم الحاسوب. يُؤهل القسم خريجيه لشغل مناصب قيادية وبناء حلول برمجية ذكية
+              تُلبي احتياجات العصر الرقمي وفتح آفاق واسعة للبحث العلمي والدراسات العليا.
             </p>
             <div>
-              <p class="dept-courses-title">المجالات الرئيسية</p>
+              <p class="dept-courses-title">يمنح القسم درجات علمية متنوعة، تشمل:</p>
               <ul class="dept-courses-list" role="list">
-                <li class="dept-course-item">هندسة البرمجيات وتصميم الأنظمة</li>
-                <li class="dept-course-item">الذكاء الاصطناعي ومعالجة اللغة الطبيعية</li>
-                <li class="dept-course-item">قواعد البيانات والأنظمة الموزعة</li>
-                <li class="dept-course-item">شبكات الحاسوب والأمن السيبراني</li>
-                <li class="dept-course-item">تطوير تطبيقات الويب والجوّال</li>
+                <li class="dept-course-item">درجة البكالوريوس العلوم (شرف) في علوم الحاسوب.</li>
+                <li class="dept-course-item">برنامج الدبلوم التقني في علوم الحاسوب وتقنية المعلومات.</li>
+                <li class="dept-course-item">الدبلوم فوق الجامعي في تقنية المعلومات وعلوم الحاسوب.</li>
+                <li class="dept-course-item">برنامج الماجستير في علوم الحاسوب.</li>
+                <li class="dept-course-item">درجة الدكتوراه في علوم الحاسوب.</li>
               </ul>
             </div>
-          </div>
-          <div class="dept-card-footer">
-            <a class="dept-link" href="#cs" aria-label="اعرف المزيد عن قسم علوم الحاسوب">
-              اعرف المزيد
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <line x1="5" y1="12" x2="19" y2="12"/>
-                <polyline points="12 5 19 12 12 19"/>
-              </svg>
-            </a>
-            <span class="badge">BSc · 4 سنوات</span>
           </div>
         </article>
 
@@ -1809,8 +1825,12 @@
           <p class="program-degree">Undergraduate</p>
           <h3 class="program-title">بكالوريوس</h3>
           <span class="program-duration">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-            4 سنوات
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" aria-hidden="true">
+              <circle cx="12" cy="12" r="10" />
+              <polyline points="12 6 12 12 16 14" />
+            </svg>
+            5 سنوات
           </span>
           <p class="program-desc">
             درجة البكالوريوس في أحد التخصصات الثلاثة للكلية. تشمل المناهج مقررات نظرية وتطبيقية
@@ -1822,7 +1842,11 @@
           <p class="program-degree">Postgraduate</p>
           <h3 class="program-title">ماجستير</h3>
           <span class="program-duration">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" aria-hidden="true">
+              <circle cx="12" cy="12" r="10" />
+              <polyline points="12 6 12 12 16 14" />
+            </svg>
             سنتان
           </span>
           <p class="program-desc">
@@ -1835,7 +1859,11 @@
           <p class="program-degree">Research</p>
           <h3 class="program-title">دكتوراه</h3>
           <span class="program-duration">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" aria-hidden="true">
+              <circle cx="12" cy="12" r="10" />
+              <polyline points="12 6 12 12 16 14" />
+            </svg>
             3–4 سنوات
           </span>
           <p class="program-desc">
@@ -1861,35 +1889,65 @@
       <div class="facts-grid" role="list">
 
         <div class="fact-item reveal" role="listitem">
-          <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#F5C518" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="margin-bottom:0.75rem"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#F5C518" stroke-width="1.5"
+            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="margin-bottom:0.75rem">
+            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+            <circle cx="9" cy="7" r="4" />
+            <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+            <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+          </svg>
           <div class="fact-number">+1500</div>
           <p class="fact-label">طالب وطالبة</p>
           <p class="fact-label-en">Students</p>
         </div>
 
         <div class="fact-item reveal reveal-delay-1" role="listitem">
-          <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#F5C518" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="margin-bottom:0.75rem"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c0 2 3 3 6 3s6-1 6-3v-5"/></svg>
-          <div class="fact-number">+60</div>
+          <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#F5C518" stroke-width="1.5"
+            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="margin-bottom:0.75rem">
+            <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
+            <path d="M6 12v5c0 2 3 3 6 3s6-1 6-3v-5" />
+          </svg>
+          <div class="fact-number">+50</div>
           <p class="fact-label">عضو هيئة تدريس</p>
           <p class="fact-label-en">Faculty Members</p>
         </div>
 
         <div class="fact-item reveal reveal-delay-2" role="listitem">
-          <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#F5C518" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="margin-bottom:0.75rem"><rect x="4" y="2" width="16" height="20" rx="2"/><path d="M9 22v-4h6v4"/><line x1="8" y1="6" x2="8" y2="6.01"/><line x1="16" y1="6" x2="16" y2="6.01"/><line x1="12" y1="6" x2="12" y2="6.01"/><line x1="8" y1="10" x2="8" y2="10.01"/><line x1="16" y1="10" x2="16" y2="10.01"/><line x1="12" y1="10" x2="12" y2="10.01"/></svg>
+          <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#F5C518" stroke-width="1.5"
+            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="margin-bottom:0.75rem">
+            <rect x="4" y="2" width="16" height="20" rx="2" />
+            <path d="M9 22v-4h6v4" />
+            <line x1="8" y1="6" x2="8" y2="6.01" />
+            <line x1="16" y1="6" x2="16" y2="6.01" />
+            <line x1="12" y1="6" x2="12" y2="6.01" />
+            <line x1="8" y1="10" x2="8" y2="10.01" />
+            <line x1="16" y1="10" x2="16" y2="10.01" />
+            <line x1="12" y1="10" x2="12" y2="10.01" />
+          </svg>
           <div class="fact-number">3</div>
           <p class="fact-label">أقسام أكاديمية</p>
           <p class="fact-label-en">Departments</p>
         </div>
 
         <div class="fact-item reveal reveal-delay-3" role="listitem">
-          <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#F5C518" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="margin-bottom:0.75rem"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#F5C518" stroke-width="1.5"
+            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="margin-bottom:0.75rem">
+            <circle cx="12" cy="12" r="10" />
+            <polyline points="12 6 12 12 16 14" />
+          </svg>
           <div class="fact-number">+40</div>
           <p class="fact-label">سنة من العطاء</p>
           <p class="fact-label-en">Years of Excellence</p>
         </div>
 
         <div class="fact-item reveal reveal-delay-4" role="listitem">
-          <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#F5C518" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="margin-bottom:0.75rem"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+          <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#F5C518" stroke-width="1.5"
+            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="margin-bottom:0.75rem">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+            <polyline points="14 2 14 8 20 8" />
+            <line x1="16" y1="13" x2="8" y2="13" />
+            <line x1="16" y1="17" x2="8" y2="17" />
+          </svg>
           <div class="fact-number">+200</div>
           <p class="fact-label">بحث علمي منشور</p>
           <p class="fact-label-en">Research Papers</p>
