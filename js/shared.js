@@ -20,7 +20,7 @@
     { href: 'index.html', ar: 'الرئيسية' },
     { href: 'about.html', ar: 'عن الكلية' },
     { href: 'Members.html', ar: 'مجلس الطلاب' },
-    { href: 'initiatives.html', ar: 'مبادراتنا' },
+    // { href: 'initiatives.html', ar: 'مبادراتنا' },
     { href: 'Visual Identity.html', ar: 'الهوية البصرية' },
   ];
 
